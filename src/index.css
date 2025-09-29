@@ -2,41 +2,82 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Modern Graphite Design System - Exact Figma Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Hero subtle halo using your accent */
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+}
+.hero-bg::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(900px 420px at 65% 0%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 65%),
+    linear-gradient(var(--background), #F8FAFC);
+}
+
+/* Stronger bottom gradient on cards for legibility */
+.card-overlay {
+  position: absolute; inset-inline: 0; bottom: 0; padding: 1.25rem;
+  background: linear-gradient(to top, rgba(0,0,0,.60), rgba(0,0,0,0));
+}
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Modern Graphite Colors - Exact Figma Tokens */
+    --background: 0 0% 98.4%; /* #FAFAFA */
+    --foreground: 210 17% 9%; /* #0B1220 */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 210 17% 9%; /* #0B1220 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 17% 9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 210 17% 9%; /* #0B1220 */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 210 40% 96%; /* #F8FAFC */
+    --secondary-foreground: 210 17% 9%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 13% 91%; /* #E5E7EB */
+    --muted-foreground: 215 16% 47%; /* #667085 */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 160 84% 20%; /* #065f46 */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 13% 91%; /* #E5E7EB */
+    --input: 220 13% 91%;
+    --ring: 160 84% 20%;
 
-    --radius: 0.5rem;
+    --radius: 1.5rem; /* 24px from design tokens */
+    
+    /* Typography Scale - Inter font */
+    --font-size-h1: 4rem; /* 64px */
+    --font-size-h2: 2.75rem; /* 44px */
+    --font-size-h3: 1.75rem; /* 28px */
+    --font-size-body: 1rem; /* 16px */
+    --font-size-kicker: 0.75rem; /* 12px */
+    
+    /* Spacing Scale */
+    --space-xs: 0.5rem; /* 8px */
+    --space-sm: 0.75rem; /* 12px */
+    --space-md: 1rem; /* 16px */
+    --space-lg: 1.5rem; /* 24px */
+    --space-xl: 2rem; /* 32px */
+    --space-2xl: 2.5rem; /* 40px */
+    --space-3xl: 4rem; /* 64px */
+    --space-4xl: 6rem; /* 96px */
+    
+    /* Motion */
+    --motion-duration: 280ms;
+    --motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-stagger: 60ms;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +141,92 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Typography with exact Figma values */
+  .text-h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 800;
+    line-height: 1.10;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-h3 {
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  
+  .text-body {
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  .text-kicker {
+    font-size: var(--font-size-kicker);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+}
+
+@layer utilities {
+  /* Modern card styles */
+  .card-modern {
+    @apply bg-card border-border rounded-[1.5rem] overflow-hidden;
+    box-shadow: 0 6px 20px -8px rgba(0,0,0,0.15);
+    transition: all var(--motion-duration) var(--motion-easing);
+  }
+  
+  .card-modern:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 28px -12px rgba(0,0,0,0.2);
+  }
+  
+  /* Filter chip styles */
+  .chip-filter {
+    @apply h-9 px-4 rounded-full border border-border bg-card transition-all duration-200;
+  }
+  
+  .chip-filter[aria-pressed="true"] {
+    @apply bg-accent/10 border-accent/30 text-accent;
+  }
+  
+  /* Container grid system */
+  .container-grid {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Carousel utilities */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .snap-x {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .snap-start {
+    scroll-snap-align: start;
   }
 }
