@@ -27,33 +27,37 @@
 @layer base {
   :root {
     /* Modern Graphite Colors - Exact Figma Tokens */
-    --background: 0 0% 98.4%; /* #FAFAFA */
-    --foreground: 210 17% 9%; /* #0B1220 */
+    --background: 210 40% 98%; /* #F8FAFC */
+    --foreground: 216 55% 9%; /* #0B1220 */
 
     --card: 0 0% 100%; /* #FFFFFF */
-    --card-foreground: 210 17% 9%; /* #0B1220 */
+    --card-foreground: 216 55% 9%; /* #0B1220 */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 210 17% 9%;
+    --popover-foreground: 216 55% 9%;
 
-    --primary: 210 17% 9%; /* #0B1220 */
+    --primary: 216 55% 9%; /* #0B1220 */
     --primary-foreground: 0 0% 100%;
 
     --secondary: 210 40% 96%; /* #F8FAFC */
-    --secondary-foreground: 210 17% 9%;
+    --secondary-foreground: 216 55% 9%;
 
-    --muted: 220 13% 91%; /* #E5E7EB */
-    --muted-foreground: 215 16% 47%; /* #667085 */
+    --muted: 0 0% 96%; /* #f5f5f5 */
+    --muted-foreground: 0 0% 45%; /* #737373 */
 
     --accent: 160 84% 20%; /* #065f46 */
     --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --destructive: 0 72% 51%;
+    --destructive: 347 78% 47%; /* #d4183d */
     --destructive-foreground: 0 0% 100%;
 
     --border: 220 13% 91%; /* #E5E7EB */
-    --input: 220 13% 91%;
+    --input: 270 11% 96%; /* #f3f3f5 */
     --ring: 160 84% 20%;
+    
+    /* Active chip states */
+    --chip-active-bg: 156 73% 94%; /* #ECFDF5 */
+    --chip-active-border: 156 73% 80%; /* #A7F3D0 */
 
     --radius: 1.5rem; /* 24px from design tokens */
     
@@ -195,11 +199,14 @@
   
   /* Filter chip styles */
   .chip-filter {
-    @apply h-9 px-4 rounded-full border border-border bg-card transition-all duration-200;
+    @apply h-9 px-4 rounded-full border bg-card transition-all duration-200;
+    border-color: hsl(var(--border));
   }
   
   .chip-filter[aria-pressed="true"] {
-    @apply bg-accent/10 border-accent/30 text-accent;
+    background-color: hsl(var(--chip-active-bg));
+    border-color: hsl(var(--chip-active-border));
+    color: hsl(var(--accent));
   }
   
   /* Container grid system */
