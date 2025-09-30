@@ -76,27 +76,25 @@ export const CarouselRow: React.FC<CarouselRowProps> = ({ children, className = 
         <div className="absolute right-0 top-0 bottom-4 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
       )}
 
-      {/* Left Arrow */}
-      {canScrollLeft && (
-        <button
-          onClick={() => scroll('left')}
-          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-secondary hover:shadow-md"
-          aria-label="Scroll left"
-        >
-          <ChevronLeft className="w-5 h-5 text-foreground" />
-        </button>
-      )}
+      {/* Left Arrow - Always visible */}
+      <button
+        onClick={() => scroll('left')}
+        disabled={!canScrollLeft}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center transition-all duration-200 hover:bg-secondary disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+        aria-label="Scroll left"
+      >
+        <ChevronLeft className="w-5 h-5 text-foreground" />
+      </button>
 
-      {/* Right Arrow */}
-      {canScrollRight && (
-        <button
-          onClick={() => scroll('right')}
-          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-secondary hover:shadow-md"
-          aria-label="Scroll right"
-        >
-          <ChevronRight className="w-5 h-5 text-foreground" />
-        </button>
-      )}
+      {/* Right Arrow - Always visible */}
+      <button
+        onClick={() => scroll('right')}
+        disabled={!canScrollRight}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center transition-all duration-200 hover:bg-secondary disabled:opacity-40 disabled:cursor-not-allowed shadow-lg hover:shadow-xl"
+        aria-label="Scroll right"
+      >
+        <ChevronRight className="w-5 h-5 text-foreground" />
+      </button>
 
       {/* Carousel Container */}
       <div
