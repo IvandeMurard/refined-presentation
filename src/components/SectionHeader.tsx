@@ -5,16 +5,20 @@ interface SectionHeaderProps {
   title: string;
   description?: string;
   className?: string;
+  alignment?: 'left' | 'center';
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({ 
   kicker, 
   title, 
   description, 
-  className = "" 
+  className = "",
+  alignment = "left"
 }) => {
+  const alignmentClasses = alignment === 'center' ? 'text-center items-center' : 'text-left';
+  
   return (
-    <div className={`space-y-4 ${className}`}>
+    <div className={`space-y-4 flex flex-col ${alignmentClasses} ${className}`}>
       {kicker && (
         <p className="text-kicker text-muted-foreground">
           {kicker}
@@ -24,7 +28,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
         {title}
       </h2>
       {description && (
-        <p className="text-body text-muted-foreground max-w-2xl">
+        <p className={`text-body text-muted-foreground ${alignment === 'center' ? 'max-w-3xl mx-auto' : 'max-w-2xl'}`}>
           {description}
         </p>
       )}

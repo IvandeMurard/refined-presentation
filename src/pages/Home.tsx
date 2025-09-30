@@ -1,12 +1,10 @@
 import React, { useState } from 'react';
+import { Navigation } from '../components/Navigation';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
 import { CardVertical } from '../components/CardVertical';
-import { CarouselRow } from '../components/CarouselRow';
-import { ModalPreview } from '../components/ModalPreview';
 import { Button } from '../components/ui/button';
-import { ArrowRight, Mail, Download } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 
 interface Project {
   id: string;
@@ -15,212 +13,461 @@ interface Project {
   image: string;
   tags: string[];
   category: string;
-  description: string;
 }
 
 const projects: Project[] = [
   {
-    id: 'fintech-app',
-    title: 'FinTech Mobile App',
-    subtitle: 'Investment platform redesign',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=320&h=200&fit=crop',
-    tags: ['Mobile', 'FinTech', 'UX Research'],
-    category: 'mobile',
-    description: 'Led the complete redesign of a mobile investment platform, increasing user engagement by 45% and reducing onboarding time by 60%.'
+    id: 'test-saas',
+    title: 'Test SaaS FinTech',
+    subtitle: 'Finance',
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
+    tags: ['Product', 'Experience'],
+    category: 'product',
   },
   {
-    id: 'saas-dashboard',
-    title: 'SaaS Analytics Dashboard',
-    subtitle: 'Data visualization for enterprise',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=320&h=200&fit=crop',
-    tags: ['Dashboard', 'Analytics', 'Enterprise'],
-    category: 'web',
-    description: 'Designed a comprehensive analytics dashboard that helps enterprise clients make data-driven decisions, improving workflow efficiency by 30%.'
+    id: 'memento',
+    title: 'Memento Mori App',
+    subtitle: 'Well-being',
+    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop',
+    tags: ['Product'],
+    category: 'product',
   },
   {
-    id: 'ecommerce-platform',
-    title: 'E-commerce Platform',
-    subtitle: 'Omnichannel shopping experience',
-    image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=320&h=200&fit=crop',
-    tags: ['E-commerce', 'Omnichannel', 'Conversion'],
-    category: 'web',
-    description: 'Created a unified shopping experience across web and mobile platforms, resulting in 25% increase in conversion rates.'
+    id: 'agenda',
+    title: 'UX Agenda app',
+    subtitle: 'Productivity',
+    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=300&fit=crop',
+    tags: ['Agenda'],
+    category: 'agenda',
   },
   {
-    id: 'healthcare-app',
-    title: 'Healthcare App',
-    subtitle: 'Patient care coordination',
-    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=320&h=200&fit=crop',
-    tags: ['Healthcare', 'Mobile', 'Accessibility'],
-    category: 'mobile',
-    description: 'Developed a patient care coordination app that streamlined communication between healthcare providers, reducing response times by 50%.'
+    id: 'authorizations',
+    title: 'UX Authorizations',
+    subtitle: 'Enterprise',
+    image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=400&h=300&fit=crop',
+    tags: ['Authorizations', 'Experience'],
+    category: 'authorizations',
   },
-  {
-    id: 'design-system',
-    title: 'Design System',
-    subtitle: 'Scalable component library',
-    image: 'https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=320&h=200&fit=crop',
-    tags: ['Design System', 'Components', 'Scalability'],
-    category: 'system',
-    description: 'Built a comprehensive design system adopted across 12 product teams, reducing design-to-development time by 40%.'
-  }
 ];
 
 const filterChips = [
-  { id: 'all', label: 'All Projects' },
-  { id: 'mobile', label: 'Mobile' },
-  { id: 'web', label: 'Web' },
-  { id: 'system', label: 'Design Systems' },
-  { id: 'research', label: 'Research' }
+  { id: 'all', label: 'All (4)' },
+  { id: 'product', label: 'Product (2)' },
+  { id: 'experience', label: 'Experience (2)' },
+  { id: 'agenda', label: 'Agenda (1)' },
+  { id: 'authorizations', label: 'Authorizations (1)' },
+];
+
+const hackathons = [
+  {
+    year: '2023',
+    title: 'AI for Good Hackathon',
+    status: '1st Co-Creator',
+    description: 'Rapid hypothesis validation with no-code prototyping and user feedback in 48h',
+  },
+  {
+    year: '2023',
+    title: 'TechX Challenge',
+    status: '1st Co-Founder',
+    description: 'Implementation of accessibility security in central financial interfaces',
+  },
+  {
+    year: '2023',
+    title: 'Stanford x LevelUp',
+    status: 'Product Manager',
+    description: 'Startup applications as creative containers for innovation',
+  },
+  {
+    year: '2023',
+    title: 'Sustainability Hack',
+    status: 'Full Stack',
+    description: 'Impact of social interactions on long-term user engagement',
+  },
+];
+
+const experiences = [
+  {
+    title: 'Senior Product Designer',
+    company: 'TECH UNICORN SAAS',
+    description: 'Lead 0→1 design on 3 products generating €2M ARR, managing 8-person design team',
+  },
+  {
+    title: 'Product Manager',
+    company: 'FINTECH SCALE-UP',
+    description: 'MVP to Product-Market Fit in 18 months, 50k+ active users',
+  },
+  {
+    title: 'UX Consultant',
+    company: 'INDEPENDENT',
+    description: 'Conversion optimization for 12 clients (+15% average), e-commerce focus',
+  },
+  {
+    title: 'Growth Product Manager',
+    company: 'EDTECH STARTUP',
+    description: '300% user growth in 12 months via optimized onboarding experiences',
+  },
+];
+
+const education = [
+  {
+    title: 'Master in Innovation Management',
+    school: 'HEC PARIS',
+    description: '2020 - Focus on digital entrepreneurship and product strategy',
+  },
+  {
+    title: 'Product Management Certification',
+    school: 'STANFORD ONLINE',
+    description: '2021 - Lean Startup, Growth Hacking, Advanced Analytics',
+  },
+  {
+    title: 'Design Thinking Training',
+    school: 'IDEO U',
+    description: '2019 - User-centered methodologies and innovation',
+  },
+];
+
+const inspirations = [
+  {
+    title: 'First Round Review',
+    description: 'Strategic insights from experienced VCs on product building',
+  },
+  {
+    title: 'Julie Zhuo - Medium',
+    description: 'Deep reflections on design leadership and product management',
+  },
+  {
+    title: "Lenny's Newsletter",
+    description: 'Concrete case studies and actionable frameworks for PMs',
+  },
+  {
+    title: 'Laws of UX',
+    description: 'Psychological principles applied to interface design',
+  },
+  {
+    title: 'Stratechery',
+    description: 'Strategic analysis of tech business models and implications',
+  },
 ];
 
 export const Home: React.FC = () => {
-  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('all');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeFilter);
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <section className="hero-bg py-24 lg:py-32">
-        <div className="container-grid">
-          <div className="col-span-12 lg:col-span-8">
-            <div className="space-y-8">
-              <div>
-                <p className="text-kicker text-muted-foreground mb-4">
-                  Product Designer & Builder
-                </p>
-                <h1 className="text-h1 text-foreground mb-6">
-                  Crafting digital experiences that drive results
-                </h1>
-                <p className="text-body text-muted-foreground max-w-2xl mb-8">
-                  I help product teams design and build user-centered solutions that solve real problems. 
-                  From research to launch, I bridge the gap between user needs and business goals.
-                </p>
-              </div>
-              
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-accent hover:bg-accent/90">
-                  View My Work
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-                <Button variant="outline" size="lg">
-                  <Download className="mr-2 h-4 w-4" />
-                  Download Resume
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Work Section */}
-      <section className="py-24">
-        <div className="container-grid">
-          <div className="col-span-12">
-            <SectionHeader
-              kicker="Selected Work"
-              title="Featured Projects"
-              description="A showcase of product design and development work across mobile, web, and design systems."
-              className="mb-12"
-            />
-
-            <FilterChips
-              chips={filterChips}
-              activeChip={activeFilter}
-              onChipChange={setActiveFilter}
-              className="mb-12"
-            />
-
-            {/* Desktop: Carousel Row */}
-            <div className="hidden lg:block">
-              <CarouselRow>
-                {filteredProjects.map((project) => (
-                  <CardVertical
-                    key={project.id}
-                    title={project.title}
-                    subtitle={project.subtitle}
-                    image={project.image}
-                    tags={project.tags}
-                    onClick={() => setSelectedProject(project)}
-                  />
-                ))}
-              </CarouselRow>
-            </div>
-
-            {/* Mobile: Grid Layout */}
-            <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {filteredProjects.map((project) => (
-                <CardVertical
-                  key={project.id}
-                  title={project.title}
-                  subtitle={project.subtitle}
-                  image={project.image}
-                  tags={project.tags}
-                  onClick={() => setSelectedProject(project)}
-                  className="mx-auto"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section className="py-24 bg-accent text-accent-foreground">
-        <div className="container-grid">
-          <div className="col-span-12 lg:col-span-8">
-            <SectionHeader
-              kicker="Get in Touch"
-              title="Let's build something great together"
-              description="I'm always interested in new opportunities and collaborations. Whether you have a project in mind or just want to chat about design, I'd love to hear from you."
-              className="mb-8"
-            />
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="secondary" size="lg">
-                <Mail className="mr-2 h-4 w-4" />
-                Send Message
-              </Button>
-              <Button variant="outline" size="lg" className="border-accent-foreground/20 text-accent-foreground hover:bg-accent-foreground/10">
-                View LinkedIn
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Project Modal */}
-      {selectedProject && (
-        <ModalPreview
-          isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-          title={selectedProject.title}
-          subtitle={selectedProject.subtitle}
-          image={selectedProject.image}
-          description={selectedProject.description}
-          tags={selectedProject.tags}
-        >
-          <div className="mt-8">
+      <Navigation />
+      
+      {/* Hero Section - Centered */}
+      <section className="pt-32 pb-24 px-4">
+        <div className="max-w-5xl mx-auto text-center space-y-8">
+          <h1 className="text-h1 text-foreground">
+            Product Builder & Designer<br />— Zero-to-One
+          </h1>
+          
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            I transform user insights into impactful products, from initial discovery to validated MVP,
+            with AI and go-to market expertise.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
-              className="bg-accent hover:bg-accent/90"
-              onClick={() => {
-                setSelectedProject(null);
-                if (selectedProject?.id === 'fintech-app') {
-                  navigate('/case-study/sonor');
-                }
-              }}
+              size="lg" 
+              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              onClick={() => scrollToSection('work')}
             >
-              View Full Case Study
-              <ArrowRight className="ml-2 h-4 w-4" />
+              Discover my projects
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              onClick={() => scrollToSection('contact')}
+            >
+              Let's meet!
             </Button>
           </div>
-        </ModalPreview>
-      )}
+          
+          {/* Trusted By */}
+          <div className="pt-12 space-y-4">
+            <p className="text-kicker text-muted-foreground">
+              TRUSTED BY
+            </p>
+            <div className="flex flex-wrap items-center justify-center gap-8 text-muted-foreground">
+              <span className="font-medium">Unicorn SaaS</span>
+              <span className="font-medium">FinTech Scale-up</span>
+              <span className="font-medium">EdTech Startup</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonial */}
+      <section className="py-16 px-4 bg-secondary/30">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <p className="text-lg italic text-muted-foreground">
+            "Exceptional product thinking with execution speed that transformed our MVP timeline from 8 months to 3."
+          </p>
+          <p className="text-sm text-muted-foreground uppercase tracking-wider">
+            — Sarah Chen, VP Product at TechUnicorn
+          </p>
+        </div>
+      </section>
+
+      {/* Work Section - Left Aligned */}
+      <section id="work" className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            title="Work"
+            description="From Insight to MVP, process-first case studies."
+            alignment="left"
+            className="mb-12"
+          />
+
+          <FilterChips
+            chips={filterChips}
+            activeChip={activeFilter}
+            onChipChange={setActiveFilter}
+            className="mb-12"
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {filteredProjects.map((project) => (
+              <CardVertical
+                key={project.id}
+                title={project.title}
+                subtitle={project.subtitle}
+                image={project.image}
+                tags={project.tags}
+                className="w-full"
+              />
+            ))}
+          </div>
+
+          <div className="flex justify-center">
+            <Button 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={() => scrollToSection('hackathons')}
+            >
+              EXPLORE HACKATHONS <ArrowDown className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Hackathons Section - Left Aligned */}
+      <section id="hackathons" className="py-24 px-4 bg-secondary/20">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            kicker="COMPETITION"
+            title="Hackathons"
+            alignment="left"
+            className="mb-12"
+          />
+
+          <div className="space-y-8">
+            {hackathons.map((hack, index) => (
+              <div key={index} className="flex gap-8 pb-8 border-b border-border last:border-0">
+                <div className="w-20 flex-shrink-0">
+                  <span className="text-sm font-medium text-muted-foreground">{hack.year}</span>
+                </div>
+                <div className="flex-1 space-y-2">
+                  <div className="flex items-start gap-2">
+                    <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                    <div>
+                      <h3 className="font-semibold text-foreground">{hack.title}</h3>
+                      <p className="text-sm text-accent font-medium">{hack.status}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{hack.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Button 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={() => scrollToSection('experience')}
+            >
+              VIEW EXPERIENCE <ArrowDown className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Experience & Education Section - Left Aligned */}
+      <section id="experience" className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            kicker="BACKGROUND"
+            title="Experience & Education"
+            alignment="left"
+            className="mb-12"
+          />
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Key Experiences */}
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-6">Key experiences</h3>
+              <div className="space-y-8">
+                {experiences.map((exp, index) => (
+                  <div key={index} className="space-y-2">
+                    <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+                    <p className="text-sm text-muted-foreground">{exp.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Education */}
+            <div>
+              <h3 className="text-xl font-bold text-foreground mb-6">Education</h3>
+              <div className="space-y-8">
+                {education.map((edu, index) => (
+                  <div key={index} className="space-y-2">
+                    <h4 className="font-semibold text-foreground">{edu.title}</h4>
+                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
+                    <p className="text-sm text-muted-foreground">{edu.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Button 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={() => scrollToSection('resources')}
+            >
+              EXPLORE RESOURCES <ArrowDown className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Inspiration Resources Tools Section - Left Aligned */}
+      <section id="resources" className="py-24 px-4 bg-secondary/20">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader
+            kicker="WHAT DRIVES ME"
+            title="Inspiration · Resources · Tools"
+            alignment="left"
+            className="mb-12"
+          />
+
+          <div className="grid md:grid-cols-3 gap-12">
+            <div>
+              <h3 className="text-lg font-bold text-foreground mb-6">Inspiration</h3>
+              <div className="space-y-6">
+                {inspirations.map((item, index) => (
+                  <div key={index} className="space-y-1">
+                    <h4 className="font-semibold text-foreground">{item.title}</h4>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-foreground mb-6">Resources</h3>
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-foreground">Product School</h4>
+                  <p className="text-sm text-muted-foreground">Comprehensive product management courses</p>
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-foreground">Figma Community</h4>
+                  <p className="text-sm text-muted-foreground">Design systems and UI kits</p>
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-foreground">Product Hunt</h4>
+                  <p className="text-sm text-muted-foreground">Latest product launches and trends</p>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-bold text-foreground mb-6">Tools</h3>
+              <div className="space-y-6">
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-foreground">Figma</h4>
+                  <p className="text-sm text-muted-foreground">Design and prototyping</p>
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-foreground">Notion</h4>
+                  <p className="text-sm text-muted-foreground">Product documentation</p>
+                </div>
+                <div className="space-y-1">
+                  <h4 className="font-semibold text-foreground">Mixpanel</h4>
+                  <p className="text-sm text-muted-foreground">Product analytics</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center mt-12">
+            <Button 
+              variant="ghost" 
+              className="text-muted-foreground hover:text-foreground"
+              onClick={() => scrollToSection('contact')}
+            >
+              GET IN TOUCH <ArrowDown className="ml-2 h-4 w-4" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section - Centered */}
+      <section id="contact" className="py-24 px-4 bg-accent text-accent-foreground">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-h2">Let's discuss your product</h2>
+          
+          <p className="text-lg max-w-2xl mx-auto opacity-90">
+            Have an idea to validate or a product to optimize? Let's exchange on your vision and
+            explore opportunities together.
+          </p>
+          
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+            <Button 
+              size="lg" 
+              variant="secondary"
+              className="bg-white hover:bg-white/90 text-accent"
+            >
+              <Mail className="mr-2 h-5 w-5" />
+              Email
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/10"
+            >
+              <Linkedin className="mr-2 h-5 w-5" />
+              LinkedIn
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="border-white/20 text-white hover:bg-white/10"
+            >
+              <MessageCircle className="mr-2 h-5 w-5" />
+              WhatsApp
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
