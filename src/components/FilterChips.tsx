@@ -19,19 +19,21 @@ export const FilterChips: React.FC<FilterChipsProps> = ({
   className = "" 
 }) => {
   return (
-    <div className={`flex flex-wrap gap-3 ${className}`}>
-      {chips.map((chip) => (
-        <button
-          key={chip.id}
-          className="chip-filter"
-          aria-pressed={activeChip === chip.id}
-          onClick={() => onChipChange(chip.id)}
-        >
-          <span className="text-sm font-medium">
-            {chip.label}
-          </span>
-        </button>
-      ))}
+    <div className={`sticky top-0 z-30 bg-background/80 backdrop-blur-md py-4 -mt-4 ${className}`}>
+      <div className="flex flex-wrap gap-3">
+        {chips.map((chip) => (
+          <button
+            key={chip.id}
+            className="chip-filter"
+            aria-pressed={activeChip === chip.id}
+            onClick={() => onChipChange(chip.id)}
+          >
+            <span className="text-sm font-medium">
+              {chip.label}
+            </span>
+          </button>
+        ))}
+      </div>
     </div>
   );
 };

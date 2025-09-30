@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface CarouselRowProps {
@@ -8,10 +8,20 @@ interface CarouselRowProps {
 
 export const CarouselRow: React.FC<CarouselRowProps> = ({ children, className = "" }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const updateScrollState = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10);
+    }
+  };
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
-      const scrollAmount = 340; // Card width + gap
+      const scrollAmount = 344; // Card width (320px) + gap (24px)
       const currentScroll = scrollRef.current.scrollLeft;
       const targetScroll = direction === 'left' 
         ? currentScroll - scrollAmount 
@@ -40,25 +50,53 @@ export const CarouselRow: React.FC<CarouselRowProps> = ({ children, className = 
     return () => document.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    const scrollEl = scrollRef.current;
+    if (scrollEl) {
+      updateScrollState();
+      scrollEl.addEventListener('scroll', updateScrollState);
+      window.addEventListener('resize', updateScrollState);
+      
+      return () => {
+        scrollEl.removeEventListener('scroll', updateScrollState);
+        window.removeEventListener('resize', updateScrollState);
+      };
+    }
+  }, []);
+
   return (
     <div className={`relative group ${className}`}>
+      {/* Left Fade Gradient */}
+      {canScrollLeft && (
+        <div className="absolute left-0 top-0 bottom-4 w-24 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      )}
+
+      {/* Right Fade Gradient */}
+      {canScrollRight && (
+        <div className="absolute right-0 top-0 bottom-4 w-24 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+      )}
+
       {/* Left Arrow */}
-      <button
-        onClick={() => scroll('left')}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-secondary"
-        aria-label="Scroll left"
-      >
-        <ChevronLeft className="w-5 h-5" />
-      </button>
+      {canScrollLeft && (
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-secondary hover:shadow-md"
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="w-5 h-5 text-foreground" />
+        </button>
+      )}
 
       {/* Right Arrow */}
-      <button
-        onClick={() => scroll('right')}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-200 hover:bg-secondary"
-        aria-label="Scroll right"
-      >
-        <ChevronRight className="w-5 h-5" />
-      </button>
+      {canScrollRight && (
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-card border border-border rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 hover:bg-secondary hover:shadow-md"
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="w-5 h-5 text-foreground" />
+        </button>
+      )}
 
       {/* Carousel Container */}
       <div
@@ -67,7 +105,14 @@ export const CarouselRow: React.FC<CarouselRowProps> = ({ children, className = 
         style={{ scrollPaddingLeft: '1.5rem' }}
       >
         {React.Children.map(children, (child, index) => (
-          <div key={index} className="snap-start flex-shrink-0">
+          <div 
+            key={index} 
+            className="snap-start flex-shrink-0 animate-fade-in"
+            style={{ 
+              animationDelay: `${index * 80}ms`,
+              animationFillMode: 'backwards'
+            }}
+          >
             {child}
           </div>
         ))}

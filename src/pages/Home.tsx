@@ -3,6 +3,7 @@ import { Navigation } from '../components/Navigation';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
 import { CardVertical } from '../components/CardVertical';
+import { CarouselRow } from '../components/CarouselRow';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 
@@ -224,23 +225,24 @@ export const Home: React.FC = () => {
 
       {/* Work Section - Left Aligned */}
       <section id="work" className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-[1360px] mx-auto">
           <SectionHeader
             title="Work"
             description="From Insight to MVP, process-first case studies."
             alignment="left"
-            className="mb-12"
+            className="mb-8"
           />
 
           <FilterChips
             chips={filterChips}
             activeChip={activeFilter}
             onChipChange={setActiveFilter}
-            className="mb-12"
+            className="mb-8"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-            {filteredProjects.map((project) => (
+          {/* Mobile/Tablet: Grid Layout */}
+          <div className="lg:hidden grid grid-cols-2 gap-6 mb-12">
+            {filteredProjects.map((project, index) => (
               <CardVertical
                 key={project.id}
                 title={project.title}
@@ -250,6 +252,21 @@ export const Home: React.FC = () => {
                 className="w-full"
               />
             ))}
+          </div>
+
+          {/* Desktop: Carousel Layout */}
+          <div className="hidden lg:block mb-12">
+            <CarouselRow>
+              {filteredProjects.map((project, index) => (
+                <CardVertical
+                  key={project.id}
+                  title={project.title}
+                  subtitle={project.subtitle}
+                  image={project.image}
+                  tags={project.tags}
+                />
+              ))}
+            </CarouselRow>
           </div>
 
           <div className="flex justify-center">
