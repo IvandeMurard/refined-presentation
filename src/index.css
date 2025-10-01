@@ -50,8 +50,8 @@
     --contact: 164 88% 20%; /* #065f46 */
     --contact-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --accent: 204 94% 76%; /* #89C8FC */
-    --accent-foreground: 221 39% 11%; /* #0f172a */
+    --accent: 224 64% 33%; /* #1E3A8A */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
     --destructive: 347 77% 50%; /* #d4183d */
     --destructive-foreground: 0 0% 100%;
@@ -59,11 +59,11 @@
     --border: 220 13% 91%; /* #E5E7EB */
     --input: 218 17% 35%; /* #475569 */
     --input-background: 0 0% 96%; /* #f3f3f5 */
-    --ring: 204 94% 76%;
+    --ring: 224 64% 33%;
     
     /* Active chip states */
-    --chip-active-bg: 204 94% 95%; /* Bleu très clair */
-    --chip-active-border: 204 94% 76%; /* Bordure accent */
+    --chip-active-bg: 224 64% 95%; /* Bleu très clair */
+    --chip-active-border: 224 64% 33%; /* #1E3A8A */
 
     --switch-background: 215 20% 65%; /* #94A3B8 */
 
