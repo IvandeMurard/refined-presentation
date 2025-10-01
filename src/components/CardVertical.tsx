@@ -18,17 +18,15 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
   className = "",
 }) => {
   return (
-    <article
-      tabIndex={0}
-      role="button"
-      aria-label={title}
-      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
-      className={[
-        // container propre branché tokens
-        "card-modern cursor-pointer group",
-        "transition-all duration-300 will-change-transform hover:-translate-y-0.5",
-        className,
-      ].join(" ")}
+    className={[
+  "work-card", // ← NEW
+  "relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
+  "transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
+  "hover:-translate-y-1 hover:[box-shadow:0_16px_40px_hsl(var(--overlay))]", // ← NEW lift
+  "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
+  "w-[360px] h-[480px] cursor-pointer",
+  className,
+].join(" ")}
       onClick={onClick}
       style={{ width: "320px", height: "320px" }}
     >
