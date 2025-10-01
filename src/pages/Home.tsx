@@ -4,6 +4,7 @@ import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
 import { CardImmersive } from '../components/CardImmersive';
 import { CarouselRow } from '../components/CarouselRow';
+import { WorkModal } from '../components/WorkModal';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 import { useTools, useResources, useInspirations } from '../hooks/useResources';
@@ -15,6 +16,9 @@ interface Project {
   image: string;
   tags: string[];
   category: string;
+  logo?: string;
+  bullets?: string[];
+  longDescription?: string;
 }
 
 const projects: Project[] = [
@@ -25,6 +29,14 @@ const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
     tags: ['Product', 'Experience'],
     category: 'product',
+    logo: '💰',
+    longDescription: 'De l\'idée à un SaaS validé en 6 mois',
+    bullets: [
+      '0→1 Product Discovery avec 40+ interviews utilisateurs',
+      'Design system et UI Kit complet sous Figma',
+      'MVP validé avec €15k de revenus mensuels',
+      'Déploiement en production avec 200+ utilisateurs actifs',
+    ],
   },
   {
     id: 'memento',
@@ -33,6 +45,14 @@ const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop',
     tags: ['Product'],
     category: 'product',
+    logo: '⏳',
+    longDescription: 'Application mobile de bien-être et mindfulness',
+    bullets: [
+      'UX research et conception centrée utilisateur',
+      'Gamification pour améliorer l\'engagement (+45%)',
+      'Interface intuitive avec animations fluides',
+      '10k+ téléchargements et 4.8★ sur les stores',
+    ],
   },
   {
     id: 'agenda',
@@ -41,6 +61,14 @@ const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=300&fit=crop',
     tags: ['Agenda'],
     category: 'agenda',
+    logo: '📅',
+    longDescription: 'Application de productivité nouvelle génération',
+    bullets: [
+      'Interface minimaliste et ergonomique',
+      'Intégrations natives (Google Calendar, Notion, Slack)',
+      'Système de rappels intelligents basé sur l\'IA',
+      'Adoption par 5+ entreprises tech en France',
+    ],
   },
   {
     id: 'authorizations',
@@ -49,6 +77,14 @@ const projects: Project[] = [
     image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=400&h=300&fit=crop',
     tags: ['Authorizations', 'Experience'],
     category: 'authorizations',
+    logo: '🔐',
+    longDescription: 'Système de gestion des autorisations pour l\'entreprise',
+    bullets: [
+      'Refonte UX de workflows complexes d\'autorisation',
+      'Amélioration de 60% du temps de traitement',
+      'Conformité sécurité et RGPD assurée',
+      'Déployé auprès de 3000+ collaborateurs',
+    ],
   },
 ];
 
@@ -137,6 +173,8 @@ const education = [
 export const Home: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeResourceFilter, setActiveResourceFilter] = useState('inspiration');
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const { data: tools = [] } = useTools();
   const { data: resources = [] } = useResources();
@@ -152,6 +190,27 @@ export const Home: React.FC = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+  const openModal = (index: number) => {
+    setSelectedProjectIndex(index);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const navigateToProject = (direction: 'prev' | 'next') => {
+    if (selectedProjectIndex === null) return;
+    
+    if (direction === 'prev' && selectedProjectIndex > 0) {
+      setSelectedProjectIndex(selectedProjectIndex - 1);
+    } else if (direction === 'next' && selectedProjectIndex < filteredProjects.length - 1) {
+      setSelectedProjectIndex(selectedProjectIndex + 1);
+    }
+  };
+
+  const selectedProject = selectedProjectIndex !== null ? filteredProjects[selectedProjectIndex] : null;
 
   return (
     <div className="min-h-screen bg-background">
@@ -231,7 +290,7 @@ export const Home: React.FC = () => {
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
-            {filteredProjects.map((project) => (
+            {filteredProjects.map((project, index) => (
               <CardImmersive
                 key={project.id}
                 id={project.id}
@@ -240,6 +299,7 @@ export const Home: React.FC = () => {
                 tagline="De l'idée au produit validé"
                 badge={project.tags[0] || 'Project'}
                 image={project.image}
+                onClick={() => openModal(index)}
               />
             ))}
           </div>
@@ -247,7 +307,7 @@ export const Home: React.FC = () => {
           {/* Desktop: Carousel Layout */}
           <div className="hidden lg:block mb-12">
             <CarouselRow>
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <CardImmersive
                   key={project.id}
                   id={project.id}
@@ -256,6 +316,7 @@ export const Home: React.FC = () => {
                   tagline="De l'idée au produit validé"
                   badge={project.tags[0] || 'Project'}
                   image={project.image}
+                  onClick={() => openModal(index)}
                 />
               ))}
             </CarouselRow>
@@ -526,6 +587,25 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Work Modal */}
+      {selectedProject && (
+        <WorkModal
+          open={isModalOpen}
+          onClose={closeModal}
+          onNavigate={navigateToProject}
+          canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
+          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
+          logo={selectedProject.logo}
+          title={selectedProject.title}
+          subtitle={selectedProject.longDescription}
+          bullets={selectedProject.bullets}
+          cta={{
+            label: "Lire le case study complet",
+            href: `/case-study/${selectedProject.id}`,
+          }}
+        />
+      )}
     </div>
   );
 };
