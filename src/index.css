@@ -255,3 +255,27 @@
     scroll-snap-align: start;
   }
 }
+
+@layer utilities {
+  /* Backgrounds */
+  .bg-background { background-color: hsl(var(--background)); }
+  .bg-card       { background-color: hsl(var(--card)); }
+  .bg-muted      { background-color: hsl(var(--muted)); }
+  .bg-primary    { background-color: hsl(var(--primary)); }         /* CTA */
+  .bg-contact    { background-color: hsl(var(--contact)); }         /* Badge */
+
+  /* Text colors */
+  .text-foreground         { color: hsl(var(--foreground)); }
+  .text-card-foreground    { color: hsl(var(--card-foreground)); }
+  .text-muted-foreground   { color: hsl(var(--muted-foreground)); }
+  .text-primary-foreground { color: hsl(var(--primary-foreground)); }
+  .text-contact-foreground { color: hsl(var(--contact-foreground)); }
+
+  /* Borders / Inputs */
+  .border-border { border-color: hsl(var(--border)); }
+  .border-input  { border-color: hsl(var(--input)); }
+
+  /* Radius & ombres */
+  .rounded-token { border-radius: var(--radius); }
+  .shadow-overlay { box-shadow: 0 10px 28px 0 hsl(var(--overlay)); }
+}
