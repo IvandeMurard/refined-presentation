@@ -6,6 +6,7 @@ import { CardVertical } from '../components/CardVertical';
 import { CarouselRow } from '../components/CarouselRow';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
+import { useTools, useResources, useInspirations } from '../hooks/useResources';
 
 interface Project {
   id: string;
@@ -57,6 +58,12 @@ const filterChips = [
   { id: 'experience', label: 'Experience (2)' },
   { id: 'agenda', label: 'Agenda (1)' },
   { id: 'authorizations', label: 'Authorizations (1)' },
+];
+
+const resourceFilterChips = [
+  { id: 'inspiration', label: 'Inspiration' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'tools', label: 'Tools' },
 ];
 
 const hackathons = [
@@ -127,68 +134,13 @@ const education = [
   },
 ];
 
-const inspirations = [
-  {
-    title: 'First Round Review',
-    description: 'Strategic insights from experienced VCs on product building',
-  },
-  {
-    title: 'Julie Zhuo - Medium',
-    description: 'Deep reflections on design leadership and product management',
-  },
-  {
-    title: "Lenny's Newsletter",
-    description: 'Concrete case studies and actionable frameworks for PMs',
-  },
-  {
-    title: 'Laws of UX',
-    description: 'Psychological principles applied to interface design',
-  },
-  {
-    title: 'Stratechery',
-    description: 'Strategic analysis of tech business models and implications',
-  },
-];
-
-const resources = [
-  {
-    title: 'Product School',
-    description: 'Comprehensive product management courses',
-  },
-  {
-    title: 'Figma Community',
-    description: 'Design systems and UI kits',
-  },
-  {
-    title: 'Product Hunt',
-    description: 'Latest product launches and trends',
-  },
-];
-
-const tools = [
-  {
-    title: 'Figma',
-    description: 'Design and prototyping',
-  },
-  {
-    title: 'Notion',
-    description: 'Product documentation',
-  },
-  {
-    title: 'Mixpanel',
-    description: 'Product analytics',
-  },
-];
-
-const resourceFilterChips = [
-  { id: 'inspiration', label: 'Inspiration' },
-  { id: 'resources', label: 'Resources' },
-  { id: 'tools', label: 'Tools' },
-];
-
 export const Home: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeResourceFilter, setActiveResourceFilter] = useState('inspiration');
+
+  const { data: tools = [] } = useTools();
+  const { data: resources = [] } = useResources();
+  const { data: inspirations = [] } = useInspirations();
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
@@ -279,7 +231,7 @@ export const Home: React.FC = () => {
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-2 gap-6 mb-12">
-            {filteredProjects.map((project, index) => (
+            {filteredProjects.map((project) => (
               <CardVertical
                 key={project.id}
                 title={project.title}
@@ -294,7 +246,7 @@ export const Home: React.FC = () => {
           {/* Desktop: Carousel Layout */}
           <div className="hidden lg:block mb-12">
             <CarouselRow>
-              {filteredProjects.map((project, index) => (
+              {filteredProjects.map((project) => (
                 <CardVertical
                   key={project.id}
                   title={project.title}
@@ -429,27 +381,96 @@ export const Home: React.FC = () => {
             className="mb-8"
           />
 
+          {/* Conditional Content Based on Active Filter */}
           <div className="space-y-6">
-            {activeResourceFilter === 'inspiration' && inspirations.map((item, index) => (
-              <div key={index} className="space-y-1">
-                <h4 className="font-semibold text-foreground">{item.title}</h4>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+            {activeResourceFilter === 'inspiration' && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {inspirations.map((item) => (
+                  <div key={item.id} className="space-y-2">
+                    <h4 className="font-semibold text-foreground">{item.name}</h4>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    {item.url && (
+                      <a 
+                        href={item.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm text-accent hover:underline inline-block"
+                      >
+                        Visit →
+                      </a>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-            
-            {activeResourceFilter === 'resources' && resources.map((item, index) => (
-              <div key={index} className="space-y-1">
-                <h4 className="font-semibold text-foreground">{item.title}</h4>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+            )}
+
+            {activeResourceFilter === 'resources' && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {resources.map((item) => (
+                  <div key={item.id} className="space-y-2">
+                    <h4 className="font-semibold text-foreground">{item.name}</h4>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                    {item.url && (
+                      <a 
+                        href={item.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="text-sm text-accent hover:underline inline-block"
+                      >
+                        Visit →
+                      </a>
+                    )}
+                  </div>
+                ))}
               </div>
-            ))}
-            
-            {activeResourceFilter === 'tools' && tools.map((item, index) => (
-              <div key={index} className="space-y-1">
-                <h4 className="font-semibold text-foreground">{item.title}</h4>
-                <p className="text-sm text-muted-foreground">{item.description}</p>
+            )}
+
+            {activeResourceFilter === 'tools' && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {tools.map((tool) => (
+                  <div key={tool.id} className="space-y-2">
+                    <div className="flex items-start gap-3">
+                      {tool.logo_url && (
+                        <img 
+                          src={tool.logo_url} 
+                          alt={tool.name} 
+                          className="w-10 h-10 rounded object-cover flex-shrink-0"
+                        />
+                      )}
+                      <div className="flex-1">
+                        <h4 className="font-semibold text-foreground">{tool.name}</h4>
+                        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">
+                          {tool.category}
+                        </p>
+                        <p className="text-sm text-muted-foreground">{tool.description}</p>
+                        <div className="flex gap-3 mt-2">
+                          {tool.url && (
+                            <a 
+                              href={tool.url} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-sm text-accent hover:underline"
+                            >
+                              Visit →
+                            </a>
+                          )}
+                          {tool.referral_link && (
+                            <a 
+                              href={tool.referral_link} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-sm text-accent hover:underline"
+                            >
+                              Get started →
+                            </a>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            )}
           </div>
 
           <div className="flex justify-center mt-12">
