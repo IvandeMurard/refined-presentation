@@ -260,7 +260,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Testimonial */}
-      <section className="py-16 px-4 bg-secondary/30">
+      <section className="py-16 px-4 bg-secondary">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <p className="text-lg italic text-muted-foreground">
             "Exceptional product thinking with execution speed that transformed our MVP timeline from 8 months to 3."
@@ -335,7 +335,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Hackathons Section - Left Aligned */}
-      <section id="hackathons" className="py-24 px-4 bg-secondary/20">
+      <section id="hackathons" className="py-24 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             kicker="COMPETITION"
@@ -429,7 +429,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Inspiration Resources Tools Section - Left Aligned */}
-      <section id="resources" className="py-24 px-4 bg-secondary/20">
+      <section id="resources" className="py-24 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
           <SectionHeader
             kicker="WHAT DRIVES ME"
@@ -550,7 +550,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Contact Section - Centered */}
-      <section id="contact" className="py-24 px-4 bg-background text-foreground">
+      <section id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Let's discuss your product</h2>
           
