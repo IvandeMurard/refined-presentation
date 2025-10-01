@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 interface CardVerticalProps {
   image: string;
@@ -19,17 +19,26 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
 }) => {
   return (
     <article
+      tabIndex={0}
+      role="button"
+      aria-label={title}
+      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
+      onClick={onClick}
       className={[
         "work-card",
-        "relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
-        "transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
-        "hover:-translate-y-1 hover:[box-shadow:0_16px_40px_hsl(var(--overlay))]",
-        "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
-        "w-[360px] h-[480px] cursor-pointer",
+        "group/card", // ← scoped group to avoid cross-hover
+        "card-modern relative overflow-hidden rounded-token cursor-pointer",
+        "transition-transform duration-300 will-change-transform hover:-translate-y-1",
         className,
       ].join(" ")}
-      onClick={onClick}
-      style={{ width: "320px", height: "320px" }}
+      style={{ width: 320, height: 320 }}
+    >
+      {/* elevation layer (no box-shadow jump on root) */}
+      <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_16px_40px_hsl(var(--overlay))] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+
+      {/* media wrapper scales; root keeps the mask */}
+      <div className="relative h-[200px] rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
+        {/* ...rest of component... */}
     >
       {/* Image immersive */}
       <div className="relative h-[200px] overflow-hidden">
