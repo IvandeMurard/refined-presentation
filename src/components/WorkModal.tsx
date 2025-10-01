@@ -120,7 +120,7 @@ export function WorkModal({
               <div className="pt-4">
                 <Link
                   to={cta.href}
-                  className="inline-flex items-center justify-center rounded-full bg-accent hover:bg-accent/90 px-5 py-2 text-sm font-medium text-accent-foreground transition-colors"
+                  className="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary/90 px-5 py-2 text-sm font-medium text-primary-foreground transition-colors"
                 >
                   {cta.label}
                 </Link>

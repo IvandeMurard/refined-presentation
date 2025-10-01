@@ -85,7 +85,7 @@ const ContactForm = () => {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+        className="w-full bg-contact text-contact-foreground hover:bg-contact/90"
       >
         {isSubmitting ? "Sending..." : "Send message"}
       </Button>

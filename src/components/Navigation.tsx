@@ -34,7 +34,7 @@ export const Navigation: React.FC = () => {
             >
               Work
             </Link>
-            <Button size="sm" className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button size="sm" className="bg-contact hover:bg-contact/90 text-contact-foreground">
               Contact
             </Button>
           </div>

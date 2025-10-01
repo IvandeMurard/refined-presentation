@@ -231,14 +231,14 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
               size="lg" 
-              className="bg-accent hover:bg-accent/90 text-accent-foreground"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
               onClick={() => scrollToSection('work')}
             >
               Discover my projects
             </Button>
             <Button 
               size="lg" 
-              variant="outline"
+              className="bg-contact hover:bg-contact/90 text-contact-foreground"
               onClick={() => scrollToSection('contact')}
             >
               Let's meet!
