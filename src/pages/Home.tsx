@@ -550,7 +550,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Contact Section - Centered */}
-      <section id="contact" className="py-24 px-4 bg-accent text-accent-foreground">
+      <section id="contact" className="py-24 px-4 bg-background text-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Let's discuss your product</h2>
           
@@ -561,25 +561,22 @@ export const Home: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
-              size="lg" 
-              variant="secondary"
-              className="bg-white hover:bg-white/90 text-accent"
+              size="lg"
+              className="bg-contact hover:bg-contact/90 text-contact-foreground"
             >
               <Mail className="mr-2 h-5 w-5" />
               Email
             </Button>
             <Button 
-              size="lg" 
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
+              size="lg"
+              className="bg-contact hover:bg-contact/90 text-contact-foreground"
             >
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
             <Button 
-              size="lg" 
-              variant="outline"
-              className="border-white/20 text-white hover:bg-white/10"
+              size="lg"
+              className="bg-contact hover:bg-contact/90 text-contact-foreground"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
