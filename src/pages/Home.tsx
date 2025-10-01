@@ -562,21 +562,21 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
               size="lg"
-              className="bg-contact hover:bg-contact/90 text-contact-foreground"
+              className="bg-card hover:bg-card/90 text-contact border-2 border-card"
             >
               <Mail className="mr-2 h-5 w-5" />
               Email
             </Button>
             <Button 
               size="lg"
-              className="bg-contact hover:bg-contact/90 text-contact-foreground"
+              className="bg-card hover:bg-card/90 text-contact border-2 border-card"
             >
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
             <Button 
               size="lg"
-              className="bg-contact hover:bg-contact/90 text-contact-foreground"
+              className="bg-card hover:bg-card/90 text-contact border-2 border-card"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
