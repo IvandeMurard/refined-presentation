@@ -28,10 +28,11 @@ export function CardImmersive({
       key={id}
       tabIndex={0}
       className={[
-        "relative overflow-hidden rounded-[24px] bg-white",
-        "shadow-[0_4px_16px_-4px_rgba(0,0,0,0.12)] transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
-        "hover:shadow-[0_8px_24px_-6px_rgba(0,0,0,0.18)]",
-        "focus:outline-none focus:ring-2 ring-emerald-300",
+        // container “poster-level” branché sur tokens
+        "relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
+        "transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
+        "hover:-translate-y-0.5 hover:shadow-overlay",
+        "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
         "w-[360px] h-[480px] cursor-pointer",
         className,
       ].join(" ")}
@@ -52,20 +53,20 @@ export function CardImmersive({
           className={[
             "absolute inset-0 h-full w-full object-cover",
             "transition-transform duration-[480ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-            isHovered ? "scale-105" : "scale-100",
+            isHovered ? "scale-[1.04]" : "scale-100",
           ].join(" ")}
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
-      {/* Gradient Overlay - Enhanced on hover */}
+      {/* Gradient Overlay - reinforced on hover (lisibilité) */}
       <div
-        className={[
-          "absolute inset-0 transition-opacity duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-        ].join(" ")}
+        className="absolute inset-0 transition-opacity duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
         style={{
           background: isHovered
-            ? "linear-gradient(to top, rgba(0,0,0,0.70) 0%, rgba(0,0,0,0.30) 50%, rgba(0,0,0,0.15) 100%)"
-            : "linear-gradient(to top, rgba(0,0,0,0.60) 0%, rgba(0,0,0,0.25) 50%, rgba(0,0,0,0.10) 100%)",
+            ? "linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.42) 52%, rgba(0,0,0,0.16) 100%)"
+            : "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.32) 52%, rgba(0,0,0,0.12) 100%)",
         }}
       />
 
@@ -73,7 +74,7 @@ export function CardImmersive({
       <div className="absolute inset-0 flex flex-col justify-between p-6">
         {/* Top Section - Kicker */}
         <div>
-          <p className="text-[13px] font-[500] uppercase tracking-[0.15em] text-white/80">
+          <p className="text-[13px] font-[600] uppercase tracking-[0.15em] text-white/85">
             {kicker}
           </p>
         </div>
@@ -81,33 +82,38 @@ export function CardImmersive({
         {/* Bottom Section - Title, Tagline, Badge, CTA */}
         <div className="space-y-4">
           {/* Title */}
-          <h3 className="text-[24px] font-[700] leading-[1.25] text-white max-w-[280px]">
+          <h3 className="text-[24px] font-[800] leading-[1.2] text-white max-w-[280px] drop-shadow">
             {title}
           </h3>
 
           {/* Tagline */}
-          <p className="text-[15px] font-[400] leading-[1.4] text-white/70 max-w-[280px]">
+          <p className="text-[15px] font-[400] leading-[1.4] text-white/80 max-w-[280px]">
             {tagline}
           </p>
 
           {/* Bottom Row - Badge & CTA Icon */}
           <div className="flex items-end justify-between">
-            {/* Badge */}
-            <span className="inline-flex items-center h-7 px-3 rounded-full bg-[#2ECC71]/25 backdrop-blur-sm border border-[#2ECC71]/40 text-[12px] font-[500] text-white">
+            {/* Badge — tokens contact */}
+            <span
+              className="inline-flex items-center h-7 px-3 rounded-full border text-[12px] font-[600] shadow-sm backdrop-blur-sm"
+              style={{
+                backgroundColor: "hsl(var(--contact) / .22)",
+                borderColor: "hsl(var(--contact) / .45)",
+                color: "hsl(var(--contact-foreground))",
+              }}
+            >
               {badge}
             </span>
 
-            {/* CTA Icon - Transforms on hover */}
+            {/* CTA Icon - Text appears on hover */}
             <div
               className={[
                 "flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm",
                 "transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                isHovered
-                  ? "w-auto h-10 px-4 gap-2"
-                  : "w-10 h-10",
+                isHovered ? "w-auto h-10 px-4 gap-2" : "w-10 h-10",
               ].join(" ")}
             >
-              {/* Plus Icon - Visible when not hovered */}
+              {/* Plus Icon */}
               <svg
                 width="16"
                 height="16"
@@ -117,6 +123,7 @@ export function CardImmersive({
                   "transition-opacity duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
                   isHovered ? "opacity-0 absolute" : "opacity-100",
                 ].join(" ")}
+                aria-hidden="true"
               >
                 <path
                   d="M8 3.5V12.5M3.5 8H12.5"
@@ -129,7 +136,7 @@ export function CardImmersive({
               {/* Text - Visible on hover */}
               <span
                 className={[
-                  "text-[13px] font-[500] text-white whitespace-nowrap",
+                  "text-[13px] font-[600] text-white whitespace-nowrap",
                   "transition-opacity duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
                   isHovered ? "opacity-100" : "opacity-0",
                 ].join(" ")}
