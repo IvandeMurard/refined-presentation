@@ -14,7 +14,219 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      experience_tools: {
+        Row: {
+          created_at: string
+          experience_id: string
+          id: string
+          tool_id: string
+        }
+        Insert: {
+          created_at?: string
+          experience_id: string
+          id?: string
+          tool_id: string
+        }
+        Update: {
+          created_at?: string
+          experience_id?: string
+          id?: string
+          tool_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "experience_tools_experience_id_fkey"
+            columns: ["experience_id"]
+            isOneToOne: false
+            referencedRelation: "experiences"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "experience_tools_tool_id_fkey"
+            columns: ["tool_id"]
+            isOneToOne: false
+            referencedRelation: "tools"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      experiences: {
+        Row: {
+          company: string
+          created_at: string
+          description: string
+          id: string
+          title: string
+        }
+        Insert: {
+          company: string
+          created_at?: string
+          description: string
+          id?: string
+          title: string
+        }
+        Update: {
+          company?: string
+          created_at?: string
+          description?: string
+          id?: string
+          title?: string
+        }
+        Relationships: []
+      }
+      inspirations: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          name: string
+          url: string | null
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          id?: string
+          name: string
+          url?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          name?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      project_tools: {
+        Row: {
+          created_at: string
+          id: string
+          project_id: string
+          tool_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          project_id: string
+          tool_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          project_id?: string
+          tool_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_tools_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_tools_tool_id_fkey"
+            columns: ["tool_id"]
+            isOneToOne: false
+            referencedRelation: "tools"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      projects: {
+        Row: {
+          category: string
+          created_at: string
+          description: string | null
+          id: string
+          image_url: string | null
+          subtitle: string
+          tags: string[] | null
+          title: string
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          subtitle: string
+          tags?: string[] | null
+          title: string
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          subtitle?: string
+          tags?: string[] | null
+          title?: string
+        }
+        Relationships: []
+      }
+      resources: {
+        Row: {
+          created_at: string
+          description: string
+          id: string
+          name: string
+          url: string | null
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          id?: string
+          name: string
+          url?: string | null
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          id?: string
+          name?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      tools: {
+        Row: {
+          category: string
+          created_at: string
+          description: string
+          id: string
+          logo_url: string | null
+          name: string
+          referral_link: string | null
+          tool_type: string
+          url: string | null
+        }
+        Insert: {
+          category: string
+          created_at?: string
+          description: string
+          id?: string
+          logo_url?: string | null
+          name: string
+          referral_link?: string | null
+          tool_type: string
+          url?: string | null
+        }
+        Update: {
+          category?: string
+          created_at?: string
+          description?: string
+          id?: string
+          logo_url?: string | null
+          name?: string
+          referral_link?: string | null
+          tool_type?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

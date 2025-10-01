@@ -150,8 +150,45 @@ const inspirations = [
   },
 ];
 
+const resources = [
+  {
+    title: 'Product School',
+    description: 'Comprehensive product management courses',
+  },
+  {
+    title: 'Figma Community',
+    description: 'Design systems and UI kits',
+  },
+  {
+    title: 'Product Hunt',
+    description: 'Latest product launches and trends',
+  },
+];
+
+const tools = [
+  {
+    title: 'Figma',
+    description: 'Design and prototyping',
+  },
+  {
+    title: 'Notion',
+    description: 'Product documentation',
+  },
+  {
+    title: 'Mixpanel',
+    description: 'Product analytics',
+  },
+];
+
+const resourceFilterChips = [
+  { id: 'inspiration', label: 'Inspiration' },
+  { id: 'resources', label: 'Resources' },
+  { id: 'tools', label: 'Tools' },
+];
+
 export const Home: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
+  const [activeResourceFilter, setActiveResourceFilter] = useState('inspiration');
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
@@ -382,57 +419,37 @@ export const Home: React.FC = () => {
             kicker="WHAT DRIVES ME"
             title="Inspiration · Resources · Tools"
             alignment="left"
-            className="mb-12"
+            className="mb-8"
           />
 
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-6">Inspiration</h3>
-              <div className="space-y-6">
-                {inspirations.map((item, index) => (
-                  <div key={index} className="space-y-1">
-                    <h4 className="font-semibold text-foreground">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <FilterChips
+            chips={resourceFilterChips}
+            activeChip={activeResourceFilter}
+            onChipChange={setActiveResourceFilter}
+            className="mb-8"
+          />
 
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-6">Resources</h3>
-              <div className="space-y-6">
-                <div className="space-y-1">
-                  <h4 className="font-semibold text-foreground">Product School</h4>
-                  <p className="text-sm text-muted-foreground">Comprehensive product management courses</p>
-                </div>
-                <div className="space-y-1">
-                  <h4 className="font-semibold text-foreground">Figma Community</h4>
-                  <p className="text-sm text-muted-foreground">Design systems and UI kits</p>
-                </div>
-                <div className="space-y-1">
-                  <h4 className="font-semibold text-foreground">Product Hunt</h4>
-                  <p className="text-sm text-muted-foreground">Latest product launches and trends</p>
-                </div>
+          <div className="space-y-6">
+            {activeResourceFilter === 'inspiration' && inspirations.map((item, index) => (
+              <div key={index} className="space-y-1">
+                <h4 className="font-semibold text-foreground">{item.title}</h4>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-foreground mb-6">Tools</h3>
-              <div className="space-y-6">
-                <div className="space-y-1">
-                  <h4 className="font-semibold text-foreground">Figma</h4>
-                  <p className="text-sm text-muted-foreground">Design and prototyping</p>
-                </div>
-                <div className="space-y-1">
-                  <h4 className="font-semibold text-foreground">Notion</h4>
-                  <p className="text-sm text-muted-foreground">Product documentation</p>
-                </div>
-                <div className="space-y-1">
-                  <h4 className="font-semibold text-foreground">Mixpanel</h4>
-                  <p className="text-sm text-muted-foreground">Product analytics</p>
-                </div>
+            ))}
+            
+            {activeResourceFilter === 'resources' && resources.map((item, index) => (
+              <div key={index} className="space-y-1">
+                <h4 className="font-semibold text-foreground">{item.title}</h4>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
               </div>
-            </div>
+            ))}
+            
+            {activeResourceFilter === 'tools' && tools.map((item, index) => (
+              <div key={index} className="space-y-1">
+                <h4 className="font-semibold text-foreground">{item.title}</h4>
+                <p className="text-sm text-muted-foreground">{item.description}</p>
+              </div>
+            ))}
           </div>
 
           <div className="flex justify-center mt-12">
