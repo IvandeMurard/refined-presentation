@@ -279,3 +279,8 @@
   .rounded-token { border-radius: var(--radius); }
   .shadow-overlay { box-shadow: 0 10px 28px 0 hsl(var(--overlay)); }
 }
+
+/* Cache les pastilles de navigation héritées dans le contexte des cartes Work */
+.work-card :where(.nav-dot,.swiper-button-next,.swiper-button-prev) {
+  display: none !important;
+}
