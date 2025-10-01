@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
+import { ThemeToggle } from './ThemeToggle';
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
@@ -39,15 +40,18 @@ export const Navigation: React.FC = () => {
             </Button>
           </div>
           
-          {/* Language Selector */}
-          <div className="flex items-center gap-2 text-sm">
-            <button className="font-medium text-foreground hover:text-foreground/80 transition-colors">
-              EN
-            </button>
-            <span className="text-muted-foreground">|</span>
-            <button className="font-medium text-muted-foreground hover:text-foreground transition-colors">
-              FR
-            </button>
+          {/* Language Selector & Theme Toggle */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 text-sm">
+              <button className="font-medium text-foreground hover:text-foreground/80 transition-colors">
+                EN
+              </button>
+              <span className="text-muted-foreground">|</span>
+              <button className="font-medium text-muted-foreground hover:text-foreground transition-colors">
+                FR
+              </button>
+            </div>
+            <ThemeToggle />
           </div>
         </div>
       </div>
