@@ -119,8 +119,8 @@
     --popover: 217 30% 17%; /* #17243a */
     --popover-foreground: 213 31% 95%; /* #F1F6FB */
 
-    --primary: 212 100% 61%; /* #246bfd */
-    --primary-foreground: 221 39% 11%; /* #0f172a */
+    --primary: 164 88% 20%; /* #065f46 - Unified contact green */
+    --primary-foreground: 0 0% 100%; /* White text on green */
 
     --secondary: 221 39% 13%; /* #131827 */
     --secondary-foreground: 213 31% 95%; /* #F1F6FB */
