@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
-import { PortfolioCard } from '../components/PortfolioCard';
+import { CardImmersive } from '../components/CardImmersive';
 import { CarouselRow } from '../components/CarouselRow';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
@@ -232,12 +232,14 @@ export const Home: React.FC = () => {
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
             {filteredProjects.map((project) => (
-              <PortfolioCard
+              <CardImmersive
                 key={project.id}
-                title={project.title}
-                subtitle={project.subtitle}
+                id={project.id}
+                kicker={`Case Study – ${project.title}`}
+                title={project.subtitle}
+                tagline="De l'idée au produit validé"
+                badge={project.tags[0] || 'Project'}
                 image={project.image}
-                tags={project.tags}
               />
             ))}
           </div>
@@ -246,12 +248,14 @@ export const Home: React.FC = () => {
           <div className="hidden lg:block mb-12">
             <CarouselRow>
               {filteredProjects.map((project) => (
-                <PortfolioCard
+                <CardImmersive
                   key={project.id}
-                  title={project.title}
-                  subtitle={project.subtitle}
+                  id={project.id}
+                  kicker={`Case Study – ${project.title}`}
+                  title={project.subtitle}
+                  tagline="De l'idée au produit validé"
+                  badge={project.tags[0] || 'Project'}
                   image={project.image}
-                  tags={project.tags}
                 />
               ))}
             </CarouselRow>
