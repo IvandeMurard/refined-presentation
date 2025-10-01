@@ -62,8 +62,8 @@
     --ring: 204 94% 76%;
     
     /* Active chip states */
-    --chip-active-bg: 156 73% 94%; /* #ECFDF5 */
-    --chip-active-border: 156 73% 80%; /* #A7F3D0 */
+    --chip-active-bg: 204 94% 95%; /* Bleu très clair */
+    --chip-active-border: 204 94% 76%; /* Bordure accent */
 
     --switch-background: 215 20% 65%; /* #94A3B8 */
 
