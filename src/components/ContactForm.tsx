@@ -59,7 +59,7 @@ const ContactForm = () => {
           placeholder="Your name"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
+          className="bg-input-background border-border"
           required
         />
       </div>
@@ -69,7 +69,7 @@ const ContactForm = () => {
           placeholder="Your email"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60"
+          className="bg-input-background border-border"
           required
         />
       </div>
@@ -78,7 +78,7 @@ const ContactForm = () => {
           placeholder="Your message"
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-          className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 min-h-[120px]"
+          className="bg-input-background border-border min-h-[120px]"
           required
         />
       </div>
