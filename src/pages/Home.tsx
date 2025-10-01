@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Navigation } from '../components/Navigation';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
-import { CardVertical } from '../components/CardVertical';
+import { PortfolioCard } from '../components/PortfolioCard';
 import { CarouselRow } from '../components/CarouselRow';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
@@ -230,15 +230,14 @@ export const Home: React.FC = () => {
           />
 
           {/* Mobile/Tablet: Grid Layout */}
-          <div className="lg:hidden grid grid-cols-2 gap-6 mb-12">
+          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
             {filteredProjects.map((project) => (
-              <CardVertical
+              <PortfolioCard
                 key={project.id}
                 title={project.title}
                 subtitle={project.subtitle}
                 image={project.image}
                 tags={project.tags}
-                className="w-full"
               />
             ))}
           </div>
@@ -247,7 +246,7 @@ export const Home: React.FC = () => {
           <div className="hidden lg:block mb-12">
             <CarouselRow>
               {filteredProjects.map((project) => (
-                <CardVertical
+                <PortfolioCard
                   key={project.id}
                   title={project.title}
                   subtitle={project.subtitle}
