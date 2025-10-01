@@ -2,137 +2,256 @@
 @tailwind components;
 @tailwind utilities;
 
-/* -------------------- */
-/*   DESIGN TOKENS      */
-/* -------------------- */
+/* Modern Graphite Design System - Exact Figma Tokens */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+/* Hero subtle halo using your accent */
+.hero-bg {
+  position: relative;
+  isolation: isolate;
+}
+.hero-bg::before {
+  content: "";
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(900px 420px at 65% 0%, color-mix(in srgb, var(--accent) 12%, transparent) 0%, transparent 65%),
+    linear-gradient(var(--background), #F8FAFC);
+}
+
+/* Stronger bottom gradient on cards for legibility */
+.card-overlay {
+  position: absolute; inset-inline: 0; bottom: 0; padding: 1.25rem;
+  background: linear-gradient(to top, rgba(0,0,0,.60), rgba(0,0,0,0));
+}
+
 @layer base {
   :root {
-    /* Couleurs (LIGHT) */
-    --background: 210 40% 98%;         /* #F8FAFC */
-    --foreground: 220 39% 11%;         /* #0B1220 */
+    /* New Color Palette - Light Mode */
+    --background: 210 40% 98%; /* #F8FAFC */
+    --foreground: 220 39% 11%; /* #0B1220 */
 
-    --card: 0 0% 100%;                 /* #FFFFFF */
-    --card-foreground: 220 39% 11%;    /* #0B1220 */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 220 39% 11%; /* #0B1220 */
 
-    --muted: 0 0% 96%;                 /* #F5F5F5 */
-    --muted-foreground: 0 0% 45%;      /* #737373 */
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 39% 11%;
 
-    --accent: 221 39% 11%;             /* Accent primaire (liens/highlights) #0F172A */
-    --accent-foreground: 0 0% 100%;
+    --primary: 221 39% 11%; /* #0f172a */
+    --primary-foreground: 0 0% 100%;
 
-    --contact: 145 63% 49%;            /* #2ECC71 */
-    --contact-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%; /* #F1F5F9 */
+    --secondary-foreground: 220 39% 11%;
 
-    --border: 220 13% 91%;             /* #E5E7EB */
-    --input: 220 13% 91%;
+    --muted: 0 0% 96%; /* #f5f5f5 */
+    --muted-foreground: 0 0% 45%; /* #737373 */
 
-    /* CTA primaire (bouton principal) – LIGHT */
-    --cta: 221 39% 11%;                /* #0F172A */
-    --cta-foreground: 0 0% 100%;
+    --description: 215 16% 47%; /* #667085 */
 
-    /* Overlay/Shadow – LIGHT */
-    --overlay: 0 0% 0% / 0.08;         /* ~ opacité 0.06–0.09 */
+    --contact: 145 63% 49%; /* #2ECC71 */
+    --contact-foreground: 0 0% 100%; /* #FFFFFF */
 
-    /* Divers */
-    --ring: 204 94% 76%;               /* ring accentué (match accent dark) */
-    --radius: 16px;
+    --accent: 204 94% 76%; /* #89C8FC */
+    --accent-foreground: 221 39% 11%; /* #0f172a */
+
+    --destructive: 347 77% 50%; /* #d4183d */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%; /* #E5E7EB */
+    --input: 218 17% 35%; /* #475569 */
+    --input-background: 0 0% 96%; /* #f3f3f5 */
+    --ring: 204 94% 76%;
+    
+    /* Active chip states */
+    --chip-active-bg: 156 73% 94%; /* #ECFDF5 */
+    --chip-active-border: 156 73% 80%; /* #A7F3D0 */
+
+    --switch-background: 215 20% 65%; /* #94A3B8 */
+
+    --radius: 1.5rem; /* 24px from design tokens */
+    
+    /* Typography Scale - Inter font */
+    --font-size-h1: 4rem; /* 64px */
+    --font-size-h2: 2.75rem; /* 44px */
+    --font-size-h3: 1.75rem; /* 28px */
+    --font-size-body: 1rem; /* 16px */
+    --font-size-kicker: 0.75rem; /* 12px */
+    
+    /* Spacing Scale */
+    --space-xs: 0.5rem; /* 8px */
+    --space-sm: 0.75rem; /* 12px */
+    --space-md: 1rem; /* 16px */
+    --space-lg: 1.5rem; /* 24px */
+    --space-xl: 2rem; /* 32px */
+    --space-2xl: 2.5rem; /* 40px */
+    --space-3xl: 4rem; /* 64px */
+    --space-4xl: 6rem; /* 96px */
+    
+    /* Motion */
+    --motion-duration: 280ms;
+    --motion-easing: cubic-bezier(0.22, 1, 0.36, 1);
+    --motion-stagger: 60ms;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    /* Couleurs (DARK) */
-    --background: 221 39% 11%;         /* #0F172A */
-    --foreground: 213 31% 95%;         /* #F1F6FB */
+    /* New Color Palette - Dark Mode */
+    --background: 221 39% 11%; /* #0f172a */
+    --foreground: 213 31% 95%; /* #F1F6FB */
 
-    --card: 217 30% 17%;               /* #17243A */
-    --card-foreground: 213 31% 95%;    /* #F1F6FB */
+    --card: 217 30% 17%; /* #17243a */
+    --card-foreground: 213 31% 95%; /* #F1F6FB */
 
-    --muted: 217 26% 22%;              /* #223250 */
-    --muted-foreground: 220 17% 77%;   /* #B6BED8 */
+    --popover: 217 30% 17%; /* #17243a */
+    --popover-foreground: 213 31% 95%; /* #F1F6FB */
 
-    --accent: 204 94% 76%;             /* #89C8FC */
-    --accent-foreground: 221 39% 11%;
+    --primary: 204 94% 76%; /* #89C8FC */
+    --primary-foreground: 221 39% 11%; /* #0f172a */
 
-    --contact: 151 100% 64%;           /* #46FF9A */
-    --contact-foreground: 221 39% 11%;
+    --secondary: 217 26% 22%; /* #223250 */
+    --secondary-foreground: 213 31% 95%; /* #F1F6FB */
 
-    --border: 217 26% 22%;             /* #223250 */
-    --input: 217 26% 22%;
+    --muted: 217 26% 22%; /* #223250 */
+    --muted-foreground: 220 17% 77%; /* #B6BED8 */
 
-    /* CTA primaire (bouton principal) – DARK */
-    --cta: 220 98% 57%;                /* #246BFD  ✅ */
-    --cta-foreground: 0 0% 100%;
+    --description: 217 14% 53%; /* #7B859A */
 
-    /* Overlay/Shadow – DARK */
-    --overlay: 0 0% 0% / 0.18;
+    --contact: 151 100% 64%; /* #46FF9A */
+    --contact-foreground: 221 39% 11%; /* #0f172a */
 
-    --ring: 204 94% 76%;
+    --accent: 205 60% 53%; /* #3994D6 */
+    --accent-foreground: 213 31% 95%; /* #F1F6FB */
+
+    --destructive: 348 97% 70%; /* #FD6585 */
+    --destructive-foreground: 213 31% 95%; /* #F1F6FB */
+
+    --border: 217 26% 22%; /* #223250 */
+    --input: 218 17% 35%; /* #475569 */
+    --input-background: 217 30% 17%; /* #17243a */
+    --ring: 205 60% 53%;
+
+    --switch-background: 217 26% 22%; /* #223250 */
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
+}
 
-  /* Base body + bordures/rings globaux */
+@layer base {
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  /* Typography with exact Figma values */
+  .text-h1 {
+    font-size: var(--font-size-h1);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+  
+  .text-h2 {
+    font-size: var(--font-size-h2);
+    font-weight: 800;
+    line-height: 1.10;
+    letter-spacing: -0.01em;
+  }
+  
+  .text-h3 {
+    font-size: var(--font-size-h3);
+    font-weight: 700;
+    line-height: 1.25;
+  }
+  
+  .text-body {
+    font-size: var(--font-size-body);
+    font-weight: 400;
+    line-height: 1.6;
+  }
+  
+  .text-kicker {
+    font-size: var(--font-size-kicker);
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
   }
 }
 
-/* -------------------- */
-/*   TOKENS → UTILITIES */
-/* -------------------- */
 @layer utilities {
-  /* Backgrounds */
-  .bg-background { background-color: hsl(var(--background)); }
-  .bg-card       { background-color: hsl(var(--card)); }
-  .bg-muted      { background-color: hsl(var(--muted)); }
-  .bg-accent     { background-color: hsl(var(--accent)); }
-  .bg-contact    { background-color: hsl(var(--contact)); }
-  .bg-cta        { background-color: hsl(var(--cta)); }
-
-  /* Text colors */
-  .text-foreground         { color: hsl(var(--foreground)); }
-  .text-card-foreground    { color: hsl(var(--card-foreground)); }
-  .text-muted-foreground   { color: hsl(var(--muted-foreground)); }
-  .text-accent-foreground  { color: hsl(var(--accent-foreground)); }
-  .text-contact-foreground { color: hsl(var(--contact-foreground)); }
-  .text-cta-foreground     { color: hsl(var(--cta-foreground)); }
-
-  /* Borders / Inputs / Rings */
-  .border-border { border-color: hsl(var(--border)); }
-  .border-input  { border-color: hsl(var(--input)); }
-  .ring-brand    { --tw-ring-color: hsl(var(--ring)); }
-
-  /* Overlay helpers */
-  .overlay       { background-color: hsl(var(--overlay)); }
-  .shadow-overlay {
-    box-shadow: 0 8px 24px 0 hsl(var(--overlay));
+  /* Modern card styles */
+  .card-modern {
+    @apply bg-card border-border rounded-[1.5rem] overflow-hidden;
+    box-shadow: 0 6px 20px -8px rgba(0,0,0,0.15);
+    transition: all var(--motion-duration) var(--motion-easing);
   }
-
-  /* Radius token */
-  .rounded-token { border-radius: var(--radius); }
-
-  /* CTA helper (bouton primaire) */
-  .btn-cta {
-    background-color: hsl(var(--cta));
-    color: hsl(var(--cta-foreground));
+  
+  .card-modern:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 28px -12px rgba(0,0,0,0.2);
   }
-  .btn-cta:hover { filter: brightness(1.05); }
-}
-
-/* -------------------- */
-/*   COMPONENT PRESETS  */
-/* -------------------- */
-@layer components {
-  .card {
-    @apply bg-card text-card-foreground border border-border rounded-token shadow-overlay;
+  
+  /* Filter chip styles */
+  .chip-filter {
+    @apply h-9 px-4 rounded-full border bg-card transition-all duration-200;
+    border-color: hsl(var(--border));
   }
-  .muted-surface {
-    @apply bg-muted text-muted-foreground;
-  }
-  .link-accent {
+  
+  .chip-filter[aria-pressed="true"] {
+    background-color: hsl(var(--chip-active-bg));
+    border-color: hsl(var(--chip-active-border));
     color: hsl(var(--accent));
   }
-  .link-accent:hover {
-    filter: brightness(1.1);
+  
+  /* Container grid system */
+  .container-grid {
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Carousel utilities */
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .snap-x {
+    scroll-snap-type: x mandatory;
+  }
+  
+  .snap-start {
+    scroll-snap-align: start;
   }
 }
