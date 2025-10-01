@@ -28,14 +28,15 @@ export function CardImmersive({
       key={id}
       tabIndex={0}
       className={[
-        // container “poster-level” branché sur tokens
-        "relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
-        "transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
-        "hover:-translate-y-0.5 hover:shadow-overlay",
-        "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
-        "w-[360px] h-[480px] cursor-pointer",
-        className,
-      ].join(" ")}
+  "work-card", // ← NEW
+  "relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
+  "transition-all duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform",
+  "hover:-translate-y-1 hover:[box-shadow:0_16px_40px_hsl(var(--overlay))]", // ← NEW lift
+  "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
+  "w-[360px] h-[480px] cursor-pointer",
+  className,
+].join(" ")}
+
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
