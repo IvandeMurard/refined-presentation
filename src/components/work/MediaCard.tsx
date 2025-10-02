@@ -132,16 +132,7 @@ export function MediaCard({
             </p>
 
             <div className="flex items-end justify-between">
-              <span
-                className="inline-flex items-center h-7 px-3 rounded-full border text-[12px] font-[700] shadow-sm backdrop-blur-sm"
-                style={{
-                  backgroundColor: "hsl(var(--contact) / .22)",
-                  borderColor: "hsl(var(--contact) / .40)",
-                  color: "hsl(var(--contact-foreground))",
-                }}
-              >
-                {badge}
-              </span>
+              <span className="work-badge">{badge}</span>
 
               <div className="flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover/card:w-auto group-hover/card:h-10 group-hover/card:px-4 group-hover/card:gap-2 w-10 h-10">
                 <svg
