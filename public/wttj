@@ -1,0 +1,101 @@
+{
+  "tldr": [],
+  "context_stats": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p06_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p06_mobile.png",
+      "page": 6
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p07_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p07_mobile.png",
+      "page": 7
+    }
+  ],
+  "discovery_jtbd": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p16_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p16_mobile.png",
+      "page": 16
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p17_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p17_mobile.png",
+      "page": 17
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p18_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p18_mobile.png",
+      "page": 18
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p19_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p19_mobile.png",
+      "page": 19
+    }
+  ],
+  "pivot": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p27_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p27_mobile.png",
+      "page": 27
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p28_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p28_mobile.png",
+      "page": 28
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p29_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p29_mobile.png",
+      "page": 29
+    }
+  ],
+  "mvp_rice": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p30_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p30_mobile.png",
+      "page": 30
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p31_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p31_mobile.png",
+      "page": 31
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/etude_de_cas_p32_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/etude_de_cas_p32_mobile.png",
+      "page": 32
+    }
+  ],
+  "prototype": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/maquette_onboarding_desktop.jpg",
+      "mobile": "/mnt/data/wttj_visual_pack/maquette_onboarding_mobile.jpg",
+      "page": null
+    }
+  ],
+  "tests_feedback": [],
+  "roadmap_kpis": [],
+  "risks": [],
+  "gtm": [],
+  "conclusion": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/presentation_notion_p08_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/presentation_notion_p08_mobile.png",
+      "page": 8
+    },
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/presentation_notion_p09_desktop.png",
+      "mobile": "/mnt/data/wttj_visual_pack/presentation_notion_p09_mobile.png",
+      "page": 9
+    }
+  ],
+  "user_flow": [
+    {
+      "desktop": "/mnt/data/wttj_visual_pack/workflow_userflow_desktop.jpg",
+      "mobile": "/mnt/data/wttj_visual_pack/workflow_userflow_mobile.jpg",
+      "page": null
+    }
+  ]
+}
