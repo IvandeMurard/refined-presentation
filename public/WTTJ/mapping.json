@@ -1,14 +1,22 @@
-/wttj/proto-onboarding-desktop.jpg  -> maquette_onboarding_desktop.jpg
-/wttj/proto-onboarding-mobile.jpg   -> maquette_onboarding_mobile.jpg
-
-/wttj/tests-desktop.png             -> etude_de_cas_p36_desktop.png  (ou p37)
-/wttj/tests-mobile.png              -> etude_de_cas_p36_mobile.png   (ou p37)
-
-/wttj/kpis-desktop.png              -> etude_de_cas_p41_desktop.png
-/wttj/kpis-mobile.png               -> etude_de_cas_p41_mobile.png
-
-/wttj/risques-desktop.png           -> etude_de_cas_p39_desktop.png
-/wttj/risques-mobile.png            -> etude_de_cas_p39_mobile.png
-
-/wttj/conclusion-desktop.png        -> etude_de_cas_p45_desktop.png
-/wttj/conclusion-mobile.png         -> etude_de_cas_p45_mobile.png
+{
+  "/public/WTTJ/context-desktop.png": "etude_de_cas_p06_desktop.png",
+  "/public/WTTJ/context-mobile.png": "etude_de_cas_p06_mobile.png",
+  "/public/WTTJ/jtbd-desktop.png": "etude_de_cas_p18_desktop.png",
+  "/public/WTTJ/jtbd-mobile.png": "etude_de_cas_p18_mobile.png",
+  "/public/WTTJ/pivot-desktop.png": "etude_de_cas_p29_desktop.png",
+  "/public/WTTJ/pivot-mobile.png": "etude_de_cas_p29_mobile.png",
+  "/public/WTTJ/rice-desktop.png": "etude_de_cas_p31_desktop.png",
+  "/public/WTTJ/rice-mobile.png": "etude_de_cas_p31_mobile.png",
+  "/public/WTTJ/proto-onboarding-desktop.jpg": "maquette_onboarding_desktop.jpg",
+  "/public/WTTJ/proto-onboarding-mobile.jpg": "maquette_onboarding_mobile.jpg",
+  "/public/WTTJ/tests-desktop.png": "etude_de_cas_p36_desktop.png",
+  "/public/WTTJ/tests-mobile.png": "etude_de_cas_p36_mobile.png",
+  "/public/WTTJ/kpis-desktop.png": "etude_de_cas_p41_desktop.png",
+  "/public/WTTJ/kpis-mobile.png": "etude_de_cas_p41_mobile.png",
+  "/public/WTTJ/risques-desktop.png": "etude_de_cas_p39_desktop.png",
+  "/public/WTTJ/risques-mobile.png": "etude_de_cas_p39_mobile.png",
+  "/public/WTTJ/conclusion-desktop.png": "etude_de_cas_p45_desktop.png",
+  "/public/WTTJ/conclusion-mobile.png": "etude_de_cas_p45_mobile.png",
+  "/public/WTTJ/userflow-desktop.jpg": "workflow_userflow_desktop.jpg",
+  "/public/WTTJ/userflow-mobile.jpg": "workflow_userflow_mobile.jpg"
+}
