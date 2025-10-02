@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Navigation } from '../components/Navigation';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
@@ -11,6 +12,8 @@ import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 import { useTools, useResources, useInspirations } from '../hooks/useResources';
 import { sonorCase } from '../data/cases/sonor.case';
+import wttjHero from "@/assets/wttj-hero.png";
+import wttjLogo from "@/assets/wttj-logo.svg";
 
 interface Project {
   id: string;
@@ -37,77 +40,26 @@ const projects: Project[] = [
     bullets: sonorCase.bullets,
   },
   {
-    id: 'test-saas',
-    title: 'Test SaaS FinTech',
-    subtitle: 'Finance',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop',
-    tags: ['Product', 'Experience'],
+    id: 'wttj-conversion-seniors',
+    title: 'Welcome to the Jungle - Conversion Seniors',
+    subtitle: 'Improving senior candidate conversion through strategic product management',
+    image: wttjHero,
+    logo: wttjLogo,
+    tags: ['Product Management', 'UX Research', 'SaaS'],
     category: 'product',
-    logo: '💰',
-    longDescription: 'De l\'idée à un SaaS validé en 6 mois',
+    longDescription: 'Amélioration de la conversion des candidats seniors via transparence, personnalisation et accompagnement IA',
     bullets: [
-      '0→1 Product Discovery avec 40+ interviews utilisateurs',
-      'Design system et UI Kit complet sous Figma',
-      'MVP validé avec €15k de revenus mensuels',
-      'Déploiement en production avec 200+ utilisateurs actifs',
-    ],
-  },
-  {
-    id: 'memento',
-    title: 'Memento Mori App',
-    subtitle: 'Well-being',
-    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&h=300&fit=crop',
-    tags: ['Product'],
-    category: 'product',
-    logo: '⏳',
-    longDescription: 'Application mobile de bien-être et mindfulness',
-    bullets: [
-      'UX research et conception centrée utilisateur',
-      'Gamification pour améliorer l\'engagement (+45%)',
-      'Interface intuitive avec animations fluides',
-      '10k+ téléchargements et 4.8★ sur les stores',
-    ],
-  },
-  {
-    id: 'agenda',
-    title: 'UX Agenda app',
-    subtitle: 'Productivity',
-    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=400&h=300&fit=crop',
-    tags: ['Agenda'],
-    category: 'agenda',
-    logo: '📅',
-    longDescription: 'Application de productivité nouvelle génération',
-    bullets: [
-      'Interface minimaliste et ergonomique',
-      'Intégrations natives (Google Calendar, Notion, Slack)',
-      'Système de rappels intelligents basé sur l\'IA',
-      'Adoption par 5+ entreprises tech en France',
-    ],
-  },
-  {
-    id: 'authorizations',
-    title: 'UX Authorizations',
-    subtitle: 'Enterprise',
-    image: 'https://images.unsplash.com/photo-1633265486064-086b219458ec?w=400&h=300&fit=crop',
-    tags: ['Authorizations', 'Experience'],
-    category: 'authorizations',
-    logo: '🔐',
-    longDescription: 'Système de gestion des autorisations pour l\'entreprise',
-    bullets: [
-      'Refonte UX de workflows complexes d\'autorisation',
-      'Amélioration de 60% du temps de traitement',
-      'Conformité sécurité et RGPD assurée',
-      'Déployé auprès de 3000+ collaborateurs',
+      'Discovery avec 8 entretiens seniors tech',
+      'Pivot stratégique vers WTTJ Tech+',
+      'MVP testé : standardisation offres + onboarding + assistant IA',
+      'KPIs : CTR 11% → 13%, +300 à +800 profils activés',
     ],
   },
 ];
 
 const filterChips = [
-  { id: 'all', label: 'All (5)' },
-  { id: 'product', label: 'Product (3)' },
-  { id: 'experience', label: 'Experience (2)' },
-  { id: 'agenda', label: 'Agenda (1)' },
-  { id: 'authorizations', label: 'Authorizations (1)' },
+  { id: 'all', label: 'All (2)' },
+  { id: 'product', label: 'Product (2)' },
 ];
 
 const resourceFilterChips = [
@@ -185,6 +137,7 @@ const education = [
 ];
 
 export const Home: React.FC = () => {
+  const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState('all');
   const [activeResourceFilter, setActiveResourceFilter] = useState('inspiration');
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);

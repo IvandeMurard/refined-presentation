@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Home } from "./pages/Home";
 import { Sonor } from "./pages/Sonor";
+import WttjDefaultCase from "./pages/cases/wttj-default";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -20,6 +21,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/case-study/sonor" element={<Sonor />} />
+            <Route path="/case-study/wttj-conversion-seniors" element={<WttjDefaultCase />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
