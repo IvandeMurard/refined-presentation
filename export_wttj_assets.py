@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Usage:
 #   pip install -r requirements.txt
-#   python export_wttj_assets.py "Etude de cas.pdf" "Presentation_Cas_WTTJ_Notion.pdf" ./public/WTTJ
+#   python export_wttj_assets.py "etude_de_cas.pdf" "presentation_cas_wttj_notion.pdf" ./public/WTTJ
 
 import sys, os, json
 from PIL import Image
@@ -71,15 +71,15 @@ def copy_extra_images(extras, out_dir):
 
 def main():
     if len(sys.argv) < 4:
-        print("Usage: python export_wttj_assets.py <Etude de cas.pdf> <Presentation_Cas_WTTJ_Notion.pdf> <out_dir>")
+        print("Usage: python export_wttj_assets.py <etude_de_cas.pdf> <presentation_cas_wttj_notion.pdf> <out_dir>")
         sys.exit(1)
 
-    pdf1 = sys.argv[1]  # Etude de cas.pdf
-    pdf2 = sys.argv[2]  # Presentation_Cas_WTTJ_Notion.pdf (non indispensable ici)
+    pdf1 = sys.argv[1]  # etude_de_cas.pdf
+    pdf2 = sys.argv[2]  # presentation_cas_wttj_notion.pdf (non indispensable ici)
     out_dir = sys.argv[3]
     ensure_dir(out_dir)
 
-    # 1) Pages clés du PDF "Etude de cas.pdf"
+    # 1) Pages clés du PDF "etude_de_cas.pdf"
     # (ajuste les numéros si besoin en fonction de ton PDF)
     picks_etude = {
         "context": 6,    # stats contexte
