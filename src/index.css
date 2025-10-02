@@ -281,6 +281,27 @@
 }
 
 /* Cache les pastilles de navigation héritées dans le contexte des cartes Work */
+
+/* Badges glassmorphism neutre */
+.work-badge {
+  background: rgba(255,255,255,0.13);    /* Légère transparence blanche */
+  border: 1px solid rgba(255,255,255,0.24);
+  color: #ffffff;                        /* Texte blanc + shadow */
+  backdrop-filter: blur(6px);
+  border-radius: 9999px;                 /* Effet pill arrondi */
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.15em 0.8em;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  display: inline-block;
+  letter-spacing: 0.02em;
+  transition: background .18s, border .18s;
+}
+.work-badge:hover {
+  background: rgba(255,255,255,0.20);
+  border: 1px solid rgba(255,255,255,0.33);
+}
+
 .work-card :where(.nav-dot,.swiper-button-next,.swiper-button-prev) {
   display: none !important;
 }
