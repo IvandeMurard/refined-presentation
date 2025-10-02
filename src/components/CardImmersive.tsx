@@ -2,10 +2,10 @@ import * as React from "react";
 
 type Props = {
   id: string;
-  kicker: string;   // e.g. "Case Study – Sonor"
+  kicker: string;
   title: string;
   tagline: string;
-  badge: string;    // e.g. "Open Data"
+  badge: string;
   image: string;
   onClick?: () => void;
   className?: string;
@@ -29,13 +29,13 @@ export function CardImmersive({
       tabIndex={0}
       role="button"
       aria-label={`${kicker} – ${title}`}
-      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
+      onKeyDown={e => e.key === "Enter" && onClick?.()}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={[
         "work-card",
-        "group/card", // ← scoped group so only THIS card responds to hover
+        "group/card",
         "relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
         "transition-transform duration-300 will-change-transform hover:-translate-y-1",
         "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
@@ -43,12 +43,9 @@ export function CardImmersive({
         className,
       ].join(" ")}
     >
-      {/* Elevation layer fades in (keeps radius perfect; no sharp-corners flash) */}
       <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_16px_40px_hsl(var(--overlay))] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
 
-      {/* Media wrapper scales; root keeps the mask */}
       <div className="relative h-full w-full rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
-        {/* Background image */}
         <img
           src={image}
           alt={title}
@@ -56,8 +53,6 @@ export function CardImmersive({
           loading="lazy"
           decoding="async"
         />
-
-        {/* Bottom gradient + top band (kicker readability) */}
         <div
           className="absolute inset-0 transition-opacity duration-[320ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
           style={{
@@ -68,16 +63,12 @@ export function CardImmersive({
         />
         <div className="pointer-events-none absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/30 to-transparent" />
 
-        {/* Content */}
         <div className="absolute inset-0 flex flex-col justify-between p-6">
-          {/* Kicker */}
           <div>
             <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-white/90 drop-shadow-sm">
               {kicker}
             </p>
           </div>
-
-          {/* Title / Tagline / Chip + CTA */}
           <div className="space-y-4">
             <h3 className="text-[24px] font-[900] tracking-[-0.01em] leading-[1.15] text-white max-w-[280px] drop-shadow">
               {title}
@@ -85,21 +76,8 @@ export function CardImmersive({
             <p className="text-[15px] font-[400] leading-[1.4] text-white/80 max-w-[280px]">
               {tagline}
             </p>
-
             <div className="flex items-end justify-between">
-              {/* Chip (contact token) */}
-              <span
-                className="inline-flex items-center h-7 px-3 rounded-full border text-[12px] font-[700] shadow-sm backdrop-blur-sm"
-                style={{
-                  backgroundColor: "hsl(var(--contact) / .22)",
-                  borderColor: "hsl(var(--contact) / .40)",
-                  color: "hsl(var(--contact-foreground))",
-                }}
-              >
-                {badge}
-              </span>
-
-              {/* CTA pill: icon → text on hover */}
+              <span className="work-badge">{badge}</span>
               <div
                 className={[
                   "flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300",
