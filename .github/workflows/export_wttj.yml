@@ -1,0 +1,109 @@
+name: Export WTTJ Assets
+
+on:
+  workflow_dispatch: {}
+  push:
+    paths:
+      - 'tools/input/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install pillow pymupdf
+
+      - name: Export visuals
+        run: |
+          python - << 'PY'
+          import os, json
+          from PIL import Image
+          import fitz
+
+          OUT = "public/WTTJ"
+          os.makedirs(OUT, exist_ok=True)
+
+          pdf1 = "tools/input/Etude de cas.pdf"
+          pdf2 = "tools/input/Presentation_Cas_WTTJ_Notion.pdf"
+
+          def render_pages(pdf_path, picks, prefix):
+              doc = fitz.open(pdf_path)
+              for label, page_num in picks.items():
+                  i = page_num - 1
+                  page = doc[i]
+                  pix = page.get_pixmap(matrix=fitz.Matrix(2,2), alpha=False)
+                  import io
+                  img = Image.frombytes("RGB", [pix.width, pix.height], pix.samples)
+
+                  d = img.copy()
+                  if d.width > 1600:
+                      r = 1600/d.width
+                      d = d.resize((1600, int(d.height*r)), Image.Resampling.LANCZOS)
+                  d.save(os.path.join(OUT, f"{prefix}_{label}_desktop.png"), optimize=True)
+
+                  m = img.copy()
+                  if m.width > 800:
+                      r = 800/m.width
+                      m = m.resize((800, int(m.height*r)), Image.Resampling.LANCZOS)
+                  m.save(os.path.join(OUT, f"{prefix}_{label}_mobile.png"), optimize=True)
+
+              doc.close()
+
+          picks1 = {
+            "context": 6,
+            "jtbd": 18,
+            "pivot": 29,
+            "rice": 31,
+            "tests": 36,
+            "risks": 39,
+            "kpis": 41,
+            "conclusion": 45
+          }
+          render_pages(pdf1, picks1, "etude")
+
+          mapping = {
+            "/public/WTTJ/context-desktop.png":    "etude_context_desktop.png",
+            "/public/WTTJ/context-mobile.png":     "etude_context_mobile.png",
+            "/public/WTTJ/jtbd-desktop.png":       "etude_jtbd_desktop.png",
+            "/public/WTTJ/jtbd-mobile.png":        "etude_jtbd_mobile.png",
+            "/public/WTTJ/pivot-desktop.png":      "etude_pivot_desktop.png",
+            "/public/WTTJ/pivot-mobile.png":       "etude_pivot_mobile.png",
+            "/public/WTTJ/rice-desktop.png":       "etude_rice_desktop.png",
+            "/public/WTTJ/rice-mobile.png":        "etude_rice_mobile.png",
+            "/public/WTTJ/tests-desktop.png":      "etude_tests_desktop.png",
+            "/public/WTTJ/tests-mobile.png":       "etude_tests_mobile.png",
+            "/public/WTTJ/kpis-desktop.png":       "etude_kpis_desktop.png",
+            "/public/WTTJ/kpis-mobile.png":        "etude_kpis_mobile.png",
+            "/public/WTTJ/risques-desktop.png":    "etude_risks_desktop.png",
+            "/public/WTTJ/risques-mobile.png":     "etude_risks_mobile.png",
+            "/public/WTTJ/conclusion-desktop.png": "etude_conclusion_desktop.png",
+            "/public/WTTJ/conclusion-mobile.png":  "etude_conclusion_mobile.png"
+          }
+          with open(os.path.join(OUT, "mapping.json"), "w", encoding="utf-8") as f:
+              json.dump(mapping, f, indent=2, ensure_ascii=False)
+
+          # (Optionnel) manifest minimal
+          manifest = {"generated": list(mapping.values())}
+          with open(os.path.join(OUT, "manifest.json"), "w", encoding="utf-8") as f:
+              json.dump(manifest, f, indent=2, ensure_ascii=False)
+
+          print("Export OK → public/WTTJ")
+          PY
+
+      - name: Commit files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: export WTTJ visuals"
+          file_pattern: public/WTTJ/*
