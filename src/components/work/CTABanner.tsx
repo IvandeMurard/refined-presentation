@@ -45,29 +45,8 @@ export function CTABanner({
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
-          {/* Media */}
-          <div className="absolute inset-0 overflow-hidden">
-            <motion.img
-              src={image}
-              alt=""
-              className="absolute inset-0 h-full w-full object-cover
-                         saturate-115 contrast-110 brightness-[1.02]"
-              animate={{ scale: hover && !reducedMotion ? 1.02 : 1 }}
-              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-            />
-          </div>
-
-          {/* Overlay léger + gloss subtil (moins dense que ta version précédente) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                // Voile principal (vert nuit -> bleu nuit), plus respirant
-                "linear-gradient(135deg, rgba(6,95,70,0.48) 0%, rgba(11,18,32,0.42) 100%)," +
-                // Lueur très légère en haut à gauche (effet premium sans alourdir)
-                "radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,0.07), transparent 60%)",
-            }}
-          />
+          {/* Background vert comme la section Contact */}
+          <div className="absolute inset-0 bg-contact" />
 
           {/* Contenu COMPACT (hauteur maîtrisée) */}
           <div className="relative z-10 text-center px-5 md:px-8 py-5 md:py-6">
@@ -90,16 +69,15 @@ export function CTABanner({
               {description}
             </motion.p>
 
-            {/* CTA discret: outline → filled au hover (tokens primary) */}
+            {/* CTA avec bordure et texte blancs */}
             <motion.button
               onClick={handleClick}
               className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5
-                         rounded-full border text-[13px] font-[600]
-                         border-[hsl(var(--primary))] text-[hsl(var(--primary))]
-                         bg-transparent hover:bg-[hsl(var(--primary))]
-                         hover:text-[hsl(var(--primary-foreground))]
+                         rounded-full border-2 text-[13px] font-[600]
+                         border-white text-white
+                         bg-transparent hover:bg-white/10
                          transition-colors duration-200
-                         focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))/30]"
+                         focus:outline-none focus:ring-2 focus:ring-white/30"
               whileHover={{ scale: reducedMotion ? 1 : 1.01 }}
               whileTap={{ scale: reducedMotion ? 1 : 0.99 }}
             >
