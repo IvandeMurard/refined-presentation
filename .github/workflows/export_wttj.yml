@@ -35,8 +35,8 @@ jobs:
           OUT = "public/WTTJ"
           os.makedirs(OUT, exist_ok=True)
 
-          pdf1 = "tools/input/etude_de_cas.pdf"
-          pdf2 = "tools/input/presentation_cas_wttj_notion.pdf"
+          pdf1 = "tools/etude_de_cas.pdf"
+          pdf2 = "tools/presentation_cas_wttj_notion.pdf"
 
           def render_pages(pdf_path, picks, prefix):
               doc = fitz.open(pdf_path)
