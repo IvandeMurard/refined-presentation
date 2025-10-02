@@ -8,6 +8,7 @@ import { WorkModal } from '../components/WorkModal';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 import { useTools, useResources, useInspirations } from '../hooks/useResources';
+import { sonorCase } from '../data/cases/sonor.case';
 
 interface Project {
   id: string;
@@ -22,6 +23,17 @@ interface Project {
 }
 
 const projects: Project[] = [
+  {
+    id: sonorCase.id,
+    title: sonorCase.title,
+    subtitle: sonorCase.subtitle,
+    image: sonorCase.image,
+    tags: [sonorCase.badge],
+    category: 'product',
+    logo: sonorCase.logo,
+    longDescription: sonorCase.subtitle,
+    bullets: sonorCase.bullets,
+  },
   {
     id: 'test-saas',
     title: 'Test SaaS FinTech',
@@ -89,8 +101,8 @@ const projects: Project[] = [
 ];
 
 const filterChips = [
-  { id: 'all', label: 'All (4)' },
-  { id: 'product', label: 'Product (2)' },
+  { id: 'all', label: 'All (5)' },
+  { id: 'product', label: 'Product (3)' },
   { id: 'experience', label: 'Experience (2)' },
   { id: 'agenda', label: 'Agenda (1)' },
   { id: 'authorizations', label: 'Authorizations (1)' },
