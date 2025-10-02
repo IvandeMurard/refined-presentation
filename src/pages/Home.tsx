@@ -3,6 +3,7 @@ import { Navigation } from '../components/Navigation';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
 import { CardImmersive } from '../components/CardImmersive';
+import { MediaCard } from '../components/work/MediaCard';
 import { CarouselRow } from '../components/CarouselRow';
 import { WorkModal } from '../components/WorkModal';
 import { Button } from '../components/ui/button';
@@ -303,23 +304,19 @@ export const Home: React.FC = () => {
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
             {filteredProjects.map((project, index) => (
-              <CardImmersive
-                key={project.id}
-                id={project.id}
-                kicker={`Case Study – ${project.title}`}
-                title={project.subtitle}
-                tagline="De l'idée au produit validé"
-                badge={project.tags[0] || 'Project'}
-                image={project.image}
-                onClick={() => openModal(index)}
-              />
-            ))}
-          </div>
-
-          {/* Desktop: Carousel Layout */}
-          <div className="hidden lg:block mb-12">
-            <CarouselRow>
-              {filteredProjects.map((project, index) => (
+              project.id === 'sonor' ? (
+                <MediaCard
+                  key={project.id}
+                  id={project.id}
+                  kicker={`Case Study – ${project.title}`}
+                  title={project.subtitle}
+                  tagline="De l'idée au produit validé"
+                  badge={project.tags[0] || 'Project'}
+                  image={project.image}
+                  videoSrc="/sonor_card_illustration.mp4"
+                  onClick={() => openModal(index)}
+                />
+              ) : (
                 <CardImmersive
                   key={project.id}
                   id={project.id}
@@ -330,6 +327,38 @@ export const Home: React.FC = () => {
                   image={project.image}
                   onClick={() => openModal(index)}
                 />
+              )
+            ))}
+          </div>
+
+          {/* Desktop: Carousel Layout */}
+          <div className="hidden lg:block mb-12">
+            <CarouselRow>
+              {filteredProjects.map((project, index) => (
+                project.id === 'sonor' ? (
+                  <MediaCard
+                    key={project.id}
+                    id={project.id}
+                    kicker={`Case Study – ${project.title}`}
+                    title={project.subtitle}
+                    tagline="De l'idée au produit validé"
+                    badge={project.tags[0] || 'Project'}
+                    image={project.image}
+                    videoSrc="/sonor_card_illustration.mp4"
+                    onClick={() => openModal(index)}
+                  />
+                ) : (
+                  <CardImmersive
+                    key={project.id}
+                    id={project.id}
+                    kicker={`Case Study – ${project.title}`}
+                    title={project.subtitle}
+                    tagline="De l'idée au produit validé"
+                    badge={project.tags[0] || 'Project'}
+                    image={project.image}
+                    onClick={() => openModal(index)}
+                  />
+                )
               ))}
             </CarouselRow>
           </div>
