@@ -35,7 +35,7 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
     >
       <span className="pointer-events-none absolute inset-0 rounded-token shadow-[0_16px_40px_rgba(0,0,0,0.15)] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
 
-      <div className="relative h-[200px] rounded-token overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
+      <div className="relative h-[200px] rounded-token overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-125 contrast-110 brightness-[1.02] group-hover/card:saturate-150 group-hover/card:brightness-[1.06]">
         <img
           src={image}
           alt={title}
@@ -43,10 +43,18 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
           loading="lazy"
           decoding="async"
         />
-        <div className="card-overlay">
-          <div className="text-white drop-shadow">
-            <h3 className="text-lg font-extrabold mb-1 leading-tight">{title}</h3>
-            <p className="text-sm opacity-90">{subtitle}</p>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.34) 55%, rgba(0,0,0,0.12) 100%), " +
+              "radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,0.12), transparent 60%)",
+          }}
+        />
+        <div className="absolute inset-x-0 bottom-0 p-5">
+          <div className="text-white">
+            <h3 className="text-lg font-extrabold mb-1 leading-tight [filter:drop-shadow(0_1px_1px_rgba(0,0,0,.6))]">{title}</h3>
+            <p className="text-sm opacity-90 [filter:drop-shadow(0_1px_1px_rgba(0,0,0,.5))]">{subtitle}</p>
           </div>
         </div>
       </div>

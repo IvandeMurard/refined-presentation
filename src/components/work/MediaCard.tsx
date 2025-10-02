@@ -80,7 +80,7 @@ export function MediaCard({
       <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_16px_40px_hsl(var(--overlay))] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
 
       {/* Media wrapper (scale only inside to keep radius crisp) */}
-      <div className="relative h-full w-full rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
+      <div className="relative h-full w-full rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-125 contrast-110 brightness-[1.02] group-hover/card:saturate-150 group-hover/card:brightness-[1.06]">
         {/* Image poster */}
         <img
           src={image}
@@ -107,15 +107,18 @@ export function MediaCard({
           />
         )}
 
-        {/* Overlay gradient (bas) + bande (haut) */}
+        {/* Bottom gradient + glossy spec highlight */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to top, rgba(0,0,0,0.68) 0%, rgba(0,0,0,0.4) 52%, rgba(0,0,0,0.16) 100%)",
+              // 1) Gradient bas pour la lisibilité
+              "linear-gradient(to top, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0.34) 55%, rgba(0,0,0,0.12) 100%), " +
+              // 2) Lueur blanche douce en diagonale (effet "brillant")
+              "radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,0.12), transparent 60%)",
           }}
         />
-        <div className="pointer-events-none absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/30 to-transparent" />
+        <div className="pointer-events-none absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/20 to-transparent" />
 
         {/* Contenus */}
         <div className="absolute inset-0 flex flex-col justify-between p-6">
@@ -124,10 +127,10 @@ export function MediaCard({
           </p>
 
           <div className="space-y-4">
-            <h3 className="text-[24px] font-[900] tracking-[-0.01em] leading-[1.15] text-white max-w-[280px] drop-shadow">
+            <h3 className="text-[24px] md:text-[26px] font-[900] tracking-[-0.01em] leading-[1.15] text-white max-w-[280px] [filter:drop-shadow(0_1px_1px_rgba(0,0,0,.6))]">
               {title}
             </h3>
-            <p className="text-[15px] font-[400] leading-[1.4] text-white/80 max-w-[280px]">
+            <p className="text-[15px] font-[400] leading-[1.4] text-white/80 max-w-[280px] [filter:drop-shadow(0_1px_1px_rgba(0,0,0,.5))]">
               {tagline}
             </p>
 
