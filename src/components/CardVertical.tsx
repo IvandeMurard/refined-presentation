@@ -33,17 +33,26 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
       ].join(" ")}
       style={{ width: 320, height: 320 }}
     >
-      {/* Media wrapper scales; keeps mask */}
-      <div className="relative h-[200px] rounded-inherit overflow-hidden will-change-transform">
-        <img src={image} alt={title} className="w-full h-full object-cover" />
+      <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_16px_40px_hsl(var(--overlay))] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+
+      <div className="relative h-[200px] rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
+        <img
+          src={image}
+          alt={title}
+          className="w-full h-full object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+        <div className="card-overlay">
+          <div className="text-white drop-shadow">
+            <h3 className="text-lg font-extrabold mb-1 leading-tight">{title}</h3>
+            <p className="text-sm opacity-90">{subtitle}</p>
+          </div>
+        </div>
       </div>
-      {/* Overlay + title/subtitle */}
       <div className="p-6">
-        <h3 className="font-bold text-lg mb-1">{title}</h3>
-        <p className="text-sm text-muted-foreground mb-3">{subtitle}</p>
-        {/* Tags row */}
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mt-2">
+          <div className="flex flex-wrap gap-2">
             {tags.map((tag, index) => (
               <span key={index} className="work-badge">
                 {tag}
