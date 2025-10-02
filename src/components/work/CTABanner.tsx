@@ -55,17 +55,8 @@ export function CTABanner({
             />
           </div>
 
-          {/* Overlay plus léger + petite lueur en haut (gloss) */}
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                // voile principal très léger (vert nuit → bleu nuit selon ton thème)
-                "linear-gradient(135deg, rgba(6,95,70,0.65) 0%, rgba(11,18,32,0.55) 100%)," +
-                // lueur douce pour éviter l'effet « plan »
-                "radial-gradient(120% 60% at 0% 0%, rgba(255,255,255,0.08), transparent 60%)",
-            }}
-          />
+          {/* Overlay vert contact */}
+          <div className="absolute inset-0 bg-contact" />
 
           {/* Contenu compact */}
           <div className="relative z-10 text-center px-6 md:px-10 py-6 md:py-7">  {/* ← py réduit */}
@@ -86,13 +77,13 @@ export function CTABanner({
               {description}
             </motion.p>
 
-            {/* CTA plus discret (outline → filled au hover) */}
+            {/* CTA blanc outline */}
             <motion.button
               onClick={handleClick}
               className="inline-flex items-center justify-center h-10 px-5 rounded-full
-                         border border-[hsl(var(--primary))] text-[hsl(var(--primary))]
-                         bg-transparent hover:bg-[hsl(var(--primary))] hover:text-[hsl(var(--primary-foreground))]
-                         transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[hsl(var(--primary))/30]"
+                         border border-white text-white
+                         bg-transparent hover:bg-white hover:text-contact
+                         transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-white/30"
               whileHover={{ scale: reducedMotion ? 1 : 1.01 }}
               whileTap={{ scale: reducedMotion ? 1 : 0.99 }}
             >
