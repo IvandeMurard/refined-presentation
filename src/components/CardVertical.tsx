@@ -33,9 +33,9 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
       ].join(" ")}
       style={{ width: 320, height: 320 }}
     >
-      <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_16px_40px_hsl(var(--overlay))] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
+      <span className="pointer-events-none absolute inset-0 rounded-token shadow-[0_16px_40px_rgba(0,0,0,0.15)] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
 
-      <div className="relative h-[200px] rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
+      <div className="relative h-[200px] rounded-token overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02]">
         <img
           src={image}
           alt={title}
