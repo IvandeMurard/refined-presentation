@@ -1,3 +1,7 @@
+- name: Show workflow snippet
+  run: |
+    echo "Workflow revision OK"
+
 - name: Export visuals
   run: |
     python - << 'PY'
