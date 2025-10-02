@@ -80,7 +80,7 @@ export function MediaCard({
       <span className="pointer-events-none absolute inset-0 rounded-[inherit] shadow-[0_16px_40px_hsl(var(--overlay))] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
 
       {/* Media wrapper (scale only inside to keep radius crisp) */}
-      <div className="relative h-full w-full rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-125 contrast-110 brightness-[1.02] group-hover/card:saturate-150 group-hover/card:brightness-[1.06]">
+      <div className="relative h-full w-full rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-[1.25] contrast-[1.10] brightness-[1.02] group-hover/card:saturate-[1.5] group-hover/card:brightness-[1.06]">
         {/* Image poster */}
         <img
           src={image}

@@ -35,7 +35,7 @@ export const CardVertical: React.FC<CardVerticalProps> = ({
     >
       <span className="pointer-events-none absolute inset-0 rounded-token shadow-[0_16px_40px_rgba(0,0,0,0.15)] opacity-0 transition-opacity duration-300 group-hover/card:opacity-100" />
 
-      <div className="relative h-[200px] rounded-token overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-125 contrast-110 brightness-[1.02] group-hover/card:saturate-150 group-hover/card:brightness-[1.06]">
+      <div className="relative h-[200px] rounded-token overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-[1.25] contrast-[1.10] brightness-[1.02] group-hover/card:saturate-[1.5] group-hover/card:brightness-[1.06]">
         <img
           src={image}
           alt={title}
