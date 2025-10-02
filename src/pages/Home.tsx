@@ -6,6 +6,7 @@ import { CardImmersive } from '../components/CardImmersive';
 import { MediaCard } from '../components/work/MediaCard';
 import { CarouselRow } from '../components/CarouselRow';
 import { WorkModal } from '../components/WorkModal';
+import { CTABanner } from '../components/work/CTABanner';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 import { useTools, useResources, useInspirations } from '../hooks/useResources';
@@ -416,6 +417,14 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* CTA Banner */}
+      <CTABanner
+        title="Ready to build something exceptional together?"
+        description="Let's discuss how we can transform your product vision into reality"
+        ctaText="Get in touch"
+        onClick={() => scrollToSection('contact')}
+      />
 
       {/* Experience & Education Section - Left Aligned */}
       <section id="experience" className="py-24 px-4">
