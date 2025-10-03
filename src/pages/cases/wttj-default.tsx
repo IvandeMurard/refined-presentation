@@ -24,14 +24,14 @@ export default function WttjDefaultCase() {
         <div className="space-y-4">
           <h2 className="text-xl md:text-2xl font-semibold">Contexte & Problématique</h2>
           <p>
-            Les profils seniors postulent peu sur la plateforme, alors qu’ils sont très demandés par les entreprises clientes.
+            Les profils seniors postulent peu sur la plateforme, alors qu'ils sont très demandés par les entreprises clientes.
             Objectif : <b>augmenter les candidatures seniors (prioritairement dans la tech)</b> via une expérience plus pertinente et engageante.
           </p>
         </div>
         <CaseImage
           alt="Stats & contexte"
-          desktopSrc="/wttj/context-desktop.png" // ← remplace par: sandbox:/mnt/data/wttj_visual_pack/etude_de_cas_p06_desktop.png
-          mobileSrc="/wttj/context-mobile.png"   // ← remplace par: sandbox:/mnt/data/wttj_visual_pack/etude_de_cas_p06_mobile.png
+          desktopSrc="/WTTJ/context-desktop.png"
+          mobileSrc="/WTTJ/context-mobile.png"
           caption="Data et signaux marché"
         />
       </section>
@@ -46,20 +46,28 @@ export default function WttjDefaultCase() {
       </section>
 
       {/* Discovery */}
-      <section className="grid md:grid-cols-2 gap-6 items-start">
-        <div className="space-y-4">
-          <h2 className="text-xl md:text-2xl font-semibold">Discovery (12 jours)</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>8 entretiens vidéo seniors (tech & autres).</li>
-            <li>Insights : transparence (salaire, missions), filtres pertinents, accompagnement.</li>
-            <li>CTR seniors ≈ 11% vs 20% juniors ; besoin de lisibilité des offres.</li>
-          </ul>
+      <section className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="space-y-4">
+            <h2 className="text-xl md:text-2xl font-semibold">Discovery (12 jours)</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>8 entretiens vidéo seniors (tech & autres).</li>
+              <li>Insights : transparence (salaire, missions), filtres pertinents, accompagnement.</li>
+              <li>CTR seniors ≈ 11% vs 20% juniors ; besoin de lisibilité des offres.</li>
+            </ul>
+          </div>
+          <CaseImage
+            alt="JTBD & verbatims"
+            desktopSrc="/WTTJ/jtbd-desktop.png"
+            mobileSrc="/WTTJ/jtbd-mobile.png"
+            caption="JTBD & verbatims clés"
+          />
         </div>
         <CaseImage
-          alt="JTBD & verbatims"
-          desktopSrc="/wttj/jtbd-desktop.png" // ← etude_de_cas_p18_desktop.png
-          mobileSrc="/wttj/jtbd-mobile.png"   // ← etude_de_cas_p18_mobile.png
-          caption="JTBD & verbatims clés"
+          alt="Parcours utilisateur"
+          desktopSrc="/WTTJ/userflow-desktop.jpg"
+          mobileSrc="/WTTJ/userflow-mobile.jpg"
+          caption="Cartographie du parcours utilisateur"
         />
       </section>
 
@@ -67,8 +75,8 @@ export default function WttjDefaultCase() {
       <CasePivot />
       <CaseImage
         alt="Opportunity tree (extrait pivot)"
-        desktopSrc="/wttj/pivot-desktop.png" // ← etude_de_cas_p29_desktop.png
-        mobileSrc="/wttj/pivot-mobile.png"   // ← etude_de_cas_p29_mobile.png
+        desktopSrc="/WTTJ/pivot-desktop.png"
+        mobileSrc="/WTTJ/pivot-mobile.png"
       />
 
       {/* MVP priorisé et testé */}
@@ -82,39 +90,47 @@ export default function WttjDefaultCase() {
         </ol>
         <CaseImage
           alt="RICE – priorisation MVP"
-          desktopSrc="/wttj/rice-desktop.png" // ← etude_de_cas_p31_desktop.png
-          mobileSrc="/wttj/rice-mobile.png"   // ← etude_de_cas_p31_mobile.png
+          desktopSrc="/WTTJ/rice-desktop.png"
+          mobileSrc="/WTTJ/rice-mobile.png"
         />
       </section>
 
       {/* Prototype & Tests */}
-      <section className="grid md:grid-cols-2 gap-6 items-start">
-        <div className="space-y-3">
-          <h2 className="text-xl md:text-2xl font-semibold">Prototype & Tests utilisateurs</h2>
-          <p>Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.</p>
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg border p-3">
-              <h4 className="font-medium mb-2">✅ Positifs</h4>
-              <ul className="text-sm list-disc pl-4 space-y-1">
-                <li>Offres plus lisibles & pertinentes.</li>
-                <li>Onboarding rassurant.</li>
-                <li>Matching CV motivant.</li>
-              </ul>
-            </div>
-            <div className="rounded-lg border p-3">
-              <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
-              <ul className="text-sm list-disc pl-4 space-y-1">
-                <li>Wording du CTA onboarding.</li>
-                <li>Placement de l’assistant IA.</li>
-              </ul>
+      <section className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6 items-start">
+          <div className="space-y-3">
+            <h2 className="text-xl md:text-2xl font-semibold">Prototype & Tests utilisateurs</h2>
+            <p>Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.</p>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-lg border p-3">
+                <h4 className="font-medium mb-2">✅ Positifs</h4>
+                <ul className="text-sm list-disc pl-4 space-y-1">
+                  <li>Offres plus lisibles & pertinentes.</li>
+                  <li>Onboarding rassurant.</li>
+                  <li>Matching CV motivant.</li>
+                </ul>
+              </div>
+              <div className="rounded-lg border p-3">
+                <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
+                <ul className="text-sm list-disc pl-4 space-y-1">
+                  <li>Wording du CTA onboarding.</li>
+                  <li>Placement de l'assistant IA.</li>
+                </ul>
+              </div>
             </div>
           </div>
+          <CaseImage
+            alt="Prototype onboarding"
+            desktopSrc="/WTTJ/proto-onboarding-desktop.png"
+            mobileSrc="/WTTJ/proto-onboarding-mobile.png"
+            caption="Prototype Lovable – écran onboarding"
+          />
         </div>
         <CaseImage
-          alt="Prototype onboarding"
-          desktopSrc="/wttj/proto-onboarding-desktop.jpg" // ← maquette_onboarding_desktop.jpg
-          mobileSrc="/wttj/proto-onboarding-mobile.jpg"   // ← maquette_onboarding_mobile.jpg
-          caption="Prototype Lovable – écran onboarding"
+          alt="Résultats des tests utilisateurs"
+          desktopSrc="/WTTJ/tests-desktop.png"
+          mobileSrc="/WTTJ/tests-mobile.png"
+          caption="Synthèse des retours utilisateurs"
         />
       </section>
 
@@ -148,8 +164,8 @@ export default function WttjDefaultCase() {
         </div>
         <CaseImage
           alt="KPIs (extrait slide)"
-          desktopSrc="/wttj/kpis-desktop.png" // ← etude_de_cas_p41_desktop.png
-          mobileSrc="/wttj/kpis-mobile.png"   // ← etude_de_cas_p41_mobile.png
+          desktopSrc="/WTTJ/kpis-desktop.png"
+          mobileSrc="/WTTJ/kpis-mobile.png"
         />
       </section>
 
@@ -160,32 +176,40 @@ export default function WttjDefaultCase() {
           <ul className="list-disc pl-5 space-y-2">
             <li><b>Abandon onboarding</b> → étapes claires, analytics par étape, itérations wording.</li>
             <li><b>Assistant IA sous-utilisé</b> → A/B placement, triggers contextuels.</li>
-            <li><b>Matching technique</b> → transparence “beta”, feedback in-product.</li>
+            <li><b>Matching technique</b> → transparence "beta", feedback in-product.</li>
           </ul>
         </div>
         <CaseImage
           alt="Matrice de risques"
-          desktopSrc="/wttj/risques-desktop.png" // ← etude_de_cas_p39_desktop.png
-          mobileSrc="/wttj/risques-mobile.png"   // ← etude_de_cas_p39_mobile.png
+          desktopSrc="/WTTJ/risques-desktop.png"
+          mobileSrc="/WTTJ/risques-mobile.png"
         />
       </section>
 
       {/* Conclusion (fond différenciant) */}
-      <section className="rounded-2xl border p-6 md:p-8"
+      <section className="space-y-6">
+        <div className="rounded-2xl border p-6 md:p-8"
                style={{ backgroundColor: 'rgba(254, 228, 64, 0.18)' }}>
-        <h2 className="text-xl md:text-2xl font-semibold mb-2">Conclusion</h2>
-        <p>
-          <b>WTTJ Tech+</b> améliore la transparence, personnalise l’expérience et accompagne les seniors pour postuler en confiance.
-          Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
-        </p>
+          <h2 className="text-xl md:text-2xl font-semibold mb-2">Conclusion</h2>
+          <p>
+            <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
+            Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
+          </p>
+        </div>
+        <CaseImage
+          alt="Slide de conclusion"
+          desktopSrc="/WTTJ/conclusion-desktop.png"
+          mobileSrc="/WTTJ/conclusion-mobile.png"
+          caption="Vue d'ensemble du projet"
+        />
       </section>
 
       {/* Épilogue */}
       <section className="space-y-3">
         <h3 className="text-lg md:text-xl font-semibold">Ce qui aurait pu être fait différemment</h3>
         <ul className="list-disc pl-5 space-y-2">
-          <li>Explorer l’angle <b>B2B</b> (entreprises) en plus du B2C.</li>
-          <li>Tester d’autres segments seniors hors tech.</li>
+          <li>Explorer l'angle <b>B2B</b> (entreprises) en plus du B2C.</li>
+          <li>Tester d'autres segments seniors hors tech.</li>
           <li>Ajouter des tests quantitatifs pour valider à plus grande échelle.</li>
         </ul>
       </section>
