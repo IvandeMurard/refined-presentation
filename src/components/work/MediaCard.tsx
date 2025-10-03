@@ -25,6 +25,7 @@ export function MediaCard({
   className = "",
 }: MediaCardProps) {
   const [hover, setHover] = React.useState(false);
+  const [imgError, setImgError] = React.useState(false);
   const videoRef = React.useRef<HTMLVideoElement | null>(null);
 
   // Pause la vidéo si la carte sort de l’écran
@@ -83,12 +84,13 @@ export function MediaCard({
       <div className="relative h-full w-full rounded-[inherit] overflow-hidden transform-gpu will-change-transform transition-transform duration-500 group-hover/card:scale-[1.02] saturate-[1.25] contrast-[1.10] brightness-[1.02] group-hover/card:saturate-[1.5] group-hover/card:brightness-[1.06]">
         {/* Image poster */}
         <img
-          src={image}
-          alt=""
+          src={imgError ? "/placeholder.svg" : image}
+          alt={title || "Case study"}
           className="absolute inset-0 h-full w-full object-cover"
-          loading="lazy"
+          loading="eager"
+          fetchPriority="high"
           decoding="async"
-          aria-hidden
+          onError={() => setImgError(true)}
         />
 
         {/* Vidéo (optionnelle) */}
@@ -101,7 +103,7 @@ export function MediaCard({
             muted
             loop
             playsInline
-            preload="metadata"
+            preload="auto"
             // Sur mobile, autorise l’autoplay silencieux
             autoPlay={typeof window !== "undefined" && /Mobi|Android/i.test(navigator.userAgent)}
           />
