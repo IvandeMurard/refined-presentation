@@ -2,8 +2,19 @@
 import CaseTldr from "../../../components/case/CaseTldr";
 import CasePivot from "../../../components/case/CasePivot";
 import { CaseImage } from "../../../components/case/CaseImage";
+import { CTABanner } from "../../components/work/CTABanner";
+import { Footer } from "../../../components/footer";
+import { useNavigate } from "react-router-dom";
 
 export default function WttjDefaultCase() {
+  const navigate = useNavigate();
+  
+  const scrollToSection = (id: string) => {
+    if (id === 'home') {
+      navigate('/');
+    }
+  };
+
   return (
     <main className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8 py-10 space-y-12">
       {/* Hero */}
@@ -134,6 +145,15 @@ export default function WttjDefaultCase() {
         />
       </section>
 
+      {/* CTA Banner */}
+      <CTABanner
+        title="Découvrez mes autres projets"
+        description="Explorez comment je transforme des insights utilisateurs en produits validés"
+        ctaText="Voir le portfolio"
+        onClick={() => navigate('/')}
+        className="my-6"
+      />
+
       {/* Roadmap & KPIs */}
       <section className="space-y-4">
         <h2 className="text-xl md:text-2xl font-semibold">Roadmap & KPIs</h2>
@@ -215,12 +235,23 @@ export default function WttjDefaultCase() {
       </section>
 
       {/* Liens */}
-      <footer className="pt-4 border-t">
+      <section className="pt-4 border-t">
         <ul className="list-disc pl-5 space-y-1 text-sm">
           <li><a className="underline" href="https://prototype-wttj.lovable.app/" target="_blank">Prototype Lovable</a></li>
           <li><span className="text-zinc-500">Backlog Notion / Research Miro (liens internes)</span></li>
         </ul>
-      </footer>
+      </section>
+
+      {/* Footer */}
+      <Footer
+        siteName="Ivan de Murard"
+        tagline="Product Designer & Manager crafting user-centered experiences"
+        sections={[
+          { id: "home", label: "Back to Portfolio" }
+        ]}
+        onSectionClick={scrollToSection}
+        className="mt-16 -mx-4 md:-mx-6 lg:-mx-8"
+      />
     </main>
   );
 }

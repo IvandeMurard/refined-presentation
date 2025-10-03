@@ -4,10 +4,17 @@ import { useAudience } from '../hooks/useAudience';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Footer } from '../../components/footer';
 
 export const Sonor: React.FC = () => {
   const navigate = useNavigate();
   const { activeAudience, setActiveAudience, audiences } = useAudience();
+
+  const scrollToSection = (id: string) => {
+    if (id === 'home') {
+      navigate('/');
+    }
+  };
 
   const audienceContent = [
     {
@@ -286,6 +293,16 @@ export const Sonor: React.FC = () => {
         audiences={audienceContent}
         activeAudience={activeAudience}
         onAudienceChange={setActiveAudience}
+      />
+      
+      {/* Footer */}
+      <Footer
+        siteName="Ivan de Murard"
+        tagline="Product Designer & Manager crafting user-centered experiences"
+        sections={[
+          { id: "home", label: "Back to Portfolio" }
+        ]}
+        onSectionClick={scrollToSection}
       />
     </div>
   );

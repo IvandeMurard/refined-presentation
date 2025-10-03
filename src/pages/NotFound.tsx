@@ -1,16 +1,24 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Calendar, Linkedin, Twitter } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import { Footer } from "../../components/footer";
 
 const NotFound = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.error("404 Error: User attempted to access non-existent route:", location.pathname);
     window.scrollTo(0, 0);
   }, [location.pathname]);
+
+  const scrollToSection = (id: string) => {
+    if (id === 'home') {
+      navigate('/');
+    }
+  };
 
   return (
     <section className="relative min-h-screen">
@@ -93,6 +101,16 @@ const NotFound = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Footer */}
+      <Footer
+        siteName="Ivan de Murard"
+        tagline="Product Designer & Manager crafting user-centered experiences"
+        sections={[
+          { id: "home", label: "Back to Portfolio" }
+        ]}
+        onSectionClick={scrollToSection}
+      />
     </section>
   );
 };
