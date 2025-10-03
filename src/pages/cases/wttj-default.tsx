@@ -30,8 +30,8 @@ export default function WttjDefaultCase() {
         </div>
         <CaseImage
           alt="Stats & contexte"
-          desktopSrc="/WTTJ/context-desktop.png"
-          mobileSrc="/WTTJ/context-mobile.png"
+          desktopSrc="/WTTJ/contexte-desktop.png"
+          mobileSrc="/WTTJ/contexte-mobile.png"
           caption="Data et signaux marché"
         />
       </section>
