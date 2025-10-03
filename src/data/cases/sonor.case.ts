@@ -20,7 +20,7 @@ export const sonorCase: CaseMeta = {
   subtitle: "De l’idée à un SaaS incubé par la Banque des Territoires",
   badge: "Open Data",
   image: "/img/sonor.jpg",
-  logo: "/img/logos/sonor.svg",
+  logo: "/img/logo_sonor.png",
   bullets: [
     "30+ entretiens parties prenantes",
     "3 POCs avec collectivités",
