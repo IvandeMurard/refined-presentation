@@ -279,7 +279,7 @@ export const Sonor: React.FC = () => {
         <CaseStudyLayout
         title="Sonor Audio Platform"
         subtitle="Redesigning the future of audio collaboration for creative professionals"
-        heroImage="https://github.com/IvandeMurard/refined-presentation/blob/main/public/img/sonor_platform_desktop.png"
+        heroImage="/img/sonor.jpg"
         audiences={audienceContent}
         activeAudience={activeAudience}
         onAudienceChange={setActiveAudience}
