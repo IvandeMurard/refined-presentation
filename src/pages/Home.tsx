@@ -62,6 +62,9 @@ const projects: Project[] = [
 const filterChips = [
   { id: 'all', label: 'All (2)' },
   { id: 'product', label: 'Product (2)' },
+  { id: 'experience', label: 'Expérience (0)' },
+  { id: 'agents', label: 'Agents (0)' },
+  { id: 'automatisations', label: 'Automatisations (0)' },
 ];
 
 const resourceFilterChips = [
