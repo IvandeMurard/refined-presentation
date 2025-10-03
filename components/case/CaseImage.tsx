@@ -26,3 +26,8 @@ export function CaseImage({ alt, desktopSrc, mobileSrc, caption }: Props) {
     </figure>
   );
 }
+
+onError={(e) => {
+  (e.currentTarget as HTMLImageElement).src =
+    "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='675'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0%' stop-color='%23e5e7eb'/><stop offset='100%' stop-color='%23d1d5db'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>";
+}}
