@@ -1,15 +1,14 @@
 import { motion } from "framer-motion";
-import { Figma, Bot, Smartphone, Code, FileCode, Palette, Sparkles } from "lucide-react";
 
 export const BuiltWithBanner = () => {
   const tools = [
-    { name: "Figma", icon: Figma },
-    { name: "GPT", icon: Bot },
-    { name: "Mobbin", icon: Smartphone },
-    { name: "React", icon: Code },
-    { name: "TypeScript", icon: FileCode },
-    { name: "Tailwind CSS", icon: Palette },
-    { name: "Lovable", icon: Sparkles }
+    { name: "Figma", icon: "/img/figma-icon.svg" },
+    { name: "GPT", icon: "/img/openai-icon.svg" },
+    { name: "Mobbin", icon: "/img/mobbin_icon.svg" },
+    { name: "React", icon: "/img/react-native-icon.png" },
+    { name: "TypeScript", icon: "/img/typescript_icon.png" },
+    { name: "Tailwind CSS", icon: "/img/tailwind-icon.svg" },
+    { name: "Lovable", icon: "/img/lovable_icon.svg" }
   ];
 
   return (
@@ -24,14 +23,9 @@ export const BuiltWithBanner = () => {
         <div className="relative overflow-hidden rounded-[16px] border border-border bg-muted shadow-sm">
           <div className="px-6 md:px-8 py-5 md:py-6 text-center">
             {/* Title */}
-            <h3 className="text-[16px] md:text-[18px] font-[600] text-foreground mb-1">
+            <h3 className="text-[18px] md:text-[22px] font-[700] text-foreground mb-6">
               Site built with
             </h3>
-            
-            {/* Subtitle */}
-            <p className="text-[12px] md:text-[13px] text-muted-foreground mb-4">
-              Crafted with modern tools and AI-powered development
-            </p>
             
             {/* Tools in horizontal layout */}
             <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
@@ -40,7 +34,7 @@ export const BuiltWithBanner = () => {
                   key={tool.name} 
                   className="flex items-center gap-2 transition-transform duration-200 hover:scale-105"
                 >
-                  <tool.icon className="w-6 h-6 md:w-7 md:h-7 text-foreground/70" />
+                  <img src={tool.icon} alt={tool.name} className="w-6 h-6 md:w-7 md:h-7 object-contain" />
                   <span className="text-[13px] md:text-[14px] font-[500] text-foreground/80">
                     {tool.name}
                   </span>
