@@ -9,6 +9,7 @@ import { MediaCard } from '../components/work/MediaCard';
 import { CarouselRow } from '../components/CarouselRow';
 import { WorkModal } from '../components/WorkModal';
 import { CTABanner } from '../components/work/CTABanner';
+import { BuiltWithBanner } from '../components/BuiltWithBanner';
 import { Button } from '../components/ui/button';
 import { Mail, Linkedin, MessageCircle, ArrowDown } from 'lucide-react';
 import { useTools, useResources, useInspirations } from '../hooks/useResources';
@@ -552,6 +553,9 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Built With Banner */}
+      <BuiltWithBanner />
 
       {/* Contact Section - Centered */}
       <section id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
