@@ -586,7 +586,7 @@ export const Home: React.FC = () => {
               size="lg"
               className="bg-card hover:bg-card/90 text-contact border-2 border-card"
             >
-              <MessageCircle className="mr-2 h-5 w-5" />
+              <img src="/img/whatsapp_logo_blanc.svg" alt="WhatsApp" className="mr-2 h-5 w-5" />
               WhatsApp
             </Button>
           </div>
