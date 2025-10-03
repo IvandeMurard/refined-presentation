@@ -322,7 +322,7 @@ export const Home: React.FC = () => {
           <div className="flex justify-center">
             <Button 
               variant="ghost" 
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-white"
               onClick={() => scrollToSection('hackathons')}
             >
               EXPLORE HACKATHONS <ArrowDown className="ml-2 h-4 w-4" />
@@ -364,7 +364,7 @@ export const Home: React.FC = () => {
           <div className="flex justify-center mt-12">
             <Button 
               variant="ghost" 
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-white"
               onClick={() => scrollToSection('experience')}
             >
               VIEW EXPERIENCE <ArrowDown className="ml-2 h-4 w-4" />
@@ -424,7 +424,7 @@ export const Home: React.FC = () => {
           <div className="flex justify-center mt-12">
             <Button 
               variant="ghost" 
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-white"
               onClick={() => scrollToSection('resources')}
             >
               EXPLORE RESOURCES <ArrowDown className="ml-2 h-4 w-4" />
@@ -545,7 +545,7 @@ export const Home: React.FC = () => {
           <div className="flex justify-center mt-12">
             <Button 
               variant="ghost" 
-              className="text-muted-foreground hover:text-foreground"
+              className="text-muted-foreground hover:text-white"
               onClick={() => scrollToSection('contact')}
             >
               GET IN TOUCH <ArrowDown className="ml-2 h-4 w-4" />
