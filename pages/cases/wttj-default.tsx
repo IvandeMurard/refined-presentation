@@ -2,6 +2,7 @@
 import CaseTldr from "@/components/case/CaseTldr";
 import CasePivot from "@/components/case/CasePivot";
 import { CaseImage } from "@/components/case/CaseImage";
+import CaseOverview from "@/components/case/CaseOverview";
 
 export default function WttjDefaultCase() {
   return (
@@ -169,6 +170,10 @@ export default function WttjDefaultCase() {
           mobileSrc="/wttj/risques-mobile.png"   // ← etude_de_cas_p39_mobile.png
         />
       </section>
+
+      {/* …Roadmap & KPIs */}
+/* Vue d’ensemble (mosaïque) */
+<CaseOverview />
 
       {/* Conclusion (fond différenciant) */}
       <section className="rounded-2xl border p-6 md:p-8"
