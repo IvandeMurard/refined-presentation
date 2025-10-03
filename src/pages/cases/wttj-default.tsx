@@ -76,8 +76,8 @@ export default function WttjDefaultCase() {
         </div>
         <CaseImage
           alt="Parcours utilisateur"
-          desktopSrc="/WTTJ/user-flow-desktop.png"
-          mobileSrc="/WTTJ/user-flow-mobile.png"
+          desktopSrc="/WTTJ/etude_de_cas_p31_desktop.png"
+          mobileSrc="/WTTJ/etude_de_cas_p31_mobile.png"
           caption="Cartographie du parcours utilisateur"
         />
       </section>
