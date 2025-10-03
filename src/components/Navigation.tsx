@@ -10,7 +10,7 @@ export const Navigation: React.FC = () => {
   
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container-grid py-5">
+      <div className="container-grid py-6">
         <div className="col-span-12 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
@@ -21,16 +21,16 @@ export const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center gap-8">
             <Link 
               to="/" 
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
-                isActive('/') ? 'text-foreground' : 'text-muted-foreground'
+              className={`text-sm font-medium transition-colors px-4 py-2 rounded-md ${
+                isActive('/') ? 'text-foreground' : 'text-foreground hover:bg-primary hover:text-white'
               }`}
             >
               Home
             </Link>
             <Link 
               to="/work" 
-              className={`text-sm font-medium transition-colors hover:text-foreground ${
-                isActive('/work') ? 'text-foreground' : 'text-muted-foreground'
+              className={`text-sm font-medium transition-colors px-4 py-2 rounded-md ${
+                isActive('/work') ? 'text-foreground' : 'text-foreground hover:bg-primary hover:text-white'
               }`}
             >
               Work
