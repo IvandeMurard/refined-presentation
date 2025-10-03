@@ -595,7 +595,9 @@ export const Home: React.FC = () => {
         tagline="Product Designer & Manager crafting user-centered experiences"
         sections={[
           { id: "work", label: "Work" },
-          { id: "about", label: "About" },
+          { id: "hackathons", label: "Hackathons" },
+          { id: "experience", label: "Experience" },
+          { id: "resources", label: "Resources" },
           { id: "contact", label: "Contact" }
         ]}
         onSectionClick={(sectionId) => {

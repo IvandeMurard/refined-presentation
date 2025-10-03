@@ -29,7 +29,7 @@ export function Footer({
     <footer className={["w-full bg-[#0B1220] text-white", className].join(" ")}>
       <div className="max-w-[1360px] mx-auto px-6 py-12">
         {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
           {/* Column 1: Name & Tagline */}
           <div>
             <h3 className="text-[20px] font-[700] text-white mb-2">
@@ -40,25 +40,43 @@ export function Footer({
             </p>
           </div>
 
-          {/* Column 2: Sections */}
-          <div>
-            <h4 className="text-[13px] font-[600] tracking-[0.15em] uppercase text-white/60 mb-4">
-              Navigation
-            </h4>
-            <nav className="space-y-2">
-              {sections.map((section) => (
-                <button
-                  key={section.id}
-                  onClick={() => onSectionClick?.(section.id)}
-                  className="block text-[15px] font-[400] text-white/80 hover:text-[#065f46] transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
-                >
-                  {section.label}
-                </button>
-              ))}
-            </nav>
+          {/* Column 2: Sections - Split into 2 columns */}
+          <div className="md:col-span-2 grid grid-cols-2 gap-8">
+            <div>
+              <h4 className="text-[13px] font-[600] tracking-[0.15em] uppercase text-white/60 mb-4">
+                Navigation
+              </h4>
+              <nav className="space-y-2">
+                {sections.slice(0, Math.ceil(sections.length / 2)).map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => onSectionClick?.(section.id)}
+                    className="block text-[15px] font-[400] text-white/80 hover:text-[#065f46] transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  >
+                    {section.label}
+                  </button>
+                ))}
+              </nav>
+            </div>
+            <div>
+              <h4 className="text-[13px] font-[600] tracking-[0.15em] uppercase text-white/60 mb-4">
+                &nbsp;
+              </h4>
+              <nav className="space-y-2">
+                {sections.slice(Math.ceil(sections.length / 2)).map((section) => (
+                  <button
+                    key={section.id}
+                    onClick={() => onSectionClick?.(section.id)}
+                    className="block text-[15px] font-[400] text-white/80 hover:text-[#065f46] transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+                  >
+                    {section.label}
+                  </button>
+                ))}
+              </nav>
+            </div>
           </div>
 
-          {/* Column 3: Social Icons */}
+          {/* Column 4: Social Icons */}
           <div>
             <h4 className="text-[13px] font-[600] tracking-[0.15em] uppercase text-white/60 mb-4">
               Connect
