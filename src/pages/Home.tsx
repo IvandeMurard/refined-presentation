@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navigation } from '../components/Navigation';
+import { Footer } from '../../components/footer';
 import { SectionHeader } from '../components/SectionHeader';
 import { FilterChips } from '../components/FilterChips';
 import { CardImmersive } from '../components/CardImmersive';
@@ -587,6 +588,20 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <Footer
+        siteName="Ivan de Murard"
+        tagline="Product Designer & Manager crafting user-centered experiences"
+        sections={[
+          { id: "work", label: "Work" },
+          { id: "about", label: "About" },
+          { id: "contact", label: "Contact" }
+        ]}
+        onSectionClick={(sectionId) => {
+          document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+        }}
+      />
 
       {/* Work Modal */}
       {selectedProject && (
