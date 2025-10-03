@@ -69,8 +69,8 @@ export default function WttjDefaultCase() {
           </div>
           <CaseImage
             alt="JTBD & verbatims clés"
-            desktopSrc="/WTTJ/jtbd-desktop.png"
-            mobileSrc="/WTTJ/jtbd-mobile.png"
+            desktopSrc="/WTTJ/etude_de_cas_p18_desktop.png"
+            mobileSrc="/WTTJ/etude_de_cas_p18_mobile.png"
             caption="JTBD & verbatims clés"
           />
         </div>
