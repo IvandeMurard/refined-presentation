@@ -19,16 +19,17 @@ export default function WttjDefaultCase() {
   return (
     <>
       <Navigation />
-      <main className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8 pt-24 pb-10 space-y-12">
-      {/* Hero */}
-      <header className="space-y-3">
-        <h1 className="text-2xl md:text-3xl font-semibold">
-          Case Study — Welcome to the Jungle · Conversion Seniors (12 jours)
-        </h1>
-        <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400">
-          Projet de fin de formation Product Management Intensive (MAESTRO)
-        </p>
-      </header>
+      <main className="w-full pt-24 pb-10">
+        <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12 space-y-12">
+          {/* Hero */}
+          <header className="space-y-3">
+            <h1 className="text-2xl md:text-3xl font-semibold">
+              Case Study — Welcome to the Jungle · Conversion Seniors (12 jours)
+            </h1>
+            <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400">
+              Projet de fin de formation Product Management Intensive (MAESTRO)
+            </p>
+          </header>
 
       {/* TL;DR */}
       <CaseTldr />
@@ -237,24 +238,25 @@ export default function WttjDefaultCase() {
         </ul>
       </section>
 
-      {/* Liens */}
-      <section className="pt-4 border-t">
-        <ul className="list-disc pl-5 space-y-1 text-sm">
-          <li><a className="underline" href="https://prototype-wttj.lovable.app/" target="_blank">Prototype Lovable</a></li>
-          <li><span className="text-zinc-500">Backlog Notion / Research Miro (liens internes)</span></li>
-        </ul>
-      </section>
+          {/* Liens */}
+          <section className="pt-4 border-t">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li><a className="underline" href="https://prototype-wttj.lovable.app/" target="_blank">Prototype Lovable</a></li>
+              <li><span className="text-zinc-500">Backlog Notion / Research Miro (liens internes)</span></li>
+            </ul>
+          </section>
+        </div>
 
-      {/* Footer */}
-      <Footer
-        siteName="Ivan de Murard"
-        tagline="Product Designer & Manager crafting user-centered experiences"
-        sections={[
-          { id: "home", label: "Back to Portfolio" }
-        ]}
-        onSectionClick={scrollToSection}
-        className="mt-16 -mx-4 md:-mx-6 lg:-mx-8"
-      />
+        {/* Footer */}
+        <Footer
+          siteName="Ivan de Murard"
+          tagline="Product Designer & Manager crafting user-centered experiences"
+          sections={[
+            { id: "home", label: "Back to Portfolio" }
+          ]}
+          onSectionClick={scrollToSection}
+          className="mt-16"
+        />
       </main>
     </>
   );

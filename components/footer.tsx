@@ -27,7 +27,7 @@ export function Footer({
 
   return (
     <footer className={["w-full bg-[#0B1220] text-white", className].join(" ")}>
-      <div className="max-w-[1360px] mx-auto px-6 py-12">
+      <div className="w-full px-6 md:px-12 lg:px-16 py-12">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
           {/* Column 1: Name & Tagline */}
