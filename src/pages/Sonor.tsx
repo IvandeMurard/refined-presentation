@@ -5,6 +5,7 @@ import { Button } from '../components/ui/button';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { Footer } from '../../components/footer';
+import { Navigation } from '../components/Navigation';
 
 export const Sonor: React.FC = () => {
   const navigate = useNavigate();
@@ -272,21 +273,10 @@ export const Sonor: React.FC = () => {
   ];
 
   return (
-    <div>
-      {/* Back Button */}
-      <div className="fixed top-6 left-6 z-40">
-        <Button
-          variant="outline"
-          size="sm"
-          onClick={() => navigate('/')}
-          className="bg-card/80 backdrop-blur-sm"
-        >
-          <ArrowLeft className="mr-2 h-4 w-4" />
-          Back to Portfolio
-        </Button>
-      </div>
-
-      <CaseStudyLayout
+    <>
+      <Navigation />
+      <div className="pt-20">
+        <CaseStudyLayout
         title="Sonor Audio Platform"
         subtitle="Redesigning the future of audio collaboration for creative professionals"
         heroImage="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=1200&h=600&fit=crop"
@@ -304,6 +294,7 @@ export const Sonor: React.FC = () => {
         ]}
         onSectionClick={scrollToSection}
       />
-    </div>
+      </div>
+    </>
   );
 };

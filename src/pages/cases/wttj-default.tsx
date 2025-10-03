@@ -4,6 +4,7 @@ import CasePivot from "../../../components/case/CasePivot";
 import { CaseImage } from "../../../components/case/CaseImage";
 import { CTABanner } from "../../components/work/CTABanner";
 import { Footer } from "../../../components/footer";
+import { Navigation } from "../../components/Navigation";
 import { useNavigate } from "react-router-dom";
 
 export default function WttjDefaultCase() {
@@ -16,7 +17,9 @@ export default function WttjDefaultCase() {
   };
 
   return (
-    <main className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8 py-10 space-y-12">
+    <>
+      <Navigation />
+      <main className="mx-auto max-w-4xl px-4 md:px-6 lg:px-8 pt-24 pb-10 space-y-12">
       {/* Hero */}
       <header className="space-y-3">
         <h1 className="text-2xl md:text-3xl font-semibold">
@@ -252,6 +255,7 @@ export default function WttjDefaultCase() {
         onSectionClick={scrollToSection}
         className="mt-16 -mx-4 md:-mx-6 lg:-mx-8"
       />
-    </main>
+      </main>
+    </>
   );
 }
