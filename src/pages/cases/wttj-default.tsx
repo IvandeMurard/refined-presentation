@@ -57,7 +57,7 @@ export default function WttjDefaultCase() {
             </ul>
           </div>
           <CaseImage
-            alt="JTBD & verbatims"
+            alt="JTBD & verbatims clés"
             desktopSrc="/WTTJ/jtbd-desktop.png"
             mobileSrc="/WTTJ/jtbd-mobile.png"
             caption="JTBD & verbatims clés"
@@ -65,8 +65,8 @@ export default function WttjDefaultCase() {
         </div>
         <CaseImage
           alt="Parcours utilisateur"
-          desktopSrc="/WTTJ/userflow-desktop.jpg"
-          mobileSrc="/WTTJ/userflow-mobile.jpg"
+          desktopSrc="/WTTJ/user-flow-desktop.png"
+          mobileSrc="/WTTJ/user-flow-mobile.png"
           caption="Cartographie du parcours utilisateur"
         />
       </section>

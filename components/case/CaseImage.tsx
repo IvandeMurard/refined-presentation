@@ -14,12 +14,12 @@ export function CaseImage({ alt, desktopSrc, mobileSrc, caption }: Props) {
         <img
           src={desktopSrc}
           alt={alt}
-          className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm"
+          className="w-full max-w-3xl mx-auto rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm"
           loading="lazy"
         />
       </picture>
       {caption && (
-        <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
+        <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400 text-center">
           {caption}
         </figcaption>
       )}
