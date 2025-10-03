@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle, Calendar, Linkedin, Twitter } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import { Footer } from "../../components/footer";
+import { Navigation } from "@/components/Navigation";
 
 const NotFound = () => {
   const location = useLocation();
@@ -21,9 +22,11 @@ const NotFound = () => {
   };
 
   return (
-    <section className="relative min-h-screen">
-      {/* Background avec gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/15 dark:to-primary/20" />
+    <>
+      <Navigation />
+      <section className="relative min-h-screen pt-24">
+        {/* Background avec gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-primary/15 dark:to-primary/20" />
       
       <div className="relative z-10 max-w-6xl w-full mx-auto px-4 md:px-6 py-12 md:py-16">
         <motion.div 
@@ -111,7 +114,8 @@ const NotFound = () => {
         ]}
         onSectionClick={scrollToSection}
       />
-    </section>
+      </section>
+    </>
   );
 };
 
