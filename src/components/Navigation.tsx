@@ -18,20 +18,16 @@ export const Navigation: React.FC = () => {
           </Link>
           
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 mr-4">
             <Link 
               to="/" 
-              className={`text-sm font-medium transition-colors px-4 py-2 rounded-md ${
-                isActive('/') ? 'text-foreground' : 'text-foreground hover:bg-primary hover:text-white'
-              }`}
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
             >
               Home
             </Link>
             <Link 
               to="/work" 
-              className={`text-sm font-medium transition-colors px-4 py-2 rounded-md ${
-                isActive('/work') ? 'text-foreground' : 'text-foreground hover:bg-primary hover:text-white'
-              }`}
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
             >
               Work
             </Link>
