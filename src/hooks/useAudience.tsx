@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-export type AudienceType = 'pm' | 'design' | 'recruiter';
+export type AudienceType = 'default' | 'pm' | 'design' | 'recruiter';
 
-export const useAudience = (initialAudience: AudienceType = 'pm') => {
+export const useAudience = (initialAudience: AudienceType = 'default') => {
   const [activeAudience, setActiveAudience] = useState<AudienceType>(initialAudience);
 
   const audiences = [

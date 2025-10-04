@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Home } from "./pages/Home";
 import { Sonor } from "./pages/Sonor";
+import Wttj from "./pages/cases/Wttj";
 import WttjDefaultCase from "./pages/cases/wttj-default";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/case-study/sonor" element={<Sonor />} />
+            <Route path="/cases/wttj" element={<Wttj />} />
             <Route path="/case-study/wttj-conversion-seniors" element={<WttjDefaultCase />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
