@@ -217,22 +217,63 @@
   
   /* Filter chip styles */
   .chip-filter {
-    @apply h-11 px-5 rounded-full border bg-card transition-all duration-200;
-    border-color: hsl(var(--border));
+    @apply h-11 px-5 rounded-full transition-all duration-200;
+    background-color: #F5F5F5;
+    border: 2px solid #E0E0E0;
+    color: #424242;
+    font-weight: 500;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   }
   
   .chip-filter:hover {
+    background-color: #E3F2FD;
+    border-color: #1976D2;
     transform: scale(1.02);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.15);
   }
   
   .chip-filter[aria-pressed="true"] {
-    background-color: hsl(224 64% 33%);
-    border-color: hsl(224 64% 33%);
-    color: white;
+    background-color: #1976D2;
+    border-color: #1976D2;
+    color: #FFFFFF;
     font-weight: 600;
-    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.3);
+  }
+  
+  .chip-filter:focus-visible {
+    outline: 2px solid #1976D2;
+    outline-offset: 2px;
+  }
+  
+  /* Roadmap phase styles */
+  .roadmap-now {
+    @apply rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+    background: #E3F2FD;
+    border-left: 4px solid #90CAF9;
+  }
+  
+  .roadmap-next {
+    @apply rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+    background: #BBDEFB;
+    border-left: 4px solid #42A5F5;
+  }
+  
+  .roadmap-later {
+    @apply rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
+    background: #90CAF9;
+    border-left: 4px solid #1976D2;
+    color: #1565C0;
+  }
+  
+  /* Test feedback styles */
+  .test-positive {
+    @apply rounded-lg border p-3;
+    background: #E8F5E8;
+  }
+  
+  .test-improvement {
+    @apply rounded-lg border p-3;
+    background: #FFEAA7;
   }
   
   /* Container grid system */

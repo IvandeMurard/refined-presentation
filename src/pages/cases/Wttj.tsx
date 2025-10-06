@@ -100,7 +100,7 @@ const ContentDefault = () => {
             <h2 className="text-h3">Prototype & Tests utilisateurs</h2>
             <p>Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.</p>
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-lg border p-3 bg-card">
+              <div className="test-positive">
                 <h4 className="font-medium mb-2">✅ Positifs</h4>
                 <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>Offres plus lisibles & pertinentes.</li>
@@ -108,7 +108,7 @@ const ContentDefault = () => {
                   <li>Matching CV motivant.</li>
                 </ul>
               </div>
-              <div className="rounded-lg border p-3 bg-card">
+              <div className="test-improvement">
                 <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
                 <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>Wording du CTA onboarding.</li>
@@ -134,16 +134,18 @@ const ContentDefault = () => {
       <section className="space-y-4">
         <h2 className="text-h3">Roadmap & KPIs</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          {[
-            ["Now", "Standardisation + Onboarding"],
-            ["Next", "Assistant IA + Matching CV"],
-            ["Later", "Coaching IA avancé + analytics recruteurs"],
-          ].map(([t, d]) => (
-            <div key={t} className="rounded-xl border-2 p-6 bg-card shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-xs uppercase tracking-wider font-semibold text-accent mb-2">{t}</div>
-              <div className="text-base font-medium">{d}</div>
-            </div>
-          ))}
+          <div className="roadmap-now">
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1976D2' }}>Now</div>
+            <div className="text-base font-medium">Standardisation + Onboarding</div>
+          </div>
+          <div className="roadmap-next">
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Next</div>
+            <div className="text-base font-medium">Assistant IA + Matching CV</div>
+          </div>
+          <div className="roadmap-later">
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#0D47A1' }}>Later</div>
+            <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
+          </div>
         </div>
         <CaseImage
           alt="Roadmap Now Next Later"
@@ -256,16 +258,18 @@ const ContentPM = () => {
       <section className="space-y-4">
         <h2 className="text-h3">Roadmap & KPIs</h2>
         <div className="grid md:grid-cols-3 gap-4">
-          {[
-            ["Now", "Standardisation + Onboarding"],
-            ["Next", "Assistant IA + Matching CV"],
-            ["Later", "Coaching IA avancé + analytics recruteurs"],
-          ].map(([t, d]) => (
-            <div key={t} className="rounded-xl border-2 p-6 bg-card shadow-sm hover:shadow-md transition-shadow">
-              <div className="text-xs uppercase tracking-wider font-semibold text-accent mb-2">{t}</div>
-              <div className="text-base font-medium">{d}</div>
-            </div>
-          ))}
+          <div className="roadmap-now">
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1976D2' }}>Now</div>
+            <div className="text-base font-medium">Standardisation + Onboarding</div>
+          </div>
+          <div className="roadmap-next">
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Next</div>
+            <div className="text-base font-medium">Assistant IA + Matching CV</div>
+          </div>
+          <div className="roadmap-later">
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#0D47A1' }}>Later</div>
+            <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
+          </div>
         </div>
         <CaseImage
           alt="Roadmap Now Next Later"
@@ -314,7 +318,7 @@ const ContentPM = () => {
       <section className="space-y-4">
         <h2 className="text-h3">Tests utilisateurs - Résultats</h2>
         <div className="grid md:grid-cols-2 gap-4">
-          <div className="rounded-lg border p-4 bg-card">
+          <div className="test-positive">
             <h4 className="font-medium mb-2">✅ Validations</h4>
             <ul className="text-sm list-disc pl-4 space-y-1">
               <li>Offres plus lisibles & pertinentes</li>
@@ -322,7 +326,7 @@ const ContentPM = () => {
               <li>Matching CV motivant</li>
             </ul>
           </div>
-          <div className="rounded-lg border p-4 bg-card">
+          <div className="test-improvement">
             <h4 className="font-medium mb-2">🔄 Itérations</h4>
             <ul className="text-sm list-disc pl-4 space-y-1">
               <li>Wording CTA onboarding</li>
@@ -430,7 +434,7 @@ const ContentDesigner = () => {
             <h2 className="text-h3">Prototype & Tests utilisateurs</h2>
             <p>4 tests utilisateurs avec des profils issus de la discovery pour valider le prototype.</p>
             <div className="grid grid-cols-2 gap-3">
-              <div className="rounded-lg border p-3 bg-card">
+              <div className="test-positive">
                 <h4 className="font-medium mb-2">✅ Points forts</h4>
                 <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>Offres plus lisibles & pertinentes</li>
@@ -438,7 +442,7 @@ const ContentDesigner = () => {
                   <li>Matching CV motivant</li>
                 </ul>
               </div>
-              <div className="rounded-lg border p-3 bg-card">
+              <div className="test-improvement">
                 <h4 className="font-medium mb-2">🔍 Axes d'amélioration</h4>
                 <ul className="text-sm list-disc pl-4 space-y-1">
                   <li>Wording du CTA onboarding</li>
