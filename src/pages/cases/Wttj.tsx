@@ -31,7 +31,7 @@ export default function Wttj() {
       </header>
 
       {/* TL;DR (chapeau jaune) */}
-      <section id="tldr">
+      <section id="TLDR">
         <CaseTLDR />
       </section>
 
