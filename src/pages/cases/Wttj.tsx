@@ -9,7 +9,7 @@ import { CaseImage } from "../../../components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
 import { useAudience } from "@/hooks/useAudience";
 import wttjHero from "@/assets/wttj-hero.png";
-import CasePrototypeHighlight from "../../../components/case/CasePrototypeHighlight.tsx;
+import CasePrototypeHighlight from "components/case/CasePrototypeHighlight.tsx;
 
 // ============= AUDIENCE CONTENTS =============
 
