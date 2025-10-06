@@ -9,7 +9,7 @@ export default function CaseOverview() {
       <div className="grid gap-4 md:gap-6 md:grid-cols-3">
         <figure className="md:col-span-2">
           <img src="/WTTJ/userflow-desktop.jpg" alt="User flow WTTJ"
-               className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
+               className="w-full aspect-video object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
           <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
             Parcours utilisateur (de la recherche à la candidature)
           </figcaption>
@@ -17,7 +17,7 @@ export default function CaseOverview() {
 
         <figure>
           <img src="/WTTJ/proto-onboarding-desktop.jpg" alt="Écran onboarding du prototype"
-               className="w-full h-full object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
+               className="w-full aspect-video object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
           <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
             Prototype — Onboarding personnalisé
           </figcaption>
@@ -25,7 +25,7 @@ export default function CaseOverview() {
 
         <figure>
           <img src="/WTTJ/pivot-desktop.png" alt="Pivot stratégique — extrait opportunity tree"
-               className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
+               className="w-full aspect-video object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
           <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
             Pivot : focus profils tech 5–8 ans d’expérience
           </figcaption>
@@ -33,7 +33,7 @@ export default function CaseOverview() {
 
         <figure>
           <img src="/WTTJ/rice-desktop.png" alt="Priorisation RICE du MVP"
-               className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
+               className="w-full aspect-video object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
           <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
             MVP priorisé (RICE) : standardisation, onboarding, IA, matching
           </figcaption>
@@ -41,7 +41,7 @@ export default function CaseOverview() {
 
         <figure className="md:col-span-2">
           <img src="/WTTJ/kpis-desktop.png" alt="KPIs cibles"
-               className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
+               className="w-full aspect-video object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm" loading="lazy" />
           <figcaption className="mt-2 text-xs text-zinc-600 dark:text-zinc-400">
             KPIs cibles : CTR seniors 11→13, 70% onboarding, ≥1,5 usage/session, +300 à +800 profils activés
           </figcaption>

@@ -29,7 +29,7 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative h-[70vh] overflow-hidden">
+      <div className="relative h-[50vh] overflow-hidden">
         <img 
           src={heroImage} 
           alt={title}
