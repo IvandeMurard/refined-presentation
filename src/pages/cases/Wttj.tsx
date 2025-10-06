@@ -16,7 +16,7 @@ const ContentDefault = () => {
   const navigate = useNavigate();
   
   return (
-    <>
+    <div className="space-y-16">
       {/* TL;DR */}
       <CaseTldr />
 
@@ -74,6 +74,7 @@ const ContentDefault = () => {
       <CaseImage
         alt="Opportunity tree (extrait pivot)"
         desktopSrc="/WTTJ/pivot-desktop.png"
+        caption="Arbre d'opportunités - Recentrage stratégique"
       />
 
       {/* MVP priorisé et testé */}
@@ -88,6 +89,7 @@ const ContentDefault = () => {
         <CaseImage
           alt="RICE – priorisation MVP"
           desktopSrc="/WTTJ/rice-desktop.png"
+          caption="Matrice RICE - Priorisation des features MVP"
         />
       </section>
 
@@ -137,28 +139,16 @@ const ContentDefault = () => {
             ["Next", "Assistant IA + Matching CV"],
             ["Later", "Coaching IA avancé + analytics recruteurs"],
           ].map(([t, d]) => (
-            <div key={t} className="rounded-xl border p-4 bg-card">
-              <div className="text-sm uppercase tracking-wide text-muted-foreground">{t}</div>
-              <div className="mt-1">{d}</div>
-            </div>
-          ))}
-        </div>
-        <div className="grid md:grid-cols-4 gap-4">
-          {[
-            ["CTR seniors", "11% → 13%"],
-            ["Onboarding", "70% complétion"],
-            ["Assistant IA", "≥1,5 usage/session"],
-            ["Profils activés", "+300 à +800"],
-          ].map(([k, v]) => (
-            <div key={k} className="rounded-xl border p-4 bg-card">
-              <div className="text-sm text-muted-foreground">{k}</div>
-              <div className="text-xl font-semibold text-accent">{v}</div>
+            <div key={t} className="rounded-xl border-2 p-6 bg-card shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-xs uppercase tracking-wider font-semibold text-accent mb-2">{t}</div>
+              <div className="text-base font-medium">{d}</div>
             </div>
           ))}
         </div>
         <CaseImage
-          alt="KPIs (extrait slide)"
-          desktopSrc="/WTTJ/kpis-desktop.png"
+          alt="Roadmap Now Next Later"
+          desktopSrc="/WTTJ/etude_de_cas_p18_desktop.png"
+          caption="Roadmap : priorisation par phases Now / Next / Later"
         />
       </section>
 
@@ -175,6 +165,7 @@ const ContentDefault = () => {
         <CaseImage
           alt="Matrice de risques"
           desktopSrc="/WTTJ/risques-desktop.png"
+          caption="Matrice de risques et stratégies de mitigation"
         />
       </section>
 
@@ -223,7 +214,7 @@ const ContentDefault = () => {
           <li><span className="text-muted-foreground">Backlog Notion / Research Miro (liens internes)</span></li>
         </ul>
       </section>
-    </>
+    </div>
   );
 };
 
@@ -231,7 +222,7 @@ const ContentPM = () => {
   const navigate = useNavigate();
   
   return (
-    <>
+    <div className="space-y-16">
       {/* TL;DR */}
       <CaseTldr />
 
@@ -242,6 +233,7 @@ const ContentPM = () => {
         <CaseImage
           alt="Opportunity tree"
           desktopSrc="/WTTJ/pivot-desktop.png"
+          caption="Arbre d'opportunités - Recentrage stratégique"
         />
         <div className="grid md:grid-cols-3 gap-4 mt-6">
           <div className="rounded-xl border p-4 bg-card">
@@ -269,28 +261,16 @@ const ContentPM = () => {
             ["Next", "Assistant IA + Matching CV"],
             ["Later", "Coaching IA avancé + analytics recruteurs"],
           ].map(([t, d]) => (
-            <div key={t} className="rounded-xl border p-4 bg-card">
-              <div className="text-sm uppercase tracking-wide text-muted-foreground">{t}</div>
-              <div className="mt-1">{d}</div>
-            </div>
-          ))}
-        </div>
-        <div className="grid md:grid-cols-4 gap-4 mt-6">
-          {[
-            ["CTR seniors", "11% → 13%"],
-            ["Onboarding", "70% complétion"],
-            ["Assistant IA", "≥1,5 usage/session"],
-            ["Profils activés", "+300 à +800"],
-          ].map(([k, v]) => (
-            <div key={k} className="rounded-xl border p-4 bg-card">
-              <div className="text-sm text-muted-foreground">{k}</div>
-              <div className="text-xl font-semibold text-accent">{v}</div>
+            <div key={t} className="rounded-xl border-2 p-6 bg-card shadow-sm hover:shadow-md transition-shadow">
+              <div className="text-xs uppercase tracking-wider font-semibold text-accent mb-2">{t}</div>
+              <div className="text-base font-medium">{d}</div>
             </div>
           ))}
         </div>
         <CaseImage
-          alt="KPIs détaillés"
-          desktopSrc="/WTTJ/kpis-desktop.png"
+          alt="Roadmap Now Next Later"
+          desktopSrc="/WTTJ/etude_de_cas_p18_desktop.png"
+          caption="Roadmap : priorisation par phases Now / Next / Later"
         />
       </section>
 
@@ -326,6 +306,7 @@ const ContentPM = () => {
         <CaseImage
           alt="Matrice de risques"
           desktopSrc="/WTTJ/risques-desktop.png"
+          caption="Matrice de risques et stratégies de mitigation"
         />
       </section>
 
@@ -352,6 +333,7 @@ const ContentPM = () => {
         <CaseImage
           alt="Synthèse tests"
           desktopSrc="/WTTJ/tests-desktop.png"
+          caption="Synthèse des retours utilisateurs"
         />
       </section>
 
@@ -382,7 +364,7 @@ const ContentPM = () => {
         onClick={() => navigate('/')}
         className="my-6"
       />
-    </>
+    </div>
   );
 };
 
@@ -390,7 +372,7 @@ const ContentDesigner = () => {
   const navigate = useNavigate();
   
   return (
-    <>
+    <div className="space-y-16">
       {/* TL;DR */}
       <CaseTldr />
 
@@ -546,7 +528,7 @@ const ContentDesigner = () => {
           <li><a className="underline hover:text-accent" href="https://prototype-wttj.lovable.app/" target="_blank" rel="noopener noreferrer">Prototype Lovable interactif</a></li>
         </ul>
       </section>
-    </>
+    </div>
   );
 };
 

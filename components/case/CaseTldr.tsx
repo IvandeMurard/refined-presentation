@@ -6,6 +6,7 @@ export default function CaseTldr() {
       style={{ backgroundColor: '#FEE440' }}
       aria-label="Project TL;DR"
     >
+      <h3 className="text-lg font-bold mb-4 text-foreground">TL;DR</h3>
       <ul className="list-disc pl-5 space-y-2 text-sm md:text-base font-medium leading-relaxed">
         <li><b>Durée & équipe :</b> 12 jours, 4 PM.</li>
         <li><b>Discovery :</b> 8 entretiens qualitatifs vidéo avec profils seniors (tech & autres).</li>

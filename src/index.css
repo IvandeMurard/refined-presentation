@@ -217,14 +217,22 @@
   
   /* Filter chip styles */
   .chip-filter {
-    @apply h-9 px-4 rounded-full border bg-card transition-all duration-200;
+    @apply h-11 px-5 rounded-full border bg-card transition-all duration-200;
     border-color: hsl(var(--border));
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+  
+  .chip-filter:hover {
+    transform: scale(1.02);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
   }
   
   .chip-filter[aria-pressed="true"] {
-    background-color: hsl(var(--chip-active-bg));
-    border-color: hsl(var(--chip-active-border));
-    color: hsl(var(--accent));
+    background-color: hsl(224 64% 33%);
+    border-color: hsl(224 64% 33%);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(30, 58, 138, 0.25);
   }
   
   /* Container grid system */

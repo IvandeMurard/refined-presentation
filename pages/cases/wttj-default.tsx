@@ -70,6 +70,7 @@ export default function WttjDefaultCase() {
         alt="Opportunity tree (extrait pivot)"
         desktopSrc="/wttj/pivot-desktop.png" // ← etude_de_cas_p29_desktop.png
         mobileSrc="/wttj/pivot-mobile.png"   // ← etude_de_cas_p29_mobile.png
+        caption="Arbre d'opportunités - Recentrage stratégique"
       />
 
       {/* MVP priorisé et testé */}
@@ -85,6 +86,7 @@ export default function WttjDefaultCase() {
           alt="RICE – priorisation MVP"
           desktopSrc="/wttj/rice-desktop.png" // ← etude_de_cas_p31_desktop.png
           mobileSrc="/wttj/rice-mobile.png"   // ← etude_de_cas_p31_mobile.png
+          caption="Matrice RICE - Priorisation des features MVP"
         />
       </section>
 
@@ -151,6 +153,7 @@ export default function WttjDefaultCase() {
           alt="KPIs (extrait slide)"
           desktopSrc="/wttj/kpis-desktop.png" // ← etude_de_cas_p41_desktop.png
           mobileSrc="/wttj/kpis-mobile.png"   // ← etude_de_cas_p41_mobile.png
+          caption="KPIs cibles et métriques de succès"
         />
       </section>
 
@@ -168,6 +171,7 @@ export default function WttjDefaultCase() {
           alt="Matrice de risques"
           desktopSrc="/wttj/risques-desktop.png" // ← etude_de_cas_p39_desktop.png
           mobileSrc="/wttj/risques-mobile.png"   // ← etude_de_cas_p39_mobile.png
+          caption="Matrice de risques et stratégies de mitigation"
         />
       </section>
 
