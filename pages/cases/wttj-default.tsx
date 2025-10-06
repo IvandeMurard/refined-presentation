@@ -10,7 +10,7 @@ export default function WttjDefaultCase() {
       {/* Hero */}
       <header className="space-y-3">
         <h1 className="text-2xl md:text-3xl font-semibold">
-          Case Study — Welcome to the Jungle · Conversion Seniors (12 jours)
+          Case Study — Welcome to the Jungle · Growth (12 jours)
         </h1>
         <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400">
           Projet de fin de formation Product Management Intensive (MAESTRO)
