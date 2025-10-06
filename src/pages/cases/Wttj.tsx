@@ -1,14 +1,15 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { CaseStudyLayout } from '@/components/CaseStudyLayout';
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '../../../components/footer';
-import CaseTldr from '../../../components/case/CaseTLDR';
-import CasePivot from '../../../components/case/CasePivot';
-import { CaseImage } from '../../../components/case/CaseImage';
-import { CTABanner } from '@/components/work/CTABanner';
-import { useAudience } from '@/hooks/useAudience';
-import wttjHero from '@/assets/wttj-hero.png';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { CaseStudyLayout } from "@/components/CaseStudyLayout";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "../../../components/footer";
+import CaseTldr from "../../../components/case/CaseTLDR";
+import CasePivot from "../../../components/case/CasePivot";
+import { CaseImage } from "../../../components/case/CaseImage";
+import { CTABanner } from "@/components/work/CTABanner";
+import { useAudience } from "@/hooks/useAudience";
+import wttjHero from "@/assets/wttj-hero.png";
+import CasePrototypeHighlight from "../../components/case/CasePrototypeHighlight";
 
 // ============= AUDIENCE CONTENTS =============
 
@@ -35,9 +36,9 @@ export default function Wttj() {
         <div className="space-y-4">
           <h2 className="text-xl md:text-2xl font-semibold">Contexte & Problématique</h2>
           <p>
-            Les profils seniors postulent peu sur la plateforme, alors qu’ils sont très demandés par les
-            entreprises clientes. Objectif : <b>augmenter les candidatures seniors (prioritairement dans la tech)</b> via
-            une expérience plus pertinente et engageante.
+            Les profils seniors postulent peu sur la plateforme, alors qu’ils sont très demandés par les entreprises
+            clientes. Objectif : <b>augmenter les candidatures seniors (prioritairement dans la tech)</b> via une
+            expérience plus pertinente et engageante.
           </p>
         </div>
         <CaseImage
@@ -102,10 +103,14 @@ export default function Wttj() {
       </section>
 
       {/* CTA collaboration — placé juste après le Prototype */}
-      <section id="cta-collab" className="rounded-2xl border p-6 md:p-8 text-center bg-emerald-50/60 dark:bg-emerald-900/20">
+      <section
+        id="cta-collab"
+        className="rounded-2xl border p-6 md:p-8 text-center bg-emerald-50/60 dark:bg-emerald-900/20"
+      >
         <h3 className="text-lg md:text-xl font-semibold mb-2">Travaillons ensemble</h3>
         <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-300 mb-4">
-          Vous voulez accélérer la conversion des profils seniors tech ? Je peux vous aider à cadrer la discovery, prioriser un MVP et livrer un prototype testé.
+          Vous voulez accélérer la conversion des profils seniors tech ? Je peux vous aider à cadrer la discovery,
+          prioriser un MVP et livrer un prototype testé.
         </p>
         <a
           href="/contact"
