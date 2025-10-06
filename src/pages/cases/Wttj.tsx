@@ -94,40 +94,55 @@ const ContentDefault = () => {
       </section>
 
       {/* Prototype & Tests */}
-      <section className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6 items-start">
-          <div className="space-y-3">
-            <h2 className="text-h3">Prototype & Tests utilisateurs</h2>
-            <p>Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.</p>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="test-positive">
-                <h4 className="font-medium mb-2">✅ Positifs</h4>
-                <ul className="text-sm list-disc pl-4 space-y-1">
-                  <li>Offres plus lisibles & pertinentes.</li>
-                  <li>Onboarding rassurant.</li>
-                  <li>Matching CV motivant.</li>
-                </ul>
-              </div>
-              <div className="test-improvement">
-                <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
-                <ul className="text-sm list-disc pl-4 space-y-1">
-                  <li>Wording du CTA onboarding.</li>
-                  <li>Placement de l'assistant IA.</li>
-                </ul>
-              </div>
+      <section className="space-y-8">
+        <div>
+          <h2 className="text-h3 mb-4">Prototype & Tests utilisateurs</h2>
+          <p className="text-base mb-6">
+            Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <div className="test-positive p-5 rounded-xl border-2">
+              <h4 className="font-medium mb-2">✅ Positifs</h4>
+              <ul className="text-sm list-disc pl-4 space-y-1">
+                <li>Offres plus lisibles & pertinentes.</li>
+                <li>Onboarding rassurant.</li>
+                <li>Matching CV motivant.</li>
+              </ul>
+            </div>
+            <div className="test-improvement p-5 rounded-xl border-2">
+              <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
+              <ul className="text-sm list-disc pl-4 space-y-1">
+                <li>Wording du CTA onboarding.</li>
+                <li>Placement de l'assistant IA.</li>
+              </ul>
             </div>
           </div>
+
+          <a 
+            href="https://prototype-wttj.lovable.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block group hover:opacity-90 transition-opacity"
+          >
+            <CaseImage
+              alt="Prototype onboarding"
+              desktopSrc="/WTTJ/proto-onboarding-desktop.png"
+              caption="🔗 Prototype Lovable – Cliquez pour tester"
+            />
+          </a>
+        </div>
+
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Résultats des tests utilisateurs</h3>
           <CaseImage
-            alt="Prototype onboarding"
-            desktopSrc="/WTTJ/proto-onboarding-desktop.png"
-            caption="Prototype Lovable – écran onboarding"
+            alt="Résultats des tests utilisateurs"
+            desktopSrc="/WTTJ/tests-desktop.png"
+            caption="Synthèse des retours utilisateurs"
           />
         </div>
-        <CaseImage
-          alt="Résultats des tests utilisateurs"
-          desktopSrc="/WTTJ/tests-desktop.png"
-          caption="Synthèse des retours utilisateurs"
-        />
       </section>
 
       {/* Roadmap & KPIs */}
@@ -143,7 +158,7 @@ const ContentDefault = () => {
             <div className="text-base font-medium">Assistant IA + Matching CV</div>
           </div>
           <div className="roadmap-later">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#0D47A1' }}>Later</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Later</div>
             <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
           </div>
         </div>
@@ -267,7 +282,7 @@ const ContentPM = () => {
             <div className="text-base font-medium">Assistant IA + Matching CV</div>
           </div>
           <div className="roadmap-later">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#0D47A1' }}>Later</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Later</div>
             <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
           </div>
         </div>
@@ -315,30 +330,55 @@ const ContentPM = () => {
       </section>
 
       {/* Prototype & Tests (résultats) */}
-      <section className="space-y-4">
-        <h2 className="text-h3">Tests utilisateurs - Résultats</h2>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="test-positive">
-            <h4 className="font-medium mb-2">✅ Validations</h4>
-            <ul className="text-sm list-disc pl-4 space-y-1">
-              <li>Offres plus lisibles & pertinentes</li>
-              <li>Onboarding rassurant</li>
-              <li>Matching CV motivant</li>
-            </ul>
-          </div>
-          <div className="test-improvement">
-            <h4 className="font-medium mb-2">🔄 Itérations</h4>
-            <ul className="text-sm list-disc pl-4 space-y-1">
-              <li>Wording CTA onboarding</li>
-              <li>Placement assistant IA</li>
-            </ul>
-          </div>
+      <section className="space-y-8">
+        <div>
+          <h2 className="text-h3 mb-4">Tests utilisateurs - Résultats</h2>
+          <p className="text-base mb-6">
+            4 tests utilisateurs pour valider le MVP avant déploiement.
+          </p>
         </div>
-        <CaseImage
-          alt="Synthèse tests"
-          desktopSrc="/WTTJ/tests-desktop.png"
-          caption="Synthèse des retours utilisateurs"
-        />
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <div className="test-positive p-5 rounded-xl border-2">
+              <h4 className="font-medium mb-2">✅ Validations</h4>
+              <ul className="text-sm list-disc pl-4 space-y-1">
+                <li>Offres plus lisibles & pertinentes</li>
+                <li>Onboarding rassurant</li>
+                <li>Matching CV motivant</li>
+              </ul>
+            </div>
+            <div className="test-improvement p-5 rounded-xl border-2">
+              <h4 className="font-medium mb-2">🔄 Itérations</h4>
+              <ul className="text-sm list-disc pl-4 space-y-1">
+                <li>Wording CTA onboarding</li>
+                <li>Placement assistant IA</li>
+              </ul>
+            </div>
+          </div>
+
+          <a 
+            href="https://prototype-wttj.lovable.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block group hover:opacity-90 transition-opacity"
+          >
+            <CaseImage
+              alt="Prototype onboarding"
+              desktopSrc="/WTTJ/proto-onboarding-desktop.png"
+              caption="🔗 Prototype Lovable – Cliquez pour tester"
+            />
+          </a>
+        </div>
+
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Synthèse des retours</h3>
+          <CaseImage
+            alt="Synthèse tests"
+            desktopSrc="/WTTJ/tests-desktop.png"
+            caption="Synthèse des retours utilisateurs"
+          />
+        </div>
       </section>
 
       {/* Conclusion */}
@@ -428,41 +468,56 @@ const ContentDesigner = () => {
       </section>
 
       {/* Prototype & Tests */}
-      <section className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6 items-start">
-          <div className="space-y-3">
-            <h2 className="text-h3">Prototype & Tests utilisateurs</h2>
-            <p>4 tests utilisateurs avec des profils issus de la discovery pour valider le prototype.</p>
-            <div className="grid grid-cols-2 gap-3">
-              <div className="test-positive">
-                <h4 className="font-medium mb-2">✅ Points forts</h4>
-                <ul className="text-sm list-disc pl-4 space-y-1">
-                  <li>Offres plus lisibles & pertinentes</li>
-                  <li>Onboarding rassurant</li>
-                  <li>Matching CV motivant</li>
-                </ul>
-              </div>
-              <div className="test-improvement">
-                <h4 className="font-medium mb-2">🔍 Axes d'amélioration</h4>
-                <ul className="text-sm list-disc pl-4 space-y-1">
-                  <li>Wording du CTA onboarding</li>
-                  <li>Placement de l'assistant IA</li>
-                  <li>Hiérarchie visuelle filtres</li>
-                </ul>
-              </div>
+      <section className="space-y-8">
+        <div>
+          <h2 className="text-h3 mb-4">Prototype & Tests utilisateurs</h2>
+          <p className="text-base mb-6">
+            4 tests utilisateurs avec des profils issus de la discovery pour valider le prototype.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="space-y-4">
+            <div className="test-positive p-5 rounded-xl border-2">
+              <h4 className="font-medium mb-2">✅ Points forts</h4>
+              <ul className="text-sm list-disc pl-4 space-y-1">
+                <li>Offres plus lisibles & pertinentes</li>
+                <li>Onboarding rassurant</li>
+                <li>Matching CV motivant</li>
+              </ul>
+            </div>
+            <div className="test-improvement p-5 rounded-xl border-2">
+              <h4 className="font-medium mb-2">🔍 Axes d'amélioration</h4>
+              <ul className="text-sm list-disc pl-4 space-y-1">
+                <li>Wording du CTA onboarding</li>
+                <li>Placement de l'assistant IA</li>
+                <li>Hiérarchie visuelle filtres</li>
+              </ul>
             </div>
           </div>
+
+          <a 
+            href="https://prototype-wttj.lovable.app/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block group hover:opacity-90 transition-opacity"
+          >
+            <CaseImage
+              alt="Prototype onboarding"
+              desktopSrc="/WTTJ/proto-onboarding-desktop.png"
+              caption="🔗 Prototype Lovable – Cliquez pour tester"
+            />
+          </a>
+        </div>
+
+        <div className="space-y-4">
+          <h3 className="text-xl font-semibold">Résultats des tests</h3>
           <CaseImage
-            alt="Prototype onboarding"
-            desktopSrc="/WTTJ/proto-onboarding-desktop.png"
-            caption="Écran onboarding personnalisé"
+            alt="Résultats des tests"
+            desktopSrc="/WTTJ/tests-desktop.png"
+            caption="Synthèse des retours utilisateurs"
           />
         </div>
-        <CaseImage
-          alt="Résultats des tests"
-          desktopSrc="/WTTJ/tests-desktop.png"
-          caption="Synthèse des retours utilisateurs"
-        />
       </section>
 
       {/* Décisions design clés */}
