@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { CaseStudyLayout } from '@/components/CaseStudyLayout';
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '../../../components/footer';
-import CaseTldr from '../../../components/case/CaseTldr';
+import CaseTldr from '../../../components/case/CaseTLDR';
 import CasePivot from '../../../components/case/CasePivot';
 import { CaseImage } from '../../../components/case/CaseImage';
 import { CTABanner } from '@/components/work/CTABanner';
