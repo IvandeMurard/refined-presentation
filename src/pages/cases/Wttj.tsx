@@ -9,6 +9,8 @@ import { CaseImage } from '../../../components/case/CaseImage';
 import { CTABanner } from '@/components/work/CTABanner';
 import { useAudience } from '@/hooks/useAudience';
 import wttjHero from '@/assets/wttj-hero.png';
+import CasePrototypeHighlight from "@/components/case/CasePrototypeHighlight";
+
 
 // ============= AUDIENCE CONTENTS =============
 
@@ -30,10 +32,11 @@ const ContentDefault = () => {
           </p>
         </div>
         <CaseImage
-          alt="Stats & contexte"
-          desktopSrc="/WTTJ/contexte-desktop.png"
-          caption="Data et signaux marché"
-        />
+      alt="Stats & contexte"
+      desktopSrc="/WTTJ/context-desktop.png"   // au lieu de /WTTJ/contexte-desktop.png si nécessaire
+      caption="Data et signaux marché"
+/>
+
       </section>
 
       {/* Objectifs */}
@@ -191,7 +194,7 @@ const ContentDefault = () => {
         <h2 className="text-h3">Vue d'ensemble</h2>
         <CaseImage
           alt="Slide de conclusion"
-          desktopSrc="/WTTJ/etude_de_cas_p29_desktop.png"
+          desktopSrc="/WTTJ/vue-ensemble-desktop.png"
           caption="Vue d'ensemble du projet"
         />
       </section>
@@ -329,6 +332,9 @@ const ContentPM = () => {
         />
       </section>
 
+      {/* Mise en avant du Prototype (hero + lien) */}
+<CasePrototypeHighlight />
+
       {/* Prototype & Tests (résultats) */}
       <section className="space-y-8">
         <div>
@@ -337,6 +343,15 @@ const ContentPM = () => {
             4 tests utilisateurs pour valider le MVP avant déploiement.
           </p>
         </div>
+
+        {/* CTA collaboration — juste après le prototype */}
+<CTABanner
+  title="Travaillons ensemble"
+  description="Accélérons la conversion des profils seniors tech : discovery, MVP et mise en prod."
+  ctaText="Me contacter"
+  onClick={() => navigate('/contact')}
+  className="my-6"
+/>
 
         <div className="grid md:grid-cols-2 gap-8">
           <div className="space-y-4">
@@ -382,13 +397,13 @@ const ContentPM = () => {
       </section>
 
       {/* Conclusion */}
-      <section className="rounded-2xl border p-6 md:p-8 bg-[#FEE440]/20 dark:bg-[#FEE440]/10">
-        <h2 className="text-h3 mb-3">Conclusion</h2>
-        <p>
-          MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement.
-          Next : mesurer adoption, itérer sur wording & IA placement, étendre si KPIs validés.
-        </p>
-      </section>
+      <section className="rounded-2xl border p-6 md:p-8 bg-emerald-50 dark:bg-emerald-900/20 border-emerald-200/60">
+  <h2 className="text-h3 mb-3">Conclusion</h2>
+  <p>
+    <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
+    Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
+  </p>
+</section>
 
       {/* Épilogue */}
       <section className="space-y-3">
@@ -564,22 +579,15 @@ const ContentDesigner = () => {
 
       {/* Épilogue */}
       <section className="space-y-3">
-        <h3 className="text-h4">Ce qui aurait pu être fait différemment</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Design system plus robuste (composants réutilisables)</li>
-          <li>Tests d'accessibilité (WCAG) plus approfondis</li>
-          <li>Micro-interactions et états de chargement plus travaillés</li>
-        </ul>
-      </section>
-
-      {/* CTA */}
-      <CTABanner
-        title="Voir mes autres projets design"
-        description="De la recherche utilisateur au prototype testé"
-        ctaText="Portfolio complet"
-        onClick={() => navigate('/')}
-        className="my-6"
-      />
+  <div className="rounded-xl border p-5 bg-zinc-50 dark:bg-zinc-900/30">
+    <h3 className="text-h4">Ce qui aurait pu être fait différemment</h3>
+    <ul className="list-disc pl-5 space-y-2">
+      <li>Explorer l'angle <b>B2B</b> (entreprises) en plus du B2C.</li>
+      <li>Tester d'autres segments seniors hors tech.</li>
+      <li>Ajouter des tests quantitatifs pour valider à plus grande échelle.</li>
+    </ul>
+  </div>
+</section>
 
       {/* Liens */}
       <section className="pt-4 border-t">
@@ -597,49 +605,31 @@ export default function WttjPage() {
   const navigate = useNavigate();
   const { activeAudience, setActiveAudience, audiences } = useAudience('default');
 
-  const audienceContent = [
-    { 
-      id: 'default', 
-      label: 'Vue d\'ensemble', 
-      content: <ContentDefault /> 
-    },
-    { 
-      id: 'pm', 
-      label: 'Product Manager', 
-      content: <ContentPM /> 
-    },
-    { 
-      id: 'design', 
-      label: 'Designer', 
-      content: <ContentDesigner /> 
-    },
-  ];
+  const { activeAudience, setActiveAudience, audiences } = useAudience('default');
 
-  const scrollToSection = (id: string) => {
-    if (id === 'home') {
-      navigate('/');
-    }
-  };
+// handler scroll
+const scrollToSection = (id: string) => {
+  if (id === 'home') {
+    navigate('/');
+    return;
+  }
+  // on force l'onglet "default" puis on scrolle
+  setActiveAudience('default');
+  requestAnimationFrame(() => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+};
 
-  return (
-    <>
-      <Navigation />
-      <CaseStudyLayout
-        title="Welcome to the Jungle — Conversion Seniors"
-        subtitle="De l'insight utilisateur à un MVP priorisé, testé et livré en 12 jours"
-        heroImage={wttjHero}
-        audiences={audienceContent}
-        activeAudience={activeAudience}
-        onAudienceChange={setActiveAudience}
-      />
-      <Footer
-        siteName="Ivan de Murard"
-        tagline="Product Designer & Manager crafting user-centered experiences"
-        sections={[
-          { id: "home", label: "Back to Portfolio" }
-        ]}
-        onSectionClick={scrollToSection}
-      />
-    </>
-  );
-}
+...
+
+<Footer
+  siteName="Ivan de Murard"
+  tagline="Product Designer & Manager crafting user-centered experiences"
+  sections={[
+    { id: "home", label: "Accueil" },
+   
+  ]}
+  onSectionClick={scrollToSection}
+/>
+
