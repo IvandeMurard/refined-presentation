@@ -25,8 +25,7 @@ export default function CasePrototypeHighlight() {
           <img
             src="/WTTJ/proto-onboarding-desktop.jpg"
             alt="Prototype — écran d’onboarding"
-            className="w-full rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm"
-            style={{ aspectRatio: "16/9", objectFit: "cover" }}
+            className="w-full aspect-video object-cover rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm"
             loading="lazy"
           />
         </div>
@@ -38,12 +37,8 @@ export default function CasePrototypeHighlight() {
             <li>Matching CV ↔ Offres pour accélérer la décision.</li>
           </ul>
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg border p-3 text-xs">
-              ✅ Lisibilité et pertinence perçues en hausse
-            </div>
-            <div className="rounded-lg border p-3 text-xs">
-              ⚠️ Wording CTA & placement IA à itérer
-            </div>
+            <div className="rounded-lg border p-3 text-xs">✅ Lisibilité & pertinence en hausse</div>
+            <div className="rounded-lg border p-3 text-xs">⚠️ Wording CTA & placement IA à itérer</div>
           </div>
         </div>
       </div>
