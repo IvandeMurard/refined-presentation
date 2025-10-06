@@ -1,7 +1,7 @@
 // src/pages/cases/wttj-default.tsx
-import CaseTldr from "@/components/case/CaseTldr";
-import CasePivot from "@/components/case/CasePivot";
-import CasePrototypeHighlight from "@/components/case/CasePrototypeHighlight";
+import CaseTldr from "../../../components/case/CaseTldr";
+import CasePivot from "../../../components/case/CasePivot";
+import CasePrototypeHighlight from "../../../components/case/CasePrototypeHighlight";
 import { CaseImage } from "@/components/case/CaseImage";
 
 export default function WttjDefaultCase() {
