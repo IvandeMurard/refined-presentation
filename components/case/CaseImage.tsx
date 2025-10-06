@@ -3,12 +3,12 @@ type Props = {
   alt: string;
   desktopSrc: string;
   mobileSrc?: string;
-  caption?: string;
+  caption: string;
   className?: string;
 };
 
 export function CaseImage({ alt, desktopSrc, mobileSrc, caption, className }: Props) {
-  const mobile = mobileSrc || desktopSrc;
+  const mobile = mobileSrc || desktopSrc; // fallback simple
 
   return (
     <figure className={className ?? "group"}>
@@ -25,9 +25,7 @@ export function CaseImage({ alt, desktopSrc, mobileSrc, caption, className }: Pr
           }}
         />
       </picture>
-      {caption && (
-        <figcaption className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 italic">{caption}</figcaption>
-      )}
+      <figcaption className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 italic">{caption}</figcaption>
     </figure>
   );
 }

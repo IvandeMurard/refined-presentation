@@ -1,5 +1,5 @@
-// components/case/CaseTLDR.tsx
-export default function CaseTLDR() {
+// components/case/CaseTldr.tsx
+export default function CaseTldr() {
   return (
     <aside
       className="rounded-2xl p-5 md:p-6 lg:p-8 border shadow-sm"

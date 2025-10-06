@@ -10,7 +10,7 @@ export default function WttjDefaultCase() {
       {/* Hero */}
       <header className="space-y-3">
         <h1 className="text-2xl md:text-3xl font-semibold">
-          Case Study — Welcome to the Jungle · Growth (12 jours)
+          Case Study — Welcome to the Jungle · Conversion Seniors (12 jours)
         </h1>
         <p className="text-sm md:text-base text-zinc-600 dark:text-zinc-400">
           Projet de fin de formation Product Management Intensive (MAESTRO)
@@ -25,8 +25,8 @@ export default function WttjDefaultCase() {
         <div className="space-y-4">
           <h2 className="text-xl md:text-2xl font-semibold">Contexte & Problématique</h2>
           <p>
-            Les profils seniors postulent peu sur la plateforme, malgré la demande par les entreprises.
-            Objectif : <b>augmenter les candidatures seniors sur la plateforme Welcome To The Jungle.</b>
+            Les profils seniors postulent peu sur la plateforme, alors qu’ils sont très demandés par les entreprises clientes.
+            Objectif : <b>augmenter les candidatures seniors (prioritairement dans la tech)</b> via une expérience plus pertinente et engageante.
           </p>
         </div>
         <CaseImage
@@ -79,7 +79,7 @@ export default function WttjDefaultCase() {
         <ol className="list-decimal pl-5 space-y-2">
           <li>Standardisation des offres (salaire, remote, missions, stack).</li>
           <li>Onboarding personnalisé (critères seniors).</li>
-          <li>Assistant IA (CV, storytelling, préparation d'entretien).</li>
+          <li>Assistant IA (CV, storytelling, préparation entretien).</li>
           <li>Matching CV ↔ Offres.</li>
         </ol>
         <CaseImage
@@ -94,7 +94,7 @@ export default function WttjDefaultCase() {
       <section className="grid md:grid-cols-2 gap-6 items-start">
         <div className="space-y-3">
           <h2 className="text-xl md:text-2xl font-semibold">Prototype & Tests utilisateurs</h2>
-          <p>Wireframes → Maquette Figma → finalisation & publication avec Lovable → 4 tests utilisateurs issus de la discovery.</p>
+          <p>Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.</p>
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-lg border p-3">
               <h4 className="font-medium mb-2">✅ Positifs</h4>
@@ -193,7 +193,7 @@ export default function WttjDefaultCase() {
       <section className="space-y-3">
         <h3 className="text-lg md:text-xl font-semibold">Ce qui aurait pu être fait différemment</h3>
         <ul className="list-disc pl-5 space-y-2">
-          <li>Valoriser l’angle <b>B2B</b> (entreprises) en plus du B2C.</li>
+          <li>Explorer l’angle <b>B2B</b> (entreprises) en plus du B2C.</li>
           <li>Tester d’autres segments seniors hors tech.</li>
           <li>Ajouter des tests quantitatifs pour valider à plus grande échelle.</li>
         </ul>
