@@ -29,11 +29,11 @@ export const CaseStudyLayout: React.FC<CaseStudyLayoutProps> = ({
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
-      <div className="relative w-full overflow-hidden">
+      <div className="relative h-[70vh] overflow-hidden">
         <img 
           src={heroImage} 
           alt={title}
-          className="w-full aspect-video object-cover"
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
         <div className="absolute inset-0 flex items-end">
