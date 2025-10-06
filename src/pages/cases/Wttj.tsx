@@ -32,7 +32,7 @@ export default function Wttj() {
 
       {/* TL;DR (chapeau jaune) */}
       <section id="tldr">
-        <CaseTldr />
+        <CaseTLDR />
       </section>
 
       {/* Contexte & Problématique */}
