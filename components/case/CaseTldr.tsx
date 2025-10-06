@@ -1,4 +1,4 @@
-// components/case/CaseTldr.tsx
+// components/case/CaseTLDR.tsx
 export default function CaseTldr() {
   return (
     <aside
