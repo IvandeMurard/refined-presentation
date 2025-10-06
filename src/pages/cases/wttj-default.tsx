@@ -16,6 +16,8 @@ export default function WttjDefaultCase() {
     }
   };
 
+  <CaseImage alt="JTBD" desktopSrc="/WTTJ/jtbd-desktop.png" ratio="16/9" />
+
   return (
     <>
       <Navigation />
