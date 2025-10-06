@@ -1,15 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { CaseStudyLayout } from "@/components/CaseStudyLayout";
-import { Navigation } from "@/components/Navigation";
+
+// ---- composants communs (tous en chemins relatifs) ----
+import { CaseStudyLayout } from "../../../components/CaseStudyLayout";
+import { Navigation } from "../../../components/Navigation";
 import { Footer } from "../../../components/footer";
-import CaseTldr from "../../../components/case/CaseTLDR";
+import { CTABanner } from "../../../components/work/CTABanner";
+import useAudience from "../../../hooks/useAudience";
+import wttjHero from "../../../assets/wttj-hero.png";
+
+// ---- composants du dossier 'components/case' (racine du repo) ----
+import CaseTLDR from "../../../components/case/CaseTLDR";
 import CasePivot from "../../../components/case/CasePivot";
 import { CaseImage } from "../../../components/case/CaseImage";
-import { CTABanner } from "@/components/work/CTABanner";
-import { useAudience } from "@/hooks/useAudience";
-import wttjHero from "@/assets/wttj-hero.png";
-import CasePrototypeHighlight from "components/case/CasePrototypeHighlight.tsx;
+import CasePrototypeHighlight from "../../../components/case/CasePrototypeHighlight";
 
 // ============= AUDIENCE CONTENTS =============
 
