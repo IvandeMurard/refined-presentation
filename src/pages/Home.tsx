@@ -43,74 +43,70 @@ const projects: Project[] = [
     bullets: sonorCase.bullets,
   },
   {
-    id: "wttj-conversion-seniors",
-    title: "Welcome to the Jungle - Conversion Seniors",
-    subtitle: "Improving senior candidate conversion through strategic product management",
-    image: wttjHero,
-    logo: wttjLogo,
-    tags: ["Product Management", "UX Research", "SaaS"],
-    category: "product",
-    longDescription:
-      "Amélioration de la conversion des candidats seniors via transparence, personnalisation et accompagnement IA",
-    bullets: [
-      "Discovery avec 8 entretiens seniors tech",
-      "Pivot stratégique vers WTTJ Tech+",
-      "MVP testé : standardisation offres + onboarding + assistant IA",
-      "KPIs : CTR 11% → 13%, +300 à +800 profils activés",
-    ],
-  },
+  id: 'wttj-conversion-seniors',
+  title: 'How might we increase senior-candidate conversion on WTTJ?',
+  subtitle: 'A growth-oriented product play: transparency, personalization, assistive onboarding',
+  image: wttjHero,
+  logo: wttjLogo,
+  tags: ['Growth', 'Product Management'],
+  category: 'product',
+  longDescription: 'Improving conversion for senior candidates through clearer offers and guided activation.',
+  bullets: [
+    'User discovery with senior engineers to surface friction',
+    'Strategy pivot towards a clearer, more focused WTTJ Tech+',
+    'MVP: standardized job pages + guided onboarding + AI helper',
+    'Early signal: CTR 11% → 13% and +300 to +800 activated profiles',
+  ],
+},
 
-  // — NOUVEAUX SIDE-PROJECTS —
+  // — Agents d’évaluation —
   {
-    id: "agents-eval",
-    title: "Construire des agents d’évaluation spécialisés",
-    subtitle: "De l’idée au blueprint réutilisable",
-    image: "/img/projects/agents-eval/mdreza-jalali-unsplash.jpg",
-    tags: ["Agents & Evaluation"],
-    category: "agents",
-    longDescription:
-      "Évaluer mieux, plus vite, à grande échelle — de l’architecture de run à un blueprint réutilisable.",
-    bullets: [
-      "Schéma Supabase (runs, issues, recommendations, metrics + view run_dashboard)",
-      "Workflow n8n E2E : Create Run → Add Issues/Recommendations → Close Run",
-      "LLM-as-a-Judge + score composite avec quality-gate ≥80%",
-      "Blueprint réutilisable (UX, data-quality, prompt-robustness…)",
-      "Pré-prod : webhooks, retries, logs, notifications Slack",
-    ],
-  },
-  {
-    id: "spotify-valence-journeys",
-    title: "Guides musicaux pilotés par la valence",
-    subtitle: "Du signal audio à l’action bien-être",
-    image: "/images/projects/spotify-mood/cover.webp", // placeholder à créer si besoin
-    tags: ["Experience"],
-    category: "experience",
-    longDescription: "Transformer l’écoute en parcours d’humeur : valence/arousal → recommandations d’actions.",
-    bullets: [
-      "Cartographie valence/arousal → recommandations",
-      "Flow chart contextualisé + micro-délices visuels",
-      "Modes individuel/social (jam locale)",
-      "Safety by design : opt-in, transparence, contrôle",
-      "Étapes suivantes : wireframes mobiles + tests qualis",
-    ],
-  },
-  {
-    id: "on-air",
-    title: "On Air — studio collaboratif en direct",
-    subtitle: "Paroles + mélodie/tablature en temps réel",
-    image: "/images/projects/on-air/cover.webp", // placeholder à créer si besoin
-    tags: ["Product"],
-    category: "product",
-    longDescription: "Créer, transcrire et partager en temps réel — des rooms live à la restitution synchronisée.",
-    bullets: [
-      "Rooms collaboratives (WebRTC) à faible latence",
-      "Transcription live : paroles + mélodie/tablature",
-      "Time-codes, chapitrage, exports courts",
-      "Partage via lien public + permissions",
-      "Roadmap : V1 capture → V2 édition → V3 packs créatifs",
-    ],
-  },
-];
+  id: 'agents-eval',
+  title: 'How do we trust AI agents at scale?',
+  subtitle: 'A reusable evaluation blueprint for reliable agents',
+  image: 'public/img/mdreza-jalali-unsplash.jpg',
+  tags: ['Agents', 'Evaluation'],
+  category: 'agents',
+  longDescription: 'From run lifecycle to clear signals, helping teams ship with confidence.',
+  bullets: [
+    'Simple lifecycle and dashboard to see what matters',
+    'Automatic scoring with guardrails for “go/no-go”',
+    'Issues & recommendations captured for fast iteration',
+    'Ready to specialize per domain (UX, data quality, robustness)',
+  ],
+},
+  // — Spotify / Valence —
+{
+  id: 'spotify-valence-journeys',
+  title: 'Can music mood guide better daily choices?',
+  subtitle: 'Musical data-driven micro-journeys from listening to action',
+  image: '/images/projects/spotify-mood/cover.webp', // ajoute un visuel placeholder si besoin
+  tags: ['Experience'],
+  category: 'experience',
+  longDescription: 'Turning listening signals (valence/arousal) into nudging, helpful suggestions.',
+  bullets: [
+    'Map mood to actionable suggestions (focus, move, social)',
+    'Context-aware flow: time, history, energy',
+    'Solo or social modes (local jam / shared moments)',
+    'Next: mobile wireframes and qualitative testing',
+  ],
+},
+  // — On Air —
+{
+  id: 'on-air',
+  title: 'What if songwriting felt truly live and collaborative?',
+  subtitle: 'Record and auto-transcribe lyrics & melody in real time',
+  image: '/images/projects/on-air/cover.webp', // ajoute un visuel placeholder si besoin
+  tags: ['Product'],
+  category: 'product',
+  longDescription: 'From live rooms to time-coded snippets you can share instantly.',
+  bullets: [
+    'Live rooms that feel immediate and lightweight',
+    'Automatic capture of lyrics and melody/tablature',
+    'Time-coded highlights for quick sharing',
+    'Roadmap: V1 capture → V2 non-destructive editing → V3 creative packs',
+  ],
+},
 
 const filterChips = [
   { id: "all", label: "All (5)" },
