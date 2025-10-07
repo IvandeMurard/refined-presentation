@@ -33,8 +33,8 @@ const projects: Project[] = [
   // — SONOR (Open Data) — remplacement homogène
   {
     id: "sonor",
-    title: "How can cities turn open data into quieter streets?",
-    subtitle: "From problem mapping to a validated product concept incubated by Banque des Territoires",
+    title: "A 2-year entrepreneurship team project",
+    subtitle: "How can cities turn open data into quieter streets?",
     image: "public/img/sonor.jpg",
     logo: "public/img/logo_sonor.png",
     tags: ["Open Data"],
@@ -49,8 +49,8 @@ const projects: Project[] = [
   // — WTTJ (Conversion seniors) —
   {
     id: "wttj-conversion-seniors",
-    title: "How might we increase senior-candidate conversion on WTTJ?",
-    subtitle: "A growth-oriented product play: transparency, personalization, assistive onboarding",
+    title: "A growth-oriented product case study",
+    subtitle: "How might we increase senior-candidate conversion on WTTJ?",
     image: wttjHero,
     logo: wttjLogo,
     tags: ["Growth", "Product Management"],
@@ -67,8 +67,8 @@ const projects: Project[] = [
   // — Agents d’évaluation —
   {
     id: "agents-eval",
-    title: "How do we trust AI agents at scale?",
-    subtitle: "A reusable evaluation blueprint for reliable agents",
+    title: "Turning trust into an asset",
+    subtitle: "How do we trust AI agents at scale?",
     image: "/images/projects/agents-eval/mdreza-jalali-unsplash.jpg",
     tags: ["Agents", "Evaluation"],
     category: "agents",
@@ -84,8 +84,8 @@ const projects: Project[] = [
   // — Spotify / Valence —
   {
     id: "spotify-valence-journeys",
-    title: "Can music mood guide better daily choices?",
-    subtitle: "Musical data-driven personalised experiences from listening to action",
+    title: "A musical data-driven experience",
+    subtitle: "Can music mood guide better daily choices?",
     image: "/images/projects/spotify-mood/cover.webp", // ajoute un visuel placeholder si besoin
     tags: ["Experience"],
     category: "experience",
@@ -101,8 +101,8 @@ const projects: Project[] = [
   // — On Air —
   {
     id: "on-air",
-    title: "What if songwriting felt truly live and collaborative?",
-    subtitle: "Record and auto-transcribe lyrics & melody in real time",
+    title: "Record and auto-transcribe lyrics & melody in real time?",
+    subtitle: "What if songwriting felt truly live and collaborative?",
     image: "/images/projects/on-air/cover.webp", // ajoute un visuel placeholder si besoin
     tags: ["Product"],
     category: "product",
