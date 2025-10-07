@@ -145,6 +145,15 @@ const ContentDefault = () => {
         </div>
       </section>
 
+      {/* CTA Banner */}
+      <CTABanner
+        title="Découvrez mes autres projets"
+        description="Explorez comment je transforme des insights utilisateurs en produits validés"
+        ctaText="Voir le portfolio"
+        onClick={() => navigate('/')}
+        className="my-6"
+      />
+
       {/* Roadmap & KPIs */}
       <section className="space-y-4">
         <h2 className="text-h3">Roadmap & KPIs</h2>
@@ -186,43 +195,43 @@ const ContentDefault = () => {
         />
       </section>
 
-      {/* Vue d'ensemble */}
-      <section className="space-y-4">
-        <h2 className="text-h3">Vue d'ensemble</h2>
-        <CaseImage
-          alt="Slide de conclusion"
-          desktopSrc="/WTTJ/etude_de_cas_p29_desktop.png"
-          caption="Vue d'ensemble du projet"
-        />
-      </section>
-
       {/* Conclusion */}
-      <section className="rounded-2xl border p-6 md:p-8 bg-[#FEE440]/20 dark:bg-[#FEE440]/10">
-        <h2 className="text-h3 mb-3">Conclusion</h2>
-        <p>
-          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
-          Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
-        </p>
+      <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+            <span className="text-2xl">✓</span>
+          </div>
+          <div>
+            <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
+            <p className="text-lg leading-relaxed">
+              <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
+              Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Épilogue */}
-      <section className="space-y-3">
-        <h3 className="text-h4">Ce qui aurait pu être fait différemment</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Explorer l'angle <b>B2B</b> (entreprises) en plus du B2C.</li>
-          <li>Tester d'autres segments seniors hors tech.</li>
-          <li>Ajouter des tests quantitatifs pour valider à plus grande échelle.</li>
-        </ul>
+      <section className="space-y-4">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🔄</span>
+          <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Exploration B2B</h4>
+            <p className="text-sm text-muted-foreground">Explorer l'angle entreprises en parallèle du B2C</p>
+          </div>
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Segments élargis</h4>
+            <p className="text-sm text-muted-foreground">Tester d'autres segments seniors hors tech</p>
+          </div>
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Tests quantitatifs</h4>
+            <p className="text-sm text-muted-foreground">Validation à plus grande échelle avec métriques</p>
+          </div>
+        </div>
       </section>
-
-      {/* CTA Banner */}
-      <CTABanner
-        title="Découvrez mes autres projets"
-        description="Explorez comment je transforme des insights utilisateurs en produits validés"
-        ctaText="Voir le portfolio"
-        onClick={() => navigate('/')}
-        className="my-6"
-      />
 
       {/* Liens externes */}
       <section className="pt-4 border-t">
@@ -381,25 +390,6 @@ const ContentPM = () => {
         </div>
       </section>
 
-      {/* Conclusion */}
-      <section className="rounded-2xl border p-6 md:p-8 bg-[#FEE440]/20 dark:bg-[#FEE440]/10">
-        <h2 className="text-h3 mb-3">Conclusion</h2>
-        <p>
-          MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement.
-          Next : mesurer adoption, itérer sur wording & IA placement, étendre si KPIs validés.
-        </p>
-      </section>
-
-      {/* Épilogue */}
-      <section className="space-y-3">
-        <h3 className="text-h4">Ce qui aurait pu être fait différemment</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Explorer l'angle <b>B2B</b> en parallèle</li>
-          <li>Tests quantitatifs à plus grande échelle</li>
-          <li>Analyse compétitive approfondie</li>
-        </ul>
-      </section>
-
       {/* CTA */}
       <CTABanner
         title="Discutons de vos projets produit"
@@ -408,6 +398,44 @@ const ContentPM = () => {
         onClick={() => navigate('/')}
         className="my-6"
       />
+
+      {/* Conclusion */}
+      <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+            <span className="text-2xl">✓</span>
+          </div>
+          <div>
+            <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
+            <p className="text-lg leading-relaxed">
+              MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement.
+              Next : mesurer adoption, itérer sur wording & IA placement, étendre si KPIs validés.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Épilogue */}
+      <section className="space-y-4">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🔄</span>
+          <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Exploration B2B</h4>
+            <p className="text-sm text-muted-foreground">Explorer l'angle entreprises en parallèle</p>
+          </div>
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Tests quantitatifs</h4>
+            <p className="text-sm text-muted-foreground">Validation à plus grande échelle avec métriques</p>
+          </div>
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Analyse compétitive</h4>
+            <p className="text-sm text-muted-foreground">Benchmark approfondi des concurrents</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
@@ -520,6 +548,15 @@ const ContentDesigner = () => {
         </div>
       </section>
 
+      {/* CTA */}
+      <CTABanner
+        title="Voir mes autres projets design"
+        description="De la recherche utilisateur au prototype testé"
+        ctaText="Portfolio complet"
+        onClick={() => navigate('/')}
+        className="my-6"
+      />
+
       {/* Décisions design clés */}
       <section className="space-y-4">
         <h2 className="text-h3">Décisions design clés</h2>
@@ -543,43 +580,43 @@ const ContentDesigner = () => {
         </div>
       </section>
 
-      {/* Vue d'ensemble */}
-      <section className="space-y-4">
-        <h2 className="text-h3">Vue d'ensemble design</h2>
-        <CaseImage
-          alt="Mosaïque design"
-          desktopSrc="/WTTJ/etude_de_cas_p29_desktop.png"
-          caption="Vue d'ensemble du système"
-        />
-      </section>
-
       {/* Conclusion */}
-      <section className="rounded-2xl border p-6 md:p-8 bg-[#FEE440]/20 dark:bg-[#FEE440]/10">
-        <h2 className="text-h3 mb-3">Conclusion</h2>
-        <p>
-          Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible.
-          Prototype fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
-        </p>
+      <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
+            <span className="text-2xl">✓</span>
+          </div>
+          <div>
+            <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
+            <p className="text-lg leading-relaxed">
+              Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible.
+              Prototype fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
+            </p>
+          </div>
+        </div>
       </section>
 
       {/* Épilogue */}
-      <section className="space-y-3">
-        <h3 className="text-h4">Ce qui aurait pu être fait différemment</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>Design system plus robuste (composants réutilisables)</li>
-          <li>Tests d'accessibilité (WCAG) plus approfondis</li>
-          <li>Micro-interactions et états de chargement plus travaillés</li>
-        </ul>
+      <section className="space-y-4">
+        <div className="flex items-center gap-3">
+          <span className="text-2xl">🔄</span>
+          <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+        </div>
+        <div className="grid md:grid-cols-3 gap-4">
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Design system robuste</h4>
+            <p className="text-sm text-muted-foreground">Composants réutilisables et maintenables</p>
+          </div>
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Tests d'accessibilité</h4>
+            <p className="text-sm text-muted-foreground">Audit WCAG complet et corrections</p>
+          </div>
+          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+            <h4 className="font-semibold mb-2 text-accent">Micro-interactions</h4>
+            <p className="text-sm text-muted-foreground">États de chargement et animations soignées</p>
+          </div>
+        </div>
       </section>
-
-      {/* CTA */}
-      <CTABanner
-        title="Voir mes autres projets design"
-        description="De la recherche utilisateur au prototype testé"
-        ctaText="Portfolio complet"
-        onClick={() => navigate('/')}
-        className="my-6"
-      />
 
       {/* Liens */}
       <section className="pt-4 border-t">
