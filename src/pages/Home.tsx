@@ -133,34 +133,34 @@ const resourceFilterChips = [
 const hackathons = [
   {
     year: "2025",
-    title: "Windsurf x Mistral x The AI Collective",
+    title: "Windsurf × Mistral × The AI Collective",
     team: "Team of 4",
     status: "3rd Place",
-    description: "We built a generator and matcher of hackathon ideas with a video avatar.",
-    skills: "Prompt engineering", "Content creation", "Social Media",
+    description: "Built an idea generator + matcher for hackathons with a video avatar.",
+    skills: ["Prompt engineering", "Content creation", "Social media"],
   },
   {
     year: "2025",
-    title: "Lion du Samedi - Le Promptathon #1",
+    title: "Lion du Samedi — Promptathon #1",
     team: "Team of 5",
-    description: "Prompted a functional tool to automate business intelligence research and social media publication.",
-    skills: "Prompt engineering", "Automation", "Make", "Market intelligence", "Social media", "AI",
+    description: "Prompted a functional tool to automate market-intel research and social publishing.",
+    skills: ["Prompt engineering", "Automation", "Make", "Market intelligence", "Social media", "AI"],
   },
   {
     year: "2020",
-    title: "Recoder l'Habitat #2",
+    title: "Recoder l’Habitat #2",
     team: "Team of 4",
     status: "1st Place 🏆",
-    description: "We prototyped an open data SaaS solution for noise pollution diagnosis.",
-    skills: "Prototyping", "Open data", "Product Management", "Noise pollution", "Data Visualization"
+    description: "Prototyped an open-data SaaS for city noise-pollution diagnostics.",
+    skills: ["Prototyping", "Open data", "Product management", "Noise pollution", "Data visualization"],
   },
   {
     year: "2020",
     title: "Hack The Crisis",
     team: "Team of 5",
     status: "Finalists",
-    description: "We prototyped a digital training and coordination solution for caregivers facilitating patient monitoring and hospital decongestion.",
-    skills: "Service Design", "Prototyping", "HealthTech", "User Journey",
+    description: "Prototyped a digital training & coordination tool for caregivers to ease hospital load.",
+    skills: ["Service design", "Prototyping", "HealthTech", "User journey"],
   },
 ];
 
