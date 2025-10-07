@@ -2,12 +2,9 @@
 export default function CasePivot() {
   return (
     <section className="rounded-xl border-l-8 border-l-accent bg-accent/5 dark:bg-accent/10 p-8 md:p-10 space-y-4 shadow-md">
-      <div className="flex items-center gap-3 mb-2">
-        <span className="text-3xl">⚡</span>
-        <h3 className="text-xl md:text-2xl font-bold text-accent dark:text-accent-foreground">
-          Pivot stratégique
-        </h3>
-      </div>
+      <h3 className="text-xl md:text-2xl font-bold text-accent dark:text-accent-foreground mb-2">
+        Pivot stratégique
+      </h3>
       <p className="text-base md:text-lg leading-relaxed">
         Recentrage sur les <b>profils tech 5–8 ans d'expérience</b> pour maximiser l'impact court terme et la faisabilité du MVP.
       </p>

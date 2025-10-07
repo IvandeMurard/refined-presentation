@@ -197,18 +197,11 @@ const ContentDefault = () => {
 
       {/* Conclusion */}
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-            <span className="text-2xl">✓</span>
-          </div>
-          <div>
-            <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
-            <p className="text-lg leading-relaxed">
-              <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
-              Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
-            </p>
-          </div>
-        </div>
+        <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
+        <p className="text-lg leading-relaxed">
+          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
+          Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
+        </p>
       </section>
 
       {/* Épilogue */}
@@ -401,18 +394,11 @@ const ContentPM = () => {
 
       {/* Conclusion */}
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-            <span className="text-2xl">✓</span>
-          </div>
-          <div>
-            <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
-            <p className="text-lg leading-relaxed">
-              MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement.
-              Next : mesurer adoption, itérer sur wording & IA placement, étendre si KPIs validés.
-            </p>
-          </div>
-        </div>
+        <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
+        <p className="text-lg leading-relaxed">
+          MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement.
+          Next : mesurer adoption, itérer sur wording & IA placement, étendre si KPIs validés.
+        </p>
       </section>
 
       {/* Épilogue */}
@@ -582,18 +568,11 @@ const ContentDesigner = () => {
 
       {/* Conclusion */}
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-            <span className="text-2xl">✓</span>
-          </div>
-          <div>
-            <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
-            <p className="text-lg leading-relaxed">
-              Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible.
-              Prototype fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
-            </p>
-          </div>
-        </div>
+        <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
+        <p className="text-lg leading-relaxed">
+          Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible.
+          Prototype fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
+        </p>
       </section>
 
       {/* Épilogue */}
