@@ -30,17 +30,21 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // — EXISTANTS —
+  // — SONOR (Open Data) — remplacement homogène
   {
-    id: sonorCase.id,
-    title: sonorCase.title,
-    subtitle: sonorCase.subtitle,
-    image: sonorCase.image,
-    tags: [sonorCase.badge],
+    id: "sonor",
+    title: "How can cities turn open data into quieter streets?",
+    subtitle: "From problem mapping to a validated product concept incubated by Banque des Territoires",
+    image: "public/img/sonor.jpg",
+    logo: "public/img/logo_sonor.png",
+    tags: ["Open Data"],
     category: "product",
-    logo: sonorCase.logo,
-    longDescription: sonorCase.subtitle,
-    bullets: sonorCase.bullets,
+    longDescription: "Reducing urban noise by transforming open data into actionable city insights.",
+    bullets: [
+      "20+ stakeholder interviews across city departments",
+      "€20k pre-seed funding secured for the concept",
+      "Map + data pipeline prototype to surface hotspots",
+    ],
   },
   {
     id: "wttj-conversion-seniors",
@@ -98,7 +102,7 @@ const projects: Project[] = [
     id: "on-air",
     title: "On Air — studio collaboratif en direct",
     subtitle: "Paroles + mélodie/tablature en temps réel",
-    image: "/images/projects/on-air/cover.webp",
+    image: "/images/projects/on-air/cover.webp", // placeholder à créer si besoin
     tags: ["Product"],
     category: "product",
     longDescription: "Créer, transcrire et partager en temps réel — des rooms live à la restitution synchronisée.",
