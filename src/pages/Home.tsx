@@ -113,10 +113,10 @@ const projects: Project[] = [
 ];
 
 const filterChips = [
-  { id: "all", label: "All (2)" },
-  { id: "product", label: "Product (2)" },
-  { id: "experience", label: "Expérience (0)" },
-  { id: "agents", label: "Agents (0)" },
+  { id: "all", label: "All (5)" },
+  { id: "product", label: "Product (3)" }, // Sonor, WTTJ, On Air
+  { id: "experience", label: "Expérience (1)" }, // Spotify valence
+  { id: "agents", label: "Agents (1)" }, // Agents d’évaluation
   { id: "automatisations", label: "Automatisations (0)" },
 ];
 
