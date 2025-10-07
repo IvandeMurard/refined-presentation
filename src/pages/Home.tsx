@@ -132,28 +132,35 @@ const resourceFilterChips = [
 
 const hackathons = [
   {
-    year: "2023",
-    title: "AI for Good Hackathon",
-    status: "1st Co-Creator",
-    description: "Rapid hypothesis validation with no-code prototyping and user feedback in 48h",
+    year: "2025",
+    title: "Windsurf x Mistral x The AI Collective",
+    team: "Team of 4",
+    status: "3rd Place",
+    description: "We built a generator and matcher of hackathon ideas with a video avatar.",
+    skills: "Prompt engineering", "Content creation", "Social Media",
   },
   {
-    year: "2023",
-    title: "TechX Challenge",
-    status: "1st Co-Founder",
-    description: "Implementation of accessibility security in central financial interfaces",
+    year: "2025",
+    title: "Lion du Samedi - Le Promptathon #1",
+    team: "Team of 5",
+    description: "Prompted a functional tool to automate business intelligence research and social media publication.",
+    skills: "Prompt engineering", "Automation", "Make", "Market intelligence", "Social media", "AI",
   },
   {
-    year: "2023",
-    title: "Stanford x LevelUp",
-    status: "Product Manager",
-    description: "Startup applications as creative containers for innovation",
+    year: "2020",
+    title: "Recoder l'Habitat #2",
+    team: "Team of 4",
+    status: "1st Place 🏆",
+    description: "We prototyped an open data SaaS solution for noise pollution diagnosis.",
+    skills: "Prototyping", "Open data", "Product Management", "Noise pollution", "Data Visualization"
   },
   {
-    year: "2023",
-    title: "Sustainability Hack",
-    status: "Full Stack",
-    description: "Impact of social interactions on long-term user engagement",
+    year: "2020",
+    title: "Hack The Crisis",
+    team: "Team of 5",
+    status: "Finalists",
+    description: "We prototyped a digital training and coordination solution for caregivers facilitating patient monitoring and hospital decongestion.",
+    skills: "Service Design", "Prototyping", "HealthTech", "User Journey",
   },
 ];
 
