@@ -65,7 +65,7 @@ const projects: Project[] = [
     id: "agents-eval",
     title: "Construire des agents d’évaluation spécialisés",
     subtitle: "De l’idée au blueprint réutilisable",
-    image: "/images/projects/agents-eval/mdreza-jalali-unsplash.jpg",
+    image: "/img/projects/agents-eval/mdreza-jalali-unsplash.jpg",
     tags: ["Agents & Evaluation"],
     category: "agents",
     longDescription:
