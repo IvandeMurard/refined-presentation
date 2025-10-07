@@ -25,8 +25,8 @@ const ContentDefault = () => {
         <div className="space-y-4">
           <h2 className="text-h3">Contexte & Problématique</h2>
           <p>
-            Les profils seniors postulent peu sur la plateforme, alors qu'ils sont très demandés par les entreprises clientes.
-            Objectif : <b>augmenter les candidatures seniors (prioritairement dans la tech)</b> via une expérience plus pertinente et engageante.
+            Les profils seniors postulent peu sur la plateforme, malgré une forte demande par les entreprises clientes.
+            Objectif : <b>augmenter les candidatures seniors</b> via une expérience personnalisée et engageante.
           </p>
         </div>
         <CaseImage
@@ -83,7 +83,7 @@ const ContentDefault = () => {
         <ol className="list-decimal pl-5 space-y-2">
           <li>Standardisation des offres (salaire, remote, missions, stack).</li>
           <li>Onboarding personnalisé (critères seniors).</li>
-          <li>Assistant IA (CV, storytelling, préparation entretien).</li>
+          <li>Assistant IA (CV, storytelling, préparation d'un entretien).</li>
           <li>Matching CV ↔ Offres.</li>
         </ol>
         <CaseImage
@@ -98,7 +98,7 @@ const ContentDefault = () => {
         <div>
           <h2 className="text-h3 mb-4">Prototype & Tests utilisateurs</h2>
           <p className="text-base mb-6">
-            Maquette Figma → finalisation & publication Lovable → 4 tests utilisateurs issus de la discovery.
+            Wireframes -> Maquette Figma → finalisation & publication sur Lovable → 4 tests utilisateurs issus de la discovery.
           </p>
         </div>
 
@@ -147,10 +147,10 @@ const ContentDefault = () => {
 
       {/* CTA Banner */}
       <CTABanner
-        title="Découvrez mes autres projets"
-        description="Explorez comment je transforme des insights utilisateurs en produits validés"
-        ctaText="Voir le portfolio"
-        onClick={() => navigate('/')}
+        title="Rencontrons-nous !"
+        description="Echangeons sur vos besoins produits"
+        ctaText="Contact"
+        onClick={() => navigate('/Contact')}
         className="my-6"
       />
 
@@ -199,8 +199,8 @@ const ContentDefault = () => {
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
         <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
         <p className="text-lg leading-relaxed">
-          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors pour postuler en confiance.
-          Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si résultats probants.
+          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1.
+          Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si les résultats sont probants.
         </p>
       </section>
 
