@@ -1,20 +1,20 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import { CaseStudyLayout } from '@/components/CaseStudyLayout';
-import { Navigation } from '@/components/Navigation';
-import { Footer } from '../../../components/footer';
-import CaseTldr from '../../../components/case/CaseTldr';
-import CasePivot from '../../../components/case/CasePivot';
-import { CaseImage } from '../../../components/case/CaseImage';
-import { CTABanner } from '@/components/work/CTABanner';
-import { useAudience } from '@/hooks/useAudience';
-import wttjHero from '@/assets/wttj-hero.png';
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import { CaseStudyLayout } from "@/components/CaseStudyLayout";
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "../../../components/footer";
+import CaseTldr from "../../../components/case/CaseTldr";
+import CasePivot from "../../../components/case/CasePivot";
+import { CaseImage } from "../../../components/case/CaseImage";
+import { CTABanner } from "@/components/work/CTABanner";
+import { useAudience } from "@/hooks/useAudience";
+import wttjHero from "@/assets/wttj-hero.png";
 
 // ============= AUDIENCE CONTENTS =============
 
 const ContentDefault = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div className="space-y-16">
       {/* TL;DR */}
@@ -29,11 +29,7 @@ const ContentDefault = () => {
             Objectif : <b>augmenter les candidatures seniors</b> via une expérience personnalisée et engageante.
           </p>
         </div>
-        <CaseImage
-          alt="Stats & contexte"
-          desktopSrc="/WTTJ/contexte-desktop.png"
-          caption="Data et signaux marché"
-        />
+        <CaseImage alt="Stats & contexte" desktopSrc="/WTTJ/contexte-desktop.png" caption="Data et signaux marché" />
       </section>
 
       {/* Objectifs */}
@@ -56,11 +52,7 @@ const ContentDefault = () => {
               <li>CTR seniors ≈ 11% vs 20% juniors ; besoin de lisibilité des offres.</li>
             </ul>
           </div>
-          <CaseImage
-            alt="JTBD & verbatims clés"
-            desktopSrc="/WTTJ/jtbd-desktop.png"
-            caption="JTBD & verbatims clés"
-          />
+          <CaseImage alt="JTBD & verbatims clés" desktopSrc="/WTTJ/jtbd-desktop.png" caption="JTBD & verbatims clés" />
         </div>
         <CaseImage
           alt="Parcours utilisateur"
@@ -98,7 +90,8 @@ const ContentDefault = () => {
         <div>
           <h2 className="text-h3 mb-4">Prototype & Tests utilisateurs</h2>
           <p className="text-base mb-6">
-            Wireframes -> Maquette Figma → finalisation & publication sur Lovable → 4 tests utilisateurs issus de la discovery.
+            Wireframes → Maquette Figma → finalisation & publication sur Lovable → 4 tests utilisateurs issus de la
+            discovery.
           </p>
         </div>
 
@@ -121,9 +114,9 @@ const ContentDefault = () => {
             </div>
           </div>
 
-          <a 
-            href="https://prototype-wttj.lovable.app/" 
-            target="_blank" 
+          <a
+            href="https://prototype-wttj.lovable.app/"
+            target="_blank"
             rel="noopener noreferrer"
             className="block group hover:opacity-90 transition-opacity"
           >
@@ -150,7 +143,7 @@ const ContentDefault = () => {
         title="Rencontrons-nous !"
         description="Echangeons sur vos besoins produits"
         ctaText="Contact"
-        onClick={() => navigate('/Contact')}
+        onClick={() => navigate("/Contact")}
         className="my-6"
       />
 
@@ -159,15 +152,21 @@ const ContentDefault = () => {
         <h2 className="text-h3">Roadmap & KPIs</h2>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="roadmap-now">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1976D2' }}>Now</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+              Now
+            </div>
             <div className="text-base font-medium">Standardisation + Onboarding</div>
           </div>
           <div className="roadmap-next">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Next</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+              Next
+            </div>
             <div className="text-base font-medium">Assistant IA + Matching CV</div>
           </div>
           <div className="roadmap-later">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Later</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+              Later
+            </div>
             <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
           </div>
         </div>
@@ -183,9 +182,15 @@ const ContentDefault = () => {
         <div className="space-y-3">
           <h2 className="text-h3">Risques & Parades</h2>
           <ul className="list-disc pl-5 space-y-2">
-            <li><b>Abandon onboarding</b> → étapes claires, analytics par étape, itérations wording.</li>
-            <li><b>Assistant IA sous-utilisé</b> → A/B placement, triggers contextuels.</li>
-            <li><b>Matching technique</b> → transparence "beta", feedback in-product.</li>
+            <li>
+              <b>Abandon onboarding</b> → étapes claires, analytics par étape, itérations wording.
+            </li>
+            <li>
+              <b>Assistant IA sous-utilisé</b> → A/B placement, triggers contextuels.
+            </li>
+            <li>
+              <b>Matching technique</b> → transparence "beta", feedback in-product.
+            </li>
           </ul>
         </div>
         <CaseImage
@@ -199,8 +204,9 @@ const ContentDefault = () => {
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
         <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
         <p className="text-lg leading-relaxed">
-          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1.
-          Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si les résultats sont probants.
+          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1. Next
+          : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si les
+          résultats sont probants.
         </p>
       </section>
 
@@ -229,8 +235,19 @@ const ContentDefault = () => {
       {/* Liens externes */}
       <section className="pt-4 border-t">
         <ul className="list-disc pl-5 space-y-1 text-sm">
-          <li><a className="underline hover:text-accent" href="https://prototype-wttj.lovable.app/" target="_blank" rel="noopener noreferrer">Prototype Lovable</a></li>
-          <li><span className="text-muted-foreground">Backlog Notion / Research Miro (liens internes)</span></li>
+          <li>
+            <a
+              className="underline hover:text-accent"
+              href="https://prototype-wttj.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prototype Lovable
+            </a>
+          </li>
+          <li>
+            <span className="text-muted-foreground">Backlog Notion / Research Miro (liens internes)</span>
+          </li>
         </ul>
       </section>
     </div>
@@ -239,7 +256,7 @@ const ContentDefault = () => {
 
 const ContentPM = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div className="space-y-16">
       {/* TL;DR */}
@@ -276,15 +293,21 @@ const ContentPM = () => {
         <h2 className="text-h3">Roadmap & KPIs</h2>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="roadmap-now">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1976D2' }}>Now</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+              Now
+            </div>
             <div className="text-base font-medium">Standardisation + Onboarding</div>
           </div>
           <div className="roadmap-next">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Next</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+              Next
+            </div>
             <div className="text-base font-medium">Assistant IA + Matching CV</div>
           </div>
           <div className="roadmap-later">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: '#1565C0' }}>Later</div>
+            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+              Later
+            </div>
             <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
           </div>
         </div>
@@ -319,9 +342,15 @@ const ContentPM = () => {
         <div className="space-y-3">
           <h2 className="text-h3">Risques & Parades</h2>
           <ul className="list-disc pl-5 space-y-2">
-            <li><b>Abandon onboarding</b> → analytics par étape, itérations wording</li>
-            <li><b>IA sous-utilisée</b> → A/B placement, triggers contextuels</li>
-            <li><b>Matching technique</b> → transparence "beta", feedback beta-testeurs</li>
+            <li>
+              <b>Abandon onboarding</b> → analytics par étape, itérations wording
+            </li>
+            <li>
+              <b>IA sous-utilisée</b> → A/B placement, triggers contextuels
+            </li>
+            <li>
+              <b>Matching technique</b> → transparence "beta", feedback beta-testeurs
+            </li>
           </ul>
         </div>
         <CaseImage
@@ -335,9 +364,7 @@ const ContentPM = () => {
       <section className="space-y-8">
         <div>
           <h2 className="text-h3 mb-4">Tests utilisateurs - Résultats</h2>
-          <p className="text-base mb-6">
-            4 tests utilisateurs pour valider le MVP avant déploiement.
-          </p>
+          <p className="text-base mb-6">4 tests utilisateurs pour valider le MVP avant déploiement.</p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">
@@ -359,9 +386,9 @@ const ContentPM = () => {
             </div>
           </div>
 
-          <a 
-            href="https://prototype-wttj.lovable.app/" 
-            target="_blank" 
+          <a
+            href="https://prototype-wttj.lovable.app/"
+            target="_blank"
             rel="noopener noreferrer"
             className="block group hover:opacity-90 transition-opacity"
           >
@@ -388,7 +415,7 @@ const ContentPM = () => {
         title="Discutons de vos projets produit"
         description="PM orienté discovery, priorisation et delivery rapide"
         ctaText="Voir le portfolio"
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
         className="my-6"
       />
 
@@ -396,8 +423,8 @@ const ContentPM = () => {
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
         <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
         <p className="text-lg leading-relaxed">
-          MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement.
-          Next : mesurer adoption, itérer sur wording & IA placement, étendre si KPIs validés.
+          MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement. Next : mesurer
+          adoption, itérer sur wording & IA placement, étendre si KPIs validés.
         </p>
       </section>
 
@@ -428,7 +455,7 @@ const ContentPM = () => {
 
 const ContentDesigner = () => {
   const navigate = useNavigate();
-  
+
   return (
     <div className="space-y-16">
       {/* TL;DR */}
@@ -510,9 +537,9 @@ const ContentDesigner = () => {
             </div>
           </div>
 
-          <a 
-            href="https://prototype-wttj.lovable.app/" 
-            target="_blank" 
+          <a
+            href="https://prototype-wttj.lovable.app/"
+            target="_blank"
             rel="noopener noreferrer"
             className="block group hover:opacity-90 transition-opacity"
           >
@@ -539,7 +566,7 @@ const ContentDesigner = () => {
         title="Voir mes autres projets design"
         description="De la recherche utilisateur au prototype testé"
         ctaText="Portfolio complet"
-        onClick={() => navigate('/')}
+        onClick={() => navigate("/")}
         className="my-6"
       />
 
@@ -570,8 +597,8 @@ const ContentDesigner = () => {
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
         <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
         <p className="text-lg leading-relaxed">
-          Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible.
-          Prototype fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
+          Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible. Prototype
+          fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
         </p>
       </section>
 
@@ -600,7 +627,16 @@ const ContentDesigner = () => {
       {/* Liens */}
       <section className="pt-4 border-t">
         <ul className="list-disc pl-5 space-y-1 text-sm">
-          <li><a className="underline hover:text-accent" href="https://prototype-wttj.lovable.app/" target="_blank" rel="noopener noreferrer">Prototype Lovable interactif</a></li>
+          <li>
+            <a
+              className="underline hover:text-accent"
+              href="https://prototype-wttj.lovable.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prototype Lovable interactif
+            </a>
+          </li>
         </ul>
       </section>
     </div>
@@ -611,29 +647,29 @@ const ContentDesigner = () => {
 
 export default function WttjPage() {
   const navigate = useNavigate();
-  const { activeAudience, setActiveAudience, audiences } = useAudience('default');
+  const { activeAudience, setActiveAudience, audiences } = useAudience("default");
 
   const audienceContent = [
-    { 
-      id: 'default', 
-      label: 'Vue d\'ensemble', 
-      content: <ContentDefault /> 
+    {
+      id: "default",
+      label: "Vue d'ensemble",
+      content: <ContentDefault />,
     },
-    { 
-      id: 'pm', 
-      label: 'Product Manager', 
-      content: <ContentPM /> 
+    {
+      id: "pm",
+      label: "Product Manager",
+      content: <ContentPM />,
     },
-    { 
-      id: 'design', 
-      label: 'Designer', 
-      content: <ContentDesigner /> 
+    {
+      id: "design",
+      label: "Designer",
+      content: <ContentDesigner />,
     },
   ];
 
   const scrollToSection = (id: string) => {
-    if (id === 'home') {
-      navigate('/');
+    if (id === "home") {
+      navigate("/");
     }
   };
 
@@ -651,9 +687,7 @@ export default function WttjPage() {
       <Footer
         siteName="Ivan de Murard"
         tagline="Product Designer & Manager crafting user-centered experiences"
-        sections={[
-          { id: "home", label: "Back to Portfolio" }
-        ]}
+        sections={[{ id: "home", label: "Back to Portfolio" }]}
         onSectionClick={scrollToSection}
       />
     </>
