@@ -56,3 +56,63 @@ export default function WorkCard({ image, category, title, subtitle, badge, onCl
     </Tag>
   );
 }
+
+// --- SIDE PROJECTS (nouveaux) ---
+{
+  image: "/images/projects/agents-eval/mdreza-jalali-unsplash.jpg",
+  category: "SIDE PROJECT – EVALUATION AGENTS",
+  title: "Construire des agents d’évaluation spécialisés",
+  subtitle: "De l’idée au blueprint réutilisable",
+  badge: "Agents & Evaluation",
+  modal: {
+    // logo: "/images/logos/…", // optionnel
+    title: "Évaluer mieux, plus vite, à grande échelle",
+    subtitle: "De l’architecture de run à un blueprint d’agent réutilisable",
+    bullets: [
+      "Schéma Supabase (runs, issues, recommendations, metrics + view run_dashboard)",
+      "Workflow n8n E2E : Create Run → Add Issues/Recommendations → Close Run",
+      "LLM-as-a-Judge + score composite avec quality-gate ≥80%",
+      "Blueprint réutilisable (UX, data-quality, prompt-robustness…)",
+      "Pré-prod : webhooks, retries, logs, notifications Slack",
+    ],
+    cta: { label: "Découvrir le blueprint", href: "/work/agents-evaluation" },
+  },
+},
+{
+  image: "/images/projects/spotify-mood/cover.webp", // placeholder à créer si besoin
+  category: "SIDE PROJECT – SERVICE / EXPERIENCE DESIGN",
+  title: "Guides musicaux pilotés par la valence",
+  subtitle: "Du signal audio à l’action bien-être",
+  badge: "Experience",
+  modal: {
+    title: "Transformer l’écoute en parcours d’humeur",
+    subtitle: "Prototype d’expérience “valence → action”",
+    bullets: [
+      "Cartographie valence/arousal → recommandations d’actions",
+      "Flow chart contextualisé + micro-délices visuels",
+      "Modes individuel/social (jam locale)",
+      "Safety by design : opt-in, transparence, contrôle",
+      "Prochaines étapes : wireframes + tests qualis",
+    ],
+    cta: { label: "Voir le wireframe", href: "/work/spotify-valence-journeys" },
+  },
+},
+{
+  image: "/images/projects/on-air/cover.webp", // placeholder à créer si besoin
+  category: "SIDE PROJECT – PRODUCT MANAGEMENT",
+  title: "On Air — studio collaboratif en direct",
+  subtitle: "Paroles + mélodie/tablature en temps réel",
+  badge: "Product",
+  modal: {
+    title: "Créer, transcrire et partager… en temps réel",
+    subtitle: "Rooms live → restitution synchronisée",
+    bullets: [
+      "Rooms collaboratives (WebRTC) à faible latence",
+      "Transcription live: paroles + mélodie/tablature",
+      "Time-codes, chapitrage, exports courts",
+      "Partage via lien public + permissions",
+      "Roadmap: V1 capture → V2 édition → V3 packs créatifs",
+    ],
+    cta: { label: "Concept & roadmap", href: "/work/on-air" },
+  },
+},
