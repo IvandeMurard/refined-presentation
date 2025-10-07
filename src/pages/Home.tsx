@@ -85,7 +85,7 @@ const projects: Project[] = [
   {
     id: "spotify-valence-journeys",
     title: "A musical data-driven experience",
-    subtitle: "Can music mood guide better daily choices?",
+    subtitle: "Can we value music mood to nudge better daily choices?",
     image: "/images/projects/spotify-mood/cover.webp", // ajoute un visuel placeholder si besoin
     tags: ["Experience"],
     category: "experience",
