@@ -1,5 +1,6 @@
 // src/components/Navigation.tsx
-import { useEffect, useRef, useState, type FC } from "react";
+import React, { type FC } from "react";
+const { useState, useEffect, useRef } = React;
 import { ThemeToggle } from "./ThemeToggle";
 import { designTokens } from "@/design-tokens";
 
