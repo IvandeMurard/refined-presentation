@@ -255,13 +255,13 @@ export const Home: React.FC = () => {
       <section className="pt-32 pb-24 px-4">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-h1 text-foreground">
-            Product Builder & Designer
-            <br />— Zero-to-One
+            Ivan de Murard
+            <br /> Zero-to-One Product Manager & Builder
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            I transform user insights into impactful products, from initial discovery to validated MVP, with AI and
-            go-to market expertise.
+            From initial discovery to validated MVP, I turn user insights into impactful products and experiences, with
+            AI and go-to-market expertise.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
