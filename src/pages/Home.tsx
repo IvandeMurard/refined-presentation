@@ -256,7 +256,7 @@ export const Home: React.FC = () => {
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-h1 text-foreground">
             Ivan de Murard
-            <br /> Zero-to-One Product Manager & Builder
+            <br /> Zero-to-One Product Manager
           </h1>
 
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
