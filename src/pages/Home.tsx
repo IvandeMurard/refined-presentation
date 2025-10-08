@@ -252,7 +252,7 @@ export const Home: React.FC = () => {
       <Navigation />
 
       {/* Hero Section - Centered */}
-      <section className="pt-32 pb-24 px-4">
+      <section id="hero" className="pt-32 pb-24 px-4">
         <div className="max-w-5xl mx-auto text-center space-y-8">
           <h1 className="text-h1 text-foreground">
             Ivan de Murard
