@@ -1,114 +1,174 @@
 // src/components/Navigation.tsx
-import React, { useEffect, useRef, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { designTokens } from "@/design-tokens";
 
-type Props = {
-  className?: string;
+// Helpers couleurs via tokens
+const COLORS = {
+  bg: designTokens.color.bg.base,
+  border: designTokens.color.border.default,
+  ink: designTokens.color.ink.strong,
+  accent: designTokens.color.accent.primary,
+  onAccent: designTokens.color.accent.on,
 };
 
-export const Navigation: React.FC<Props> = ({ className = "" }) => {
-  const location = useLocation();
-  const isActive = (path: string) => location.pathname === path;
+// Classe utilitaire bouton
+const baseBtn = "text-sm font-medium transition-colors px-3 py-1.5 rounded-xl border shadow-sm";
 
-  // UI states
+export const Navigation: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isInHero, setIsInHero] = useState(true);
+  const [activeSection, setActiveSection] = useState<"hero" | "work" | "contact" | null>("hero");
+
+  // --- Typewriter (nom du site) : simple, stable
   const [displayText, setDisplayText] = useState("Ivan de Murard");
-  const animationRef = useRef<number | null>(null);
+  const currentTextRef = useRef(displayText);
+  const timeoutRef = useRef<number | null>(null);
 
-  // Detect scroll to style navbar
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    currentTextRef.current = displayText;
+  }, [displayText]);
+
+  // Scroll style
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Detect Hero visibility (expects <section id="hero"> ...)
+  // Observer des sections
   useEffect(() => {
-    const hero = document.getElementById("hero");
-    if (!hero) return;
-    const obs = new IntersectionObserver(([entry]) => setIsInHero(entry.isIntersecting), { threshold: 0.1 });
-    obs.observe(hero);
-    return () => obs.disconnect();
+    const ids = ["hero", "work", "contact"];
+    const els = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
+
+    if (!els.length) return;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        // section la plus visible
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target?.id) {
+          const id = visible.target.id as "hero" | "work" | "contact";
+          setActiveSection(id);
+        }
+      },
+      { threshold: [0.1, 0.25, 0.5, 0.75], rootMargin: "-10% 0px -30% 0px" },
+    );
+
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
-  // Typewriter effect on site name
+  // Typewriter déclenché par activeSection (Hero → “I M”, sinon nom complet)
   useEffect(() => {
-    const targetText = isInHero ? "I M" : "Ivan de Murard";
-    if (displayText === targetText) return;
+    const target = activeSection === "hero" ? "I M" : "Ivan de Murard";
+    const from = currentTextRef.current;
+    if (from === target) return;
 
-    if (animationRef.current) window.clearTimeout(animationRef.current);
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
 
     const steps: string[] = [];
-    // delete current
-    for (let i = displayText.length; i >= 0; i--) steps.push(displayText.slice(0, i));
-    // type new
-    for (let i = 1; i <= targetText.length; i++) steps.push(targetText.slice(0, i));
+    for (let i = from.length; i >= 0; i--) steps.push(from.slice(0, i));
+    for (let i = 1; i <= target.length; i++) steps.push(target.slice(0, i));
 
-    let idx = 0;
+    let i = 0;
     const tick = () => {
-      setDisplayText(steps[idx]);
-      idx += 1;
-      if (idx < steps.length) {
-        animationRef.current = window.setTimeout(tick, 50);
-      }
+      setDisplayText(steps[i]);
+      i++;
+      if (i < steps.length) timeoutRef.current = window.setTimeout(tick, 50);
     };
     tick();
-
     return () => {
-      if (animationRef.current) window.clearTimeout(animationRef.current);
+      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     };
-  }, [isInHero, displayText]);
+  }, [activeSection]);
+
+  // Styles “actifs” calculés
+  const styles = useMemo(() => {
+    const active = `bg-[${COLORS.ink}] text-white hover:bg-[${COLORS.ink}]`;
+    const idle = `text-[${COLORS.ink}] hover:bg-[${COLORS.ink}] hover:text-white`;
+    const contactIdle = `text-[${COLORS.onAccent}] bg-transparent border border-transparent`;
+    const contactHover = `hover:bg-white hover:text-[${COLORS.accent}]`;
+
+    return { active, idle, contactIdle, contactHover };
+  }, []);
+
+  // Scroll vers section (monopage)
+  const go = (id: "hero" | "work" | "contact") => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-[280ms] ease-[cubic-bezier(0.22,1,0.36,1)] ${
-        isScrolled ? "bg-[#FAFAFA]/95 backdrop-blur-sm border-b border-[#E5E7EB]" : ""
-      } ${className}`}
+      className={`fixed top-0 w-full z-50 transition-all duration-[${designTokens.motion.duration.base}] ease-[${designTokens.motion.easing.product}] ${
+        isScrolled ? "backdrop-blur-sm" : ""
+      }`}
+      style={{
+        background: isScrolled ? `${COLORS.bg}F2` : "transparent",
+        borderBottom: isScrolled ? `1px solid ${COLORS.border}` : "1px solid transparent",
+      }}
     >
-      {/* Conteneur + padding pour éviter que les boutons touchent les bords */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Left: site name with typewriter */}
-          <div className="text-[16px] font-[600] text-[#0B1220] min-w-[150px] tracking-tight">
+          {/* Marque + curseur */}
+          <button
+            onClick={() => go("hero")}
+            className="text-[16px] font-[600] tracking-tight"
+            style={{ color: COLORS.ink }}
+          >
             {displayText}
-            <span className="inline-block w-[2px] h-[16px] bg-[#065f46] ml-1 animate-pulse" />
-          </div>
+            <span
+              aria-hidden
+              className="inline-block w-[2px] h-[16px] ml-1 animate-pulse"
+              style={{ background: COLORS.accent }}
+            />
+          </button>
 
-          {/* Center: nav actions — contenus dans la barre */}
+          {/* Actions */}
           <div className="hidden md:flex items-center gap-3">
-            <Link
-              to="/"
-              className={`text-sm font-medium transition-colors px-3 py-1.5 rounded-xl border shadow-sm ${
-                isActive("/") ? "bg-black text-white" : "text-[#0B1220] hover:bg-black hover:text-white"
-              }`}
+            {/* HOME (Hero) */}
+            <button
+              onClick={() => go("hero")}
+              className={`${baseBtn} ${activeSection === "hero" ? styles.active : styles.idle}`}
             >
               Home
-            </Link>
-            <Link
-              to="/work"
-              className={`text-sm font-medium transition-colors px-3 py-1.5 rounded-xl border shadow-sm ${
-                isActive("/work") ? "bg-black text-white" : "text-[#0B1220] hover:bg-black hover:text-white"
-              }`}
+            </button>
+
+            {/* WORK */}
+            <button
+              onClick={() => go("work")}
+              className={`${baseBtn} ${activeSection === "work" ? styles.active : styles.idle}`}
             >
               Work
-            </Link>
-            <Link
-              to="/#contact"
-              className="text-sm font-medium text-white transition-colors px-3 py-1.5 rounded-xl border shadow-sm bg-[#065f46] hover:bg-[#046a42] active:scale-95 active:ring-2 ring-[#065f46]/40"
+            </button>
+
+            {/* CONTACT — pas de fond par défaut ; inverse au hover seulement */}
+            <button
+              onClick={() => go("contact")}
+              className={`${baseBtn} ${styles.contactIdle} ${styles.contactHover}`}
+              style={{
+                // texte de base = onAccent (blanc sur fond vert de la section Contact)
+                color: COLORS.onAccent,
+              }}
             >
               Contact
-            </Link>
+            </button>
           </div>
 
-          {/* Right: Lang + Theme */}
+          {/* Lang / Theme */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-2 text-sm">
-              <button className="font-medium text-[#0B1220] hover:opacity-80 transition">EN</button>
-              <span className="text-[#9AA3AF]">|</span>
-              <button className="font-medium text-[#6B7280] hover:text-[#0B1220] transition">FR</button>
+              <button className="font-medium opacity-80 hover:opacity-100" style={{ color: COLORS.ink }}>
+                EN
+              </button>
+              <span className="opacity-50" style={{ color: designTokens.color.ink.muted }}>
+                |
+              </span>
+              <button className="font-medium" style={{ color: designTokens.color.ink.muted }}>
+                FR
+              </button>
             </div>
             <ThemeToggle />
           </div>
