@@ -17,20 +17,23 @@ export const Navigation: React.FC = () => {
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8 mr-4">
+          <div className="hidden md:flex items-center gap-4 mr-4">
             <Link
               to="/"
-              className="text-sm font-medium transition-colors px-4 py-2 rounded-md bg-primary text-white shadow-sm hover:shadow-md hover:bg-primary/90 dark:bg-transparent dark:text-foreground dark:shadow-none dark:hover:bg-primary dark:hover:text-white"
+              className="text-sm font-medium text-foreground transition-all px-6 py-3 rounded-xl border border-border shadow-md hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg"
             >
               Home
             </Link>
             <Link
               to="/work"
-              className="text-sm font-medium transition-colors px-4 py-2 rounded-md bg-primary text-white shadow-sm hover:shadow-md hover:bg-primary/90 dark:bg-transparent dark:text-foreground dark:shadow-none dark:hover:bg-primary dark:hover:text-white"
+              className="text-sm font-medium text-foreground transition-all px-6 py-3 rounded-xl border border-border shadow-md hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg"
             >
               Work
             </Link>
-            <Button size="sm" className="bg-contact hover:bg-contact/90 text-contact-foreground">
+            <Button
+              size="sm"
+              className="bg-contact hover:bg-contact/90 text-contact-foreground px-6 py-3 shadow-md rounded-xl active:scale-95 active:ring-2 ring-contact/50 transition-all"
+            >
               Contact
             </Button>
           </div>
