@@ -5,11 +5,12 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container-grid py-8">
+      <div className="container-grid py-10">
         <div className="col-span-12 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
@@ -32,7 +33,7 @@ export const Navigation: React.FC = () => {
             </Link>
             <Link
               to="/#contact"
-              className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-xl border shadow-md bg-green-500 hover:bg-green-600"
+              className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-xl border shadow-md bg-[#27ae60] hover:bg-[#229954] active:scale-95 active:ring-2 ring-[#27ae60]/40"
             >
               Contact
             </Link>
