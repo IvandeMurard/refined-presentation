@@ -5,36 +5,35 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
+
   const isActive = (path: string) => location.pathname === path;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      {/* Hauteur fixe + padding horizontal pour contenir les boutons */}
-      <div className="container-grid h-16 px-4">
-        {/* On occupe toute la hauteur pour centrer verticalement */}
-        <div className="col-span-12 flex h-full items-center justify-between">
+      <div className="container-grid py-20">
+        <div className="col-span-12 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
             Ivan de Murard
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-8 mr-4">
             <Link
               to="/"
-              className="text-sm font-medium text-foreground transition-colors px-3 py-1.5 rounded-xl border shadow-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
             >
               Home
             </Link>
             <Link
               to="/work"
-              className="text-sm font-medium text-foreground transition-colors px-3 py-1.5 rounded-xl border shadow-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
             >
               Work
             </Link>
             <Link
               to="/#contact"
-              className="text-sm font-medium text-white transition-colors px-3 py-1.5 rounded-xl border shadow-md bg-[#27ae60] hover:bg-[#229954] active:scale-95 active:ring-2 ring-[#27ae60]/40"
+              className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-xl border shadow-md bg-[#065f46] hover:bg-[#229954] active:scale-95 active:ring-2 ring-[#065f46]/40"
             >
               Contact
             </Link>
