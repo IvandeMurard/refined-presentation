@@ -21,19 +21,19 @@ export const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center gap-8 mr-4">
             <Link
               to="/"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-5 py-3 rounded-xl border shadow-md hover:bg-primary hover:text-white"
             >
               Home
             </Link>
             <Link
               to="/work"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-5 py-3 rounded-xl border shadow-md hover:bg-primary hover:text-white"
             >
               Work
             </Link>
             <Link
               to="/#contact"
-              className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-xl border shadow-md bg-[#27ae60] hover:bg-[#229954] active:scale-95 active:ring-2 ring-[#27ae60]/40"
+              className="text-sm font-medium text-white transition-colors px-5 py-3 rounded-xl border shadow-md bg-[#27ae60] hover:bg-[#229954] active:scale-95 active:ring-2 ring-[#27ae60]/40"
             >
               Contact
             </Link>
