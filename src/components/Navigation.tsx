@@ -1,6 +1,5 @@
 // src/components/Navigation.tsx
-import React, { type FC } from "react";
-const { useState, useEffect, useRef } = React;
+import { useEffect, useRef, useState, type FC } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { designTokens } from "@/design-tokens";
 
@@ -14,19 +13,35 @@ const COLORS = {
   onAccent: designTokens.color.accent.on, // texte lisible sur fond vert (souvent blanc)
 };
 
+// 👇 Ajout : détection du dark mode (via class "dark" sur <html>) + helpers couleurs
+const [isDark, setIsDark] = useState(false);
+  useEffect(() => {
+    const mo = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => mo.disconnect();
+  }, []);
+  return isDark;
+};
+
+// 👇 Ajout
+const isDark =
+  typeof document !== "undefined" &&
+  document.documentElement.classList.contains("dark");
+
+// En contexte HERO + dark + nav transparente → l’“encre” doit être blanche
+const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
+
+// Fond actif pour Home/Work : en dark sur Hero on évite un plein blanc → semi-transparent
+const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
+
+const isOpaqueWhite = (hex: string) => /^#?f{6}$/i.test(hex.replace("#", ""));
+
 const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition-colors";
 
 export const Navigation: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-
-  // 🔒 Dark mode sans hook custom (évite le crash)
-  const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
-
-  // En contexte HERO + dark + nav transparente → l’“encre” doit être blanche
-  const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
-
-  // Fond actif pour Home/Work : en dark sur Hero on évite un plein blanc → semi-transparent
-  const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
 
   // États d'activation par section
   const [heroVisible, setHeroVisible] = useState(true); // Home actif ↔ Hero visible
@@ -111,11 +126,7 @@ export const Navigation: FC = () => {
       className="fixed top-0 w-full z-50 transition-all"
       style={{
         backdropFilter: isScrolled ? "blur(6px)" : "none",
-        background: isScrolled
-          ? isDark
-            ? "rgba(17,24,39,0.92)" // dark: slate quasi-opaque
-            : `${COLORS.bg}F2` // light: fond clair translucide
-          : "transparent",
+        background: isScrolled ? (isDark ? "rgba(17,24,39,0.92)" : `${COLORS.bg}F2`) : "transparent",
         borderBottom: `1px solid ${isScrolled ? (isDark ? "rgba(255,255,255,0.12)" : COLORS.border) : "transparent"}`,
         transitionTimingFunction: designTokens.motion.easing.product,
         transitionDuration: designTokens.motion.duration.base,
@@ -123,16 +134,17 @@ export const Navigation: FC = () => {
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
         <div className="flex items-center justify-between h-16">
-          {/* Titre + curseur (largeur fixe => pas de "push") */}
+          {/* Titre + curseur */}
           <button
             onClick={() => go("hero")}
             className="relative text-[16px] font-[600] tracking-tight w-[160px] text-left whitespace-nowrap"
-            style={{ color: inkOnContext }}
+            style={{ color: COLORS.ink }}
           >
             {displayText}
             <span
               aria-hidden
               className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 inline-block w-[2px] h-[1em] animate-pulse"
+              style={{ background: COLORS.accent }}
               style={{ background: COLORS.accent }}
             />
           </button>
@@ -144,21 +156,21 @@ export const Navigation: FC = () => {
               onClick={() => go("hero")}
               className={baseBtn}
               style={{
-                border: `1px solid ${inkOnContext}`, // fine bordure encre contextuelle
-                background: heroVisible ? btnActiveBg : "transparent",
-                color: heroVisible ? "#FFFFFF" : inkOnContext,
+                border: `1px solid ${inkOnContext}`,
+                background: /* actif ? */ /* Home */ heroVisible || /* Work */ workActive ? btnActiveBg : "transparent",
+                color: /* actif ? */ /* Home */ heroVisible || /* Work */ workActive ? "#FFFFFF" : inkOnContext,
                 transitionTimingFunction: designTokens.motion.easing.product,
                 transitionDuration: designTokens.motion.duration.fast,
               }}
               onMouseEnter={(e) => {
-                if (!heroVisible) {
+                if (!(/* actif */ heroVisible /* ou workActive */)) {
                   e.currentTarget.style.background = String(btnActiveBg);
                   e.currentTarget.style.color = "#FFFFFF";
                   e.currentTarget.style.borderColor = String(inkOnContext);
                 }
               }}
               onMouseLeave={(e) => {
-                if (!heroVisible) {
+                if (!(/* actif */ heroVisible /* ou workActive */)) {
                   e.currentTarget.style.background = "transparent";
                   e.currentTarget.style.color = String(inkOnContext);
                   e.currentTarget.style.borderColor = String(inkOnContext);
@@ -173,31 +185,29 @@ export const Navigation: FC = () => {
               onClick={() => go("work")}
               className={baseBtn}
               style={{
-                border: `1px solid ${inkOnContext}`, // fine bordure encre contextuelle
-                background: workActive ? btnActiveBg : "transparent",
-                color: workActive ? "#FFFFFF" : inkOnContext,
+                border: `1px solid ${COLORS.ink}`, // fine bordure encre
+                background: workActive ? COLORS.ink : "transparent",
+                color: workActive ? "#FFFFFF" : COLORS.ink,
                 transitionTimingFunction: designTokens.motion.easing.product,
                 transitionDuration: designTokens.motion.duration.fast,
               }}
               onMouseEnter={(e) => {
                 if (!workActive) {
-                  e.currentTarget.style.background = String(btnActiveBg);
+                  e.currentTarget.style.background = String(COLORS.ink);
                   e.currentTarget.style.color = "#FFFFFF";
-                  e.currentTarget.style.borderColor = String(inkOnContext);
                 }
               }}
               onMouseLeave={(e) => {
                 if (!workActive) {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = String(inkOnContext);
-                  e.currentTarget.style.borderColor = String(inkOnContext);
+                  e.currentTarget.style.color = String(COLORS.ink);
                 }
               }}
             >
               Work
             </button>
 
-            {/* CONTACT — fond vert par défaut ; AU SURVOL: fond blanc + texte vert ; haptique actif */}
+            {/* CONTACT — fond vert par défaut ; AU SURVOL: fond blanc + texte vert */}
             <button
               onClick={() => go("contact")}
               className={`${baseBtn} active:scale-95 active:ring-2 ring-contact/50`}
