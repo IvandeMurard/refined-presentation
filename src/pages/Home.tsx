@@ -280,6 +280,8 @@ export const Home: React.FC = () => {
               Let's meet!
             </Button>
           </div>
+        </div>
+      </section>
 
       {/* Testimonial */}
       <section className="py-16 px-4 bg-secondary">
@@ -599,8 +601,7 @@ export const Home: React.FC = () => {
           <h2 className="text-h2">Let's design a meaningful future together</h2>
 
           <p className="text-lg max-w-2xl mx-auto opacity-90">
-            Do you have an idea to validate or a product to optimize?
-            Let's discuss your vision and explore opportunities together.
+            Do you have an idea to validate or a product to optimize? Let's discuss and explore opportunities together.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
