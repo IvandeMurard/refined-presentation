@@ -281,18 +281,6 @@ export const Home: React.FC = () => {
             </Button>
           </div>
 
-          {/* Trusted By */}
-          <div className="pt-12 space-y-4">
-            <p className="text-kicker text-muted-foreground">TRUSTED BY</p>
-            <div className="flex flex-wrap items-center justify-center gap-8 text-muted-foreground">
-              <span className="font-medium">Unicorn SaaS</span>
-              <span className="font-medium">FinTech Scale-up</span>
-              <span className="font-medium">EdTech Startup</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Testimonial */}
       <section className="py-16 px-4 bg-secondary">
         <div className="max-w-4xl mx-auto text-center space-y-4">
