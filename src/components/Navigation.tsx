@@ -13,14 +13,18 @@ const COLORS = {
   onAccent: designTokens.color.accent.on, // texte lisible sur fond vert (souvent blanc)
 };
 
-const isOpaqueWhite = (hex: string) => /^#?f{6}$/i.test(hex.replace("#", ""));
-
 const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition-colors";
 
 export const Navigation: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+
   // thème courant + dérivés dépendants de isScrolled
   const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
+  // ✅ ces constantes DOIVENT être après isScrolled et dans le composant
+  const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
+
+  const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
+  const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
 
   const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
   const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
