@@ -20,19 +20,19 @@ export const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center gap-8 mr-4">
             <Link
               to="/"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
             >
               Home
             </Link>
             <Link
               to="/work"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
             >
               Work
             </Link>
             <Link
-              to="/contact"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-xl border shadow-md hover:bg-primary hover:text-white"
+              to="/#contact"
+              className="text-sm font-medium text-white transition-colors px-4 py-2 rounded-xl border shadow-md bg-green-500 hover:bg-green-600"
             >
               Contact
             </Link>
@@ -41,13 +41,9 @@ export const Navigation: React.FC = () => {
           {/* Language Selector & Theme Toggle */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm">
-              <button className="font-medium text-foreground hover:text-foreground/80 transition-colors">
-                EN
-              </button>
+              <button className="font-medium text-foreground hover:text-foreground/80 transition-colors">EN</button>
               <span className="text-muted-foreground">|</span>
-              <button className="font-medium text-muted-foreground hover:text-foreground transition-colors">
-                FR
-              </button>
+              <button className="font-medium text-muted-foreground hover:text-foreground transition-colors">FR</button>
             </div>
             <ThemeToggle />
           </div>
