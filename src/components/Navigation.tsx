@@ -13,9 +13,6 @@ const COLORS = {
   onAccent: designTokens.color.accent.on, // texte lisible sur fond vert (souvent blanc)
 };
 
-// 👇 Ajout
-const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
-
 // En contexte HERO + dark + nav transparente → l’“encre” doit être blanche
 const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
 
@@ -28,6 +25,11 @@ const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition
 
 export const Navigation: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  // thème courant + dérivés dépendants de isScrolled
+  const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
+
+  const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
+  const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
 
   // États d'activation par section
   const [heroVisible, setHeroVisible] = useState(true); // Home actif ↔ Hero visible
