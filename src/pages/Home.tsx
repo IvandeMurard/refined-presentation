@@ -252,33 +252,65 @@ export const Home: React.FC = () => {
       <Navigation />
 
       {/* Hero Section - Centered */}
-      <section id="hero" className="pt-32 pb-24 px-4">
-        <div className="max-w-5xl mx-auto text-center space-y-8">
-          <h1 className="text-h1 text-foreground">
-            Ivan de Murard
-            <br /> Zero-to-One Product Manager
-          </h1>
+      {/* Hero Section — Split: text left / photo right */}
+      <section id="hero" className="pt-28 md:pt-32 pb-24 px-4">
+        <div className="max-w-[1360px] mx-auto">
+          <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-12">
+            {/* Left: copy + CTAs */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h1 className="text-h1 text-foreground">
+                Ivan de Murard
+                <br />
+                Zero-to-One Product Manager
+              </h1>
 
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            From initial discovery to validated MVP, I turn user insights into impactful products and experiences, with
-            AI and go-to-market expertise.
-          </p>
+              <p className="text-xl text-muted-foreground max-w-[56ch] leading-relaxed">
+                From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
+                with AI and go-to-market expertise.
+              </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => scrollToSection("work")}
-            >
-              Discover my projects
-            </Button>
-            <Button
-              size="lg"
-              className="bg-contact hover:bg-contact/90 text-contact-foreground"
-              onClick={() => scrollToSection("contact")}
-            >
-              Let's meet!
-            </Button>
+              <div className="flex flex-col sm:flex-row items-start gap-4 pt-2">
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => scrollToSection("work")}
+                >
+                  Discover my projects
+                </Button>
+                <Button
+                  size="lg"
+                  className="bg-contact hover:bg-contact/90 text-contact-foreground"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  Let's meet!
+                </Button>
+              </div>
+            </div>
+
+            {/* Right: photo placeholder (4:5), prêt pour ta future image */}
+            <div className="lg:col-span-6 w-full">
+              <figure
+                className="relative mx-auto max-w-[520px] aspect-[4/5] rounded-2xl border border-border bg-card/60 shadow-lg overflow-hidden"
+                aria-label="Portrait placeholder"
+              >
+                {/* Placeholder visuel — remplace l'URL quand ta photo est prête */}
+                <div className="absolute inset-0 grid place-items-center">
+                  <div className="text-center">
+                    <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-accent/20" />
+                    <p className="text-sm text-muted-foreground">Your photo here</p>
+                    <p className="text-xs text-muted-foreground/70">Replace with a GitHub image later</p>
+                  </div>
+                </div>
+
+                {/* Option quand tu auras l’image :
+                <img
+                  src="https://raw.githubusercontent.com/ton-org/ton-repo/main/public/ivan.jpg"
+                  alt="Ivan de Murard — Product Manager"
+                  className="h-full w-full object-cover"
+                />
+                */}
+              </figure>
+            </div>
           </div>
         </div>
       </section>
