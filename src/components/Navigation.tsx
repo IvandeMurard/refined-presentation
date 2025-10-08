@@ -10,7 +10,7 @@ export const Navigation: React.FC = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container-grid py-10">
+      <div className="container-grid py-12">
         <div className="col-span-12 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
