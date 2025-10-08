@@ -138,8 +138,8 @@ export const Navigation: FC = () => {
               className={baseBtn}
               style={{
                 border: `1px solid ${inkOnContext}`,
-                background: /* actif ? */ /* Home */ heroVisible || /* Work */ workActive ? btnActiveBg : "transparent",
-                color: /* actif ? */ /* Home */ heroVisible || /* Work */ workActive ? "#FFFFFF" : inkOnContext,
+                background: heroVisible ? btnActiveBg : "transparent",
+                color: heroVisible ? "#FFFFFF" : inkOnContext,
                 transitionTimingFunction: designTokens.motion.easing.product,
                 transitionDuration: designTokens.motion.duration.fast,
               }}
@@ -166,9 +166,9 @@ export const Navigation: FC = () => {
               onClick={() => go("work")}
               className={baseBtn}
               style={{
-                border: `1px solid ${COLORS.ink}`, // fine bordure encre
-                background: workActive ? COLORS.ink : "transparent",
-                color: workActive ? "#FFFFFF" : COLORS.ink,
+                border: `1px solid ${inkOnContext}`, // fine bordure encre contextuelle
+                background: workActive ? btnActiveBg : "transparent",
+                color: workActive ? "#FFFFFF" : inkOnContext,
                 transitionTimingFunction: designTokens.motion.easing.product,
                 transitionDuration: designTokens.motion.duration.fast,
               }}
