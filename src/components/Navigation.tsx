@@ -31,7 +31,7 @@ export const Navigation: React.FC = () => {
             >
               Work
             </Link>
-            <Button size="sm" className="bg-contact hover:bg-contact/90 text-contact-foreground">
+            <Button size="sm" className="px-4 py-2 bg-contact hover:bg-contact/90 text-contact-foreground">
               Contact
             </Button>
           </div>
