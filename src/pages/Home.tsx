@@ -297,8 +297,8 @@ export const Home: React.FC = () => {
                 <div className="absolute inset-0 grid place-items-center">
                   <div className="text-center">
                     <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-accent/20" />
-                    <p className="text-sm text-muted-foreground">Your photo here</p>
-                    <p className="text-xs text-muted-foreground/70">Replace with a GitHub image later</p>
+                    <p className="text-sm text-muted-foreground">public/img/profile_picture.jpg</p>
+                    <p className="text-xs text-muted-foreground/70">public/img/profile_picture.jpg</p>
                   </div>
                 </div>
 
