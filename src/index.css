@@ -252,16 +252,34 @@
     border-left: 4px solid #90CAF9;
   }
   
+  .dark .roadmap-now {
+    background: hsl(var(--accent) / 0.15);
+    border-left: 4px solid hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+  
   .roadmap-next {
     @apply rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
     background: #BBDEFB;
     border-left: 4px solid #42A5F5;
   }
   
+  .dark .roadmap-next {
+    background: hsl(var(--accent) / 0.20);
+    border-left: 4px solid hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+  
   .roadmap-later {
     @apply rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow;
     background: #90CAF9;
     border-left: 4px solid #1976D2;
+  }
+  
+  .dark .roadmap-later {
+    background: hsl(var(--accent) / 0.25);
+    border-left: 4px solid hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
   }
   
   /* Test feedback styles */

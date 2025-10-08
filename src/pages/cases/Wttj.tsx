@@ -16,240 +16,270 @@ const ContentDefault = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="space-y-16">
-      {/* TL;DR */}
-      <CaseTldr />
+    <div>
+      {/* Section 1: TL;DR + Contexte - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* TL;DR */}
+          <CaseTldr />
 
-      {/* Contexte & Problématique */}
-      <section className="grid md:grid-cols-2 gap-6 items-start">
-        <div className="space-y-4">
-          <h2 className="text-h3">Contexte & Problématique</h2>
-          <p>
-            Les profils seniors postulent peu sur la plateforme, malgré une forte demande par les entreprises clientes.
-            Objectif : <b>augmenter les candidatures seniors</b> via une expérience personnalisée et engageante.
-          </p>
-        </div>
-        <CaseImage alt="Stats & contexte" desktopSrc="/WTTJ/contexte-desktop.png" caption="Data et signaux marché" />
-      </section>
-
-      {/* Objectifs */}
-      <section className="grid md:grid-cols-3 gap-4">
-        {["Acquisition seniors tech", "Engagement & conversion", "Rétention"].map((k) => (
-          <div key={k} className="rounded-xl border p-4 bg-card">
-            <h3 className="font-medium">{k}</h3>
-          </div>
-        ))}
-      </section>
-
-      {/* Discovery */}
-      <section className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6 items-start">
-          <div className="space-y-4">
-            <h2 className="text-h3">Discovery (12 jours)</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>8 entretiens vidéo seniors (tech & autres).</li>
-              <li>Insights : transparence (salaire, missions), filtres pertinents, accompagnement.</li>
-              <li>CTR seniors ≈ 11% vs 20% juniors ; besoin de lisibilité des offres.</li>
-            </ul>
-          </div>
-          <CaseImage alt="JTBD & verbatims clés" desktopSrc="/WTTJ/jtbd-desktop.png" caption="JTBD & verbatims clés" />
-        </div>
-        <CaseImage
-          alt="Parcours utilisateur"
-          desktopSrc="/WTTJ/etude_de_cas_p31_desktop.png"
-          caption="Cartographie du parcours utilisateur"
-        />
-      </section>
-
-      {/* Pivot stratégique */}
-      <CasePivot />
-      <CaseImage
-        alt="Opportunity tree (extrait pivot)"
-        desktopSrc="/WTTJ/pivot-desktop.png"
-        caption="Arbre d'opportunités - Recentrage stratégique"
-      />
-
-      {/* MVP priorisé et testé */}
-      <section className="space-y-4">
-        <h2 className="text-h3">MVP priorisé et testé</h2>
-        <ol className="list-decimal pl-5 space-y-2">
-          <li>Standardisation des offres (salaire, remote, missions, stack).</li>
-          <li>Onboarding personnalisé (critères seniors).</li>
-          <li>Assistant IA (CV, storytelling, préparation d'un entretien).</li>
-          <li>Matching CV ↔ Offres.</li>
-        </ol>
-        <CaseImage
-          alt="RICE – priorisation MVP"
-          desktopSrc="/WTTJ/rice-desktop.png"
-          caption="Matrice RICE - Priorisation des features MVP"
-        />
-      </section>
-
-      {/* Prototype & Tests */}
-      <section className="space-y-8">
-        <div>
-          <h2 className="text-h3 mb-4">Prototype & Tests utilisateurs</h2>
-          <p className="text-base mb-6">
-            Wireframes → Maquette Figma → finalisation & publication sur Lovable → 4 tests utilisateurs issus de la
-            discovery.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-8">
-          <div className="space-y-4">
-            <div className="test-positive p-5 rounded-xl border-2">
-              <h4 className="font-medium mb-2">✅ Positifs</h4>
-              <ul className="text-sm list-disc pl-4 space-y-1">
-                <li>Offres plus lisibles & pertinentes.</li>
-                <li>Onboarding rassurant.</li>
-                <li>Matching CV motivant.</li>
-              </ul>
+          {/* Contexte & Problématique */}
+          <section className="grid md:grid-cols-2 gap-6 items-start">
+            <div className="space-y-4">
+              <h2 className="text-h3">Contexte & Problématique</h2>
+              <p>
+                Les profils seniors postulent peu sur la plateforme, malgré une forte demande par les entreprises clientes.
+                Objectif : <b>augmenter les candidatures seniors</b> via une expérience personnalisée et engageante.
+              </p>
             </div>
-            <div className="test-improvement p-5 rounded-xl border-2">
-              <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
-              <ul className="text-sm list-disc pl-4 space-y-1">
-                <li>Wording du CTA onboarding.</li>
-                <li>Placement de l'assistant IA.</li>
-              </ul>
-            </div>
-          </div>
+            <CaseImage alt="Stats & contexte" desktopSrc="/WTTJ/contexte-desktop.png" caption="Data et signaux marché" />
+          </section>
+        </div>
+      </div>
 
-          <a
-            href="https://prototype-wttj.lovable.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block group hover:opacity-90 transition-opacity"
-          >
+      {/* Section 2: Objectifs + Discovery - bg-secondary */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Objectifs */}
+          <section className="grid md:grid-cols-3 gap-4">
+            {["Acquisition seniors tech", "Engagement & conversion", "Rétention"].map((k) => (
+              <div key={k} className="rounded-xl border p-4 bg-card">
+                <h3 className="font-medium">{k}</h3>
+              </div>
+            ))}
+          </section>
+
+          {/* Discovery */}
+          <section className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6 items-start">
+              <div className="space-y-4">
+                <h2 className="text-h3">Discovery (12 jours)</h2>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>8 entretiens vidéo seniors (tech & autres).</li>
+                  <li>Insights : transparence (salaire, missions), filtres pertinents, accompagnement.</li>
+                  <li>CTR seniors ≈ 11% vs 20% juniors ; besoin de lisibilité des offres.</li>
+                </ul>
+              </div>
+              <CaseImage alt="JTBD & verbatims clés" desktopSrc="/WTTJ/jtbd-desktop.png" caption="JTBD & verbatims clés" />
+            </div>
             <CaseImage
-              alt="Prototype onboarding"
-              desktopSrc="/WTTJ/proto-onboarding-desktop.png"
-              caption="🔗 Prototype Lovable – Cliquez pour tester"
+              alt="Parcours utilisateur"
+              desktopSrc="/WTTJ/etude_de_cas_p31_desktop.png"
+              caption="Cartographie du parcours utilisateur"
             />
-          </a>
+          </section>
         </div>
+      </div>
 
-        <div className="space-y-4">
-          <h3 className="text-xl font-semibold">Résultats des tests utilisateurs</h3>
+      {/* Section 3: Pivot + Opportunités - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Pivot stratégique */}
+          <CasePivot />
           <CaseImage
-            alt="Résultats des tests utilisateurs"
-            desktopSrc="/WTTJ/tests-desktop.png"
-            caption="Synthèse des retours utilisateurs"
+            alt="Opportunity tree (extrait pivot)"
+            desktopSrc="/WTTJ/pivot-desktop.png"
+            caption="Arbre d'opportunités - Recentrage stratégique"
           />
         </div>
-      </section>
+      </div>
 
-      {/* CTA Banner */}
-      <CTABanner
-        title="Rencontrons-nous !"
-        description="Echangeons sur vos besoins produits"
-        ctaText="Contact"
-        onClick={() => navigate("/Contact")}
-        className="my-6"
-      />
+      {/* Section 4: MVP + Prototype + CTA - bg-secondary */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* MVP priorisé et testé */}
+          <section className="space-y-4">
+            <h2 className="text-h3">MVP priorisé et testé</h2>
+            <ol className="list-decimal pl-5 space-y-2">
+              <li>Standardisation des offres (salaire, remote, missions, stack).</li>
+              <li>Onboarding personnalisé (critères seniors).</li>
+              <li>Assistant IA (CV, storytelling, préparation d'un entretien).</li>
+              <li>Matching CV ↔ Offres.</li>
+            </ol>
+            <CaseImage
+              alt="RICE – priorisation MVP"
+              desktopSrc="/WTTJ/rice-desktop.png"
+              caption="Matrice RICE - Priorisation des features MVP"
+            />
+          </section>
 
-      {/* Roadmap & KPIs */}
-      <section className="space-y-4">
-        <h2 className="text-h3">Roadmap & KPIs</h2>
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="roadmap-now">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
-              Now
+          {/* Prototype & Tests */}
+          <section className="space-y-8">
+            <div>
+              <h2 className="text-h3 mb-4">Prototype & Tests utilisateurs</h2>
+              <p className="text-base mb-6">
+                Wireframes → Maquette Figma → finalisation & publication sur Lovable → 4 tests utilisateurs issus de la
+                discovery.
+              </p>
             </div>
-            <div className="text-base font-medium">Standardisation + Onboarding</div>
-          </div>
-          <div className="roadmap-next">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
-              Next
+
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="space-y-4">
+                <div className="test-positive p-5 rounded-xl border-2">
+                  <h4 className="font-medium mb-2">✅ Positifs</h4>
+                  <ul className="text-sm list-disc pl-4 space-y-1">
+                    <li>Offres plus lisibles & pertinentes.</li>
+                    <li>Onboarding rassurant.</li>
+                    <li>Matching CV motivant.</li>
+                  </ul>
+                </div>
+                <div className="test-improvement p-5 rounded-xl border-2">
+                  <h4 className="font-medium mb-2">⚠️ À améliorer</h4>
+                  <ul className="text-sm list-disc pl-4 space-y-1">
+                    <li>Wording du CTA onboarding.</li>
+                    <li>Placement de l'assistant IA.</li>
+                  </ul>
+                </div>
+              </div>
+
+              <a
+                href="https://prototype-wttj.lovable.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group hover:opacity-90 transition-opacity"
+              >
+                <CaseImage
+                  alt="Prototype onboarding"
+                  desktopSrc="/WTTJ/proto-onboarding-desktop.png"
+                  caption="🔗 Prototype Lovable – Cliquez pour tester"
+                />
+              </a>
             </div>
-            <div className="text-base font-medium">Assistant IA + Matching CV</div>
-          </div>
-          <div className="roadmap-later">
-            <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
-              Later
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold">Résultats des tests utilisateurs</h3>
+              <CaseImage
+                alt="Résultats des tests utilisateurs"
+                desktopSrc="/WTTJ/tests-desktop.png"
+                caption="Synthèse des retours utilisateurs"
+              />
             </div>
-            <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
-          </div>
-        </div>
-        <CaseImage
-          alt="Roadmap Now Next Later"
-          desktopSrc="/WTTJ/etude_de_cas_p18_desktop.png"
-          caption="Roadmap : priorisation par phases Now / Next / Later"
-        />
-      </section>
+          </section>
 
-      {/* Risques & Parades */}
-      <section className="grid md:grid-cols-2 gap-6 items-start">
-        <div className="space-y-3">
-          <h2 className="text-h3">Risques & Parades</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <b>Abandon onboarding</b> → étapes claires, analytics par étape, itérations wording.
-            </li>
-            <li>
-              <b>Assistant IA sous-utilisé</b> → A/B placement, triggers contextuels.
-            </li>
-            <li>
-              <b>Matching technique</b> → transparence "beta", feedback in-product.
-            </li>
-          </ul>
+          {/* CTA Banner */}
+          <CTABanner
+            title="Rencontrons-nous !"
+            description="Echangeons sur vos besoins produits"
+            ctaText="Contact"
+            onClick={() => navigate("/Contact")}
+            className="my-6"
+          />
         </div>
-        <CaseImage
-          alt="Matrice de risques"
-          desktopSrc="/WTTJ/risques-desktop.png"
-          caption="Matrice de risques et stratégies de mitigation"
-        />
-      </section>
+      </div>
 
-      {/* Conclusion */}
-      <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
-        <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
-        <p className="text-lg leading-relaxed">
-          <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1. Next
-          : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si les
-          résultats sont probants.
-        </p>
-      </section>
+      {/* Section 5: Roadmap + Risques - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Roadmap & KPIs */}
+          <section className="space-y-4">
+            <h2 className="text-h3">Roadmap & KPIs</h2>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="roadmap-now">
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+                  Now
+                </div>
+                <div className="text-base font-medium">Standardisation + Onboarding</div>
+              </div>
+              <div className="roadmap-next">
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                  Next
+                </div>
+                <div className="text-base font-medium">Assistant IA + Matching CV</div>
+              </div>
+              <div className="roadmap-later">
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                  Later
+                </div>
+                <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
+              </div>
+            </div>
+            <CaseImage
+              alt="Roadmap Now Next Later"
+              desktopSrc="/WTTJ/etude_de_cas_p18_desktop.png"
+              caption="Roadmap : priorisation par phases Now / Next / Later"
+            />
+          </section>
 
-      {/* Épilogue */}
-      <section className="space-y-4">
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">🔄</span>
-          <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+          {/* Risques & Parades */}
+          <section className="grid md:grid-cols-2 gap-6 items-start">
+            <div className="space-y-3">
+              <h2 className="text-h3">Risques & Parades</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <b>Abandon onboarding</b> → étapes claires, analytics par étape, itérations wording.
+                </li>
+                <li>
+                  <b>Assistant IA sous-utilisé</b> → A/B placement, triggers contextuels.
+                </li>
+                <li>
+                  <b>Matching technique</b> → transparence "beta", feedback in-product.
+                </li>
+              </ul>
+            </div>
+            <CaseImage
+              alt="Matrice de risques"
+              desktopSrc="/WTTJ/risques-desktop.png"
+              caption="Matrice de risques et stratégies de mitigation"
+            />
+          </section>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Exploration B2B</h4>
-            <p className="text-sm text-muted-foreground">Explorer l'angle entreprises en parallèle du B2C</p>
-          </div>
-          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Segments élargis</h4>
-            <p className="text-sm text-muted-foreground">Tester d'autres segments seniors hors tech</p>
-          </div>
-          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Tests quantitatifs</h4>
-            <p className="text-sm text-muted-foreground">Validation à plus grande échelle avec métriques</p>
-          </div>
-        </div>
-      </section>
+      </div>
 
-      {/* Liens externes */}
-      <section className="pt-4 border-t">
-        <ul className="list-disc pl-5 space-y-1 text-sm">
-          <li>
-            <a
-              className="underline hover:text-accent"
-              href="https://prototype-wttj.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prototype Lovable
-            </a>
-          </li>
-          <li>
-            <span className="text-muted-foreground">Backlog Notion / Research Miro (liens internes)</span>
-          </li>
-        </ul>
-      </section>
+      {/* Section 6: Conclusion + Épilogue + Liens - bg-secondary */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Conclusion */}
+          <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
+            <h2 className="text-h3 text-foreground mb-3">Conclusion</h2>
+            <p className="text-lg leading-relaxed text-foreground">
+              <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1. Next
+              : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si les
+              résultats sont probants.
+            </p>
+          </section>
+
+          {/* Épilogue */}
+          <section className="space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🔄</span>
+              <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Exploration B2B</h4>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Explorer l'angle entreprises en parallèle du B2C</p>
+              </div>
+              <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Segments élargis</h4>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Tester d'autres segments seniors hors tech</p>
+              </div>
+              <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Tests quantitatifs</h4>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Validation à plus grande échelle avec métriques</p>
+              </div>
+            </div>
+          </section>
+
+          {/* Liens externes */}
+          <section className="pt-4 border-t">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <a
+                  className="underline hover:text-accent"
+                  href="https://prototype-wttj.lovable.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Prototype Lovable
+                </a>
+              </li>
+              <li>
+                <span className="text-muted-foreground">Backlog Notion / Research Miro (liens internes)</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
     </div>
   );
 };
@@ -258,37 +288,45 @@ const ContentPM = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="space-y-16">
-      {/* TL;DR */}
-      <CaseTldr />
+    <div>
+      {/* Section 1: TL;DR + Pivot - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* TL;DR */}
+          <CaseTldr />
 
-      {/* Pivot stratégique EN PREMIER */}
-      <section className="space-y-4">
-        <h2 className="text-h3">Pivot stratégique</h2>
-        <CasePivot />
-        <CaseImage
-          alt="Opportunity tree"
-          desktopSrc="/WTTJ/pivot-desktop.png"
-          caption="Arbre d'opportunités - Recentrage stratégique"
-        />
-        <div className="grid md:grid-cols-3 gap-4 mt-6">
-          <div className="rounded-xl border p-4 bg-card">
-            <h4 className="font-semibold mb-2">Impact Business</h4>
-            <p className="text-sm">CTR seniors : 11% → 13%</p>
-            <p className="text-sm">+300 à +800 profils activés</p>
-          </div>
-          <div className="rounded-xl border p-4 bg-card">
-            <h4 className="font-semibold mb-2">Valeur / Effort</h4>
-            <p className="text-sm">Standardisation et onboarding livrables rapidement</p>
-          </div>
-          <div className="rounded-xl border p-4 bg-card">
-            <h4 className="font-semibold mb-2">Différenciation</h4>
-            <p className="text-sm">Accompagnement IA + matching CV</p>
-          </div>
+          {/* Pivot stratégique EN PREMIER */}
+          <section className="space-y-4">
+            <h2 className="text-h3">Pivot stratégique</h2>
+            <CasePivot />
+            <CaseImage
+              alt="Opportunity tree"
+              desktopSrc="/WTTJ/pivot-desktop.png"
+              caption="Arbre d'opportunités - Recentrage stratégique"
+            />
+            <div className="grid md:grid-cols-3 gap-4 mt-6">
+              <div className="rounded-xl border p-4 bg-card">
+                <h4 className="font-semibold mb-2">Impact Business</h4>
+                <p className="text-sm">CTR seniors : 11% → 13%</p>
+                <p className="text-sm">+300 à +800 profils activés</p>
+              </div>
+              <div className="rounded-xl border p-4 bg-card">
+                <h4 className="font-semibold mb-2">Valeur / Effort</h4>
+                <p className="text-sm">Standardisation et onboarding livrables rapidement</p>
+              </div>
+              <div className="rounded-xl border p-4 bg-card">
+                <h4 className="font-semibold mb-2">Différenciation</h4>
+                <p className="text-sm">Accompagnement IA + matching CV</p>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
 
-      {/* Roadmap & KPIs */}
+      {/* Section 2: Roadmap + Go-to-market + Risques - bg-secondary */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Roadmap & KPIs */}
       <section className="space-y-4">
         <h2 className="text-h3">Roadmap & KPIs</h2>
         <div className="grid md:grid-cols-3 gap-4">
@@ -337,30 +375,35 @@ const ContentPM = () => {
         </div>
       </section>
 
-      {/* Risques & Parades */}
-      <section className="grid md:grid-cols-2 gap-6 items-start">
-        <div className="space-y-3">
-          <h2 className="text-h3">Risques & Parades</h2>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <b>Abandon onboarding</b> → analytics par étape, itérations wording
-            </li>
-            <li>
-              <b>IA sous-utilisée</b> → A/B placement, triggers contextuels
-            </li>
-            <li>
-              <b>Matching technique</b> → transparence "beta", feedback beta-testeurs
-            </li>
-          </ul>
+          {/* Risques & Parades */}
+          <section className="grid md:grid-cols-2 gap-6 items-start">
+            <div className="space-y-3">
+              <h2 className="text-h3">Risques & Parades</h2>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>
+                  <b>Abandon onboarding</b> → analytics par étape, itérations wording
+                </li>
+                <li>
+                  <b>IA sous-utilisée</b> → A/B placement, triggers contextuels
+                </li>
+                <li>
+                  <b>Matching technique</b> → transparence "beta", feedback beta-testeurs
+                </li>
+              </ul>
+            </div>
+            <CaseImage
+              alt="Matrice de risques"
+              desktopSrc="/WTTJ/risques-desktop.png"
+              caption="Matrice de risques et stratégies de mitigation"
+            />
+          </section>
         </div>
-        <CaseImage
-          alt="Matrice de risques"
-          desktopSrc="/WTTJ/risques-desktop.png"
-          caption="Matrice de risques et stratégies de mitigation"
-        />
-      </section>
+      </div>
 
-      {/* Prototype & Tests (résultats) */}
+      {/* Section 3: Tests + CTA + Conclusion + Épilogue - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Prototype & Tests (résultats) */}
       <section className="space-y-8">
         <div>
           <h2 className="text-h3 mb-4">Tests utilisateurs - Résultats</h2>
@@ -421,34 +464,36 @@ const ContentPM = () => {
 
       {/* Conclusion */}
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
-        <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
-        <p className="text-lg leading-relaxed">
+        <h2 className="text-h3 text-foreground mb-3">Conclusion</h2>
+        <p className="text-lg leading-relaxed text-foreground">
           MVP priorisé selon impact/effort (RICE), testé avec 4 utilisateurs, prêt pour déploiement. Next : mesurer
           adoption, itérer sur wording & IA placement, étendre si KPIs validés.
         </p>
       </section>
 
-      {/* Épilogue */}
-      <section className="space-y-4">
-        <div className="flex items-center gap-3">
-          <span className="text-2xl">🔄</span>
-          <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+          {/* Épilogue */}
+          <section className="space-y-4">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🔄</span>
+              <h3 className="text-h4 font-semibold">Ce qui aurait pu être fait différemment</h3>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Exploration B2B</h4>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Explorer l'angle entreprises en parallèle</p>
+              </div>
+              <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Tests quantitatifs</h4>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Validation à plus grande échelle avec métriques</p>
+              </div>
+              <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
+                <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Analyse compétitive</h4>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Benchmark approfondi des concurrents</p>
+              </div>
+            </div>
+          </section>
         </div>
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Exploration B2B</h4>
-            <p className="text-sm text-muted-foreground">Explorer l'angle entreprises en parallèle</p>
-          </div>
-          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Tests quantitatifs</h4>
-            <p className="text-sm text-muted-foreground">Validation à plus grande échelle avec métriques</p>
-          </div>
-          <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Analyse compétitive</h4>
-            <p className="text-sm text-muted-foreground">Benchmark approfondi des concurrents</p>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };
@@ -457,39 +502,47 @@ const ContentDesigner = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="space-y-16">
-      {/* TL;DR */}
-      <CaseTldr />
+    <div>
+      {/* Section 1: TL;DR + Discovery - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* TL;DR */}
+          <CaseTldr />
 
-      {/* Discovery & Research */}
-      <section className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6 items-start">
-          <div className="space-y-4">
-            <h2 className="text-h3">Discovery & Research</h2>
-            <ul className="list-disc pl-5 space-y-2">
-              <li>8 entretiens vidéo avec profils seniors (tech & autres)</li>
-              <li>Verbatims & JTBD mapping</li>
-              <li>Insights clés : transparence salaire, filtres pertinents, accompagnement</li>
-              <li>Analyse comportementale : CTR 11% vs 20% juniors</li>
-            </ul>
-          </div>
-          <CaseImage
-            alt="JTBD & verbatims"
-            desktopSrc="/WTTJ/jtbd-desktop.png"
-            caption="Jobs-to-be-Done & verbatims clés"
-          />
+          {/* Discovery & Research */}
+          <section className="space-y-6">
+            <div className="grid md:grid-cols-2 gap-6 items-start">
+              <div className="space-y-4">
+                <h2 className="text-h3">Discovery & Research</h2>
+                <ul className="list-disc pl-5 space-y-2">
+                  <li>8 entretiens vidéo avec profils seniors (tech & autres)</li>
+                  <li>Verbatims & JTBD mapping</li>
+                  <li>Insights clés : transparence salaire, filtres pertinents, accompagnement</li>
+                  <li>Analyse comportementale : CTR 11% vs 20% juniors</li>
+                </ul>
+              </div>
+              <CaseImage
+                alt="JTBD & verbatims"
+                desktopSrc="/WTTJ/jtbd-desktop.png"
+                caption="Jobs-to-be-Done & verbatims clés"
+              />
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-h4">Personas & User Journey</h3>
+              <CaseImage
+                alt="Parcours utilisateur"
+                desktopSrc="/WTTJ/etude_de_cas_p31_desktop.png"
+                caption="Cartographie du parcours utilisateur seniors"
+              />
+            </div>
+          </section>
         </div>
-        <div className="space-y-4">
-          <h3 className="text-h4">Personas & User Journey</h3>
-          <CaseImage
-            alt="Parcours utilisateur"
-            desktopSrc="/WTTJ/etude_de_cas_p31_desktop.png"
-            caption="Cartographie du parcours utilisateur seniors"
-          />
-        </div>
-      </section>
+      </div>
 
-      {/* Design Process */}
+      {/* Section 2: Design Process + Prototype/Tests + CTA - bg-secondary */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Design Process */}
       <section className="space-y-4">
         <h2 className="text-h3">Design Process</h2>
         <div className="grid md:grid-cols-3 gap-4">
@@ -561,16 +614,21 @@ const ContentDesigner = () => {
         </div>
       </section>
 
-      {/* CTA */}
-      <CTABanner
-        title="Voir mes autres projets design"
-        description="De la recherche utilisateur au prototype testé"
-        ctaText="Portfolio complet"
-        onClick={() => navigate("/")}
-        className="my-6"
-      />
+          {/* CTA */}
+          <CTABanner
+            title="Voir mes autres projets design"
+            description="De la recherche utilisateur au prototype testé"
+            ctaText="Portfolio complet"
+            onClick={() => navigate("/")}
+            className="my-6"
+          />
+        </div>
+      </div>
 
-      {/* Décisions design clés */}
+      {/* Section 3: Décisions design + Conclusion + Épilogue + Liens - bg-background */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-16">
+          {/* Décisions design clés */}
       <section className="space-y-4">
         <h2 className="text-h3">Décisions design clés</h2>
         <div className="grid md:grid-cols-2 gap-4">
@@ -595,8 +653,8 @@ const ContentDesigner = () => {
 
       {/* Conclusion */}
       <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
-        <h2 className="text-h3 text-accent dark:text-accent-foreground mb-3">Conclusion</h2>
-        <p className="text-lg leading-relaxed">
+        <h2 className="text-h3 text-foreground mb-3">Conclusion</h2>
+        <p className="text-lg leading-relaxed text-foreground">
           Design centré utilisateur : de la research aux tests, chaque décision validée avec la cible. Prototype
           fonctionnel en 12 jours, prêt pour itérations basées sur métriques réelles.
         </p>
@@ -610,35 +668,37 @@ const ContentDesigner = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-4">
           <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Design system robuste</h4>
-            <p className="text-sm text-muted-foreground">Composants réutilisables et maintenables</p>
+            <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Design system robuste</h4>
+            <p className="text-sm text-foreground dark:text-muted-foreground">Composants réutilisables et maintenables</p>
           </div>
           <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Tests d'accessibilité</h4>
-            <p className="text-sm text-muted-foreground">Audit WCAG complet et corrections</p>
+            <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Tests d'accessibilité</h4>
+            <p className="text-sm text-foreground dark:text-muted-foreground">Audit WCAG complet et corrections</p>
           </div>
           <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
-            <h4 className="font-semibold mb-2 text-accent">Micro-interactions</h4>
-            <p className="text-sm text-muted-foreground">États de chargement et animations soignées</p>
+            <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Micro-interactions</h4>
+            <p className="text-sm text-foreground dark:text-muted-foreground">États de chargement et animations soignées</p>
           </div>
         </div>
       </section>
 
-      {/* Liens */}
-      <section className="pt-4 border-t">
-        <ul className="list-disc pl-5 space-y-1 text-sm">
-          <li>
-            <a
-              className="underline hover:text-accent"
-              href="https://prototype-wttj.lovable.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Prototype Lovable interactif
-            </a>
-          </li>
-        </ul>
-      </section>
+          {/* Liens */}
+          <section className="pt-4 border-t">
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>
+                <a
+                  className="underline hover:text-accent"
+                  href="https://prototype-wttj.lovable.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Prototype Lovable interactif
+                </a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
     </div>
   );
 };
