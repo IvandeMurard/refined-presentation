@@ -298,7 +298,7 @@ export const Home: React.FC = () => {
         <div className="max-w-[1360px] mx-auto">
           <SectionHeader
             title="Work"
-            description="From Insight to MVP, process-first case studies."
+            description="From Discovery to MVP, process-first case studies."
             alignment="left"
             className="mb-8"
           />
@@ -418,9 +418,9 @@ export const Home: React.FC = () => {
 
       {/* CTA Banner */}
       <CTABanner
-        title="Ready to build something exceptional together?"
-        description="Let's discuss how we can transform your product vision into reality"
-        ctaText="Get in touch"
+        title="Ready to build the future together?"
+        description="Let's discuss how we can turn your product vision into reality"
+        ctaText="Let's meet!"
         onClick={() => scrollToSection("contact")}
       />
 
@@ -596,11 +596,11 @@ export const Home: React.FC = () => {
       {/* Contact Section - Centered */}
       <section id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-h2">Let's discuss your product</h2>
+          <h2 className="text-h2">Let's design a meaningful future together</h2>
 
           <p className="text-lg max-w-2xl mx-auto opacity-90">
-            Have an idea to validate or a product to optimize? Let's exchange on your vision and explore opportunities
-            together.
+            Do you have an idea to validate or a product to optimize?
+            Let's discuss your vision and explore opportunities together.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
@@ -623,7 +623,7 @@ export const Home: React.FC = () => {
       {/* Footer */}
       <Footer
         siteName="Ivan de Murard"
-        tagline="Product Designer & Manager crafting user-centered experiences"
+        tagline="Product Manager building user-centered experiences"
         sections={[
           { id: "work", label: "Work" },
           { id: "hackathons", label: "Hackathons" },
@@ -649,7 +649,7 @@ export const Home: React.FC = () => {
           subtitle={selectedProject.longDescription}
           bullets={selectedProject.bullets}
           cta={{
-            label: "Lire le case study complet",
+            label: "Lire le case study",
             href: `/case-study/${selectedProject.id}`,
           }}
         />
