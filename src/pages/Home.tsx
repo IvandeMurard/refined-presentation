@@ -298,7 +298,9 @@ export const Home: React.FC = () => {
                   <div className="text-center">
                     <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-accent/20" />
                     <p className="text-sm text-muted-foreground">public/img/profile_picture.jpg</p>
-                    <p className="text-xs text-muted-foreground/70">public/img/profile_picture.jpg</p>
+                    <p className="text-xs text-muted-foreground/70">
+                      https://github.com/IvandeMurard/refined-presentation/blob/main/public/img/profile_picture.jpg
+                    </p>
                   </div>
                 </div>
 
