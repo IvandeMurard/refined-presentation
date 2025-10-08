@@ -182,7 +182,7 @@ export const Navigation: React.FC = () => {
             {/* CONTACT — fond vert par défaut ; AU SURVOL: fond blanc + texte vert */}
             <button
               onClick={() => go("contact")}
-              className={baseBtn}
+              className={`${baseBtn} active:scale-95 active:ring-2 ring-contact/50`}
               style={{
                 border: `1px solid ${COLORS.accent}`,
                 background: COLORS.accent, // idle: vert
