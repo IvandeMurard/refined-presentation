@@ -13,6 +13,28 @@ const COLORS = {
   onAccent: designTokens.color.accent.on, // texte lisible sur fond vert (souvent blanc)
 };
 
+// 👇 Ajout : détection du dark mode (via class "dark" sur <html>) + helpers couleurs
+const useIsDark = () => {
+  const [isDark, setIsDark] = React.useState(() => document.documentElement.classList.contains("dark"));
+  React.useEffect(() => {
+    const mo = new MutationObserver(() => setIsDark(document.documentElement.classList.contains("dark")));
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => mo.disconnect();
+  }, []);
+  return isDark;
+};
+
+// 👇 Ajout
+const isDark = useIsDark();
+
+// En contexte HERO + dark + nav transparente → l’“encre” doit être blanche
+const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
+
+// Fond actif pour Home/Work : en dark sur Hero on évite un plein blanc → semi-transparent
+const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
+
+const isOpaqueWhite = (hex: string) => /^#?f{6}$/i.test(hex.replace("#", ""));
+
 const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition-colors";
 
 export const Navigation: React.FC = () => {
@@ -101,8 +123,8 @@ export const Navigation: React.FC = () => {
       className="fixed top-0 w-full z-50 transition-all"
       style={{
         backdropFilter: isScrolled ? "blur(6px)" : "none",
-        background: isScrolled ? `${COLORS.bg}F2` : "transparent",
-        borderBottom: `1px solid ${isScrolled ? COLORS.border : "transparent"}`,
+        background: isScrolled ? (isDark ? "rgba(17,24,39,0.92)" : `${COLORS.bg}F2`) : "transparent",
+        borderBottom: `1px solid ${isScrolled ? (isDark ? "rgba(255,255,255,0.12)" : COLORS.border) : "transparent"}`,
         transitionTimingFunction: designTokens.motion.easing.product,
         transitionDuration: designTokens.motion.duration.base,
       }}
@@ -112,13 +134,14 @@ export const Navigation: React.FC = () => {
           {/* Titre + curseur */}
           <button
             onClick={() => go("hero")}
-            className="text-[16px] font-[600] tracking-tight"
+            className="relative text-[16px] font-[600] tracking-tight w-[160px] text-left whitespace-nowrap"
             style={{ color: COLORS.ink }}
           >
             {displayText}
             <span
               aria-hidden
-              className="inline-block w-[2px] h-[16px] ml-1 animate-pulse"
+              className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 inline-block w-[2px] h-[1em] animate-pulse"
+              style={{ background: COLORS.accent }}
               style={{ background: COLORS.accent }}
             />
           </button>
@@ -130,22 +153,24 @@ export const Navigation: React.FC = () => {
               onClick={() => go("hero")}
               className={baseBtn}
               style={{
-                border: `1px solid ${COLORS.ink}`, // fine bordure encre
-                background: heroVisible ? COLORS.ink : "transparent",
-                color: heroVisible ? "#FFFFFF" : COLORS.ink,
+                border: `1px solid ${inkOnContext}`,
+                background: /* actif ? */ /* Home */ heroVisible || /* Work */ workActive ? btnActiveBg : "transparent",
+                color: /* actif ? */ /* Home */ heroVisible || /* Work */ workActive ? "#FFFFFF" : inkOnContext,
                 transitionTimingFunction: designTokens.motion.easing.product,
                 transitionDuration: designTokens.motion.duration.fast,
               }}
               onMouseEnter={(e) => {
-                if (!heroVisible) {
-                  e.currentTarget.style.background = String(COLORS.ink);
+                if (!(/* actif */ heroVisible /* ou workActive */)) {
+                  e.currentTarget.style.background = String(btnActiveBg);
                   e.currentTarget.style.color = "#FFFFFF";
+                  e.currentTarget.style.borderColor = String(inkOnContext);
                 }
               }}
               onMouseLeave={(e) => {
-                if (!heroVisible) {
+                if (!(/* actif */ heroVisible /* ou workActive */)) {
                   e.currentTarget.style.background = "transparent";
-                  e.currentTarget.style.color = String(COLORS.ink);
+                  e.currentTarget.style.color = String(inkOnContext);
+                  e.currentTarget.style.borderColor = String(inkOnContext);
                 }
               }}
             >
@@ -208,10 +233,10 @@ export const Navigation: React.FC = () => {
           {/* Lang / Theme */}
           <div className="flex items-center gap-4">
             <div className="hidden sm:flex items-center gap-2 text-sm">
-              <button className="font-medium opacity-80 hover:opacity-100" style={{ color: COLORS.ink }}>
+              <button className="font-medium opacity-80 hover:opacity-100" style={{ color: inkOnContext }}>
                 EN
               </button>
-              <span className="opacity-50" style={{ color: COLORS.inkMuted }}>
+              <span className="opacity-50" style={{ color: inkOnContext }}>
                 |
               </span>
               <button className="font-medium" style={{ color: COLORS.inkMuted }}>
