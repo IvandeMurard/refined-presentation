@@ -1,5 +1,5 @@
 // src/components/Navigation.tsx
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, type FC } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { designTokens } from "@/design-tokens";
 
@@ -14,8 +14,7 @@ const COLORS = {
 };
 
 // 👇 Ajout : détection du dark mode (via class "dark" sur <html>) + helpers couleurs
-const useIsDark = () => {
-  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains("dark"));
+const [isDark, setIsDark] = useState(false);
   useEffect(() => {
     const mo = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains("dark"));
@@ -39,7 +38,7 @@ const isOpaqueWhite = (hex: string) => /^#?f{6}$/i.test(hex.replace("#", ""));
 
 const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition-colors";
 
-export const Navigation: React.FC = () => {
+export const Navigation: FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   // États d'activation par section
