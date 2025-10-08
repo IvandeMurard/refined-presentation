@@ -47,16 +47,16 @@ export const Navigation: React.FC = () => {
     const io = new IntersectionObserver(
       (entries) => {
         // section la plus visible
-        const visible = entries
+        const top = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
 
-        if (visible?.target?.id) {
-          const id = visible.target.id as "hero" | "work" | "contact";
-          setActiveSection(id);
-        }
+        // quand Contact domine, on veut que Home & Work soient idle
+        if (!top) return;
+        const id = top.target.id as "hero" | "work" | "contact";
+        setActiveSection(id); // "contact" => aucun des deux (Home/Work) n'est actif
       },
-      { threshold: [0.1, 0.25, 0.5, 0.75], rootMargin: "-10% 0px -30% 0px" },
+      { threshold: [0.15, 0.35, 0.6, 0.85], rootMargin: "-10% 0px -30% 0px" },
     );
 
     els.forEach((el) => io.observe(el));
