@@ -5,7 +5,6 @@ import { ThemeToggle } from "./ThemeToggle";
 
 export const Navigation: React.FC = () => {
   const location = useLocation();
-
   const isActive = (path: string) => location.pathname === path;
 
   return (
@@ -21,17 +20,17 @@ export const Navigation: React.FC = () => {
           <div className="hidden md:flex items-center gap-8 mr-4">
             <Link
               to="/"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-4 rounded-md hover:bg-primary hover:text-white"
             >
               Home
             </Link>
             <Link
               to="/work"
-              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-4 rounded-md hover:bg-primary hover:text-white"
             >
               Work
             </Link>
-            <Button size="sm" className="px-4 py-2 bg-contact hover:bg-contact/90 text-contact-foreground">
+            <Button size="sm" className="bg-contact hover:bg-contact/90 text-contact-foreground py-4">
               Contact
             </Button>
           </div>
@@ -39,9 +38,13 @@ export const Navigation: React.FC = () => {
           {/* Language Selector & Theme Toggle */}
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2 text-sm">
-              <button className="font-medium text-foreground hover:text-foreground/80 transition-colors">EN</button>
+              <button className="font-medium text-foreground hover:text-foreground/80 transition-colors py-4">
+                EN
+              </button>
               <span className="text-muted-foreground">|</span>
-              <button className="font-medium text-muted-foreground hover:text-foreground transition-colors">FR</button>
+              <button className="font-medium text-muted-foreground hover:text-foreground transition-colors py-4">
+                FR
+              </button>
             </div>
             <ThemeToggle />
           </div>
