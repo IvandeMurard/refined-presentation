@@ -15,9 +15,11 @@ const COLORS = {
 
 // 👇 Ajout : détection du dark mode (via class "dark" sur <html>) + helpers couleurs
 const useIsDark = () => {
-  const [isDark, setIsDark] = React.useState(() => document.documentElement.classList.contains("dark"));
-  React.useEffect(() => {
-    const mo = new MutationObserver(() => setIsDark(document.documentElement.classList.contains("dark")));
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains("dark"));
+  useEffect(() => {
+    const mo = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
     mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
     return () => mo.disconnect();
   }, []);
