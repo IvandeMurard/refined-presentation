@@ -13,12 +13,6 @@ const COLORS = {
   onAccent: designTokens.color.accent.on, // texte lisible sur fond vert (souvent blanc)
 };
 
-// En contexte HERO + dark + nav transparente → l’“encre” doit être blanche
-const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
-
-// Fond actif pour Home/Work : en dark sur Hero on évite un plein blanc → semi-transparent
-const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
-
 const isOpaqueWhite = (hex: string) => /^#?f{6}$/i.test(hex.replace("#", ""));
 
 const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition-colors";
@@ -132,7 +126,6 @@ export const Navigation: FC = () => {
             <span
               aria-hidden
               className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 inline-block w-[2px] h-[1em] animate-pulse"
-              style={{ background: COLORS.accent }}
               style={{ background: COLORS.accent }}
             />
           </button>
