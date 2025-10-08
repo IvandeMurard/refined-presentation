@@ -13,22 +13,8 @@ const COLORS = {
   onAccent: designTokens.color.accent.on, // texte lisible sur fond vert (souvent blanc)
 };
 
-// 👇 Ajout : détection du dark mode (via class "dark" sur <html>) + helpers couleurs
-const [isDark, setIsDark] = useState(false);
-  useEffect(() => {
-    const mo = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    });
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => mo.disconnect();
-  }, []);
-  return isDark;
-};
-
 // 👇 Ajout
-const isDark =
-  typeof document !== "undefined" &&
-  document.documentElement.classList.contains("dark");
+const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
 
 // En contexte HERO + dark + nav transparente → l’“encre” doit être blanche
 const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
