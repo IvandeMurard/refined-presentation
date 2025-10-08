@@ -9,7 +9,7 @@ export const Navigation: React.FC = () => {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
-      <div className="container-grid py-20">
+      <div className="container-grid py-6">
         <div className="col-span-12 flex items-center justify-between">
           {/* Logo */}
           <Link to="/" className="text-xl font-bold text-foreground">
@@ -17,25 +17,25 @@ export const Navigation: React.FC = () => {
           </Link>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-4 mr-4">
+          <div className="hidden md:flex items-center gap-8 mr-4">
             <Link
               to="/"
-              className="text-sm font-medium text-foreground transition-all px-6 py-3 rounded-xl border border-border shadow-md hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
             >
               Home
             </Link>
             <Link
               to="/work"
-              className="text-sm font-medium text-foreground transition-all px-6 py-3 rounded-xl border border-border shadow-md hover:bg-primary hover:text-white hover:border-primary hover:shadow-lg"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
             >
               Work
             </Link>
-            <Button
-              size="sm"
-              className="bg-contact hover:bg-contact/90 text-contact-foreground px-6 py-3 shadow-md rounded-xl active:scale-95 active:ring-2 ring-contact/50 transition-all"
+            <Link
+              to="/contact"
+              className="text-sm font-medium text-foreground transition-colors px-4 py-2 rounded-md hover:bg-primary hover:text-white"
             >
               Contact
-            </Button>
+            </Link>
           </div>
 
           {/* Language Selector & Theme Toggle */}
