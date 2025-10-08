@@ -298,17 +298,16 @@ export const Home: React.FC = () => {
                   <div className="text-center">
                     <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-accent/20" />
                     <p className="text-sm text-muted-foreground">/img/profile_picture.jpg</p>
-                    <p className="text-xs text-muted-foreground/70">/img/profile_picture.jpg
-                    </p>
+                    <p className="text-xs text-muted-foreground/70">/img/profile_picture.jpg</p>
                   </div>
                 </div>
-
-                {<img
-                      src="/img/profile_picture.jpg"                     // ✅ assets sous /public sont servis depuis la racine
-                      alt="Ivan de Murard — Product Manager"
-                      className="h-full w-full object-cover"
+                {
+                  <img
+                    src="/img/profile_picture.jpg" // ✅ assets sous /public sont servis depuis la racine
+                    alt="Ivan de Murard — Product Manager"
+                    className="h-full w-full object-cover"
                   />
-                */}
+                }
               </figure>
             </div>
           </div>
