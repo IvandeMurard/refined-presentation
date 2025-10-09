@@ -1,2 +1,2 @@
-// Redirection propre si Home importe "../components/footer/Footer"
-export { Footer } from ".";
+// pass-through pour compatibiliser les anciens imports
+export { Footer } from "./index";
