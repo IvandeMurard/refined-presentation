@@ -10,11 +10,11 @@ import SkipLink from "@/components/SkipLink";
 import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
+// PAGES
 import { Home } from "./pages/Home";
-import Sonor from "./pages/Sonor";
-import Wttj from "./pages/cases/Wttj";
+import { Sonor } from "./pages/Sonor"; // ⬅️ export nommé
+import Wttj from "./pages/cases/Wttj"; // ⬅️ export default
 import WttjDefaultCase from "./pages/cases/wttj-default";
-import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -35,7 +35,7 @@ export default function App() {
                 <Route path="/cases/wttj" element={<Wttj />} />
                 <Route path="/case-study/wttj-conversion-seniors" element={<Wttj />} />
                 <Route path="/cases/wttj-default" element={<WttjDefaultCase />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="*" element={<div style={{ padding: 40 }}>Not Found</div>} />
               </Routes>
             </ErrorBoundary>
           </BrowserRouter>
