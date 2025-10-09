@@ -16,6 +16,22 @@ import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+
+export const Home: React.FC = () => {
+  const location = useLocation();
+
+  // 🔽 Hook : scroll quand un hash est présent (/#[id]) — au mount et à chaque changement de hash
+  useEffect(() => {
+    const hash = location.hash?.slice(1);
+    if (!hash) return;
+    const el = document.getElementById(hash);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, [location.hash]);
+
+  // … le reste de ton composant Home inchangé (scrollToSection, sections #hero #work #contact, etc.)
+};
 
 interface Project {
   id: string;
