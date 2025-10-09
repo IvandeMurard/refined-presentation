@@ -137,7 +137,7 @@ export const Navigation: FC = () => {
                 background: heroVisible ? btnActiveBg : "transparent",
                 color: heroVisible ? "#FFFFFF" : inkOnContext,
                 transitionTimingFunction: designTokens.motion.easing.product,
-                transitionDuration: designTokens.motion.duration.fast,
+                transitionDuration: designTokens.motion.duration.base,
               }}
               onMouseEnter={(e) => {
                 if (!heroVisible) {
@@ -167,7 +167,7 @@ export const Navigation: FC = () => {
                 background: workActive ? btnActiveBg : "transparent",
                 color: workActive ? "#FFFFFF" : inkOnContext,
                 transitionTimingFunction: designTokens.motion.easing.product,
-                transitionDuration: designTokens.motion.duration.fast,
+                transitionDuration: designTokens.motion.duration.base,
               }}
               onMouseEnter={(e) => {
                 if (!workActive) {
@@ -196,7 +196,7 @@ export const Navigation: FC = () => {
                 background: COLORS.accent,
                 color: COLORS.onAccent,
                 transitionTimingFunction: designTokens.motion.easing.product,
-                transitionDuration: designTokens.motion.duration.fast,
+                transitionDuration: designTokens.motion.duration.base,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.background = "#FFFFFF";
