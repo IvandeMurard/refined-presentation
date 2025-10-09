@@ -10,6 +10,23 @@ import { Sonor } from "./pages/Sonor";
 import Wttj from "./pages/cases/Wttj";
 import WttjDefaultCase from "./pages/cases/wttj-default";
 import NotFound from "./pages/NotFound";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from "./components/ScrollToTop";
+import { Home } from "./Home";
+import { CaseStudy } from "./case-study/CaseStudy"; // exemple
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/case-study/:id" element={<CaseStudy />} />
+        {/* ...autres routes */}
+      </Routes>
+    </BrowserRouter>
+  );
+}
 
 const queryClient = new QueryClient();
 
