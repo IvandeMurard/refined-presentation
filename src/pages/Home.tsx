@@ -4,6 +4,11 @@ import { useLocation } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/footer"; // ✅
 import { SectionHeader } from "../components/SectionHeader"; // ✅
+import { FilterChips } from "../components/FilterChips";
+import { CarouselRow } from "../components/CarouselRow";
+import { WorkModal } from "../components/WorkModal";
+import { BuiltWithBanner } from "../components/BuiltWithBanner";
+import { CTABanner } from "../components/work/CTABanner";
 
 import { MediaCard } from "../components/work/MediaCard";
 import { sonorCase } from "../data/cases/sonor.case";
@@ -61,6 +66,12 @@ export const Home: React.FC = () => {
       href: "/cases/wttj",
     },
   ];
+  const [activeChip, setActiveChip] = React.useState("all");
+  const chips = [
+    { id: "all", label: "All" },
+    { id: "case", label: "Case studies" },
+    { id: "hack", label: "Hackathons" },
+  ];
 
   return (
     <>
@@ -84,6 +95,13 @@ export const Home: React.FC = () => {
         <section id="work" className={SectionY}>
           <div className={ContainerX}>
             <SectionHeader kicker="Portfolio" title="Selected work" />
+            <div className="mt-6">
+              <FilterChips
+                chips={chips}
+                activeChip={activeChip}
+                onChipChange={(id) => setActiveChip(id)}
+              />
+            </div>
             {projects && projects.length > 0 ? (
               <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {projects.map((p) => (
@@ -113,7 +131,20 @@ export const Home: React.FC = () => {
         {/* HACKATHONS */}
         <section id="hackathons" className={SectionY}>
           <div className={ContainerX}>
-            {/* … */}
+            <SectionHeader kicker="Hackathons" title="Rapid prototypes and awards" />
+            <div className="mt-8">
+              <CarouselRow>
+                <div className="w-80 h-48 rounded-xl border border-border bg-card/60 flex items-center justify-center text-sm text-muted-foreground">
+                  Prototype: AI résumé parser
+                </div>
+                <div className="w-80 h-48 rounded-xl border border-border bg-card/60 flex items-center justify-center text-sm text-muted-foreground">
+                  Winner: Product sprint
+                </div>
+                <div className="w-80 h-48 rounded-xl border border-border bg-card/60 flex items-center justify-center text-sm text-muted-foreground">
+                  Tooling: Design system lab
+                </div>
+              </CarouselRow>
+            </div>
             <div className="flex justify-center mt-12">
               <ScrollCta label="View experience" toId="experience" />
             </div>
@@ -123,7 +154,10 @@ export const Home: React.FC = () => {
         {/* EXPERIENCE */}
         <section id="experience" className={SectionY}>
           <div className={ContainerX}>
-            {/* … */}
+            <SectionHeader kicker="Experience & Education" title="Background and roles" />
+            <div className="mt-8">
+              <BuiltWithBanner />
+            </div>
             <div className="flex justify-center mt-12">
               <ScrollCta label="Explore resources" toId="resources" />
             </div>
@@ -131,9 +165,12 @@ export const Home: React.FC = () => {
         </section>
 
         {/* RESOURCES */}
-        <section id="resources" className={`${SectionY}`}>
+        <section id="resources" className={SectionY}>
           <div className={ContainerX}>
-            {/* … */}
+            <SectionHeader kicker="Resources" title="Articles, talks, and tools" />
+            <div className="mt-8 text-sm text-muted-foreground">
+              Curated resources coming soon.
+            </div>
             <div className="flex justify-center mt-12">
               <ScrollCta label="Get in touch" toId="contact" />
             </div>
@@ -141,8 +178,16 @@ export const Home: React.FC = () => {
         </section>
 
         {/* CONTACT */}
-        <section id="contact" className={`${SectionY}`}>
-          <div className="max-w-4xl mx-auto px-4 text-center">{/* …ta bannière contact / bouton… */}</div>
+        <section id="contact" className={SectionY}>
+          <div className={ContainerX}>
+            <CTABanner
+              title="Let's connect!"
+              description="Let’s discuss your product needs"
+              ctaText="Contact"
+              onClick={() => (window.location.href = '/#contact')}
+              className="my-6"
+            />
+          </div>
         </section>
       </main>
       <Footer />
