@@ -30,14 +30,6 @@ interface Project {
   longDescription?: string;
 }
 
-const location = useLocation();
-React.useEffect(() => {
-  const id = location.hash?.slice(1);
-  if (!id) return;
-  const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: "smooth" });
-}, [location.hash]);
-
 const projects: Project[] = [
   // — SONOR (Open Data) — remplacement homogène
   {
@@ -220,6 +212,14 @@ export const Home: React.FC = () => {
   const [activeResourceFilter, setActiveResourceFilter] = useState("inspiration");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const location = useLocation();
+  React.useEffect(() => {
+    const id = location.hash?.slice(1);
+    if (!id) return;
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }, [location.hash]);
 
   const { data: tools = [] } = useTools();
   const { data: resources = [] } = useResources();
