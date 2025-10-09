@@ -11,8 +11,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 import ErrorBoundary from "@/components/ErrorBoundary";
 
 import { Home } from "./pages/Home";
-import Sonor from "./pages/cases/sonor";
-import Wttj from "./pages/cases/wttj";
+import Sonor from "./pages/Sonor";
+import Wttj from "./pages/cases/Wttj";
 import WttjDefaultCase from "./pages/cases/wttj-default";
 import NotFound from "./pages/NotFound";
 
