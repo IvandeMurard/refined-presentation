@@ -5,6 +5,9 @@ import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/footer"; // ✅
 import { SectionHeader } from "../components/SectionHeader"; // ✅
 
+import { MediaCard } from "../components/work/MediaCard";
+import { sonorCase } from "../data/cases/sonor.case";
+
 import { ChevronRight } from "lucide-react";
 
 const SectionY = "py-24 md:py-32";
@@ -38,20 +41,65 @@ export const Home: React.FC = () => {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }, [location.hash]);
 
+  const projects = [
+    {
+      id: sonorCase.id,
+      kicker: sonorCase.category,
+      title: sonorCase.title,
+      tagline: sonorCase.subtitle,
+      badge: sonorCase.badge,
+      image: sonorCase.image,
+      href: sonorCase.ctaHref,
+    },
+    {
+      id: "wttj",
+      kicker: "CASE STUDY — HR/ATS",
+      title: "WTTJ conversion seniors",
+      tagline: "Design-led pivot to unlock UX and business outcomes",
+      badge: "ATS/HR",
+      image: "/WTTJ/wttj-hero.png",
+      href: "/cases/wttj",
+    },
+  ];
+
   return (
     <>
       <Navigation />
       <main id="main" className="min-h-screen">
         {/* HERO */}
         <section id="hero" className={`${SectionY} pt-28 md:pt-32`}>
-          <div className={ContainerX}>{/* …ton contenu Hero existant… */}</div>
+          <div className={ContainerX}>
+            <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight text-foreground">Ivan de Murard</h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl">
+              Product Designer & Manager — building delightful, accessible experiences with AI and systems thinking.
+            </p>
+            <div className="mt-8 flex gap-3">
+              <ScrollCta label="See work" toId="work" />
+              <ScrollCta label="Contact" toId="contact" />
+            </div>
+          </div>
         </section>
 
         {/* WORK */}
         <section id="work" className={SectionY}>
           <div className={ContainerX}>
             <SectionHeader kicker="Portfolio" title="Selected work" />
-            {/* …tes cards… */}
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {projects.map((p) => (
+                <MediaCard
+                  key={p.id}
+                  id={p.id}
+                  kicker={p.kicker}
+                  title={p.title}
+                  tagline={p.tagline}
+                  badge={p.badge}
+                  image={p.image}
+                  onClick={() => {
+                    window.location.href = p.href;
+                  }}
+                />
+              ))}
+            </div>
             <div className="flex justify-center mt-12">
               <ScrollCta label="Explore hackathons" toId="hackathons" />
             </div>

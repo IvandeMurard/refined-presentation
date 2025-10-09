@@ -2,7 +2,7 @@ import * as React from "react";
 
 const glassBullet =
   "inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium " +
-  "border border-white/20 bg-white/10 backdrop-blur-[6px] text-white/90 shadow-sm";
+  "border border-white/20 bg-white/10 backdrop-blur-[6px] text-foreground/90 shadow-sm";
 
 type Props = {
   id: string;
