@@ -11,60 +11,6 @@ import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/hooks/useLanguage";
 import wttjHero from "@/assets/wttj-hero.png";
 
-// ---- EN helpers for TL;DR and Pivot (add once near top) ----
-const TLDR_EN = () => (
-  <section aria-labelledby="tldr-title" className="space-y-4">
-    <h2 id="tldr-title" className="text-h3">
-      TL;DR
-    </h2>
-    <ul className="list-disc pl-5 space-y-2">
-      <li>
-        <b>Context:</b> Practical validation for the Product Management training (Maestro).
-      </li>
-      <li>
-        <b>Timeline & Team:</b> 12 days, 4 PMs.
-      </li>
-      <li>
-        <b>Discovery:</b> 8 qualitative video interviews with senior profiles (tech & cross-functional).
-      </li>
-      <li>
-        <b>Pivot:</b> Refocus on tech talent with 5–8 years’ experience.
-      </li>
-      <li>
-        <b>Prototype:</b> Figma → Lovable; 4 moderated user tests.
-      </li>
-      <li>
-        <b>MVP:</b> Prioritized, tested, and delivered.
-      </li>
-    </ul>
-  </section>
-);
-
-const Pivot_EN = () => (
-  <section aria-labelledby="pivot-title" className="space-y-4">
-    <h2 id="pivot-title" className="text-h3">
-      Strategic Pivot
-    </h2>
-    <p className="text-base">
-      Interviews and behavioral data showed strong market pull for seniors, while their application rate lagged. We{" "}
-      <b>recentered on senior tech profiles (5–8 years)</b> and aligned the value proposition around
-      <b> transparency</b> (salary, missions), <b>reassurance</b> (guided onboarding), and <b>utility</b> (AI assistant
-      & CV ↔ job matching).
-    </p>
-    <div className="flex flex-wrap gap-2">
-      <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium border border-white/20 bg-white/10 backdrop-blur-[6px] text-foreground/90 shadow-sm">
-        Clarity of offers
-      </span>
-      <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium border border-white/20 bg-white/10 backdrop-blur-[6px] text-foreground/90 shadow-sm">
-        Personalized onboarding
-      </span>
-      <span className="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium border border-white/20 bg-white/10 backdrop-blur-[6px] text-foreground/90 shadow-sm">
-        AI-assisted journey
-      </span>
-    </div>
-  </section>
-);
-
 // ============= FRENCH CONTENT =============
 
 const ContentDefaultFR = () => {
@@ -83,16 +29,11 @@ const ContentDefaultFR = () => {
             <div className="space-y-4">
               <h2 className="text-h3">Contexte & Problématique</h2>
               <p>
-                Les profils seniors postulent peu sur la plateforme, malgré une forte demande par les entreprises
-                clientes. Objectif : <b>augmenter les candidatures seniors</b> via une expérience personnalisée et
-                engageante.
+                Les profils seniors postulent peu sur la plateforme, malgré une forte demande par les entreprises clientes.
+                Objectif : <b>augmenter les candidatures seniors</b> via une expérience personnalisée et engageante.
               </p>
             </div>
-            <CaseImage
-              alt="Stats & contexte"
-              desktopSrc="/WTTJ/contexte-desktop.png"
-              caption="Data et signaux marché"
-            />
+            <CaseImage alt="Stats & contexte" desktopSrc="/WTTJ/contexte-desktop.png" caption="Data et signaux marché" />
           </section>
         </div>
       </div>
@@ -120,11 +61,7 @@ const ContentDefaultFR = () => {
                   <li>CTR seniors ≈ 11% vs 20% juniors ; besoin de lisibilité des offres.</li>
                 </ul>
               </div>
-              <CaseImage
-                alt="JTBD & verbatims clés"
-                desktopSrc="/WTTJ/jtbd-desktop.png"
-                caption="JTBD & verbatims clés"
-              />
+              <CaseImage alt="JTBD & verbatims clés" desktopSrc="/WTTJ/jtbd-desktop.png" caption="JTBD & verbatims clés" />
             </div>
             <CaseImage
               alt="Parcours utilisateur"
@@ -296,9 +233,9 @@ const ContentDefaultFR = () => {
           <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
             <h2 className="text-h3 text-foreground mb-3">Conclusion</h2>
             <p className="text-lg leading-relaxed text-foreground">
-              <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1.
-              Next : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech
-              si les résultats sont probants.
+              <b>WTTJ Tech+</b> améliore la transparence, personnalise l'expérience et accompagne les seniors de 0 à 1. Next
+              : déployer le MVP, mesurer, itérer (CTA onboarding & placement IA), puis étendre au-delà de la tech si les
+              résultats sont probants.
             </p>
           </section>
 
@@ -311,21 +248,15 @@ const ContentDefaultFR = () => {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Exploration B2B</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Explorer l'angle entreprises en parallèle du B2C
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Explorer l'angle entreprises en parallèle du B2C</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Segments élargis</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Tester d'autres segments seniors hors tech
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Tester d'autres segments seniors hors tech</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Tests quantitatifs</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Validation à plus grande échelle avec métriques
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Validation à plus grande échelle avec métriques</p>
               </div>
             </div>
           </section>
@@ -372,15 +303,11 @@ const ContentDefaultEN = () => {
             <div className="space-y-4">
               <h2 className="text-h3">Context & Problem</h2>
               <p>
-                Senior profiles apply less on the platform, despite strong demand from client companies. Objective:{" "}
-                <b>increase senior applications</b> through a personalized and engaging experience.
+                Senior profiles apply less on the platform, despite strong demand from client companies.
+                Objective: <b>increase senior applications</b> through a personalized and engaging experience.
               </p>
             </div>
-            <CaseImage
-              alt="Stats & context"
-              desktopSrc="/WTTJ/contexte-desktop.png"
-              caption="Data and market signals"
-            />
+            <CaseImage alt="Stats & context" desktopSrc="/WTTJ/contexte-desktop.png" caption="Data and market signals" />
           </section>
         </div>
       </div>
@@ -408,11 +335,7 @@ const ContentDefaultEN = () => {
                   <li>Senior CTR ≈ 11% vs 20% juniors; need for clearer job postings.</li>
                 </ul>
               </div>
-              <CaseImage
-                alt="JTBD & key verbatims"
-                desktopSrc="/WTTJ/jtbd-desktop.png"
-                caption="JTBD & key verbatims"
-              />
+              <CaseImage alt="JTBD & key verbatims" desktopSrc="/WTTJ/jtbd-desktop.png" caption="JTBD & key verbatims" />
             </div>
             <CaseImage
               alt="User journey"
@@ -460,8 +383,7 @@ const ContentDefaultEN = () => {
             <div>
               <h2 className="text-h3 mb-4">Prototype & User Testing</h2>
               <p className="text-base mb-6">
-                Wireframes → Figma mockup → finalization & publication on Lovable → 4 user tests from discovery
-                participants.
+                Wireframes → Figma mockup → finalization & publication on Lovable → 4 user tests from discovery participants.
               </p>
             </div>
 
@@ -584,9 +506,9 @@ const ContentDefaultEN = () => {
           <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
             <h2 className="text-h3 text-foreground mb-3">Conclusion</h2>
             <p className="text-lg leading-relaxed text-foreground">
-              <b>WTTJ Tech+</b> improves transparency, personalizes the experience, and supports seniors from 0 to 1.
-              Next : deploy the MVP, measure, iterate (onboarding CTA & AI placement), then expand beyond tech if
-              results are conclusive.
+              <b>WTTJ Tech+</b> improves transparency, personalizes the experience, and supports seniors from 0 to 1. Next
+              : deploy the MVP, measure, iterate (onboarding CTA & AI placement), then expand beyond tech if results are
+              conclusive.
             </p>
           </section>
 
@@ -599,21 +521,15 @@ const ContentDefaultEN = () => {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">B2B exploration</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Explore the company angle alongside B2C
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Explore the company angle alongside B2C</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Expanded segments</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Test other senior segments outside tech
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Test other senior segments outside tech</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Quantitative testing</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Larger scale validation with metrics
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Larger scale validation with metrics</p>
               </div>
             </div>
           </section>
@@ -831,21 +747,15 @@ const ContentPMFR = () => {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Exploration B2B</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Explorer l'angle entreprises en parallèle
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Explorer l'angle entreprises en parallèle</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Tests quantitatifs</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Validation à plus grande échelle avec métriques
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Validation à plus grande échelle avec métriques</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Analyse compétitive</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Benchmark approfondi des concurrents
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Benchmark approfondi des concurrents</p>
               </div>
             </div>
           </section>
@@ -1010,7 +920,11 @@ const ContentPMEN = () => {
 
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Feedback Synthesis</h3>
-              <CaseImage alt="Test synthesis" desktopSrc="/WTTJ/tests-desktop.png" caption="User feedback synthesis" />
+              <CaseImage
+                alt="Test synthesis"
+                desktopSrc="/WTTJ/tests-desktop.png"
+                caption="User feedback synthesis"
+              />
             </div>
           </section>
 
@@ -1038,15 +952,11 @@ const ContentPMEN = () => {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">B2B exploration</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Explore the company angle in parallel
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Explore the company angle in parallel</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Quantitative testing</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Larger scale validation with metrics
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Larger scale validation with metrics</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Competitive analysis</h4>
@@ -1223,9 +1133,7 @@ const ContentDesignerFR = () => {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Design system robuste</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Composants réutilisables et maintenables
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Composants réutilisables et maintenables</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Tests d'accessibilité</h4>
@@ -1233,9 +1141,7 @@ const ContentDesignerFR = () => {
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Micro-interactions</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  États de chargement et animations soignées
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">États de chargement et animations soignées</p>
               </div>
             </div>
           </section>
@@ -1323,7 +1229,9 @@ const ContentDesignerEN = () => {
           <section className="space-y-8">
             <div>
               <h2 className="text-h3 mb-4">Prototype & User Testing</h2>
-              <p className="text-base mb-6">4 user tests with discovery participants to validate the prototype.</p>
+              <p className="text-base mb-6">
+                4 user tests with discovery participants to validate the prototype.
+              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
@@ -1362,7 +1270,11 @@ const ContentDesignerEN = () => {
 
             <div className="space-y-4">
               <h3 className="text-xl font-semibold">Test Results</h3>
-              <CaseImage alt="Test results" desktopSrc="/WTTJ/tests-desktop.png" caption="User feedback synthesis" />
+              <CaseImage
+                alt="Test results"
+                desktopSrc="/WTTJ/tests-desktop.png"
+                caption="User feedback synthesis"
+              />
             </div>
           </section>
 
@@ -1404,8 +1316,8 @@ const ContentDesignerEN = () => {
           <section className="rounded-2xl border-2 border-accent/30 p-8 md:p-10 bg-gradient-to-br from-accent/5 to-accent/10 dark:from-accent/10 dark:to-accent/5 shadow-lg">
             <h2 className="text-h3 text-foreground mb-3">Conclusion</h2>
             <p className="text-lg leading-relaxed text-foreground">
-              User-centered design: from research to testing, every decision validated with the target audience.
-              Functional prototype in 12 days, ready for iterations based on real metrics.
+              User-centered design: from research to testing, every decision validated with the target audience. Functional
+              prototype in 12 days, ready for iterations based on real metrics.
             </p>
           </section>
 
@@ -1417,9 +1329,7 @@ const ContentDesignerEN = () => {
             <div className="grid md:grid-cols-3 gap-4">
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Robust design system</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Reusable and maintainable components
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Reusable and maintainable components</p>
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Accessibility testing</h4>
@@ -1427,9 +1337,7 @@ const ContentDesignerEN = () => {
               </div>
               <div className="rounded-xl border p-5 bg-card hover:shadow-md transition-shadow">
                 <h4 className="font-semibold mb-2 text-accent dark:text-accent-foreground">Micro-interactions</h4>
-                <p className="text-sm text-foreground dark:text-muted-foreground">
-                  Loading states and polished animations
-                </p>
+                <p className="text-sm text-foreground dark:text-muted-foreground">Loading states and polished animations</p>
               </div>
             </div>
           </section>
@@ -1459,7 +1367,7 @@ const ContentDesignerEN = () => {
 export default function WttjPage() {
   const navigate = useNavigate();
   const { activeAudience, setActiveAudience } = useAudience("default");
-  const { language, setLanguage } = useLanguage("en");
+  const { language, setLanguage } = useLanguage('en');
 
   const audienceContentEN = [
     { id: "default", label: "Overview", content: <ContentDefaultEN /> },
@@ -1479,14 +1387,14 @@ export default function WttjPage() {
     }
   };
 
-  const content = language === "en" ? audienceContentEN : audienceContentFR;
-  const title =
-    language === "en" ? "Welcome to the Jungle — Senior Conversion" : "Welcome to the Jungle — Conversion Seniors";
-  const subtitle =
-    language === "en"
-      ? "From user insight to prioritized, tested and delivered MVP in 12 days"
-      : "De l'insight utilisateur à un MVP priorisé, testé et livré en 12 jours";
-  const perspectiveLabel = language === "en" ? "Choose your perspective" : "Choisissez votre perspective";
+  const content = language === 'en' ? audienceContentEN : audienceContentFR;
+  const title = language === 'en' 
+    ? "Welcome to the Jungle — Senior Conversion"
+    : "Welcome to the Jungle — Conversion Seniors";
+  const subtitle = language === 'en'
+    ? "From user insight to prioritized, tested and delivered MVP in 12 days"
+    : "De l'insight utilisateur à un MVP priorisé, testé et livré en 12 jours";
+  const perspectiveLabel = language === 'en' ? "Choose your perspective" : "Choisissez votre perspective";
 
   return (
     <>

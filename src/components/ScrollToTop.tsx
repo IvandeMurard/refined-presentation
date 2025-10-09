@@ -1,26 +1,36 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-// Facultatif : icône (si tu utilises lucide-react)
 import { ArrowUp } from "lucide-react";
 
-export default function ScrollToTop() {
+export const ScrollToTop = () => {
   const { pathname } = useLocation();
-  const [isVisible, setIsVisible] = React.useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  // 1) remonte en haut à chaque changement de page
-  React.useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  // Scroll to top on route change
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
 
-  // 2) bouton “back to top” après scroll
-  React.useEffect(() => {
-    const onScroll = () => setIsVisible(window.scrollY > 400);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+  // Show button when page is scrolled down
+  useEffect(() => {
+    const toggleVisibility = () => {
+      if (window.scrollY > 300) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", toggleVisibility);
+    return () => window.removeEventListener("scroll", toggleVisibility);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <>
@@ -30,10 +40,9 @@ export default function ScrollToTop() {
           className="fixed bottom-8 right-8 z-50 rounded-full p-3 bg-background border border-border shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
           aria-label="Retour en haut"
         >
-          {/* Si pas d'icône, remplace par ↑ */}
-          {ArrowUp ? <ArrowUp className="h-5 w-5" /> : "↑"}
+          <ArrowUp className="h-5 w-5" />
         </button>
       )}
     </>
   );
-}
+};

@@ -1,9 +1,5 @@
 import * as React from "react";
 
-const glassBullet =
-  "inline-flex items-center gap-1 rounded-full px-2 py-1 text-xs font-medium " +
-  "border border-white/20 bg-white/10 backdrop-blur-[6px] text-white/90 shadow-sm";
-
 type Props = {
   id: string;
   kicker: string;
@@ -39,14 +35,14 @@ export function CardImmersive({
       tabIndex={0}
       role="button"
       aria-label={ariaLabel ?? `${kicker} – ${title}`}
-      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onClick?.()}
+      onKeyDown={(e) => e.key === "Enter" && onClick?.()}
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={[
         "work-card group/card relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
         "transition-transform duration-300 will-change-transform hover:-translate-y-1",
-        "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-accent focus:ring-offset-background",
+        "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
         "w-[360px] h-[480px] cursor-pointer",
         className,
       ].join(" ")}
@@ -70,7 +66,9 @@ export function CardImmersive({
         />
         <div className="pointer-events-none absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-black/20 to-transparent" />
         <div className="absolute inset-0 flex flex-col justify-between p-6">
-          <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-white/90 drop-shadow-sm">{kicker}</p>
+          <div>
+            <p className="text-[12px] font-[700] uppercase tracking-[0.14em] text-white/90 drop-shadow-sm">{kicker}</p>
+          </div>
 
           <div className="space-y-4">
             <h3 className="text-[24px] md:text-[26px] font-[900] tracking-[-0.01em] leading-[1.15] text-white max-w-[280px] [filter:drop-shadow(0_1px_1px_rgba(0,0,0,.6))]">
@@ -81,7 +79,7 @@ export function CardImmersive({
             </p>
 
             <div className="flex items-end justify-between">
-              <span className={glassBullet}>{badge}</span>
+              <span className="work-badge">{badge}</span>
 
               <div
                 className={[
@@ -89,6 +87,7 @@ export function CardImmersive({
                   isHovered ? "w-auto h-10 px-4 gap-2" : "w-10 h-10",
                 ].join(" ")}
               >
+                {/* plus icon */}
                 <svg
                   width="16"
                   height="16"
