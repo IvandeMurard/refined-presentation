@@ -239,19 +239,19 @@ const ContentDefaultFR = () => {
             <h2 className="text-h3">Roadmap & KPIs</h2>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="roadmap-now">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Now
                 </div>
                 <div className="text-base font-medium">Standardisation + Onboarding</div>
               </div>
               <div className="roadmap-next">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Next
                 </div>
                 <div className="text-base font-medium">Assistant IA + Matching CV</div>
               </div>
               <div className="roadmap-later">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Later
                 </div>
                 <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
@@ -365,7 +365,7 @@ const ContentDefaultEN = () => {
       <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* TL;DR */}
-          <CaseTldr />
+          <TLDR_EN />
 
           {/* Context & Problem */}
           <section className="grid md:grid-cols-2 gap-6 items-start">
@@ -427,7 +427,7 @@ const ContentDefaultEN = () => {
       <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Strategic pivot */}
-          <CasePivot />
+          <Pivot_EN />
           <CaseImage
             alt="Opportunity tree (pivot extract)"
             desktopSrc="/WTTJ/pivot-desktop.png"
@@ -527,19 +527,19 @@ const ContentDefaultEN = () => {
             <h2 className="text-h3">Roadmap & KPIs</h2>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="roadmap-now">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Now
                 </div>
                 <div className="text-base font-medium">Standardization + Onboarding</div>
               </div>
               <div className="roadmap-next">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Next
                 </div>
                 <div className="text-base font-medium">AI Assistant + CV Matching</div>
               </div>
               <div className="roadmap-later">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Later
                 </div>
                 <div className="text-base font-medium">Advanced AI coaching + recruiter analytics</div>
@@ -688,19 +688,19 @@ const ContentPMFR = () => {
             <h2 className="text-h3">Roadmap & KPIs</h2>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="roadmap-now">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Now
                 </div>
                 <div className="text-base font-medium">Standardisation + Onboarding</div>
               </div>
               <div className="roadmap-next">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Next
                 </div>
                 <div className="text-base font-medium">Assistant IA + Matching CV</div>
               </div>
               <div className="roadmap-later">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Later
                 </div>
                 <div className="text-base font-medium">Coaching IA avancé + analytics recruteurs</div>
@@ -867,7 +867,7 @@ const ContentPMEN = () => {
 
           <section className="space-y-4">
             <h2 className="text-h3">Strategic Pivot</h2>
-            <CasePivot />
+            <Pivot_EN />
             <CaseImage
               alt="Opportunity tree"
               desktopSrc="/WTTJ/pivot-desktop.png"
@@ -899,19 +899,19 @@ const ContentPMEN = () => {
             <h2 className="text-h3">Roadmap & KPIs</h2>
             <div className="grid md:grid-cols-3 gap-4">
               <div className="roadmap-now">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1976D2" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Now
                 </div>
                 <div className="text-base font-medium">Standardization + Onboarding</div>
               </div>
               <div className="roadmap-next">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Next
                 </div>
                 <div className="text-base font-medium">AI Assistant + CV Matching</div>
               </div>
               <div className="roadmap-later">
-                <div className="text-xs uppercase tracking-wider font-semibold mb-2" style={{ color: "#1565C0" }}>
+                <div className="text-xs uppercase tracking-wider font-semibold mb-2 text-accent">
                   Later
                 </div>
                 <div className="text-base font-medium">Advanced AI coaching + recruiter analytics</div>
