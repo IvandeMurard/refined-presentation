@@ -1,9 +1,10 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+
 import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/footer"; // <- évite l’import cassé
-import SectionHeader from "../components/SectionHeader";
-// …garde tes autres imports existants (CardImmersive, MediaCard, etc.)
+import { Footer } from "../components/footer"; // ✅
+import { SectionHeader } from "../components/SectionHeader"; // ✅
+
 import { ChevronRight } from "lucide-react";
 
 const SectionY = "py-24 md:py-32";
