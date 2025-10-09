@@ -20,6 +20,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <SkipLink />
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<Home />} />
