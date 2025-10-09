@@ -1,6 +1,5 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-
 import { Navigation } from "../components/Navigation";
 import { Footer } from "../components/footer"; // <- évite l’import cassé
 import SectionHeader from "../components/SectionHeader";
