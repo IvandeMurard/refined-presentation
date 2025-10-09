@@ -1,4 +1,3 @@
-// src/components/SkipLink.tsx
 export default function SkipLink() {
   return (
     <a
