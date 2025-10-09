@@ -84,22 +84,26 @@ export const Home: React.FC = () => {
         <section id="work" className={SectionY}>
           <div className={ContainerX}>
             <SectionHeader kicker="Portfolio" title="Selected work" />
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {projects.map((p) => (
-                <MediaCard
-                  key={p.id}
-                  id={p.id}
-                  kicker={p.kicker}
-                  title={p.title}
-                  tagline={p.tagline}
-                  badge={p.badge}
-                  image={p.image}
-                  onClick={() => {
-                    window.location.href = p.href;
-                  }}
-                />
-              ))}
-            </div>
+            {projects && projects.length > 0 ? (
+              <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {projects.map((p) => (
+                  <MediaCard
+                    key={p.id}
+                    id={p.id}
+                    kicker={p.kicker}
+                    title={p.title}
+                    tagline={p.tagline}
+                    badge={p.badge}
+                    image={p.image}
+                    onClick={() => {
+                      window.location.href = p.href;
+                    }}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p className="mt-8 text-muted-foreground">No projects yet.</p>
+            )}
             <div className="flex justify-center mt-12">
               <ScrollCta label="Explore hackathons" toId="hackathons" />
             </div>

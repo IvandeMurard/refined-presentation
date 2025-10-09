@@ -21,6 +21,7 @@ export function Navigation() {
   // active states (uniquement efficient sur la Home)
   const [heroVisible, setHeroVisible] = useState(location.pathname === "/");
   const [workActive, setWorkActive] = useState(false);
+  const [contactActive, setContactActive] = useState(false);
 
   useEffect(() => {
     if (location.pathname !== "/") return;
@@ -44,6 +45,18 @@ export function Navigation() {
     });
     io.observe(work);
     return () => io.disconnect();
+  useEffect(() => {
+    if (location.pathname !== "/") return;
+    const contact = document.getElementById("contact");
+    if (!contact) return;
+    const io = new IntersectionObserver(([e]) => setContactActive(e.isIntersecting && e.intersectionRatio >= 0.4), {
+      threshold: [0.3, 0.4, 0.6],
+      rootMargin: "-10% 0px -20% 0px",
+    });
+    io.observe(contact);
+    return () => io.disconnect();
+  }, [location.pathname]);
+
   }, [location.pathname]);
 
   // scroll helper
@@ -108,7 +121,8 @@ export function Navigation() {
             <Link
               to="/#contact"
               onClick={(e) => handleAnchorClick(e, "contact")}
-              className={`${baseBtn} border-accent bg-accent text-accent-foreground active:scale-95`}
+              className={`${baseBtn} ${contactActive ? "bg-foreground text-background" : "bg-transparent"}`}
+              aria-current={contactActive ? "page" : undefined}
             >
               Contact
             </Link>
