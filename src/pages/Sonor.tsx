@@ -8,7 +8,7 @@ import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CTABanner } from "@/components/work/CTABanner";
 import CaseTldr from "@/components/case/CaseTldr";
-import { CaseImage } from "@/components/case/CaseImage.tsx";
+import { CaseImage } from "/components/case/CaseImage";
 
 // ------- ASSETS (remplace les placeholders si tu as des fichiers) --------
 import sonorHero from "@/assets/sonor-hero.png"; // TODO: remplace par ton image (ou crée le fichier)
