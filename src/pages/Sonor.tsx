@@ -8,10 +8,10 @@ import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CTABanner } from "@/components/work/CTABanner";
 import CaseTldr from "@/components/case/CaseTldr";
-import { CaseImage } from "/components/case/CaseImage";
+import { CaseImage } from "@/components/case/CaseImage";
 
 // ------- ASSETS (remplace les placeholders si tu as des fichiers) --------
-import sonorHero from "@/assets/sonor-hero.png"; // TODO: remplace par ton image (ou crée le fichier)
+import sonorHero from "@/public/sonor_card_illustration.mp4"; // TODO: remplace par ton image (ou crée le fichier)
 
 const TLDRBlockFR = () => (
   <section className="rounded-xl border p-5 bg-card">
