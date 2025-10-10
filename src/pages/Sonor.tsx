@@ -1,19 +1,15 @@
-// src/pages/Sonor.tsx
-import React from "react";
-import { useNavigate } from "react-router-dom";
+// depuis src/pages/Sonor.tsx
+import { CaseStudyLayout } from "@/components/CaseStudyLayout"; // si ce fichier est bien sous src/components/...
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/footer";
 
-import { CaseStudyLayout } from "../components/CaseStudyLayout";
-import { Navigation } from "../components/Navigation";
-import { Footer } from "../components/footer";
+import { useAudience } from "@/hooks/useAudience";
+import { useLanguage } from "@/hooks/useLanguage";
 
-import { useAudience } from "../hooks/useAudience";
-import { useLanguage } from "../hooks/useLanguage";
-
-import { CaseImage } from "../../components/case/CaseImage";
-import CaseTldr from "../../components/case/CaseTldr";
-import { CTABanner } from "../../components/work/CTABanner";
-
-import sonorHero from "../assets/sonor-hero.png"; // ajuste si besoin
+// ❗ Ces 3 viennent du dossier racine `components/...` (selon ta capture GitHub)
+import { CaseImage } from "@components/case/CaseImage";
+import CaseTldr from "@components/case/CaseTldr";
+import { CTABanner } from "@components/work/CTABanner";
 
 // ------- ASSETS (remplace les placeholders si tu as des fichiers) --------
 import sonorHero from "@/public/sonor_card_illustration.mp4"; // TODO: remplace par ton image (ou crée le fichier)
