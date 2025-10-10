@@ -9,9 +9,9 @@ import { Footer } from "../components/footer";
 import { useAudience } from "../hooks/useAudience";
 import { useLanguage } from "../hooks/useLanguage";
 
-import { CTABanner } from "../components/work/CTABanner";
-import CaseTldr from "../components/case/CaseTldr";
-import { CaseImage } from "../components/case/CaseImage";
+import { CaseImage } from "../../components/case/CaseImage";
+import CaseTldr from "../../components/case/CaseTldr";
+import { CTABanner } from "../../components/work/CTABanner";
 
 import sonorHero from "../assets/sonor-hero.png"; // ajuste si besoin
 
