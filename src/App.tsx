@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { Home } from "./pages/Home";
-import { Sonor } from "./pages/Sonor";
+import Sonor from "./pages/Sonor";
 import Wttj from "./pages/cases/Wttj";
 import WttjDefaultCase from "./pages/cases/wttj-default";
 import NotFound from "./pages/NotFound";
