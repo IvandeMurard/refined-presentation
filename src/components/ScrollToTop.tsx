@@ -3,13 +3,26 @@ import { useLocation } from "react-router-dom";
 import { ArrowUp } from "lucide-react";
 
 export const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
   const [isVisible, setIsVisible] = useState(false);
 
-  // Scroll to top on route change
+  // Scroll to top on route change, or to section if hash is present
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "instant" });
-  }, [pathname]);
+    const hash = location.hash.replace('#', '');
+    
+    if (hash) {
+      // If there's a hash, scroll to that section after a short delay
+      setTimeout(() => {
+        const element = document.getElementById(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      // No hash, scroll to top
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }
+  }, [location.pathname, location.hash]);
 
   // Show button when page is scrolled down
   useEffect(() => {
