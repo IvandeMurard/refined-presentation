@@ -402,11 +402,13 @@ export const Home: React.FC = () => {
 
           <div className="flex justify-center">
             <Button
-              variant="ghost"
-              className="text-muted-foreground hover:text-white"
+              variant="outline"
+              size="lg"
+              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("hackathons")}
             >
-              EXPLORE HACKATHONS <ArrowDown className="ml-2 h-4 w-4" />
+              EXPLORE HACKATHONS 
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
         </div>
@@ -439,11 +441,13 @@ export const Home: React.FC = () => {
 
           <div className="flex justify-center mt-12">
             <Button
-              variant="ghost"
-              className="text-muted-foreground hover:text-white"
+              variant="outline"
+              size="lg"
+              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("experience")}
             >
-              VIEW EXPERIENCE <ArrowDown className="ml-2 h-4 w-4" />
+              VIEW EXPERIENCE 
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
         </div>
@@ -494,11 +498,13 @@ export const Home: React.FC = () => {
 
           <div className="flex justify-center mt-12">
             <Button
-              variant="ghost"
-              className="text-muted-foreground hover:text-white"
+              variant="outline"
+              size="lg"
+              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("resources")}
             >
-              EXPLORE RESOURCES <ArrowDown className="ml-2 h-4 w-4" />
+              EXPLORE RESOURCES 
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
         </div>
@@ -613,11 +619,13 @@ export const Home: React.FC = () => {
 
           <div className="flex justify-center mt-12">
             <Button
-              variant="ghost"
-              className="text-muted-foreground hover:text-white"
+              variant="outline"
+              size="lg"
+              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("contact")}
             >
-              GET IN TOUCH <ArrowDown className="ml-2 h-4 w-4" />
+              GET IN TOUCH 
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
         </div>
