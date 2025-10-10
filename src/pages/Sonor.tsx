@@ -8,62 +8,71 @@ import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/hooks/useLanguage";
 import { CTABanner } from "@/components/work/CTABanner";
 import CaseTldr from "@/components/case/CaseTldr";
-import { CaseImage } from "@/components/case/CaseImage";
+import { CaseImage } from "../components/case/CaseImage";
 
 // ------- ASSETS (remplace les placeholders si tu as des fichiers) --------
 import sonorHero from "@/assets/sonor-hero.png"; // TODO: remplace par ton image (ou crée le fichier)
 
-const TLDRBlockFR = () => (
-  <section className="rounded-xl border p-5 bg-card">
-    <h3 className="text-h4 mb-3">TLDR — En bref</h3>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>
-        <b>Durée :</b> 2 ans (hackathon → incubation → prototype)
-      </li>
-      <li>
-        <b>Cible :</b> collectivités, villes et métropoles
-      </li>
-      <li>
-        <b>Rôle :</b> cadrage produit, discovery (30 entretiens), prototype, go-to-market B2G, pilotage dev data
-      </li>
-      <li>
-        <b>Méthodo :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels
-      </li>
-      <li>
-        <b>Résultats :</b> 20 000 € financements, 30 entretiens, 1 prototype, négociations avec plusieurs métropoles
-      </li>
-      <li>
-        <b>Apprentissage clé :</b> cadrer une vision 0→1 et dire non aux idées hors scope
-      </li>
-    </ul>
-  </section>
-);
-
-const TLDRBlockEN = () => (
-  <section className="rounded-xl border p-5 bg-card">
-    <h3 className="text-h4 mb-3">TLDR — At a glance</h3>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>
-        <b>Duration:</b> 2 years (hackathon → incubation → prototype)
-      </li>
-      <li>
-        <b>Target:</b> cities & metropolitan areas
-      </li>
-      <li>
-        <b>Role:</b> product framing, discovery (30 interviews), prototype, B2G go-to-market, data-dev leadership
-      </li>
-      <li>
-        <b>Method:</b> Agile Lean, Kanban, 2–3 week sprints, monthly milestones
-      </li>
-      <li>
-        <b>Outcomes:</b> €20k grants, 30 interviews, 1 prototype, negotiations with municipalities
-      </li>
-      <li>
-        <b>Key learning:</b> frame a 0→1 vision and say no to out-of-scope ideas
-      </li>
-    </ul>
-  </section>
-);
+<CaseTldr
+  title={language === "fr" ? "TL;DR — En bref" : "TL;DR — At a glance"}
+  tone="neutral"
+  items={
+    language === "fr"
+      ? [
+          <>
+            {" "}
+            <b>Durée :</b> 2 ans (hackathon → incubation → prototype)
+          </>,
+          <>
+            {" "}
+            <b>Cible :</b> collectivités, villes et métropoles
+          </>,
+          <>
+            {" "}
+            <b>Rôle :</b> cadrage produit, discovery (30 entretiens), prototype, go-to-market B2G, pilotage dev data
+          </>,
+          <>
+            {" "}
+            <b>Méthodo :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels
+          </>,
+          <>
+            {" "}
+            <b>Résultats :</b> 20 000 € de financements, 30 entretiens, 1 prototype, négociations avec plusieurs
+            métropoles
+          </>,
+          <>
+            {" "}
+            <b>Apprentissage clé :</b> cadrer une vision 0→1 et dire non aux idées hors scope
+          </>,
+        ]
+      : [
+          <>
+            {" "}
+            <b>Duration:</b> 2 years (hackathon → incubation → prototype)
+          </>,
+          <>
+            {" "}
+            <b>Target:</b> cities & metropolitan areas
+          </>,
+          <>
+            {" "}
+            <b>Role:</b> product framing, discovery (30 interviews), prototype, B2G GTM, data-dev leadership
+          </>,
+          <>
+            {" "}
+            <b>Method:</b> Agile Lean, Kanban, 2–3 week sprints, monthly milestones
+          </>,
+          <>
+            {" "}
+            <b>Outcomes:</b> €20k grants, 30 interviews, 1 prototype, negotiations with municipalities
+          </>,
+          <>
+            {" "}
+            <b>Key learning:</b> frame a 0→1 vision and say no to out-of-scope ideas
+          </>,
+        ]
+  }
+/>;
 
 // ===================== DEFAULT CONTENT =====================
 
