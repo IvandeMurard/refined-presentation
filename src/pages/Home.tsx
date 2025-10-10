@@ -404,7 +404,7 @@ export const Home: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("hackathons")}
             >
               EXPLORE HACKATHONS 
@@ -443,7 +443,7 @@ export const Home: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("experience")}
             >
               VIEW EXPERIENCE 
@@ -500,7 +500,7 @@ export const Home: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("resources")}
             >
               EXPLORE RESOURCES 
@@ -621,7 +621,7 @@ export const Home: React.FC = () => {
             <Button
               variant="outline"
               size="lg"
-              className="group border-2 hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("contact")}
             >
               GET IN TOUCH 
