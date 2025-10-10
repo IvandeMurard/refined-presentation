@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
-import { Footer } from "../../components/footer";
+import { Footer } from "@/components/footer";
 import { SectionHeader } from "../components/SectionHeader";
 import { FilterChips } from "../components/FilterChips";
 import { CardImmersive } from "../components/CardImmersive";
@@ -35,8 +35,8 @@ const projects: Project[] = [
     id: "sonor",
     title: "A 2-year entrepreneurship team project",
     subtitle: "How can cities turn open data into quieter streets?",
-    image: "public/img/sonor.jpg",
-    logo: "public/img/logo_sonor.png",
+    image: "/img/sonor.jpg",
+    logo: "/img/logo_sonor.png",
     tags: ["Open Data"],
     category: "product",
     longDescription: "Reducing urban noise by transforming open data into actionable city insights.",
@@ -69,7 +69,7 @@ const projects: Project[] = [
     id: "agents-eval",
     title: "Evaluating AI agents at scale",
     subtitle: "How do we turn trust into an asset?",
-    image: "public/img/mdreza-jalali-unsplash.jpg",
+    image: "/img/mdreza-jalali-unsplash.jpg",
     tags: ["Agents", "Evaluation"],
     category: "agents",
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",

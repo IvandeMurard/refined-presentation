@@ -4,7 +4,7 @@ import { useAudience } from '../hooks/useAudience';
 import { Button } from '../components/ui/button';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { Footer } from '../../components/footer';
+import { Footer } from '@/components/footer';
 import { Navigation } from '../components/Navigation';
 
 export const Sonor: React.FC = () => {

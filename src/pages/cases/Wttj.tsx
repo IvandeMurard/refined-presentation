@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { CaseStudyLayout } from "@/components/CaseStudyLayout";
 import { Navigation } from "@/components/Navigation";
-import { Footer } from "../../../components/footer";
+import { Footer } from "@/components/footer";
 import CaseTldr from "../../../components/case/CaseTldr";
 import CasePivot from "../../../components/case/CasePivot";
 import { CaseImage } from "../../../components/case/CaseImage";

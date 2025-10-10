@@ -2,9 +2,9 @@
 import CaseTldr from "../../../components/case/CaseTldr";
 import CasePivot from "../../../components/case/CasePivot";
 import { CaseImage } from "../../../components/case/CaseImage";
-import { CTABanner } from "../../components/work/CTABanner";
-import { Footer } from "../../../components/footer";
-import { Navigation } from "../../components/Navigation";
+import { CTABanner } from "@/components/work/CTABanner";
+import { Footer } from "@/components/footer";
+import { Navigation } from "@/components/Navigation";
 import { useNavigate } from "react-router-dom";
 
 export default function WttjDefaultCase() {

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { MessageCircle, Calendar, Linkedin, Twitter } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
-import { Footer } from "../../components/footer";
+import { Footer } from "@/components/footer";
 import { Navigation } from "@/components/Navigation";
 
 const NotFound = () => {
