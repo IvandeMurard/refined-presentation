@@ -11,7 +11,7 @@ import { useLanguage } from "../hooks/useLanguage";
 
 import { CTABanner } from "../components/work/CTABanner";
 import CaseTldr from "../components/case/CaseTldr";
-import { CaseImage } from "../components/case/CaseImage"; // ou default selon ton export
+import { CaseImage } from "../components/case/CaseImage";
 
 import sonorHero from "../assets/sonor-hero.png"; // ajuste si besoin
 
