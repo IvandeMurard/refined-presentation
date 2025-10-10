@@ -35,4 +35,6 @@ const App = () => (
   </QueryClientProvider>
 );
 
+<Route path="/sonor" element={<Sonor />} />;
+
 export default App;
