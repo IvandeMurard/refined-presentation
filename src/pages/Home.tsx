@@ -11,6 +11,7 @@ import { WorkModal } from "../components/WorkModal";
 import { CTABanner } from "../components/work/CTABanner";
 import { BuiltWithBanner } from "../components/BuiltWithBanner";
 import { Button } from "../components/ui/button";
+import { Separator } from "../components/ui/separator";
 import { Mail, Linkedin, MessageCircle, ArrowDown } from "lucide-react";
 import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
@@ -258,11 +259,15 @@ export const Home: React.FC = () => {
           <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-12">
             {/* Left: copy + CTAs */}
             <div className="lg:col-span-6 space-y-6 text-left">
-              <h1 className="text-h1 text-foreground">
-                Ivan de Murard
-                <br />
-                Zero-to-One Product Manager
-              </h1>
+              <div className="space-y-4">
+                <h1 className="text-h1 text-foreground">
+                  Ivan de Murard
+                </h1>
+                <Separator className="w-16 bg-border" />
+                <h1 className="text-h1 text-foreground">
+                  Zero-to-One Product Manager
+                </h1>
+              </div>
 
               <p className="text-xl text-muted-foreground max-w-[56ch] leading-relaxed">
                 From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
