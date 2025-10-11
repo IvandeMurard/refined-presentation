@@ -260,13 +260,9 @@ export const Home: React.FC = () => {
             {/* Left: copy + CTAs */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <div className="space-y-4">
-                <h1 className="text-h1 text-foreground">
-                  Ivan de Murard
-                </h1>
+                <h1 className="text-h1 text-foreground">Ivan de Murard</h1>
                 <Separator className="w-16 bg-border" />
-                <h1 className="text-h1 text-foreground">
-                  Zero-to-One Product Manager
-                </h1>
+                <h1 className="text-h1 text-foreground">Zero-to-One Product Manager</h1>
               </div>
 
               <p className="text-xl text-muted-foreground max-w-[56ch] leading-relaxed">
@@ -295,7 +291,7 @@ export const Home: React.FC = () => {
             {/* Right: photo placeholder (4:5), prêt pour ta future image */}
             <div className="lg:col-span-6 w-full">
               <figure
-                className="relative mx-auto max-w-[520px] aspect-[4/5] rounded-2xl border border-border bg-card/60 shadow-lg overflow-hidden"
+                className="relative mx-auto max-w-[250px] aspect-[4/5] rounded-2xl border border-border bg-card/60 shadow-lg overflow-hidden"
                 aria-label="Portrait placeholder"
               >
                 {/* Placeholder visuel — remplace l'URL quand ta photo est prête */}
@@ -412,7 +408,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("hackathons")}
             >
-              EXPLORE HACKATHONS 
+              EXPLORE HACKATHONS
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -451,7 +447,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("experience")}
             >
-              VIEW EXPERIENCE 
+              VIEW EXPERIENCE
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -508,7 +504,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("resources")}
             >
-              EXPLORE RESOURCES 
+              EXPLORE RESOURCES
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -629,7 +625,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("contact")}
             >
-              GET IN TOUCH 
+              GET IN TOUCH
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
