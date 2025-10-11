@@ -9,11 +9,11 @@
     "noEmit": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"],
-      "@components/*": ["components/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./components/*"]
     },
     "useDefineForClassFields": true,
     "allowJs": true
   },
-  "include": ["src", "components", "vite-env.d.ts"]
+  "include": ["./src", "./components", "./vite-env.d.ts"]
 }
