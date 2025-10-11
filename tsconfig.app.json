@@ -1,31 +1,19 @@
 {
   "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
+    "strict": false,
+    "skipLibCheck": true,
+    "noEmit": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
       "@components/*": ["components/*"]
-    }
-  }
-}
-    "module": "ESNext",
-    "moduleDetection": "force",
-    "moduleResolution": "bundler",
-    "noEmit": true,
-    "noFallthroughCasesInSwitch": false,
-    "noImplicitAny": false,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
     },
-    "skipLibCheck": true,
-    "strict": false,
-    "target": "ES2020",
-    "useDefineForClassFields": true
+    "useDefineForClassFields": true,
+    "allowJs": true
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "components", "vite-env.d.ts"]
 }
