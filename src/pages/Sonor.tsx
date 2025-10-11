@@ -1,18 +1,16 @@
-// depuis src/pages/Sonor.tsx
-import { CaseStudyLayout } from "@/components/CaseStudyLayout"; // si ce fichier est bien sous src/components/...
+import { CaseStudyLayout } from "@/components/CaseStudyLayout";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
 
 import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/hooks/useLanguage";
 
-// ❗ Ces 3 viennent du dossier racine `components/...` (selon ta capture GitHub)
-import { CaseImage } from "@components/case/CaseImage";
-import CaseTldr from "@components/case/CaseTldr";
-import { CTABanner } from "@components/work/CTABanner";
+// Ces 3 viennent du dossier racine "components" (en-dehors de src)
+import { CaseImage } from "@components/case/CaseImage"; // named export (ton fichier exporte `export function CaseImage(...)`)
+import CaseTldr from "@components/case/CaseTldr"; // default export (si c’est `export default function ...`)
+import { CTABanner } from "@components/work/CTABanner"; // named export
 
-// ------- ASSETS (remplace les placeholders si tu as des fichiers) --------
-import sonorHero from "@/public/sonor_card_illustration.mp4"; // TODO: remplace par ton image (ou crée le fichier)
+import sonorHero from "@/assets/sonor-hero.png";
 
 const TLDRBlockFR = () => (
   <section className="rounded-xl border p-5 bg-card">
