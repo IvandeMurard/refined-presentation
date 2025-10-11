@@ -1,6 +1,7 @@
 import { CaseStudyLayout } from "@/components/CaseStudyLayout";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
+import { useNavigate } from "react-router-dom";
 
 import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -8,7 +9,7 @@ import { useLanguage } from "@/hooks/useLanguage";
 // Ces 3 viennent du dossier racine "components" (en-dehors de src)
 import { CaseImage } from "@components/case/CaseImage"; // named export (ton fichier exporte `export function CaseImage(...)`)
 import CaseTldr from "@components/case/CaseTldr"; // default export (si c’est `export default function ...`)
-import { CTABanner } from "@components/work/CTABanner"; // named export
+import { CTABanner } from "@/components/work/CTABanner"; // named export
 
 import sonorHero from "@/assets/sonor-hero.png";
 
