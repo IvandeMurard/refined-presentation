@@ -5,12 +5,12 @@
     { "path": "./tsconfig.node.json" }
   ]
 }
-    }
+{
     "noImplicitAny": false,
     "noUnusedParameters": false,
     "skipLibCheck": true,
     "allowJs": true,
     "noUnusedLocals": false,
     "strictNullChecks": false
-  }
+  },
 }
