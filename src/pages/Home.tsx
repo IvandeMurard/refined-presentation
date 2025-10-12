@@ -261,7 +261,7 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-6 space-y-6 text-left">
               <div className="space-y-3">
                 <h1 className="text-h1 text-foreground">Ivan de Murard</h1>
-                <Separator className="w-24 bg-border h-[1px]" />
+                <Separator className="w-24 mx-auto bg-border h-[2px]" />
                 <h1 className="text-h1 text-foreground">Zero-to-One Product Manager</h1>
               </div>
 
