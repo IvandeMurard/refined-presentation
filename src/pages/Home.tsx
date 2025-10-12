@@ -260,8 +260,11 @@ export const Home: React.FC = () => {
             {/* Left: copy + CTAs */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <div className="space-y-4">
-                <h1 className="text-h1 text-foreground">Ivan de Murard</h1>
-                <Separator className="w-16 bg-border" />
+                <div className="space-y-2">
+                  <h1 className="text-h1 text-foreground">Ivan</h1>
+                  <Separator className="w-16 bg-border h-[1px]" />
+                  <h1 className="text-h1 text-foreground">de Murard</h1>
+                </div>
                 <h1 className="text-h1 text-foreground">Zero-to-One Product Manager</h1>
               </div>
 
