@@ -277,46 +277,53 @@ export const Home: React.FC = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section - compact, clear hierarchy */}
+      {/* Hero Section - compact, lively, tinted */}
       <section id="hero" className="px-4 py-6 md:py-10">
-        {/* fond doux optionnel */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 opacity-50">
+        <div className="mx-auto mt-8 md:mt-12 max-w-[960px] w-full">
+          {/* Card */}
           <div
-            className="absolute top-[-120px] left-1/2 -translate-x-1/2 h-[380px] w-[380px] rounded-full blur-3xl
-                    bg-gradient-to-br from-emerald-300/15 via-emerald-500/10 to-emerald-700/0"
-          />
-        </div>
-
-        <div className="mx-auto mt-8 md:mt-12 max-w-[1000px] w-full">
-          <div
-            className="rounded-3xl bg-card/80 backdrop-blur
-                    shadow-[0_8px_32px_rgba(0,0,0,0.06)]
-                    ring-1 ring-black/5 dark:ring-white/10
-                    border border-border/60 p-6 md:p-8"
+            className="relative group rounded-3xl bg-card/80 backdrop-blur
+                 shadow-[0_8px_28px_rgba(0,0,0,0.06)]
+                 ring-1 ring-black/5 dark:ring-white/10
+                 border border-border/60 p-6 md:p-8
+                 transition-shadow duration-300 hover:shadow-[0_16px_44px_rgba(0,0,0,0.08)]"
           >
-            <div className="grid items-center gap-6 md:gap-7 md:grid-cols-12">
-              {/* Colonne gauche : titres + sous-titre + pastilles (tout visible) */}
+            {/* subtle color wash to avoid monochrome */}
+            <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl">
+              <div
+                className="absolute -top-8 -left-10 h-56 w-56 rounded-full blur-3xl
+                        bg-emerald-400/10 dark:bg-emerald-400/8"
+              />
+              <div
+                className="absolute -bottom-10 -right-10 h-56 w-56 rounded-full blur-3xl
+                        bg-blue-500/10 dark:bg-blue-400/8"
+              />
+            </div>
+
+            <div className="grid items-center gap-6 md:gap-7 md:grid-cols-12 relative">
+              {/* Colonne gauche : titres + sous-titre + pastilles */}
               <div className="md:col-span-7 text-left">
-                {/* H1 unique */}
                 <h1 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
                   Ivan de Murard
                 </h1>
-
-                {/* Rôle (plus léger, pas de séparateur) */}
                 <p className="mt-2 text-2xl md:text-[28px] font-semibold text-muted-foreground">
                   Zero-to-One Product Manager
                 </p>
 
-                {/* Sous-titre directement visible */}
                 <p className="mt-4 text-[15px] md:text-[17px] leading-7 text-muted-foreground max-w-[62ch]">
                   From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
                   with AI and go-to-market expertise.
                 </p>
 
-                {/* Pastilles capacités */}
-                <ul className="mt-4 flex flex-wrap gap-2 text-sm text-muted-foreground">
+                {/* Pills légèrement teintées */}
+                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
                   {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                    <li key={tag} className="px-2.5 py-1 rounded-full bg-muted/60">
+                    <li
+                      key={tag}
+                      className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800
+                           dark:bg-emerald-400/15 dark:text-emerald-200 border border-emerald-200/60
+                           dark:border-emerald-400/20"
+                    >
                       {tag}
                     </li>
                   ))}
@@ -326,31 +333,36 @@ export const Home: React.FC = () => {
                 <div className="mt-6 flex gap-3 md:hidden">
                   <Button
                     size="default"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="group bg-primary hover:bg-primary/90 text-primary-foreground"
                     onClick={() => scrollToSection("work")}
                   >
-                    Discover my projects
+                    <span className="inline-flex items-center">
+                      Discover my projects
+                      <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                    </span>
                   </Button>
                   <Button
                     size="default"
-                    className="bg-contact hover:bg-contact/90 text-contact-foreground"
+                    className="group bg-contact hover:bg-contact/90 text-contact-foreground"
                     onClick={() => scrollToSection("contact")}
                   >
-                    Let's meet!
+                    <span className="inline-flex items-center">
+                      Let&apos;s meet!
+                      <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                    </span>
                   </Button>
                 </div>
               </div>
 
               {/* Colonne droite : photo + CTAs desktop */}
               <div className="md:col-span-5 md:pl-2 flex justify-center md:justify-end">
-                <div className="w-[300px] max-w-full">
+                <div className="w-[260px] sm:w-[270px] lg:w-[280px] max-w-full">
                   <figure
                     aria-label="Portrait Ivan de Murard"
                     className="relative aspect-square w-full rounded-2xl overflow-hidden
                          bg-card/60 border border-border ring-1 ring-black/10 dark:ring-white/10
-                         shadow-lg transition-transform duration-200 hover:-translate-y-0.5"
+                         shadow-lg transition-transform duration-200 group-hover:-translate-y-0.5 hover:-translate-y-1"
                   >
-                    {/* ⚠️ garde ton src actuel */}
                     <img
                       src="/img/profile_picture.jpg"
                       alt="Ivan de Murard — Product Manager"
@@ -360,21 +372,27 @@ export const Home: React.FC = () => {
                     />
                   </figure>
 
-                  {/* CTAs sous la photo sur desktop */}
+                  {/* CTAs desktop avec caret glissant */}
                   <div className="mt-4 hidden md:flex flex-col gap-3">
                     <Button
                       size="default"
-                      className="bg-contact hover:bg-contact/90 text-contact-foreground"
+                      className="group bg-contact hover:bg-contact/90 text-contact-foreground"
                       onClick={() => scrollToSection("contact")}
                     >
-                      Let's meet!
+                      <span className="inline-flex items-center">
+                        Let&apos;s meet!
+                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                      </span>
                     </Button>
                     <Button
                       size="default"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                      className="group bg-primary hover:bg-primary/90 text-primary-foreground"
                       onClick={() => scrollToSection("work")}
                     >
-                      Discover my projects
+                      <span className="inline-flex items-center">
+                        Discover my projects
+                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                      </span>
                     </Button>
                     <p className="text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
                   </div>
