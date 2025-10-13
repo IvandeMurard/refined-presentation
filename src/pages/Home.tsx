@@ -255,36 +255,13 @@ export const Home: React.FC = () => {
       {/* Hero Section - Centered Card with Glass Effect */}
       <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-4">
         <div className="max-w-[1000px] w-full backdrop-blur-md bg-background/80 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-border/20 p-6 md:p-8 lg:p-10">
-          <div className="grid items-center gap-8 lg:gap-10 lg:grid-cols-12">
-            {/* Left: copy + CTAs */}
-            <div className="lg:col-span-7 space-y-5 text-left">
-              <div className="space-y-1">
-                <h1 className="text-h1 text-foreground leading-tight">Ivan de Murard</h1>
-                <h1 className="text-h1 text-foreground leading-tight">Zero-to-One</h1>
-                <h1 className="text-h1 text-foreground leading-tight">Product Manager</h1>
-              </div>
-
-              <p className="text-lg text-muted-foreground max-w-[52ch] leading-relaxed">
-                From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
-                with AI and go-to-market expertise.
-              </p>
-
-              <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
-                <Button
-                  size="default"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => scrollToSection("work")}
-                >
-                  Discover my projects
-                </Button>
-                <Button
-                  size="default"
-                  className="bg-contact hover:bg-contact/90 text-contact-foreground"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  Let's meet!
-                </Button>
-              </div>
+          {/* Top section: Titles and photo on same row */}
+          <div className="grid items-center gap-6 lg:gap-8 lg:grid-cols-12 mb-5">
+            {/* Left: titles only */}
+            <div className="lg:col-span-7 space-y-2 text-left">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mt-3">Zero-to-One</h1>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight mt-0.5 whitespace-nowrap">Product Manager</h1>
             </div>
 
             {/* Right: photo */}
@@ -300,6 +277,32 @@ export const Home: React.FC = () => {
                 />
               </figure>
             </div>
+          </div>
+
+          {/* Middle section: Description */}
+          <div className="mb-5">
+            <p className="text-lg text-muted-foreground max-w-[65ch] leading-relaxed">
+              From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
+              with AI and go-to-market expertise.
+            </p>
+          </div>
+
+          {/* Bottom section: CTAs */}
+          <div className="flex flex-col sm:flex-row items-start gap-3">
+            <Button
+              size="default"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              onClick={() => scrollToSection("work")}
+            >
+              Discover my projects
+            </Button>
+            <Button
+              size="default"
+              className="bg-contact hover:bg-contact/90 text-contact-foreground"
+              onClick={() => scrollToSection("contact")}
+            >
+              Let's meet!
+            </Button>
           </div>
         </div>
       </section>
