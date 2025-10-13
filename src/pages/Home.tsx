@@ -277,75 +277,53 @@ export const Home: React.FC = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section - Centered Card with Glass Effect */}
-      <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-4">
-        {/* soft background orb (ultra discret) */}
-        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 opacity-60">
+      {/* Hero Section - compact, clear hierarchy */}
+      <section id="hero" className="px-4 py-6 md:py-10">
+        {/* fond doux optionnel */}
+        <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 opacity-50">
           <div
-            className="absolute top-[-120px] left-1/2 -translate-x-1/2 h-[420px] w-[420px] rounded-full blur-3xl
-                          bg-gradient-to-br from-emerald-300/15 via-emerald-500/10 to-emerald-700/0"
+            className="absolute top-[-120px] left-1/2 -translate-x-1/2 h-[380px] w-[380px] rounded-full blur-3xl
+                    bg-gradient-to-br from-emerald-300/15 via-emerald-500/10 to-emerald-700/0"
           />
         </div>
 
-        <div
-          className="mx-auto mt-8 md:mt-14 max-w-[1120px] w-full
-                     rounded-3xl bg-card/80 backdrop-blur
-                     shadow-[0_8px_40px_rgba(0,0,0,0.06)]
-                     ring-1 ring-black/5 dark:ring-white/10
-                     border border-border/60 p-6 md:p-8 lg:p-10"
-        >
-          {/* Top section: Titles and photo on same row */}
-          <div className="grid items-center gap-6 lg:gap-8 lg:grid-cols-12 mb-5">
-            {/* Left: titles + discreet separator/role */}
-            <div className="lg:col-span-7 text-left">
-              {/* Name (h1 unique pour l’accessibilité) */}
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
+        <div className="mx-auto mt-8 md:mt-12 max-w-[1000px] w-full">
+          <div
+            className="rounded-3xl bg-card/80 backdrop-blur
+                    shadow-[0_8px_32px_rgba(0,0,0,0.06)]
+                    ring-1 ring-black/5 dark:ring-white/10
+                    border border-border/60 p-6 md:p-8"
+          >
+            <div className="grid items-center gap-6 md:gap-7 md:grid-cols-12">
+              {/* Colonne gauche : titres + sous-titre + pastilles (tout visible) */}
+              <div className="md:col-span-7 text-left">
+                {/* H1 unique */}
+                <h1 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
+                  Ivan de Murard
+                </h1>
 
-              {/* Desktop: nom + séparateur + rôle sur une même ligne */}
-              <div className="hidden md:flex items-baseline gap-4 mt-3">
-                <span aria-hidden className="inline-block h-6 w-px bg-border" />
-                <span className="text-3xl md:text-4xl font-semibold text-muted-foreground tracking-tight">
+                {/* Rôle (plus léger, pas de séparateur) */}
+                <p className="mt-2 text-2xl md:text-[28px] font-semibold text-muted-foreground">
                   Zero-to-One Product Manager
-                </span>
-              </div>
+                </p>
 
-              {/* Mobile: rôle empilé (préserve l’affichage existant) */}
-              <div className="md:hidden mt-3">
-                <h2 className="text-4xl font-bold text-foreground leading-tight">Zero-to-One</h2>
-                <h2 className="text-4xl font-bold text-foreground leading-tight mt-0.5 whitespace-nowrap">
-                  Product Manager
-                </h2>
-              </div>
-            </div>
+                {/* Sous-titre directement visible */}
+                <p className="mt-4 text-[15px] md:text-[17px] leading-7 text-muted-foreground max-w-[62ch]">
+                  From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
+                  with AI and go-to-market expertise.
+                </p>
 
-            {/* Right: photo + CTAs desktop */}
-            <div className="lg:col-span-5 w-full flex justify-center lg:justify-end md:pl-2">
-              <div className="mx-auto w-[320px] max-w-full">
-                <figure
-                  aria-label="Portrait Ivan de Murard"
-                  className="relative aspect-square w-full rounded-2xl overflow-hidden
-                             bg-card/60 border border-border ring-1 ring-black/10 dark:ring-white/10
-                             shadow-lg transition-transform duration-200 will-change-transform hover:-translate-y-0.5"
-                >
-                  {/* ⚠️ garde ton src actuel */}
-                  <img
-                    src="/img/profile_picture.jpg"
-                    alt="Ivan de Murard — Product Manager"
-                    className="h-full w-full object-cover"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </figure>
+                {/* Pastilles capacités */}
+                <ul className="mt-4 flex flex-wrap gap-2 text-sm text-muted-foreground">
+                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
+                    <li key={tag} className="px-2.5 py-1 rounded-full bg-muted/60">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
 
-                {/* CTAs sous la photo en desktop (les CTAs existants restent pour mobile) */}
-                <div className="mt-4 hidden md:flex flex-col gap-3">
-                  <Button
-                    size="default"
-                    className="bg-contact hover:bg-contact/90 text-contact-foreground"
-                    onClick={() => scrollToSection("contact")}
-                  >
-                    Let's meet!
-                  </Button>
+                {/* CTAs mobiles (inchangés) */}
+                <div className="mt-6 flex gap-3 md:hidden">
                   <Button
                     size="default"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -353,45 +331,56 @@ export const Home: React.FC = () => {
                   >
                     Discover my projects
                   </Button>
-                  <p className="text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
+                  <Button
+                    size="default"
+                    className="bg-contact hover:bg-contact/90 text-contact-foreground"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    Let's meet!
+                  </Button>
+                </div>
+              </div>
+
+              {/* Colonne droite : photo + CTAs desktop */}
+              <div className="md:col-span-5 md:pl-2 flex justify-center md:justify-end">
+                <div className="w-[300px] max-w-full">
+                  <figure
+                    aria-label="Portrait Ivan de Murard"
+                    className="relative aspect-square w-full rounded-2xl overflow-hidden
+                         bg-card/60 border border-border ring-1 ring-black/10 dark:ring-white/10
+                         shadow-lg transition-transform duration-200 hover:-translate-y-0.5"
+                  >
+                    {/* ⚠️ garde ton src actuel */}
+                    <img
+                      src="/img/profile_picture.jpg"
+                      alt="Ivan de Murard — Product Manager"
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </figure>
+
+                  {/* CTAs sous la photo sur desktop */}
+                  <div className="mt-4 hidden md:flex flex-col gap-3">
+                    <Button
+                      size="default"
+                      className="bg-contact hover:bg-contact/90 text-contact-foreground"
+                      onClick={() => scrollToSection("contact")}
+                    >
+                      Let's meet!
+                    </Button>
+                    <Button
+                      size="default"
+                      className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                      onClick={() => scrollToSection("work")}
+                    >
+                      Discover my projects
+                    </Button>
+                    <p className="text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-
-          {/* Middle section: Description (inchangé) */}
-          <div className="mb-5">
-            <p className="text-lg text-muted-foreground max-w-[65ch] leading-relaxed">
-              From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
-              with AI and go-to-market expertise.
-            </p>
-
-            {/* Capability pills : discrets, ajoutent de la lisibilité sans densifier */}
-            <ul className="mt-4 flex flex-wrap gap-2 text-sm text-muted-foreground">
-              {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                <li key={tag} className="px-2.5 py-1 rounded-full bg-muted/60">
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Bottom section: CTAs — conservés pour mobile uniquement */}
-          <div className="flex flex-col sm:flex-row items-start gap-3 md:hidden">
-            <Button
-              size="default"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-              onClick={() => scrollToSection("work")}
-            >
-              Discover my projects
-            </Button>
-            <Button
-              size="default"
-              className="bg-contact hover:bg-contact/90 text-contact-foreground"
-              onClick={() => scrollToSection("contact")}
-            >
-              Let's meet!
-            </Button>
           </div>
         </div>
       </section>
