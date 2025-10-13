@@ -252,11 +252,10 @@ export const Home: React.FC = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section - Centered */}
-      {/* Hero Section — Split: text left / photo right */}
-      <section id="hero" className="pt-28 md:pt-32 pb-24 px-4">
-        <div className="max-w-[1360px] mx-auto">
-          <div className="grid items-center gap-10 lg:gap-16 lg:grid-cols-12">
+      {/* Hero Section - Centered Card with Glass Effect */}
+      <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-8">
+        <div className="max-w-[1200px] w-full backdrop-blur-md bg-background/80 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-border/20 p-6 md:p-12 lg:p-16">
+          <div className="grid items-center gap-10 lg:gap-12 lg:grid-cols-12">
             {/* Left: copy + CTAs */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <div className="space-y-3">
