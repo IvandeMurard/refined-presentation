@@ -393,8 +393,9 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-5 bg-card/90 border-y border-border">
-  <div className="max-w-[1360px] mx-auto px-4">
+      {/* Highlights Marquee */}
+<section className="py-5 bg-card/90 border-y border-border">
+  <div className="max-w-[1120px] mx-auto px-4">
     <MarqueeBanner
       phrases={[
         "Discovery → MVP → Go-to-Market",
