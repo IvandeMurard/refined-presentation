@@ -17,6 +17,7 @@ import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
+import { MarqueeBanner } from "@/components/MarqueeBanner";
 
 interface Project {
   id: string;
@@ -396,21 +397,17 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Marquee Banner */}
-      <Section className="py-4 bg-card/80 border-y border-border/60">
-        <MarqueeBanner
-          phrases={[
-            "Discovery → MVP → GTM",
-            "AI-powered product design",
-            "Hackathon winner (1st place)",
-            "3 live case studies",
-            "Paris • Open to remote",
-          ]}
-          pauseOnHover
-          speed={0.15}
-          ariaLabel="Highlights"
-        />
-      </Section>
+      {/* Testimonial */}
+      <section className="py-16 px-4 bg-secondary">
+        <div className="max-w-4xl mx-auto text-center space-y-4">
+          <p className="text-lg italic text-muted-foreground">
+            "Exceptional product thinking with execution speed that transformed our MVP timeline from 8 months to 3."
+          </p>
+          <p className="text-sm text-muted-foreground uppercase tracking-wider">
+            — Sarah Chen, VP Product at TechUnicorn
+          </p>
+        </div>
+      </section>
 
       {/* Work Section - Left Aligned */}
       <section id="work" className="py-24 px-4">
