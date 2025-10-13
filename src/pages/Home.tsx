@@ -52,7 +52,7 @@ const projects: Project[] = [
   {
     id: "wttj-conversion-seniors",
     title: "A growth-oriented product case study",
-    subtitle: "How can WTTJ increase senior-candidate conversion?",
+    subtitle: "How can we increase senior-candidate conversion?",
     image: wttjHero,
     logo: wttjLogo,
     tags: ["Growth", "Product Management"],
