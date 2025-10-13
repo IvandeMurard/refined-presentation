@@ -13,32 +13,35 @@ const COLORS = {
   onAccent: designTokens.color.accent.on,
 };
 
-const baseBtn = "text-sm font-medium px-3 py-1.5 rounded-xl shadow-sm transition-colors";
+// leaner link style (no filled pills)
+const navLinkBase =
+  "relative inline-flex items-center px-3 h-9 text-sm font-medium rounded-xl " +
+  "text-foreground/80 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08] " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 transition-colors";
 
 export const Navigation: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // --- Scroll state (transparence + bordure)
+  // --- Scroll state (glass elevation)
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 20);
+    const onScroll = () => setIsScrolled(window.scrollY > 6);
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // --- Thème
+  // --- Theme (for inline glass colors)
   const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
-  const inkOnContext = !isScrolled && isDark ? "#FFFFFF" : COLORS.ink;
-  const btnActiveBg = !isScrolled && isDark ? "rgba(255,255,255,0.12)" : COLORS.ink;
+  const inkOnContext = isDark ? "#FFFFFF" : COLORS.ink;
 
-  // --- Observers pour états actifs Home/Work (uniquement efficaces sur la Home)
-  const [heroVisible, setHeroVisible] = useState(location.pathname !== "/" ? false : true);
+  // --- Section observers (Home page only)
+  const [heroVisible, setHeroVisible] = useState(location.pathname === "/");
   const [workActive, setWorkActive] = useState(false);
 
   useEffect(() => {
-    if (location.pathname !== "/") return; // pas d’IDs sur les case studies
+    if (location.pathname !== "/") return;
     const hero = document.getElementById("hero");
     if (!hero) return;
     const io = new IntersectionObserver(
@@ -61,14 +64,13 @@ export const Navigation: FC = () => {
     return () => io.disconnect();
   }, [location.pathname]);
 
-  // --- Typewriter (inchangé)
+  // --- Typewriter (unchanged, but without green cursor)
   const [displayText, setDisplayText] = useState("Ivan de Murard");
   const currentTextRef = useRef(displayText);
   const timeoutRef = useRef<number | null>(null);
   useEffect(() => {
     currentTextRef.current = displayText;
   }, [displayText]);
-
   useEffect(() => {
     const target = heroVisible ? "I M" : "Ivan de Murard";
     const from = currentTextRef.current;
@@ -84,104 +86,99 @@ export const Navigation: FC = () => {
       if (i < steps.length) timeoutRef.current = window.setTimeout(tick, 50);
     };
     tick();
-    return () => {
-      if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
-    };
+    return () => timeoutRef.current && window.clearTimeout(timeoutRef.current);
   }, [heroVisible]);
 
-  // --- Scroll helper
+  // --- Smooth scroll helper
   const smoothScroll = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
-  // --- Gestion onClick des ancres : si on est sur "/", scroll local ; sinon navigate("/#id")
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     const onHome = location.pathname === "/";
     if (onHome) {
       e.preventDefault();
       smoothScroll(id);
     } else {
-      // on laisse la navigation se faire (pas de preventDefault),
-      // ET on force navigate pour être sûr (utile si l’app consomme les liens)
       e.preventDefault();
       navigate(`/#${id}`);
     }
   };
 
+  // --- Glass tokens
+  const BG_TOP = isDark ? "rgba(17,24,39,0.55)" : "rgba(255,255,255,0.66)";
+  const BG_SCROLL = isDark ? "rgba(17,24,39,0.72)" : "rgba(255,255,255,0.78)";
+  const BORDER = isDark ? "rgba(255,255,255,0.10)" : "rgba(0,0,0,0.08)";
+  const SHADOW = isScrolled ? "0 6px 20px rgba(0,0,0,0.08)" : "none";
+
   return (
     <nav
-      className="fixed top-0 w-full z-50 transition-all"
-      style={{
-        backdropFilter: isScrolled ? "blur(6px)" : "none",
-        background: isScrolled ? (isDark ? "rgba(17,24,39,0.92)" : `${COLORS.bg}F2`) : "transparent",
-        borderBottom: `1px solid ${isScrolled ? (isDark ? "rgba(255,255,255,0.12)" : COLORS.border) : "transparent"}`,
-        transitionTimingFunction: designTokens.motion.easing.product,
-        transitionDuration: designTokens.motion.duration.base,
-      }}
       role="navigation"
       aria-label="Primary"
+      className="fixed top-0 w-full z-50 transition-[box-shadow,background] duration-300"
+      style={{
+        backdropFilter: "saturate(1.2) blur(12px)",
+        WebkitBackdropFilter: "saturate(1.2) blur(12px)",
+        background: isScrolled ? BG_SCROLL : BG_TOP,
+        borderBottom: `1px solid ${BORDER}`,
+        boxShadow: SHADOW,
+        transitionTimingFunction: designTokens.motion.easing.product,
+      }}
     >
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 md:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Titre cliquable */}
+      <div className="max-w-[1120px] mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex items-center justify-between h-14">
+          {/* Brand (cursor removed) */}
           <Link
             to="/#hero"
             onClick={(e) => handleAnchorClick(e, "hero")}
-            className="relative text-[16px] font-[600] tracking-tight w-[160px] text-left whitespace-nowrap"
+            className="text-[16px] font-[600] tracking-tight w-[160px] text-left whitespace-nowrap hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 rounded-md"
             style={{ color: inkOnContext }}
             aria-label="Go to top"
           >
             {displayText}
-            <span
-              aria-hidden
-              className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 inline-block w-[2px] h-[1em] animate-pulse"
-              style={{ background: COLORS.accent }}
-            />
           </Link>
 
-          {/* Actions */}
-          <div className="hidden md:flex items-center gap-3">
+          {/* Links */}
+          <div className="hidden md:flex items-center gap-1">
             {/* HOME */}
             <Link
               to="/#hero"
               onClick={(e) => handleAnchorClick(e, "hero")}
-              className={baseBtn}
-              style={{
-                border: `1px solid ${inkOnContext}`,
-                background: heroVisible ? btnActiveBg : "transparent",
-                color: heroVisible ? "#FFFFFF" : inkOnContext,
-                transitionTimingFunction: designTokens.motion.easing.product,
-                transitionDuration: designTokens.motion.duration.base,
-              }}
+              className={navLinkBase}
               aria-current={heroVisible ? "page" : undefined}
+              style={{ color: heroVisible ? inkOnContext : undefined }}
             >
               Home
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-3 right-3 -bottom-[6px] h-[2px] rounded-full bg-foreground/70 transition-opacity"
+                style={{ opacity: heroVisible ? 1 : 0 }}
+              />
             </Link>
 
             {/* WORK */}
             <Link
               to="/#work"
               onClick={(e) => handleAnchorClick(e, "work")}
-              className={baseBtn}
-              style={{
-                border: `1px solid ${inkOnContext}`,
-                background: workActive ? btnActiveBg : "transparent",
-                color: workActive ? "#FFFFFF" : inkOnContext,
-                transitionTimingFunction: designTokens.motion.easing.product,
-                transitionDuration: designTokens.motion.duration.base,
-              }}
+              className={navLinkBase}
               aria-current={workActive ? "page" : undefined}
+              style={{ color: workActive ? inkOnContext : undefined }}
             >
               Work
+              <span
+                aria-hidden
+                className="pointer-events-none absolute left-3 right-3 -bottom-[6px] h-[2px] rounded-full bg-foreground/70 transition-opacity"
+                style={{ opacity: workActive ? 1 : 0 }}
+              />
             </Link>
 
-            {/* CONTACT */}
+            {/* CONTACT (accent CTA, kept) */}
             <Link
               to="/#contact"
               onClick={(e) => handleAnchorClick(e, "contact")}
-              className={`${baseBtn} active:scale-95 active:ring-2 ring-contact/50`}
+              className="inline-flex items-center h-9 px-3 text-sm font-medium rounded-xl active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-contact/40"
               style={{
-                border: `1px solid ${COLORS.accent}`,
                 background: COLORS.accent,
                 color: COLORS.onAccent,
+                border: `1px solid ${COLORS.accent}`,
                 transitionTimingFunction: designTokens.motion.easing.product,
                 transitionDuration: designTokens.motion.duration.base,
               }}
@@ -191,15 +188,21 @@ export const Navigation: FC = () => {
           </div>
 
           {/* Lang / Theme */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
             <div className="hidden sm:flex items-center gap-2 text-sm">
-              <button className="font-medium opacity-80 hover:opacity-100" style={{ color: inkOnContext }}>
+              <button
+                className="h-9 px-2 rounded-lg font-medium text-foreground/80 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                aria-label="Switch to English"
+              >
                 EN
               </button>
               <span className="opacity-50" style={{ color: inkOnContext }}>
                 |
               </span>
-              <button className="font-medium" style={{ color: COLORS.inkMuted }}>
+              <button
+                className="h-9 px-2 rounded-lg font-medium text-foreground/70 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg:white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                aria-label="Passer en français"
+              >
                 FR
               </button>
             </div>
