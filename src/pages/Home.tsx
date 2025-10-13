@@ -253,31 +253,32 @@ export const Home: React.FC = () => {
       <Navigation />
 
       {/* Hero Section - Centered Card with Glass Effect */}
-      <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-8">
-        <div className="max-w-[1200px] w-full backdrop-blur-md bg-background/80 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-border/20 p-6 md:p-12 lg:p-16">
-          <div className="grid items-center gap-10 lg:gap-12 lg:grid-cols-12">
+      <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-4">
+        <div className="max-w-[1000px] w-full backdrop-blur-md bg-background/80 rounded-3xl shadow-[0_20px_60px_-15px_rgba(0,0,0,0.3)] border border-border/20 p-6 md:p-8 lg:p-10">
+          <div className="grid items-center gap-8 lg:gap-10 lg:grid-cols-12">
             {/* Left: copy + CTAs */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <div className="space-y-3">
-                <h1 className="text-h1 text-foreground">Ivan de Murard</h1>
-                <h1 className="text-h1 text-foreground">Zero-to-One Product Manager</h1>
+            <div className="lg:col-span-7 space-y-5 text-left">
+              <div className="space-y-1">
+                <h1 className="text-h1 text-foreground leading-tight">Ivan de Murard</h1>
+                <h1 className="text-h1 text-foreground leading-tight">Zero-to-One</h1>
+                <h1 className="text-h1 text-foreground leading-tight">Product Manager</h1>
               </div>
 
-              <p className="text-xl text-muted-foreground max-w-[56ch] leading-relaxed">
+              <p className="text-lg text-muted-foreground max-w-[52ch] leading-relaxed">
                 From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
                 with AI and go-to-market expertise.
               </p>
 
-              <div className="flex flex-col sm:flex-row items-start gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row items-start gap-3 pt-1">
                 <Button
-                  size="lg"
+                  size="default"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   onClick={() => scrollToSection("work")}
                 >
                   Discover my projects
                 </Button>
                 <Button
-                  size="lg"
+                  size="default"
                   className="bg-contact hover:bg-contact/90 text-contact-foreground"
                   onClick={() => scrollToSection("contact")}
                 >
@@ -286,19 +287,17 @@ export const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* Right: photo placeholder (4:5), prêt pour ta future image */}
-            <div className="lg:col-span-6 w-full">
+            {/* Right: photo */}
+            <div className="lg:col-span-5 w-full flex justify-center lg:justify-end">
               <figure
-                className="relative mx-auto max-w-[250px] aspect-[4/5] rounded-2xl border border-border bg-card/60 shadow-lg overflow-hidden"
-                aria-label="Portrait placeholder"
+                className="relative max-w-[180px] aspect-[4/5] rounded-2xl border border-border bg-card/60 shadow-lg overflow-hidden"
+                aria-label="Portrait Ivan de Murard"
               >
-                {
-                  <img
-                    src="/img/profile_picture.jpg" // ✅ assets sous /public sont servis depuis la racine
-                    alt="Ivan de Murard — Product Manager"
-                    className="h-full w-full object-cover"
-                  />
-                }
+                <img
+                  src="/img/profile_picture.jpg"
+                  alt="Ivan de Murard — Product Manager"
+                  className="h-full w-full object-cover"
+                />
               </figure>
             </div>
           </div>
