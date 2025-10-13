@@ -17,7 +17,7 @@ import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
-import MarqueeBanner from "@/components/MarqueeBanner";
+import MarqueeBanner from "./components/MarqueeBanner";
 
 interface Project {
   id: string;
@@ -396,16 +396,13 @@ export const Home: React.FC = () => {
       <section className="py-5 bg-card/90 border-y border-border">
   <div className="max-w-[1360px] mx-auto px-4">
     <MarqueeBanner
-      // keep this short & scannable; it acts like a lightweight proof/reputation rail
       phrases={[
         "Discovery → MVP → Go-to-Market",
         "AI-assisted product acceleration",
         "Hands-on PM across design, data & GTM",
         "Paris • Open to remote",
       ]}
-      // slower is calmer; 0.18–0.22 feels good for a subtle banner
       speed={0.2}
-      // play nice with a11y and hover states
       pauseOnHover
       ariaLabel="Highlights"
       className="py-1"
