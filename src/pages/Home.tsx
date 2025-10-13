@@ -17,7 +17,7 @@ import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
-import MarqueeBanner from "./components/MarqueeBanner";
+import MarqueeBanner from "@/components/MarqueeBanner";
 
 interface Project {
   id: string;
@@ -393,21 +393,17 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Highlights Marquee */}
-<section className="py-5 bg-card/90 border-y border-border">
-  <div className="max-w-[1120px] mx-auto px-4">
-    <MarqueeBanner
-      phrases={[
-        "Discovery → MVP → Go-to-Market",
-        "AI-assisted product acceleration",
-        "Hands-on PM across design, data & GTM",
-        "Paris • Open to remote",
-      ]}
-      speed={0.2}
-      pauseOnHover
-      ariaLabel="Highlights"
-      className="py-1"
-    />
+      </section>
+      {/* Work Section - Left Aligned */}
+      <section id="work" className="py-24 px-4">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader kicker="WORK" title="Work" alignment="left" className="mb-8" />
+          <FilterChips
+            chips={filterChips}
+            activeChip={activeFilter}
+            onChipChange={setActiveFilter}
+            className="mb-8"
+          />
   </div>
 </section>
 
