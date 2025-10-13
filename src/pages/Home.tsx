@@ -277,7 +277,6 @@ export const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-
       {/* Hero Section - Centered Card with Glass Effect */}
       <section id="hero" className="min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-4">
         {/* soft background orb (ultra discret) */}
@@ -396,19 +395,21 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* Testimonial */}
-      <section className="py-16 px-4 bg-secondary">
-        <div className="max-w-4xl mx-auto text-center space-y-4">
-          <p className="text-lg italic text-muted-foreground">
-            "Exceptional product thinking with execution speed that transformed our MVP timeline from 8 months to 3."
-          </p>
-          <p className="text-sm text-muted-foreground uppercase tracking-wider">
-            — Sarah Chen, VP Product at TechUnicorn
-          </p>
-        </div>
+      import {MarqueeBanner} from "@/components/MarqueeBanner"; …
+      <section className="py-4 bg-card/80 border-y border-border/60">
+        <MarqueeBanner
+          phrases={[
+            "Discovery → MVP → GTM",
+            "AI-powered product design",
+            "Hackathon winner (1st place)",
+            "3 live case studies",
+            "Paris • Open to remote",
+          ]}
+          pauseOnHover
+          speed={0.15}
+          ariaLabel="Highlights"
+        />
       </section>
-
       {/* Work Section - Left Aligned */}
       <section id="work" className="py-24 px-4">
         <div className="max-w-[1360px] mx-auto">
@@ -496,7 +497,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* Hackathons Section - Left Aligned */}
       <section id="hackathons" className="py-24 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
@@ -535,7 +535,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* CTA Banner */}
       <CTABanner
         title="Ready to build the future together?"
@@ -543,7 +542,6 @@ export const Home: React.FC = () => {
         ctaText="Let's meet!"
         onClick={() => scrollToSection("contact")}
       />
-
       {/* Experience & Education Section - Left Aligned */}
       <section id="experience" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
@@ -608,7 +606,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* Inspiration Resources Tools Section - Left Aligned */}
       <section id="resources" className="py-24 px-4 bg-secondary">
         <div className="max-w-7xl mx-auto">
@@ -729,10 +726,8 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* Built With Banner */}
       <BuiltWithBanner />
-
       {/* Contact Section - Centered */}
       <section id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
@@ -758,7 +753,6 @@ export const Home: React.FC = () => {
           </div>
         </div>
       </section>
-
       {/* Footer */}
       <Footer
         siteName="Ivan de Murard"
@@ -774,7 +768,6 @@ export const Home: React.FC = () => {
           document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
         }}
       />
-
       {/* Work Modal */}
       {selectedProject && (
         <WorkModal
