@@ -260,7 +260,6 @@ export const Home: React.FC = () => {
             <div className="lg:col-span-6 space-y-6 text-left">
               <div className="space-y-3">
                 <h1 className="text-h1 text-foreground">Ivan de Murard</h1>
-                <Separator className="w-24 mx-auto bg-border h-[2px]" />
                 <h1 className="text-h1 text-foreground">Zero-to-One Product Manager</h1>
               </div>
 
@@ -293,14 +292,6 @@ export const Home: React.FC = () => {
                 className="relative mx-auto max-w-[250px] aspect-[4/5] rounded-2xl border border-border bg-card/60 shadow-lg overflow-hidden"
                 aria-label="Portrait placeholder"
               >
-                {/* Placeholder visuel — remplace l'URL quand ta photo est prête */}
-                <div className="absolute inset-0 grid place-items-center">
-                  <div className="text-center">
-                    <div className="mx-auto mb-3 h-12 w-12 rounded-full bg-accent/20" />
-                    <p className="text-sm text-muted-foreground"></p>
-                    <p className="text-xs text-muted-foreground/70"></p>
-                  </div>
-                </div>
                 {
                   <img
                     src="/img/profile_picture.jpg" // ✅ assets sous /public sont servis depuis la racine
