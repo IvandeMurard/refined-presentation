@@ -131,6 +131,12 @@ const resourceFilterChips = [
   { id: "tools", label: "Tools" },
 ];
 
+const experienceFilterChips = [
+  { id: "experiences", label: "Expériences" },
+  { id: "continuous-learning", label: "Continuous Learning" },
+  { id: "education", label: "Education" },
+];
+
 const hackathons = [
   {
     year: "2025",
@@ -188,6 +194,24 @@ const experiences = [
   },
 ];
 
+const continuousLearning = [
+  {
+    title: "AI & Machine Learning Foundations",
+    source: "DeepLearning.AI",
+    description: "2024 - Practical applications of AI in product development",
+  },
+  {
+    title: "Advanced Product Analytics",
+    source: "Reforge",
+    description: "2023 - Data-driven decision making and experimentation",
+  },
+  {
+    title: "Growth Marketing Intensive",
+    source: "CXL Institute",
+    description: "2022 - Conversion optimization and growth strategies",
+  },
+];
+
 const education = [
   {
     title: "Master in Innovation Management",
@@ -210,6 +234,7 @@ export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("all");
   const [activeResourceFilter, setActiveResourceFilter] = useState("inspiration");
+  const [activeExperienceFilter, setActiveExperienceFilter] = useState("experiences");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -457,13 +482,19 @@ export const Home: React.FC = () => {
       {/* Experience & Education Section - Left Aligned */}
       <section id="experience" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-12" />
+          <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
 
-          <div className="grid md:grid-cols-2 gap-12">
-            {/* Key Experiences */}
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-6">Key experiences</h3>
-              <div className="space-y-8">
+          <FilterChips
+            chips={experienceFilterChips}
+            activeChip={activeExperienceFilter}
+            onChipChange={setActiveExperienceFilter}
+            className="mb-8"
+          />
+
+          {/* Conditional Content Based on Active Filter */}
+          <div className="space-y-6">
+            {activeExperienceFilter === "experiences" && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {experiences.map((exp, index) => (
                   <div key={index} className="space-y-2">
                     <h4 className="font-semibold text-foreground">{exp.title}</h4>
@@ -472,12 +503,22 @@ export const Home: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            )}
 
-            {/* Education */}
-            <div>
-              <h3 className="text-xl font-bold text-foreground mb-6">Education</h3>
-              <div className="space-y-8">
+            {activeExperienceFilter === "continuous-learning" && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                {continuousLearning.map((item, index) => (
+                  <div key={index} className="space-y-2">
+                    <h4 className="font-semibold text-foreground">{item.title}</h4>
+                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
+                    <p className="text-sm text-muted-foreground">{item.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {activeExperienceFilter === "education" && (
+              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {education.map((edu, index) => (
                   <div key={index} className="space-y-2">
                     <h4 className="font-semibold text-foreground">{edu.title}</h4>
@@ -486,7 +527,7 @@ export const Home: React.FC = () => {
                   </div>
                 ))}
               </div>
-            </div>
+            )}
           </div>
 
           <div className="flex justify-center mt-12">
