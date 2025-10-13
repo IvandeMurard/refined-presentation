@@ -1,57 +1,68 @@
 import * as React from "react";
+import clsx from "clsx";
 
-type Props = {
+type MarqueeBannerProps = {
   phrases: string[];
+  /** Plus c’est petit, plus c’est lent (0.1–0.4 recommandé). Par défaut: 0.15 */
+  speed?: number;
+  /** Met l’animation en pause au hover/focus. Par défaut: true */
+  pauseOnHover?: boolean;
+  /** Label SR pour lecteur d’écran. Par défaut: "Highlights" */
+  ariaLabel?: string;
+  /** Classes additionnelles sur le wrapper */
   className?: string;
 };
 
-export function MarqueeBanner({ phrases, className = "" }: Props) {
-  return (
-    <div className={["w-full overflow-hidden", className].join(" ")}>
-      <div className="relative flex">
-        {/* First set of phrases */}
-        <div className="flex items-center gap-8 animate-marquee whitespace-nowrap">
-          {phrases.map((phrase, index) => (
-            <React.Fragment key={`phrase-1-${index}`}>
-              <span className="text-[15px] font-[500] tracking-[0.01em] text-[#4B5563]">
-                {phrase}
-              </span>
-              {index < phrases.length - 1 && (
-                <span className="text-[#CBD5E1]">•</span>
-              )}
-            </React.Fragment>
-          ))}
-          <span className="text-[#CBD5E1]">•</span>
-        </div>
+export default function MarqueeBanner({
+  phrases,
+  speed = 0.15,
+  pauseOnHover = true,
+  ariaLabel = "Highlights",
+  className,
+}: MarqueeBannerProps) {
+  const duration = React.useMemo(() => {
+    const s = Math.max(0.05, Math.min(speed, 1));
+    return 60 / s; // ex: 60/0.15 ≈ 400s → très doux
+  }, [speed]);
 
-        {/* Duplicate set for seamless loop */}
-        <div className="flex items-center gap-8 animate-marquee whitespace-nowrap" aria-hidden="true">
-          {phrases.map((phrase, index) => (
-            <React.Fragment key={`phrase-2-${index}`}>
-              <span className="text-[15px] font-[500] tracking-[0.01em] text-[#4B5563]">
-                {phrase}
-              </span>
-              {index < phrases.length - 1 && (
-                <span className="text-[#CBD5E1]">•</span>
-              )}
-            </React.Fragment>
-          ))}
-          <span className="text-[#CBD5E1]">•</span>
-        </div>
+  const loop = React.useMemo(() => [...phrases, ...phrases], [phrases]);
+
+  return (
+    <div
+      role="region"
+      aria-label={ariaLabel}
+      aria-live="off"
+      className={clsx(
+        "relative overflow-hidden",
+        // masque de fade aux extrémités (webkit + standard)
+        "[mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]",
+        "[webkit-mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)]",
+        className
+      )}
+    >
+      <div
+        className={clsx(
+          "flex gap-8 whitespace-nowrap will-change-transform",
+          pauseOnHover &&
+            "hover:[animation-play-state:paused] focus-within:[animation-play-state:paused]"
+        )}
+        style={{ animation: `mdm-marquee ${duration}s linear infinite` }}
+      >
+        {loop.map((p, i) => (
+          <span key={`${p}-${i}`} className="text-sm md:text-[15px] text-muted-foreground">
+            {p}
+          </span>
+        ))}
       </div>
 
+      {/* animation locale + reduced motion */}
       <style>{`
-        @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-100%);
-          }
+        @keyframes mdm-marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
         }
-
-        .animate-marquee {
-          animation: marquee 40s linear infinite;
+        @media (prefers-reduced-motion: reduce) {
+          [aria-label="${ariaLabel}"] > div { animation: none !important; }
         }
       `}</style>
     </div>
