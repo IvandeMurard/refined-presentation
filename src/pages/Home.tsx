@@ -277,31 +277,21 @@ export const Home: React.FC = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section - compact, lively, tinted */}
+      {/* Hero Section - compact, clean (no green gradient) */}
       <section id="hero" className="px-4 py-6 md:py-10">
         <div className="mx-auto mt-8 md:mt-12 max-w-[960px] w-full">
-          {/* Card */}
+          {/* Card (no .group here => no cross-hover side effects) */}
           <div
-            className="relative group rounded-3xl bg-card/80 backdrop-blur
+            className="relative rounded-3xl bg-card/80 backdrop-blur
                  shadow-[0_8px_28px_rgba(0,0,0,0.06)]
                  ring-1 ring-black/5 dark:ring-white/10
                  border border-border/60 p-6 md:p-8
                  transition-shadow duration-300 hover:shadow-[0_16px_44px_rgba(0,0,0,0.08)]"
           >
-            {/* subtle color wash to avoid monochrome */}
-            <div aria-hidden className="pointer-events-none absolute inset-0 rounded-3xl">
-              <div
-                className="absolute -top-8 -left-10 h-56 w-56 rounded-full blur-3xl
-                        bg-emerald-400/10 dark:bg-emerald-400/8"
-              />
-              <div
-                className="absolute -bottom-10 -right-10 h-56 w-56 rounded-full blur-3xl
-                        bg-blue-500/10 dark:bg-blue-400/8"
-              />
-            </div>
+            {/* ⛔️ gradient overlay removed */}
 
-            <div className="grid items-center gap-6 md:gap-7 md:grid-cols-12 relative">
-              {/* Colonne gauche : titres + sous-titre + pastilles */}
+            <div className="grid items-center gap-6 md:gap-7 md:grid-cols-12">
+              {/* Left: titles + subtitle + pills */}
               <div className="md:col-span-7 text-left">
                 <h1 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
                   Ivan de Murard
@@ -315,7 +305,6 @@ export const Home: React.FC = () => {
                   with AI and go-to-market expertise.
                 </p>
 
-                {/* Pills légèrement teintées */}
                 <ul className="mt-4 flex flex-wrap gap-2 text-sm">
                   {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
                     <li
@@ -329,7 +318,7 @@ export const Home: React.FC = () => {
                   ))}
                 </ul>
 
-                {/* CTAs mobiles (inchangés) */}
+                {/* Mobile CTAs (unchanged) */}
                 <div className="mt-6 flex gap-3 md:hidden">
                   <Button
                     size="default"
@@ -354,14 +343,14 @@ export const Home: React.FC = () => {
                 </div>
               </div>
 
-              {/* Colonne droite : photo + CTAs desktop */}
+              {/* Right: photo + desktop CTAs */}
               <div className="md:col-span-5 md:pl-2 flex justify-center md:justify-end">
                 <div className="w-[260px] sm:w-[270px] lg:w-[280px] max-w-full">
                   <figure
                     aria-label="Portrait Ivan de Murard"
                     className="relative aspect-square w-full rounded-2xl overflow-hidden
                          bg-card/60 border border-border ring-1 ring-black/10 dark:ring-white/10
-                         shadow-lg transition-transform duration-200 group-hover:-translate-y-0.5 hover:-translate-y-1"
+                         shadow-lg transition-transform duration-200 hover:-translate-y-1 focus-visible:-translate-y-1"
                   >
                     <img
                       src="/img/profile_picture.jpg"
@@ -372,7 +361,7 @@ export const Home: React.FC = () => {
                     />
                   </figure>
 
-                  {/* CTAs desktop avec caret glissant */}
+                  {/* Each button has its own `group` so caret animates independently */}
                   <div className="mt-4 hidden md:flex flex-col gap-3">
                     <Button
                       size="default"
