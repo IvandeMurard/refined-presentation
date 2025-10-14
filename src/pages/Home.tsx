@@ -306,21 +306,8 @@ export const Home: React.FC = () => {
                   with AI and go-to-market expertise.
                 </p>
 
-                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                    <li
-                      key={tag}
-                      className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800
-                           dark:bg-emerald-400/15 dark:text-emerald-200 border border-emerald-200/60
-                           dark:border-emerald-400/20"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Mobile CTAs (unchanged) */}
-                <div className="mt-6 flex gap-3 md:hidden">
+                {/* CTAs sous le sous-titre */}
+                <div className="mt-5 flex flex-wrap gap-3">
                   <Button
                     size="default"
                     className="group bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -342,6 +329,20 @@ export const Home: React.FC = () => {
                     </span>
                   </Button>
                 </div>
+
+                {/* Pastilles sous les CTAs */}
+                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
+                    <li
+                      key={tag}
+                      className="px-2.5 py-1 rounded-full bg-primary/10 text-primary
+                           dark:bg-primary/15 dark:text-primary border border-primary/20
+                           dark:border-primary/30"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               {/* Right: photo + desktop CTAs */}
@@ -362,30 +363,7 @@ export const Home: React.FC = () => {
                     />
                   </figure>
 
-                  {/* Each button has its own `group` so caret animates independently */}
-                  <div className="mt-4 hidden md:flex flex-col gap-3">
-                    <Button
-                      size="default"
-                      className="group bg-contact hover:bg-contact/90 text-contact-foreground"
-                      onClick={() => scrollToSection("contact")}
-                    >
-                      <span className="inline-flex items-center">
-                        Let&apos;s meet!
-                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                      </span>
-                    </Button>
-                    <Button
-                      size="default"
-                      className="group bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => scrollToSection("work")}
-                    >
-                      <span className="inline-flex items-center">
-                        Discover my projects
-                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                      </span>
-                    </Button>
-                    <p className="text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
-                  </div>
+                  <p className="mt-4 text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
                 </div>
               </div>
             </div>
