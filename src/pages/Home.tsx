@@ -206,7 +206,7 @@ const continuousLearning = [
     title: "Building Strategic Foresight Capabilities",
     source: "EDHEC Business School & UNESCO",
     description: "2025 - I learned  ",
-    link: https://www.coursera.org/learn/strategic-foresight
+    link: "https://www.coursera.org/learn/strategic-foresight",
   },
   {
     title: "Service Design: Delivering Integrated Service Design Experiences.",
