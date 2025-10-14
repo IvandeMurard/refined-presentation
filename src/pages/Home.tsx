@@ -200,7 +200,7 @@ const continuousLearning = [
     title: "Product Management Intensive Program",
     source: "MAESTRO",
     description: "2025 - I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
-    link: https://maestro.mariaschools.com/formations/devenez-product-manager-formation-a-temps-plein-en-presentiel
+    link: "https://maestro.mariaschools.com/formations/devenez-product-manager-formation-a-temps-plein-en-presentiel",
   },
   {
     title: "Building Strategic Foresight Capabilities",
@@ -212,13 +212,13 @@ const continuousLearning = [
     title: "Service Design: Delivering Integrated Service Design Experiences.",
     source: "The Interaction Design Foundation",
     description: "2020 - I learned how to value design to conceive full-stack business-oriented experiences",
-    link: https://www.interaction-design.org/courses/service-design-how-to-design-integrated-service-experiences
+    link: "https://www.interaction-design.org/courses/service-design-how-to-design-integrated-service-experiences",
   },
   {
     title: "Lion du Samedi (it became Le Promptathon in 2025, which I also attended)",
     source: "Join Lion",
     description: "2019 - I learned how to work in the start-up universe and innovate better",
-    link: https://medium.com/join-lion/une-1%C3%A8re-journ%C3%A9e-chez-lion-66040cf097b2
+    link: "https://medium.com/join-lion/une-1%C3%A8re-journ%C3%A9e-chez-lion-66040cf097b2",
   },
 ];
 
