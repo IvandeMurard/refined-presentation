@@ -393,7 +393,6 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      </section>
       {/* Work Section - Left Aligned */}
       <section id="work" className="py-24 px-4">
         <div className="max-w-7xl mx-auto">
@@ -404,10 +403,6 @@ export const Home: React.FC = () => {
             onChipChange={setActiveFilter}
             className="mb-8"
           />
-  </div>
-</section>
-
-          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-8" />
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
