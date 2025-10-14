@@ -16,8 +16,8 @@ const COLORS = {
 // leaner link style (no filled pills)
 const navLinkBase =
   "relative inline-flex items-center px-3 h-9 text-sm font-medium rounded-xl " +
-  "text-foreground/80 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08] " +
-  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 transition-colors";
+  "text-foreground/80 hover:text-foreground hover:bg-black/[0.08] dark:hover:bg-white/[0.12] " +
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 transition-all duration-200";
 
 export const Navigation: FC = () => {
   const location = useLocation();
@@ -136,77 +136,79 @@ export const Navigation: FC = () => {
             {displayText}
           </Link>
 
-          {/* Links */}
-          <div className="hidden md:flex items-center gap-1">
-            {/* HOME */}
-            <Link
-              to="/#hero"
-              onClick={(e) => handleAnchorClick(e, "hero")}
-              className={navLinkBase}
-              aria-current={heroVisible ? "page" : undefined}
-              style={{ color: heroVisible ? inkOnContext : undefined }}
-            >
-              Home
-              <span
-                aria-hidden
-                className="pointer-events-none absolute left-3 right-3 -bottom-[6px] h-[2px] rounded-full bg-foreground/70 transition-opacity"
-                style={{ opacity: heroVisible ? 1 : 0 }}
-              />
-            </Link>
-
-            {/* WORK */}
-            <Link
-              to="/#work"
-              onClick={(e) => handleAnchorClick(e, "work")}
-              className={navLinkBase}
-              aria-current={workActive ? "page" : undefined}
-              style={{ color: workActive ? inkOnContext : undefined }}
-            >
-              Work
-              <span
-                aria-hidden
-                className="pointer-events-none absolute left-3 right-3 -bottom-[6px] h-[2px] rounded-full bg-foreground/70 transition-opacity"
-                style={{ opacity: workActive ? 1 : 0 }}
-              />
-            </Link>
-
-            {/* CONTACT (accent CTA, kept) */}
-            <Link
-              to="/#contact"
-              onClick={(e) => handleAnchorClick(e, "contact")}
-              className="inline-flex items-center h-9 px-3 text-sm font-medium rounded-xl active:scale-95 transition-transform focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-contact/40"
-              style={{
-                background: COLORS.accent,
-                color: COLORS.onAccent,
-                border: `1px solid ${COLORS.accent}`,
-                transitionTimingFunction: designTokens.motion.easing.product,
-                transitionDuration: designTokens.motion.duration.base,
-              }}
-            >
-              Contact
-            </Link>
-          </div>
-
-          {/* Lang / Theme */}
+          {/* Right side: Links + Lang/Theme */}
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 text-sm">
-              <button
-                className="h-9 px-2 rounded-lg font-medium text-foreground/80 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
-                aria-label="Switch to English"
+            {/* Links */}
+            <div className="hidden md:flex items-center gap-1">
+              {/* HOME */}
+              <Link
+                to="/#hero"
+                onClick={(e) => handleAnchorClick(e, "hero")}
+                className={navLinkBase}
+                aria-current={heroVisible ? "page" : undefined}
+                style={{ color: heroVisible ? inkOnContext : undefined }}
               >
-                EN
-              </button>
-              <span className="opacity-50" style={{ color: inkOnContext }}>
-                |
-              </span>
-              <button
-                className="h-9 px-2 rounded-lg font-medium text-foreground/70 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg:white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
-                aria-label="Passer en français"
+                Home
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-3 right-3 -bottom-[6px] h-[2px] rounded-full bg-foreground/70 transition-opacity"
+                  style={{ opacity: heroVisible ? 1 : 0 }}
+                />
+              </Link>
+
+              {/* WORK */}
+              <Link
+                to="/#work"
+                onClick={(e) => handleAnchorClick(e, "work")}
+                className={navLinkBase}
+                aria-current={workActive ? "page" : undefined}
+                style={{ color: workActive ? inkOnContext : undefined }}
               >
-                FR
-              </button>
+                Work
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute left-3 right-3 -bottom-[6px] h-[2px] rounded-full bg-foreground/70 transition-opacity"
+                  style={{ opacity: workActive ? 1 : 0 }}
+                />
+              </Link>
+
+              {/* CONTACT (accent CTA, kept) */}
+              <Link
+                to="/#contact"
+                onClick={(e) => handleAnchorClick(e, "contact")}
+                className="inline-flex items-center h-9 px-3 text-sm font-medium rounded-xl hover:brightness-110 active:scale-95 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-contact/40"
+                style={{
+                  background: COLORS.accent,
+                  color: COLORS.onAccent,
+                  border: `1px solid ${COLORS.accent}`,
+                  transitionTimingFunction: designTokens.motion.easing.product,
+                }}
+              >
+                Contact
+              </Link>
             </div>
-            <ThemeToggle />
+
+            {/* Lang / Theme */}
+            <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-2 text-sm">
+                <button
+                  className="h-9 px-2 rounded-lg font-medium text-foreground/80 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                  aria-label="Switch to English"
+                >
+                  EN
+                </button>
+                <span className="opacity-50" style={{ color: inkOnContext }}>
+                  |
+                </span>
+                <button
+                  className="h-9 px-2 rounded-lg font-medium text-foreground/70 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg:white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                  aria-label="Passer en français"
+                >
+                  FR
+                </button>
+              </div>
+              <ThemeToggle />
+            </div>
           </div>
         </div>
       </div>
