@@ -409,7 +409,7 @@ export const Home: React.FC = () => {
               "Paris • Open to remote",
             ]}
             // slower is calmer; 0.20–0.24 feels good for a subtle banner
-            speed={0.2}
+            speed={0.25}
             // play nice with a11y and hover states
             pauseOnHover
             ariaLabel="Highlights"
