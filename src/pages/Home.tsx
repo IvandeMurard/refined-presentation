@@ -17,7 +17,7 @@ import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
-import MarqueeBanner from "@/components/MarqueeBanner";
+import MarqueeBanner from "./components/MarqueeBanner";
 
 interface Project {
   id: string;
@@ -174,60 +174,59 @@ const hackathons = [
 
 const experiences = [
   {
-    title: "Senior Product Designer",
-    company: "TECH UNICORN SAAS",
-    description: "Lead 0→1 design on 3 products generating €2M ARR, managing 8-person design team",
+    title: "Consultant IT Project Manager",
+    company: "DOMUSVI",
+    description: "Delivered a SaaS business tool solution, leading 0→1 conception with various stakeholders",
   },
   {
-    title: "Product Manager",
-    company: "FINTECH SCALE-UP",
-    description: "MVP to Product-Market Fit in 18 months, 50k+ active users",
+    title: "Consultant Data Project Manager",
+    company: "BOUYGUES TELECOM",
+    description: "Led invoice recovery from data aggregation to +40% recovered",
   },
   {
-    title: "UX Consultant",
-    company: "INDEPENDENT",
-    description: "Conversion optimization for 12 clients (+15% average), e-commerce focus",
+    title: "Data Project Manager",
+    company: "OPENDATASOFT",
+    description: "Accompanied and led 20 cities and metropolises in building their open data portals",
   },
   {
-    title: "Growth Product Manager",
-    company: "EDTECH STARTUP",
-    description: "300% user growth in 12 months via optimized onboarding experiences",
+    title: "Co-founder",
+    company: "SONOR",
+    description: "An entrepreneurship project dedicated to accompanying French cities in reducing noise pollution with open data",
   },
 ];
 
 const continuousLearning = [
   {
-    title: "AI & Machine Learning Foundations",
-    source: "DeepLearning.AI",
-    description: "2024 - Practical applications of AI in product development",
+    title: "Product Management Intensive Program",
+    source: "MAESTRO",
+    description: "2025 - I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
+    link: https://maestro.mariaschools.com/formations/devenez-product-manager-formation-a-temps-plein-en-presentiel
   },
   {
-    title: "Advanced Product Analytics",
-    source: "Reforge",
-    description: "2023 - Data-driven decision making and experimentation",
+    title: "Building Strategic Foresight Capabilities",
+    source: "EDHEC Business School & UNESCO",
+    description: "2025 - I learned  ",
+    link: https://www.coursera.org/learn/strategic-foresight
   },
   {
-    title: "Growth Marketing Intensive",
-    source: "CXL Institute",
-    description: "2022 - Conversion optimization and growth strategies",
+    title: "Service Design: Delivering Integrated Service Design Experiences.",
+    source: "The Interaction Design Foundation",
+    description: "2020 - I learned how to value design to conceive full-stack business-oriented experiences",
+    link: https://www.interaction-design.org/courses/service-design-how-to-design-integrated-service-experiences
+  },
+  {
+    title: "Lion du Samedi (it became Le Promptathon in 2025, which I also attended)",
+    source: "Join Lion",
+    description: "2019 - I learned how to work in the start-up universe and innovate better",
+    link: https://medium.com/join-lion/une-1%C3%A8re-journ%C3%A9e-chez-lion-66040cf097b2
   },
 ];
 
 const education = [
   {
-    title: "Master in Innovation Management",
-    school: "HEC PARIS",
-    description: "2020 - Focus on digital entrepreneurship and product strategy",
-  },
-  {
-    title: "Product Management Certification",
-    school: "STANFORD ONLINE",
-    description: "2021 - Lean Startup, Growth Hacking, Advanced Analytics",
-  },
-  {
-    title: "Design Thinking Training",
-    school: "IDEO U",
-    description: "2019 - User-centered methodologies and innovation",
+    title: "Master’s in Agri-food Business and Entrepreneurship.",
+    school: "IHEDREA",
+    description: "2017 - Focus on food and agricultural entrepreneurship and product strategy",
   },
 ];
 
@@ -306,8 +305,21 @@ export const Home: React.FC = () => {
                   with AI and go-to-market expertise.
                 </p>
 
-                {/* CTAs sous le sous-titre */}
-                <div className="mt-5 flex flex-wrap gap-3">
+                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
+                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
+                    <li
+                      key={tag}
+                      className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800
+                           dark:bg-emerald-400/15 dark:text-emerald-200 border border-emerald-200/60
+                           dark:border-emerald-400/20"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Mobile CTAs (unchanged) */}
+                <div className="mt-6 flex gap-3 md:hidden">
                   <Button
                     size="default"
                     className="group bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -329,20 +341,6 @@ export const Home: React.FC = () => {
                     </span>
                   </Button>
                 </div>
-
-                {/* Pastilles sous les CTAs */}
-                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                    <li
-                      key={tag}
-                      className="px-2.5 py-1 rounded-full bg-primary/10 text-primary
-                           dark:bg-primary/15 dark:text-primary border border-primary/20
-                           dark:border-primary/30"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               {/* Right: photo + desktop CTAs */}
@@ -363,7 +361,30 @@ export const Home: React.FC = () => {
                     />
                   </figure>
 
-                  <p className="mt-4 text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
+                  {/* Each button has its own `group` so caret animates independently */}
+                  <div className="mt-4 hidden md:flex flex-col gap-3">
+                    <Button
+                      size="default"
+                      className="group bg-contact hover:bg-contact/90 text-contact-foreground"
+                      onClick={() => scrollToSection("contact")}
+                    >
+                      <span className="inline-flex items-center">
+                        Let&apos;s meet!
+                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                      </span>
+                    </Button>
+                    <Button
+                      size="default"
+                      className="group bg-primary hover:bg-primary/90 text-primary-foreground"
+                      onClick={() => scrollToSection("work")}
+                    >
+                      <span className="inline-flex items-center">
+                        Discover my projects
+                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
+                      </span>
+                    </Button>
+                    <p className="text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -371,34 +392,27 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Highlights Marquee (remplace la section Testimonial) */}
       <section className="py-5 bg-card/90 border-y border-border">
-        <div className="max-w-[1120px] mx-auto px-4">
-          <MarqueeBanner
-            phrases={[
-              "Discovery → MVP → Go-to-Market",
-              "AI-assisted product acceleration",
-              "Hands-on PM across design, data & GTM",
-              "Paris • Open to remote",
-            ]}
-            speed={0.2}
-            pauseOnHover
-            ariaLabel="Highlights"
-            className="py-1"
-          />
-        </div>
-      </section>
+  <div className="max-w-[1360px] mx-auto px-4">
+    <MarqueeBanner
+      // keep this short & scannable; it acts like a lightweight proof/reputation rail
+      phrases={[
+        "Discovery → MVP → Go-to-Market",
+        "AI-assisted product acceleration",
+        "Hands-on PM across design, data & GTM",
+        "Paris • Open to remote",
+      ]}
+      // slower is calmer; 0.18–0.22 feels good for a subtle banner
+      speed={0.2}
+      // play nice with a11y and hover states
+      pauseOnHover
+      ariaLabel="Highlights"
+      className="py-1"
+    />
+  </div>
+</section>
 
-      {/* Work Section - Left Aligned */}
-      <section id="work" className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="WORK" title="Work" alignment="left" className="mb-8" />
-          <FilterChips
-            chips={filterChips}
-            activeChip={activeFilter}
-            onChipChange={setActiveFilter}
-            className="mb-8"
-          />
+          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-8" />
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
@@ -715,7 +729,7 @@ export const Home: React.FC = () => {
       {/* Contact Section - Centered */}
       <section id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-h2">Let's design a meaningful future together</h2>
+          <h2 className="text-h2">Let's design a meaningful future</h2>
 
           <p className="text-lg max-w-2xl mx-auto opacity-90">
             Do you have an idea to validate or a product to optimize? Let's discuss and explore opportunities together.
