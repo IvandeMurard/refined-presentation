@@ -475,7 +475,8 @@ export const Home: React.FC = () => {
               )}
             </CarouselRow>
           </div>
-
+      
+       <section>
           <div className="flex justify-center">
             <Button
               variant="outline"
