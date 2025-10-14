@@ -17,7 +17,7 @@ import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
-import MarqueeBanner from "./components/MarqueeBanner";
+import MarqueeBanner from "../components/MarqueeBanner";
 
 interface Project {
   id: string;
