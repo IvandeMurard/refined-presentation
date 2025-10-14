@@ -191,7 +191,8 @@ const experiences = [
   {
     title: "Co-founder",
     company: "SONOR",
-    description: "An entrepreneurship project dedicated to accompanying French cities in reducing noise pollution with open data",
+    description:
+      "An entrepreneurship project dedicated to accompanying French cities in reducing noise pollution with open data",
   },
 ];
 
@@ -199,7 +200,8 @@ const continuousLearning = [
   {
     title: "Product Management Intensive Program",
     source: "MAESTRO",
-    description: "2025 - I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
+    description:
+      "2025 - I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
     link: "https://maestro.mariaschools.com/formations/devenez-product-manager-formation-a-temps-plein-en-presentiel",
   },
   {
@@ -393,101 +395,100 @@ export const Home: React.FC = () => {
       </section>
 
       <section className="py-5 bg-card/90 border-y border-border">
-  <div className="max-w-[1360px] mx-auto px-4">
-    <MarqueeBanner
-      // keep this short & scannable; it acts like a lightweight proof/reputation rail
-      phrases={[
-        "Discovery → MVP → Go-to-Market",
-        "AI-assisted product acceleration",
-        "Hands-on PM across design, data & GTM",
-        "Paris • Open to remote",
-      ]}
-      // slower is calmer; 0.18–0.22 feels good for a subtle banner
-      speed={0.2}
-      // play nice with a11y and hover states
-      pauseOnHover
-      ariaLabel="Highlights"
-      className="py-1"
-    />
-  </div>
-</section>
+        <div className="max-w-[1360px] mx-auto px-4">
+          <MarqueeBanner
+            // keep this short & scannable; it acts like a lightweight proof/reputation rail
+            phrases={[
+              "Discovery → MVP → Go-to-Market",
+              "AI-assisted product acceleration",
+              "Hands-on PM across design, data & GTM",
+              "Paris • Open to remote",
+            ]}
+            // slower is calmer; 0.18–0.22 feels good for a subtle banner
+            speed={0.2}
+            // play nice with a11y and hover states
+            pauseOnHover
+            ariaLabel="Highlights"
+            className="py-1"
+          />
+        </div>
+      </section>
 
-          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-8" />
+      <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-8" />
 
-          {/* Mobile/Tablet: Grid Layout */}
-          <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
-            {filteredProjects.map((project, index) =>
-              project.id === "sonor" ? (
-                <MediaCard
-                  key={project.id}
-                  id={project.id}
-                  kicker={`Case Study – ${project.title}`}
-                  title={project.subtitle}
-                  tagline="De l'idée au produit validé"
-                  badge={project.tags[0] || "Project"}
-                  image={project.image}
-                  videoSrc="/sonor_card_illustration.mp4"
-                  onClick={() => openModal(index)}
-                />
-              ) : (
-                <CardImmersive
-                  key={project.id}
-                  id={project.id}
-                  kicker={`Case Study – ${project.title}`}
-                  title={project.subtitle}
-                  tagline="De l'idée au produit validé"
-                  badge={project.tags[0] || "Project"}
-                  image={project.image}
-                  onClick={() => openModal(index)}
-                />
-              ),
-            )}
-          </div>
+      {/* Mobile/Tablet: Grid Layout */}
+      <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
+        {filteredProjects.map((project, index) =>
+          project.id === "sonor" ? (
+            <MediaCard
+              key={project.id}
+              id={project.id}
+              kicker={`Case Study – ${project.title}`}
+              title={project.subtitle}
+              tagline="De l'idée au produit validé"
+              badge={project.tags[0] || "Project"}
+              image={project.image}
+              videoSrc="/sonor_card_illustration.mp4"
+              onClick={() => openModal(index)}
+            />
+          ) : (
+            <CardImmersive
+              key={project.id}
+              id={project.id}
+              kicker={`Case Study – ${project.title}`}
+              title={project.subtitle}
+              tagline="De l'idée au produit validé"
+              badge={project.tags[0] || "Project"}
+              image={project.image}
+              onClick={() => openModal(index)}
+            />
+          ),
+        )}
+      </div>
 
-          {/* Desktop: Carousel Layout */}
-          <div className="hidden lg:block mb-12">
-            <CarouselRow>
-              {filteredProjects.map((project, index) =>
-                project.id === "sonor" ? (
-                  <MediaCard
-                    key={project.id}
-                    id={project.id}
-                    kicker={`Case Study – ${project.title}`}
-                    title={project.subtitle}
-                    tagline="De l'idée au produit validé"
-                    badge={project.tags[0] || "Project"}
-                    image={project.image}
-                    videoSrc="/sonor_card_illustration.mp4"
-                    onClick={() => openModal(index)}
-                  />
-                ) : (
-                  <CardImmersive
-                    key={project.id}
-                    id={project.id}
-                    kicker={`Case Study – ${project.title}`}
-                    title={project.subtitle}
-                    tagline="De l'idée au produit validé"
-                    badge={project.tags[0] || "Project"}
-                    image={project.image}
-                    onClick={() => openModal(index)}
-                  />
-                ),
-              )}
-            </CarouselRow>
-          </div>
-      
-       <section>
-          <div className="flex justify-center">
-            <Button
-              variant="outline"
-              size="lg"
-              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-              onClick={() => scrollToSection("hackathons")}
-            >
-              EXPLORE HACKATHONS
-              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-            </Button>
-          </div>
+      {/* Desktop: Carousel Layout */}
+      <div className="hidden lg:block mb-12">
+        <CarouselRow>
+          {filteredProjects.map((project, index) =>
+            project.id === "sonor" ? (
+              <MediaCard
+                key={project.id}
+                id={project.id}
+                kicker={`Case Study – ${project.title}`}
+                title={project.subtitle}
+                tagline="De l'idée au produit validé"
+                badge={project.tags[0] || "Project"}
+                image={project.image}
+                videoSrc="/sonor_card_illustration.mp4"
+                onClick={() => openModal(index)}
+              />
+            ) : (
+              <CardImmersive
+                key={project.id}
+                id={project.id}
+                kicker={`Case Study – ${project.title}`}
+                title={project.subtitle}
+                tagline="De l'idée au produit validé"
+                badge={project.tags[0] || "Project"}
+                image={project.image}
+                onClick={() => openModal(index)}
+              />
+            ),
+          )}
+        </CarouselRow>
+      </div>
+
+      <section>
+        <div className="flex justify-center">
+          <Button
+            variant="outline"
+            size="lg"
+            className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+            onClick={() => scrollToSection("hackathons")}
+          >
+            EXPLORE HACKATHONS
+            <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+          </Button>
         </div>
       </section>
 
