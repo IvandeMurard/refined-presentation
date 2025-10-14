@@ -371,22 +371,23 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Marquee Banner */}
-      <MarqueeBanner
-        phrases={[
-          "Discovery",
-          "User Research",
-          "MVP Development",
-          "AI Integration",
-          "Go-to-Market Strategy",
-          "Product Design",
-          "Data Analysis",
-          "Growth Marketing"
-        ]}
-        speed={0.15}
-        pauseOnHover={true}
-        className="py-6 bg-muted/30"
-      />
+      {/* Highlights Marquee (remplace la section Testimonial) */}
+      <section className="py-5 bg-card/90 border-y border-border">
+        <div className="max-w-[1120px] mx-auto px-4">
+          <MarqueeBanner
+            phrases={[
+              "Discovery → MVP → Go-to-Market",
+              "AI-assisted product acceleration",
+              "Hands-on PM across design, data & GTM",
+              "Paris • Open to remote",
+            ]}
+            speed={0.2}
+            pauseOnHover
+            ariaLabel="Highlights"
+            className="py-1"
+          />
+        </div>
+      </section>
 
       {/* Work Section - Left Aligned */}
       <section id="work" className="py-24 px-4">
