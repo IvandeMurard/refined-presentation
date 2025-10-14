@@ -176,21 +176,25 @@ const experiences = [
   {
     title: "Consultant IT Project Manager",
     company: "DOMUSVI",
+    year: "2024",
     description: "Delivered a SaaS business tool solution, leading 0→1 conception with various stakeholders",
   },
   {
     title: "Consultant Data Project Manager",
     company: "BOUYGUES TELECOM",
+    year: "2023",
     description: "Led invoice recovery from data aggregation to +40% recovered",
   },
   {
     title: "Data Project Manager",
     company: "OPENDATASOFT",
+    year: "2022",
     description: "Accompanied and led 20 cities and metropolises in building their open data portals",
   },
   {
     title: "Co-founder",
     company: "SONOR",
+    year: "2020",
     description:
       "An entrepreneurship project dedicated to accompanying French cities in reducing noise pollution with open data",
   },
@@ -404,7 +408,7 @@ export const Home: React.FC = () => {
               "Hands-on PM across design, data & GTM",
               "Paris • Open to remote",
             ]}
-            // slower is calmer; 0.18–0.22 feels good for a subtle banner
+            // slower is calmer; 0.20–0.24 feels good for a subtle banner
             speed={0.2}
             // play nice with a11y and hover states
             pauseOnHover
