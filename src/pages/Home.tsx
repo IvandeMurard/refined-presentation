@@ -360,7 +360,7 @@ export const Home: React.FC = () => {
               "Hands-on PM across design, data & GTM",
               "Paris • Open to remote",
             ]}
-            speed={0.6}
+            speed={0.65}
             pauseOnHover
             ariaLabel="Highlights"
             className="py-1"
