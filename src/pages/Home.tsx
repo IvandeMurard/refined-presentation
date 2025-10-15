@@ -460,7 +460,7 @@ export const Home: React.FC = () => {
 
       {/* CTA Banner */}
       <CTABanner
-        title="Ready to build the future together?"
+        title="Ready to build the future?"
         description="Let's discuss how we can turn your product vision into reality"
         ctaText="Let's meet!"
         onClick={() => scrollToSection("contact")}
