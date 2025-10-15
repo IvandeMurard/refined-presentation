@@ -169,8 +169,6 @@ const hackathons = [
   },
 ];
 
-const expExpand = useInlineExpand();
-
 const continuousLearning = [
   {
     title: "Product Management Intensive Program",
