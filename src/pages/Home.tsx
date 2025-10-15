@@ -564,11 +564,7 @@ export const Home: React.FC = () => {
           className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
           onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
         >
-          GET IN TOUCH
-          <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-        </Button>
-      </div>
-
+   
       {/* Built With Banner */}
       <BuiltWithBanner />
 
