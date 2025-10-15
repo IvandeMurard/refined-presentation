@@ -285,37 +285,32 @@ export const Home: React.FC = () => {
 
       {/* Hero Section */}
       <section id="hero" className="px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-[900px] w-full">
-          <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
-            {/* Left: titles + subtitle + buttons + pills */}
+        <div className="mx-auto max-w-900px w-full">
+          <div className="bg-card border border-card rounded-2xl shadow-xl grid items-center gap-6 md:gap-8 md:grid-cols-2 px-8 py-8">
+            {/* Colonne gauche : titres et tags */}
             <div className="text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
               <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">Zero-to-One Product Manager</p>
-
               <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
                 From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
                 with AI and go-to-market expertise.
               </p>
-
-              {/* Desktop buttons */}
               <div className="mt-6 flex gap-3">
                 <Button
                   size="default"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
                   onClick={() => scrollToSection("work")}
                 >
-                  Discover my projects →
+                  Discover my projects
                 </Button>
                 <Button
                   size="default"
                   className="bg-contact hover:bg-contact/90 text-contact-foreground"
                   onClick={() => scrollToSection("contact")}
                 >
-                  Let&apos;s meet! →
+                  Let's meet!
                 </Button>
               </div>
-
-              {/* Pills */}
               <ul className="mt-6 flex flex-wrap gap-2 text-sm">
                 {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
                   <li
@@ -327,18 +322,16 @@ export const Home: React.FC = () => {
                 ))}
               </ul>
             </div>
-
-            {/* Right: photo */}
+            {/* Colonne droite : la photo */}
             <div className="flex justify-center md:justify-end">
               <div className="w-full max-w-[260px]">
                 <figure
                   aria-label="Portrait Ivan de Murard"
-                  className="relative aspect-square w-full rounded-2xl overflow-hidden
-                       shadow-xl"
+                  className="relative aspect-square w-full rounded-2xl overflow-hidden shadow-xl"
                 >
                   <img
-                    src="/img/profile_picture.jpg"
-                    alt="Ivan de Murard — Product Manager"
+                    src="img/profilepicture.jpg"
+                    alt="Ivan de Murard Product Manager"
                     className="h-full w-full object-cover"
                     loading="eager"
                     decoding="async"
