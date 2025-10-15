@@ -479,19 +479,43 @@ export const Home: React.FC = () => {
           />
 
           {/* Conditional Content Based on Active Filter */}
-          <div className="space-y-6">
-            {activeExperienceFilter === "experiences" && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                {experiences.map((exp, index) => (
-                  <div key={index} className="space-y-2">
-                    <h4 className="font-semibold text-foreground">{exp.title}</h4>
-                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
-                    <p className="text-sm text-muted-foreground">{exp.description}</p>
-                  </div>
-                ))}
-              </div>
-            )}
+          {activeExperienceFilter === "experiences" && (
+  <div className="space-y-4">
+    {experiences.map((exp, index) => {
+      const id = `exp-${index}`;
+      const isOpen = expExpand.isOpen(id);
+      return (
+        <div key={id} className="py-4 border-b border-border/60">
+          <button
+            className="w-full text-left"
+            onClick={() => expExpand.toggle(id)}
+            aria-expanded={isOpen}
+            aria-controls={`${id}-panel`}
+          >
+            <h4 className="font-semibold text-foreground">{exp.title}</h4>
+            <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+            <p className="text-sm text-muted-foreground">{exp.description}</p>
+          </button>
 
+          <InlineExpand open={isOpen} ariaId={id}>
+            <div id={`${id}-panel`} className="pt-3">
+              {exp.details?.length ? (
+                <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                  {exp.details.map((li, i) => (
+                    <li key={i}>{li}</li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
+              )}
+            </div>
+          </InlineExpand>
+        </div>
+      );
+    })}
+  </div>
+)}
+          
             {activeExperienceFilter === "continuous-learning" && (
               <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {continuousLearning.map((item, index) => (
