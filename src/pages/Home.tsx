@@ -289,12 +289,8 @@ export const Home: React.FC = () => {
           <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
             {/* Left: titles + subtitle + buttons + pills */}
             <div className="text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
-                Ivan de Murard
-              </h1>
-              <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">
-                Zero-to-One Product Manager
-              </p>
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
+              <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">Zero-to-One Product Manager</p>
 
               <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
                 From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
@@ -334,7 +330,7 @@ export const Home: React.FC = () => {
 
             {/* Right: photo */}
             <div className="flex justify-center md:justify-end">
-              <div className="w-full max-w-[280px]">
+              <div className="w-full max-w-[260px]">
                 <figure
                   aria-label="Portrait Ivan de Murard"
                   className="relative aspect-square w-full rounded-2xl overflow-hidden
@@ -364,7 +360,7 @@ export const Home: React.FC = () => {
               "Hands-on PM across design, data & GTM",
               "Paris • Open to remote",
             ]}
-            speed={0.25}
+            speed={0.28}
             pauseOnHover
             ariaLabel="Highlights"
             className="py-1"
