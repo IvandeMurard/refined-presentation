@@ -78,6 +78,19 @@ export function CommunitiesInspoResourcesTools() {
               onToggle={toggle}
             />
           ))}
+
+<div className="flex justify-center mt-12">
+  <button
+    className="group inline-flex items-center gap-2 rounded-full border px-6 py-3 hover:bg-primary hover:text-primary-foreground hover:border-primary transition"
+    onClick={() =>
+      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+    }
+  >
+    GET IN TOUCH
+    <span className="ml-1 group-hover:animate-bounce">↓</span>
+  </button>
+</div>
+          
         </div>
       </div>
     </section>
