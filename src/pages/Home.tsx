@@ -542,18 +542,18 @@ export const Home: React.FC = () => {
           </div>
 
           <div className="flex justify-center mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-              onClick={() => scrollToSection("resources")}
-            >
-              EXPLORE RESOURCES
-              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-            </Button>
-          </div>
-        </div>
-      </section>
+  <Button
+    variant="outline"
+    size="lg"
+    className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+    onClick={() => scrollToSection("resources")} // l'id "resources" est dans le composant CommunitiesInspoResourcesTools
+  >
+    EXPLORE RESOURCES
+    <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+  </Button>
+</div>
+</div> {/* ferme .max-w-7xl */}
+</section> {/* ferme la section #experience */}
 
       <CommunitiesInspoResourcesTools />
 
