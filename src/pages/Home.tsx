@@ -126,12 +126,6 @@ const filterChips = [
   { id: "automatisations", label: "Automatisations (0)" },
 ];
 
-const resourceFilterChips = [
-  { id: "inspiration", label: "Inspiration" },
-  { id: "resources", label: "Resources" },
-  { id: "tools", label: "Tools" },
-];
-
 const experienceFilterChips = [
   { id: "experiences", label: "Expériences" },
   { id: "continuous-learning", label: "Continuous Learning" },
@@ -239,14 +233,9 @@ const education = [
 export const Home: React.FC = () => {
   const navigate = useNavigate();
   const [activeFilter, setActiveFilter] = useState("all");
-  const [activeResourceFilter, setActiveResourceFilter] = useState("inspiration");
   const [activeExperienceFilter, setActiveExperienceFilter] = useState("experiences");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const { data: tools = [] } = useTools();
-  const { data: resources = [] } = useResources();
-  const { data: inspirations = [] } = useInspirations();
 
   const filteredProjects =
     activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter);
