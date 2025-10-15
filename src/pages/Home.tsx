@@ -679,7 +679,6 @@ export const Home: React.FC = () => {
             </Button>
           </div>
         </div>
-      </section>
 
       {/* Built With Banner */}
       <BuiltWithBanner />
