@@ -82,7 +82,7 @@ export function ZoomContextCard({
                 </span>
               ))}
             </div>
-          ) : null}
+          ): null}
 
           {/* CTA */}
           {link && (
