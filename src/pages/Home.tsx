@@ -18,6 +18,8 @@ import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
 import MarqueeBanner from "../components/MarqueeBanner";
 import { CommunitiesInspoResourcesTools } from "@/components/sections/CommunitiesInspoResourcesTools";
+import { useInlineExpand } from "@/hooks/useInlineExpand";
+import { InlineExpand } from "@/components/InlineExpand";
 
 interface Project {
   id: string;
@@ -236,6 +238,7 @@ export const Home: React.FC = () => {
   const [activeExperienceFilter, setActiveExperienceFilter] = useState("experiences");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const expExpand = useInlineExpand(); // pour l’onglet Experiences
 
   const filteredProjects =
     activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter);
