@@ -95,8 +95,7 @@ export function ZoomContextCard({
               Open resource <ExternalLink size={14}/>
             </a>
           )}
-        </div>
-      </InlineExpand>
+     </InlineExpand>
     </div>
   );
 }
