@@ -283,115 +283,72 @@ export const Home: React.FC = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
 
-      {/* Hero Section - compact, clean (no green gradient) */}
-      <section id="hero" className="px-4 py-6 md:py-10">
-        <div className="mx-auto mt-8 md:mt-12 max-w-[960px] w-full">
-          {/* Card (no .group here => no cross-hover side effects) */}
-          <div
-            className="relative rounded-3xl bg-card/80 backdrop-blur
-                 shadow-[0_8px_28px_rgba(0,0,0,0.06)]
-                 ring-1 ring-black/5 dark:ring-white/10
-                 border border-border/60 p-6 md:p-8
-                 transition-shadow duration-300 hover:shadow-[0_16px_44px_rgba(0,0,0,0.08)]"
-          >
-            {/* ⛔️ gradient overlay removed */}
+      {/* Hero Section */}
+      <section id="hero" className="px-4 py-16 md:py-20">
+        <div className="mx-auto max-w-[1200px] w-full">
+          <div className="grid items-center gap-8 md:gap-12 md:grid-cols-2">
+            {/* Left: titles + subtitle + buttons + pills */}
+            <div className="text-left">
+              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
+                Ivan de Murard
+              </h1>
+              <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">
+                Zero-to-One Product Manager
+              </p>
 
-            <div className="grid items-center gap-6 md:gap-7 md:grid-cols-12">
-              {/* Left: titles + subtitle + pills */}
-              <div className="md:col-span-7 text-left">
-                <h1 className="text-4xl md:text-5xl font-extrabold text-foreground leading-tight tracking-tight">
-                  Ivan de Murard
-                </h1>
-                <p className="mt-2 text-2xl md:text-[28px] font-semibold text-muted-foreground">
-                  Zero-to-One Product Manager
-                </p>
+              <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
+                From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
+                with AI and go-to-market expertise.
+              </p>
 
-                <p className="mt-4 text-[15px] md:text-[17px] leading-7 text-muted-foreground max-w-[62ch]">
-                  From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
-                  with AI and go-to-market expertise.
-                </p>
-
-                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                    <li
-                      key={tag}
-                      className="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-800
-                           dark:bg-emerald-400/15 dark:text-emerald-200 border border-emerald-200/60
-                           dark:border-emerald-400/20"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Mobile CTAs (unchanged) */}
-                <div className="mt-6 flex gap-3 md:hidden">
-                  <Button
-                    size="default"
-                    className="group bg-primary hover:bg-primary/90 text-primary-foreground"
-                    onClick={() => scrollToSection("work")}
-                  >
-                    <span className="inline-flex items-center">
-                      Discover my projects
-                      <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                    </span>
-                  </Button>
-                  <Button
-                    size="default"
-                    className="group bg-contact hover:bg-contact/90 text-contact-foreground"
-                    onClick={() => scrollToSection("contact")}
-                  >
-                    <span className="inline-flex items-center">
-                      Let&apos;s meet!
-                      <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                    </span>
-                  </Button>
-                </div>
+              {/* Desktop buttons */}
+              <div className="mt-6 flex gap-3">
+                <Button
+                  size="default"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                  onClick={() => scrollToSection("work")}
+                >
+                  Discover my projects →
+                </Button>
+                <Button
+                  size="default"
+                  className="bg-contact hover:bg-contact/90 text-contact-foreground"
+                  onClick={() => scrollToSection("contact")}
+                >
+                  Let&apos;s meet! →
+                </Button>
               </div>
 
-              {/* Right: photo + desktop CTAs */}
-              <div className="md:col-span-5 md:pl-2 flex justify-center md:justify-end">
-                <div className="w-[260px] sm:w-[270px] lg:w-[280px] max-w-full">
-                  <figure
-                    aria-label="Portrait Ivan de Murard"
-                    className="relative aspect-square w-full rounded-2xl overflow-hidden
-                         bg-card/60 border border-border ring-1 ring-black/10 dark:ring-white/10
-                         shadow-lg transition-transform duration-200 hover:-translate-y-1 focus-visible:-translate-y-1"
+              {/* Pills */}
+              <ul className="mt-6 flex flex-wrap gap-2 text-sm">
+                {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
+                  <li
+                    key={tag}
+                    className="px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20"
                   >
-                    <img
-                      src="/img/profile_picture.jpg"
-                      alt="Ivan de Murard — Product Manager"
-                      className="h-full w-full object-cover"
-                      loading="eager"
-                      decoding="async"
-                    />
-                  </figure>
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-                  {/* Each button has its own `group` so caret animates independently */}
-                  <div className="mt-4 hidden md:flex flex-col gap-3">
-                    <Button
-                      size="default"
-                      className="group bg-contact hover:bg-contact/90 text-contact-foreground"
-                      onClick={() => scrollToSection("contact")}
-                    >
-                      <span className="inline-flex items-center">
-                        Let&apos;s meet!
-                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                      </span>
-                    </Button>
-                    <Button
-                      size="default"
-                      className="group bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => scrollToSection("work")}
-                    >
-                      <span className="inline-flex items-center">
-                        Discover my projects
-                        <span className="ml-2 transition-transform duration-200 group-hover:translate-x-0.5">→</span>
-                      </span>
-                    </Button>
-                    <p className="text-xs text-muted-foreground text-center">Usually replies in &lt;24h</p>
-                  </div>
-                </div>
+            {/* Right: photo */}
+            <div className="flex justify-center md:justify-end">
+              <div className="w-full max-w-[400px]">
+                <figure
+                  aria-label="Portrait Ivan de Murard"
+                  className="relative aspect-square w-full rounded-2xl overflow-hidden
+                       shadow-xl"
+                >
+                  <img
+                    src="/img/profile_picture.jpg"
+                    alt="Ivan de Murard — Product Manager"
+                    className="h-full w-full object-cover"
+                    loading="eager"
+                    decoding="async"
+                  />
+                </figure>
+                <p className="text-sm text-muted-foreground text-center mt-3">Usually replies in &lt;24h</p>
               </div>
             </div>
           </div>
@@ -416,11 +373,14 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Work Section */}
-      <section id="work" className="py-24 px-4">
+      <section id="work" className="py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="PORTFOLIO" title="Work" alignment="left" className="mb-8" />
+          <div className="mb-8">
+            <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">WORK</p>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground">Work</h2>
+          </div>
 
-          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-8" />
+          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-12" />
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
