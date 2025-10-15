@@ -478,82 +478,101 @@ export const Home: React.FC = () => {
             className="mb-8"
           />
 
-          {/* Conditional Content Based on Active Filter */}
-          {activeExperienceFilter === "experiences" && (
-  <div className="space-y-4">
-    {experiences.map((exp, index) => {
-      const id = `exp-${index}`;
-      const isOpen = expExpand.isOpen(id);
-      return (
-        <div key={id} className="py-4 border-b border-border/60">
-          <button
-            className="w-full text-left"
-            onClick={() => expExpand.toggle(id)}
-            aria-expanded={isOpen}
-            aria-controls={`${id}-panel`}
-          >
-            <h4 className="font-semibold text-foreground">{exp.title}</h4>
-            <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
-            <p className="text-sm text-muted-foreground">{exp.description}</p>
-          </button>
+          {/* Experience & Education Section - Left Aligned */}
+<section id="experience" className="py-24 px-4">
+  <div className="max-w-7xl mx-auto">
+    <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
 
-          <InlineExpand open={isOpen} ariaId={id}>
-            <div id={`${id}-panel`} className="pt-3">
-              {exp.details?.length ? (
-                <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
-                  {exp.details.map((li, i) => (
-                    <li key={i}>{li}</li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
-              )}
-            </div>
-          </InlineExpand>
+    <FilterChips
+      chips={experienceFilterChips}
+      activeChip={activeExperienceFilter}
+      onChipChange={setActiveExperienceFilter}
+      className="mb-8"
+    />
+
+    {/* Contenu selon l’onglet actif */}
+    <div className="space-y-6">
+
+      {/* Onglet Experiences — version expand inline */}
+      {activeExperienceFilter === "experiences" && (
+        <div className="space-y-4">
+          {experiences.map((exp, index) => {
+            const id = `exp-${index}`;
+            const isOpen = expExpand.isOpen(id);
+            return (
+              <div key={id} className="py-4 border-b border-border/60">
+                <button
+                  className="w-full text-left"
+                  onClick={() => expExpand.toggle(id)}
+                  aria-expanded={isOpen}
+                  aria-controls={`${id}-panel`}
+                >
+                  <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                  <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+                  <p className="text-sm text-muted-foreground">{exp.description}</p>
+                </button>
+
+                <InlineExpand open={isOpen} ariaId={id}>
+                  <div id={`${id}-panel`} className="pt-3">
+                    {exp.details?.length ? (
+                      <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                        {exp.details.map((li, i) => (
+                          <li key={i}>{li}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
+                    )}
+                  </div>
+                </InlineExpand>
+              </div>
+            );
+          })}
         </div>
-      );
-    })}
+      )}
+
+      {/* Onglet Continuous Learning — ton bloc existant inchangé */}
+      {activeExperienceFilter === "continuous-learning" && (
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {continuousLearning.map((item, index) => (
+            <div key={index} className="space-y-2">
+              <h4 className="font-semibold text-foreground">{item.title}</h4>
+              <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
+              <p className="text-sm text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {/* Onglet Education — ton bloc existant inchangé */}
+      {activeExperienceFilter === "education" && (
+        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          {education.map((edu, index) => (
+            <div key={index} className="space-y-2">
+              <h4 className="font-semibold text-foreground">{edu.title}</h4>
+              <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
+              <p className="text-sm text-muted-foreground">{edu.description}</p>
+            </div>
+          ))}
+        </div>
+      )}
+
+    </div>
+
+    {/* CTA vers la section Resources/Communautés (dans la page) */}
+    <div className="flex justify-center mt-12">
+      <Button
+        variant="outline"
+        size="lg"
+        className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+        onClick={() => document.getElementById("resources")?.scrollIntoView({ behavior: "smooth" })}
+      >
+        EXPLORE RESOURCES
+        <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+      </Button>
+    </div>
   </div>
-)}
-          
-            {activeExperienceFilter === "continuous-learning" && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                {continuousLearning.map((item, index) => (
-                  <div key={index} className="space-y-2">
-                    <h4 className="font-semibold text-foreground">{item.title}</h4>
-                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {activeExperienceFilter === "education" && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                {education.map((edu, index) => (
-                  <div key={index} className="space-y-2">
-                    <h4 className="font-semibold text-foreground">{edu.title}</h4>
-                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
-                    <p className="text-sm text-muted-foreground">{edu.description}</p>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="flex justify-center mt-12">
-  <Button
-    variant="outline"
-    size="lg"
-    className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-    onClick={() => scrollToSection("resources")} // l'id "resources" est dans le composant CommunitiesInspoResourcesTools
-  >
-    EXPLORE RESOURCES
-    <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-  </Button>
-</div>
-</div> {/* ferme .max-w-7xl */}
-</section> {/* ferme la section #experience */}
+</section>
 
       <CommunitiesInspoResourcesTools />
 
