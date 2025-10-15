@@ -285,8 +285,8 @@ export const Home: React.FC = () => {
 
       {/* Hero Section */}
       <section id="hero" className="px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-[1200px] w-full">
-          <div className="grid items-center gap-8 md:gap-12 md:grid-cols-2">
+        <div className="mx-auto max-w-[900px] w-full">
+          <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
             {/* Left: titles + subtitle + buttons + pills */}
             <div className="text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">
@@ -334,7 +334,7 @@ export const Home: React.FC = () => {
 
             {/* Right: photo */}
             <div className="flex justify-center md:justify-end">
-              <div className="w-full max-w-[400px]">
+              <div className="w-full max-w-[280px]">
                 <figure
                   aria-label="Portrait Ivan de Murard"
                   className="relative aspect-square w-full rounded-2xl overflow-hidden
