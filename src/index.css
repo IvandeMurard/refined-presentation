@@ -220,7 +220,7 @@
   .chip-filter {
     @apply h-11 px-6 rounded-full transition-all duration-200;
     background-color: hsl(var(--background));
-    border: 1.5px solid hsl(var(--border));
+    border: 1px solid hsl(var(--input));
     color: hsl(var(--foreground));
     font-weight: 500;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
