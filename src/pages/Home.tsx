@@ -18,6 +18,7 @@ import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
 import MarqueeBanner from "../components/MarqueeBanner";
+import { CommunitiesInspoResourcesTools } from '@/components/sections/CommunitiesInspoResourcesTools';
 
 interface Project {
   id: string;
@@ -566,16 +567,9 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Inspiration Resources Tools Section - Left Aligned */}
-      <section id="resources" className="py-24 px-4 bg-secondary">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader
-            kicker="WHAT DRIVES ME"
-            title="Inspiration · Resources · Tools"
-            alignment="left"
-            className="mb-8"
-          />
-
+      {/* Inspiration / Resources / Tools → remplacé par : */}
+<CommunitiesInspoResourcesTools/>
+    
           <FilterChips
             chips={resourceFilterChips}
             activeChip={activeResourceFilter}
