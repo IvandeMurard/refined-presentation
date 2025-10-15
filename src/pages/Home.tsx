@@ -630,23 +630,24 @@ export const Home: React.FC = () => {
       />
 
       {/* Work Modal */}
-      {selectedProject && (
-        <WorkModal
-          open={isModalOpen}
-          onClose={closeModal}
-          onNavigate={navigateToProject}
-          canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
-          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
-          logo={selectedProject.logo}
-          title={selectedProject.title}
-          subtitle={selectedProject.longDescription}
-          bullets={selectedProject.bullets}
-          cta={{
-            label: "Lire le case study",
-            href: `/case-study/${selectedProject.id}`,
-          }}
-        />
-      )}
-    </div>
-  );
+{selectedProject && (
+  <WorkModal
+    open={isModalOpen}
+    onClose={closeModal}
+    onNavigate={navigateToProject}
+    canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
+    canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
+    logo={selectedProject.logo}
+    title={selectedProject.title}
+    subtitle={selectedProject.longDescription}
+    bullets={selectedProject.bullets}
+    cta={{
+      label: "Lire le case study",
+      href: `/case-study/${selectedProject.id}`,
+    }}
+  />
+)}
+</div> {/* ferme le wrapper .min-h-screen bg-background */}
+);
 };
+
