@@ -17,7 +17,7 @@ import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
 import MarqueeBanner from "../components/MarqueeBanner";
-import { CommunitiesInspoResourcesTools } from '@/components/sections/CommunitiesInspoResourcesTools';
+import { CommunitiesInspoResourcesTools } from "@/components/sections/CommunitiesInspoResourcesTools";
 
 interface Project {
   id: string;
@@ -555,8 +555,20 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-<CommunitiesInspoResourcesTools />
-    
+      <CommunitiesInspoResourcesTools />
+
+      <div className="flex justify-center mt-12">
+        <Button
+          variant="outline"
+          size="lg"
+          className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+          onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+        >
+          GET IN TOUCH
+          <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+        </Button>
+      </div>
+
       {/* Built With Banner */}
       <BuiltWithBanner />
 
