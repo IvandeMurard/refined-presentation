@@ -330,7 +330,7 @@ export const Home: React.FC = () => {
 
             {/* Right: photo */}
             <div className="flex justify-center md:justify-end">
-              <div className="w-full max-w-[260px]">
+              <div className="w-full max-w-[220px]">
                 <figure
                   aria-label="Portrait Ivan de Murard"
                   className="relative aspect-square w-full rounded-2xl overflow-hidden
@@ -360,7 +360,7 @@ export const Home: React.FC = () => {
               "Hands-on PM across design, data & GTM",
               "Paris • Open to remote",
             ]}
-            speed={0.65}
+            speed={0.6}
             pauseOnHover
             ariaLabel="Highlights"
             className="py-1"
