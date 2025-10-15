@@ -465,19 +465,7 @@ export const Home: React.FC = () => {
         ctaText="Let's meet!"
         onClick={() => scrollToSection("contact")}
       />
-
-      {/* Experience & Education Section - Left Aligned */}
-      <section id="experience" className="py-24 px-4">
-        <div className="max-w-7xl mx-auto">
-          <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
-
-          <FilterChips
-            chips={experienceFilterChips}
-            activeChip={activeExperienceFilter}
-            onChipChange={setActiveExperienceFilter}
-            className="mb-8"
-          />
-
+      
           {/* Experience & Education Section - Left Aligned */}
 <section id="experience" className="py-24 px-4">
   <div className="max-w-7xl mx-auto">
