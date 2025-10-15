@@ -13,7 +13,6 @@ import { BuiltWithBanner } from "../components/BuiltWithBanner";
 import { Button } from "../components/ui/button";
 import { Separator } from "../components/ui/separator";
 import { Mail, Linkedin, MessageCircle, ArrowDown } from "lucide-react";
-import { useTools, useResources, useInspirations } from "../hooks/useResources";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
@@ -567,119 +566,8 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Inspiration / Resources / Tools → remplacé par : */}
-<CommunitiesInspoResourcesTools/>
+<CommunitiesInspoResourcesTools />
     
-          <FilterChips
-            chips={resourceFilterChips}
-            activeChip={activeResourceFilter}
-            onChipChange={setActiveResourceFilter}
-            className="mb-8"
-          />
-
-          {/* Conditional Content Based on Active Filter */}
-          <div className="space-y-6">
-            {activeResourceFilter === "inspiration" && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {inspirations.map((item) => (
-                  <div key={item.id} className="space-y-2">
-                    <h4 className="font-semibold text-foreground">{item.name}</h4>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                    {item.url && (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-accent hover:underline inline-block"
-                      >
-                        Visit →
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {activeResourceFilter === "resources" && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {resources.map((item) => (
-                  <div key={item.id} className="space-y-2">
-                    <h4 className="font-semibold text-foreground">{item.name}</h4>
-                    <p className="text-sm text-muted-foreground">{item.description}</p>
-                    {item.url && (
-                      <a
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-sm text-accent hover:underline inline-block"
-                      >
-                        Visit →
-                      </a>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
-
-            {activeResourceFilter === "tools" && (
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {tools.map((tool) => (
-                  <div key={tool.id} className="space-y-2">
-                    <div className="flex items-start gap-3">
-                      {tool.logo_url && (
-                        <img
-                          src={tool.logo_url}
-                          alt={tool.name}
-                          className="w-10 h-10 rounded object-cover flex-shrink-0"
-                        />
-                      )}
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-foreground">{tool.name}</h4>
-                        <p className="text-xs text-muted-foreground uppercase tracking-wider mb-1">{tool.category}</p>
-                        <p className="text-sm text-muted-foreground">{tool.description}</p>
-                        <div className="flex gap-3 mt-2">
-                          {tool.url && (
-                            <a
-                              href={tool.url}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-accent hover:underline"
-                            >
-                              Visit →
-                            </a>
-                          )}
-                          {tool.referral_link && (
-                            <a
-                              href={tool.referral_link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="text-sm text-accent hover:underline"
-                            >
-                              Get started →
-                            </a>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          <div className="flex justify-center mt-12">
-            <Button
-              variant="outline"
-              size="lg"
-              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-              onClick={() => scrollToSection("contact")}
-            >
-              GET IN TOUCH
-              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-            </Button>
-          </div>
-        </div>
-
       {/* Built With Banner */}
       <BuiltWithBanner />
 
