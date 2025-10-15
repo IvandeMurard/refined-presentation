@@ -1,28 +1,46 @@
-import { useState, useMemo } from 'react';
-import { SectionHeader } from '@/components/SectionHeader';
-import { FilterChips } from '@/components/FilterChips';
-import { ZoomContextCard } from '@/components/ZoomContextCard';
-import { useInlineExpand } from '@/hooks/useInlineExpand';
-import { communities, inspirations, resources, tools } from '@/data/inspirationsToolsMerged';
+import { useEffect, useMemo, useState } from "react";
+import { SectionHeader } from "@/components/SectionHeader";
+import { FilterChips } from "@/components/FilterChips";
+import ZoomContextCard from "@/components/ZoomContextCard";
+import { useInlineExpand } from "@/hooks/useInlineExpand";
+import {
+  communities,
+  inspirations,
+  resources,
+  tools,
+} from "@/data/inspirationsToolsMerged";
 
 const TABS = [
-  { id: 'communities', label: 'Communautés' },
-  { id: 'inspirations', label: 'Inspirations' },
-  { id: 'resources', label: 'Resources' },
-  { id: 'tools', label: 'Outils' },
+  { id: "communities", label: "Communautés" },
+  { id: "inspirations", label: "Inspirations" },
+  { id: "resources", label: "Resources" },
+  { id: "tools", label: "Outils" },
 ] as const;
 
 export function CommunitiesInspoResourcesTools() {
-  const [active, setActive] = useState<typeof TABS[number]['id']>('communities');
-  const { openId, toggle } = useInlineExpand();
+  const [active, setActive] = useState<(typeof TABS)[number]["id"]>(
+    "communities",
+  );
+
+  const { openId, toggle, close } = useInlineExpand();
+
+  // Fermer l’item ouvert lorsqu’on change d’onglet
+  useEffect(() => {
+    close();
+  }, [active, close]);
 
   const data = useMemo(() => {
     switch (active) {
-      case 'communities': return communities;
-      case 'inspirations': return inspirations;
-      case 'resources': return resources;
-      case 'tools': return tools;
-      default: return [];
+      case "communities":
+        return communities;
+      case "inspirations":
+        return inspirations;
+      case "resources":
+        return resources;
+      case "tools":
+        return tools;
+      default:
+        return [];
     }
   }, [active]);
 
@@ -37,14 +55,14 @@ export function CommunitiesInspoResourcesTools() {
         />
 
         <FilterChips
-          chips={TABS.map(t => ({ id: t.id, label: t.label }))}
+          chips={TABS.map((t) => ({ id: t.id, label: t.label }))}
           activeChip={active}
-          onChipChange={(id) => setActive(id as any)}
+          onChipChange={(id) => setActive(id as (typeof TABS)[number]["id"])}
           className="mb-8"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.map(item => (
+          {data.map((item) => (
             <ZoomContextCard
               key={item.id}
               id={item.id}
@@ -53,7 +71,7 @@ export function CommunitiesInspoResourcesTools() {
               logo={item.logo}
               excerpt={item.excerpt}
               comment={item.comment}
-              link={item.link || (item as any).homepage}
+              link={item.link as string}
               media={item.media}
               tags={item.tags}
               open={openId === item.id}
@@ -65,3 +83,5 @@ export function CommunitiesInspoResourcesTools() {
     </section>
   );
 }
+
+export default CommunitiesInspoResourcesTools;
