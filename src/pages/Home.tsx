@@ -20,6 +20,7 @@ import MarqueeBanner from "../components/MarqueeBanner";
 import { CommunitiesInspoResourcesTools } from "@/components/sections/CommunitiesInspoResourcesTools";
 import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
+import { experiences } from "@/data/experience";
 
 interface Project {
   id: string;
@@ -168,33 +169,7 @@ const hackathons = [
   },
 ];
 
-const experiences = [
-  {
-    title: "Consultant IT Project Manager",
-    company: "DOMUSVI",
-    year: "2024",
-    description: "Delivered a SaaS business tool solution, leading 0→1 conception with various stakeholders",
-  },
-  {
-    title: "Consultant Data Project Manager",
-    company: "BOUYGUES TELECOM",
-    year: "2023",
-    description: "Led invoice recovery from data aggregation to +40% recovered",
-  },
-  {
-    title: "Data Project Manager",
-    company: "OPENDATASOFT",
-    year: "2022",
-    description: "Accompanied and led 20 cities and metropolises in building their open data portals",
-  },
-  {
-    title: "Co-founder",
-    company: "SONOR",
-    year: "2020",
-    description:
-      "An entrepreneurship project dedicated to accompanying French cities in reducing noise pollution with open data",
-  },
-];
+const expExpand = useInlineExpand();
 
 const continuousLearning = [
   {
