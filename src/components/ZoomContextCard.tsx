@@ -24,29 +24,35 @@ export function ZoomContextCard({
   const playingThis = currentId === id && isPlaying;
   const ariaId = `zc-${id}`;
 
-  return (
-    <div className="border border-border rounded-xl p-4 bg-card">
-      <button
-        id={ariaId}
-        className="w-full text-left flex items-start gap-3"
-        onClick={() => onToggle(id)}
-        aria-expanded={open}
-      >
-        {logo ? (
-          <img src={logo} alt="" className="w-10 h-10 rounded bg-muted object-contain" />
-        ) : null}
-        <div className="flex-1 min-w-0">
-          <h3 className="text-base md:text-lg font-semibold text-foreground">{title}</h3>
-          {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
-          {excerpt && <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{excerpt}</p>}
-        </div>
-      </button>
+ return (
+  <div className="py-4 border-b border-border/60">
+    <button
+      id={ariaId}
+      className="w-full text-left flex items-start gap-3 group cursor-pointer"
+      onClick={() => onToggle(id)}
+      aria-expanded={open}
+      aria-controls={`${ariaId}-panel`}
+    >
+      {logo ? (
+        <img src={logo} alt="" className="w-9 h-9 rounded bg-muted object-contain" />
+      ) : null}
+      <div className="flex-1 min-w-0">
+        <h3 className="text-base md:text-lg font-semibold text-foreground group-hover:underline underline-offset-4">
+          {title}
+        </h3>
+        {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
+        {excerpt && <p className="text-sm text-muted-foreground mt-1 line-clamp-2">{excerpt}</p>}
+      </div>
+    </button>
 
-      <InlineExpand open={open} ariaId={ariaId} className="overflow-hidden">
-        <div className="space-y-3">
-          {comment && (
-            <p className="text-sm italic text-muted-foreground/90">“{comment}”</p>
-          )}
+    <InlineExpand open={open} ariaId={ariaId} className="overflow-hidden" >
+      <div id={`${ariaId}-panel`} className="space-y-3">
+        {comment && <p className="text-sm italic text-muted-foreground/90">“{comment}”</p>}
+        {/* … (media, tags, CTA inchangés) … */}
+      </div>
+    </InlineExpand>
+  </div>
+);
 
           {/* Media (audio prioritaire) */}
           {media?.type === 'audio' && media.src && (
