@@ -465,9 +465,9 @@ export const Home: React.FC = () => {
         ctaText="Let's meet!"
         onClick={() => scrollToSection("contact")}
       />
-      
-          {/* Experience & Education Section - Left Aligned */}
-<section id="experience" className="py-24 px-4">
+
+      {/* Experience & Education Section - Left Aligned */}
+      <section id="experience" className="py-24 px-4">
   <div className="max-w-7xl mx-auto">
     <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
 
@@ -564,14 +564,6 @@ export const Home: React.FC = () => {
 
       <CommunitiesInspoResourcesTools />
 
-      <div className="flex justify-center mt-12">
-        <Button
-          variant="outline"
-          size="lg"
-          className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-          onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
-        >
-   
       {/* Built With Banner */}
       <BuiltWithBanner />
 
@@ -618,24 +610,24 @@ export const Home: React.FC = () => {
       />
 
       {/* Work Modal */}
-{selectedProject && (
-  <WorkModal
-    open={isModalOpen}
-    onClose={closeModal}
-    onNavigate={navigateToProject}
-    canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
-    canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
-    logo={selectedProject.logo}
-    title={selectedProject.title}
-    subtitle={selectedProject.longDescription}
-    bullets={selectedProject.bullets}
-    cta={{
-      label: "Lire le case study",
-      href: `/case-study/${selectedProject.id}`,
-    }}
-  />
-)}
-</div> {/* ferme le wrapper .min-h-screen bg-background */}
-);
+      {selectedProject && (
+        <WorkModal
+          open={isModalOpen}
+          onClose={closeModal}
+          onNavigate={navigateToProject}
+          canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
+          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
+          logo={selectedProject.logo}
+          title={selectedProject.title}
+          subtitle={selectedProject.longDescription}
+          bullets={selectedProject.bullets}
+          cta={{
+            label: "Lire le case study",
+            href: `/case-study/${selectedProject.id}`,
+          }}
+        />
+      )}
+    </div>
+  );
 };
 
