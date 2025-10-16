@@ -250,7 +250,7 @@ export const Home: React.FC = () => {
 
       {/* Hero Section */}
       <section id="hero" className="px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-[1200px] w-full">
+        <div className="mx-auto max-w-[900px] w-full">
           {/* Glass Card */}
           <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl border border-border/50 p-8 md:p-12 lg:p-16">
             <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
