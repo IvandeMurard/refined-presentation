@@ -3,6 +3,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { FilterChips } from "@/components/FilterChips";
 import ZoomContextCard from "@/components/ZoomContextCard";
 import { useInlineExpand } from "@/hooks/useInlineExpand";
+import { useLanguage } from "@/hooks/useLanguage";
+import { Button } from "@/components/ui/button";
+import { ArrowDown } from "lucide-react";
 import {
   communities,
   inspirations,
@@ -23,6 +26,11 @@ export function CommunitiesInspoResourcesTools() {
   );
 
   const { openId, toggle, close } = useInlineExpand();
+  const { language } = useLanguage();
+  
+  const sectionTitle = language === 'fr' 
+    ? "Communautés · Inspirations · Resources · Outils"
+    : "Communities · Inspirations · Resources · Tools";
 
   // Fermer l’item ouvert lorsqu’on change d’onglet
   useEffect(() => {
@@ -49,7 +57,7 @@ export function CommunitiesInspoResourcesTools() {
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           kicker="WHAT DRIVES ME"
-          title="Communautés · Inspirations · Resources · Outils"
+          title={sectionTitle}
           alignment="left"
           className="mb-8"
         />
@@ -79,17 +87,19 @@ export function CommunitiesInspoResourcesTools() {
             />
           ))}
 
-<div className="flex justify-center mt-12">
-  <button
-    className="group inline-flex items-center gap-2 rounded-full border px-6 py-3 hover:bg-primary hover:text-primary-foreground hover:border-primary transition"
-    onClick={() =>
-      document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
-    }
-  >
-    GET IN TOUCH
-    <span className="ml-1 group-hover:animate-bounce">↓</span>
-  </button>
-</div>
+        <div className="flex justify-center mt-12">
+          <Button
+            variant="outline"
+            size="lg"
+            className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+            onClick={() =>
+              document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
+            }
+          >
+            GET IN TOUCH
+            <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+          </Button>
+        </div>
           
         </div>
       </div>
