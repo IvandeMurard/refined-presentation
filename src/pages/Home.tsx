@@ -21,6 +21,7 @@ import { CommunitiesInspoResourcesTools } from "@/components/sections/Communitie
 import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
 import { experiences } from "@/data/experience";
+import { FeedbackWidget } from "@/components/FeedbackWidget"
 
 interface Project {
   id: string;
@@ -212,6 +213,18 @@ export const Home: React.FC = () => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const expExpand = useInlineExpand(); // pour l’onglet Experiences
+
+  export default function App() {
+  return (
+    <>
+      {/* ...autres composants... */}
+      <FeedbackWidget
+        provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
+        nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
+      />
+    </>
+  )
+}
 
   const filteredProjects =
     activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter);
