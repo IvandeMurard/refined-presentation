@@ -597,8 +597,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-     return (
-  <>
+     return ( <>
     <div>
       {/* Footer */}
       <Footer
@@ -623,7 +622,9 @@ export const Home: React.FC = () => {
           onClose={closeModal}
           onNavigate={navigateToProject}
           canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
-          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
+          canNavigateNext={
+            selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1
+          }
           logo={selectedProject.logo}
           title={selectedProject.title}
           subtitle={selectedProject.longDescription}
@@ -636,10 +637,11 @@ export const Home: React.FC = () => {
       )}
     </div>
 
-    {/* ✅ Widget tout à la fin, hors du container principal */}
+    {/* Widget tout à la fin, hors du container principal */}
     <FeedbackWidget
       provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
       nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
     />
   </>
 );
+
