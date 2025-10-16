@@ -615,16 +615,14 @@ export const Home: React.FC = () => {
         }}
       />
 
-      {/* Work Modal */}
+        {/* Work Modal */}
       {selectedProject && (
         <WorkModal
           open={isModalOpen}
           onClose={closeModal}
           onNavigate={navigateToProject}
           canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
-          canNavigateNext={
-            selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1
-          }
+          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
           logo={selectedProject.logo}
           title={selectedProject.title}
           subtitle={selectedProject.longDescription}
@@ -635,12 +633,14 @@ export const Home: React.FC = () => {
           }}
         />
       )}
-    </div>
 
-    {/* Widget tout à la fin, hors du container principal */}
-    <FeedbackWidget
-      provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
-      nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
-    />
-  </>
-);
+      {/* ✅ Ajoute le widget ICI, dans le même <div> */}
+      <FeedbackWidget
+        provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
+        nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
+      />
+    </div> 
+  );         
+};  
+      
+export default Home;
