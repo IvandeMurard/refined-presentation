@@ -214,18 +214,6 @@ export const Home: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const expExpand = useInlineExpand(); // pour l’onglet Experiences
 
-  export default function App() {
-  return (
-    <>
-      {/* ...autres composants... */}
-      <FeedbackWidget
-        provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
-        nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
-      />
-    </>
-  )
-}
-
   const filteredProjects =
     activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter);
 
@@ -609,6 +597,9 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
+     return (
+  <>
+    <div>
       {/* Footer */}
       <Footer
         siteName="Ivan de Murard"
@@ -644,6 +635,11 @@ export const Home: React.FC = () => {
         />
       )}
     </div>
-  );
-};
 
+    {/* ✅ Widget tout à la fin, hors du container principal */}
+    <FeedbackWidget
+      provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
+      nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
+    />
+  </>
+);
