@@ -250,8 +250,10 @@ export const Home: React.FC = () => {
 
       {/* Hero Section */}
       <section id="hero" className="px-4 py-16 md:py-20">
-        <div className="mx-auto max-w-[900px] w-full">
-          <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
+        <div className="mx-auto max-w-[1200px] w-full">
+          {/* Glass Card */}
+          <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl border border-border/50 p-8 md:p-12 lg:p-16">
+            <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
             {/* Left: titles + subtitle + buttons + pills */}
             <div className="text-left">
               <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
@@ -311,6 +313,7 @@ export const Home: React.FC = () => {
                 </figure>
                 <p className="text-sm text-muted-foreground text-center mt-3">Usually replies in &lt;24h</p>
               </div>
+            </div>
             </div>
           </div>
         </div>
