@@ -597,8 +597,10 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-     return ( <>
-    <div>
+    return (
+  <div id="page-root">
+    {/* --- TON CONTENU / SECTIONS EXISTANTS ICI --- */}
+
       {/* Footer */}
       <Footer
         siteName="Ivan de Murard"
@@ -615,32 +617,31 @@ export const Home: React.FC = () => {
         }}
       />
 
-        {/* Work Modal */}
+      {/* Work Modal */}
       {selectedProject && (
         <WorkModal
           open={isModalOpen}
           onClose={closeModal}
           onNavigate={navigateToProject}
           canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
-          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
+          canNavigateNext={
+            selectedProjectIndex !== null &&
+            selectedProjectIndex < filteredProjects.length - 1
+          }
           logo={selectedProject.logo}
           title={selectedProject.title}
           subtitle={selectedProject.longDescription}
           bullets={selectedProject.bullets}
-          cta={{
-            label: "Lire le case study",
-            href: `/case-study/${selectedProject.id}`,
-          }}
+          cta={{ label: "Lire le case study", href: `/case-study/${selectedProject.id}` }}
         />
       )}
 
-      {/* ✅ Ajoute le widget ICI, dans le même <div> */}
+      {/* Feedback Widget */}
       <FeedbackWidget
         provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
         nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
       />
-    </div> 
-  );         
-};  
-      
+    </div>  {/* ← ferme le <div className="min-h-screen bg-background"> ouvert en haut */}
+  );
+};         {/* ← ferme la fonction Home */}
 export default Home;
