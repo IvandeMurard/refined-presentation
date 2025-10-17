@@ -87,20 +87,26 @@ const ContentDefaultFR = () => {
             <div className="space-y-4">
               <h2 className="text-h3">Contexte & Déclencheur</h2>
               <p>
-                Le projet <b>SONOR</b> naît du <b>Hackathon Recoder l’Habitat #2</b> (victoire, bourse 1 000 €), puis
-                est incubé par <b>Matrice</b> et <b>La Banque des Territoires</b>. Problématique : la{" "}
-                <b>pollution sonore</b>, peu adressée, aux impacts sanitaires et sociaux significatifs.
+                Le projet <b>SONOR</b> naît en octobre 2020 grâce au <b>Hackathon Recoder l’Habitat #2</b> portant sur la thématique de l'Habitat et de la Santé.
+                Lors du hackahton, le constat de la pollution sonore est fait, l'équipe est formée, le travail de définition de la solution et de prototypage commence.
+                24h après, l'équipe Sonor (Emilie, Majda, Benjamin, et moi Ivan) remporte ce hackathon, présentant un outil de diagnostic complet de la pollution sonore dans une ville à partir d'open data : 
+                cartographie, recommandations d'actions publiques, suivi de la réglementation et alertes citoyennes, notre plateforme séduit.
+                Sonor obtient une bourse et un accompagnement par <b>l'Association Loi 1901 Matrice</b> et <b>La Banque des Territoires</b>, l'aventure entrepreneuriale est lancée.
+                Problématique à résoudre : la <b>pollution sonore</b>, 2ème source de nuisances urbaines aux impacts sanitaires, sociaux, et environnementaux significatifs, est invisible, insidieuse et peu adressée.
               </p>
               <p>
-                Ambition : une solution SaaS <b>open data</b> pour permettre aux villes de <b>mesurer, cartographier</b>{" "}
+                Solution : Offrir une solution SaaS <b>open data</b> pour permettre aux villes de <b>mesurer, cartographier</b>{" "}
                 et
-                <b> réduire</b> la pollution sonore, avec une approche orientée service public et citoyens.
+                <b> réduire</b> durablement la pollution sonore, accompagner les collectivités dans le déploiement de solutions adaptées et favoriser la collaboration entre service public, citoyens, et acteurs privés.
+              </p>
+               <p>
+                Proposition de valeur: Anticiper et agir sur le bruit pour garantir la santé des habitants et l'attractivité des territoires.</b>{" "}
               </p>
             </div>
             <CaseImage
               alt="Hackathon & partenaires"
-              desktopSrc="/SONOR/partenaires-desktop.png" // TODO
-              caption="Hackathon & écosystème d'accompagnement"
+              desktopSrc="/img/Sonor Hackathon.jpeg"
+              caption="Ecosystème d'accompagnement",
             />
           </section>
 
@@ -119,7 +125,7 @@ const ContentDefaultFR = () => {
           <div className="grid md:grid-cols-5 gap-4">
             {[
               "Cadrage produit (vision, roadmap, business model)",
-              "Discovery (30 entretiens : collectivités, ministères, bailleurs, associations)",
+              "Discovery (20 entretiens : collectivités, ministères, bailleurs, associations, experts techniques)",
               "Prototype (UX/UI Figma, cartographies open data)",
               "Go-to-market B2G (ciblage, cold-calling, rendez-vous avec élus, propals commerciales)",
               "Pilotage dev data scientist (sprints Kanban, jalons mensuels)",
@@ -138,7 +144,7 @@ const ContentDefaultFR = () => {
           <h2 className="text-h3">Process & Méthodologie (Agile Lean)</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { t: "Discovery", d: "Analyse marché, 30+ entretiens, personas" },
+              { t: "Discovery", d: "Analyse marché, 20+ entretiens, personas" },
               { t: "Prototype", d: "Cartographies open data, UX/UI sur Figma" },
               { t: "Go-to-market", d: "Pivot promoteurs → collectivités, RDV métropoles" },
               { t: "Cadence", d: "Sprints 2–3 semaines, review & reporting mensuel" },
@@ -166,7 +172,7 @@ const ContentDefaultFR = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { v: "20 000 €", l: "Financements obtenus" },
-              { v: "30", l: "Entretiens qualitatifs" },
+              { v: "20", l: "Entretiens qualitatifs" },
               { v: "1", l: "Prototype cartographique" },
             ].map((k) => (
               <div key={k.l} className="bg-card p-6 rounded-2xl border">
@@ -196,9 +202,9 @@ const ContentDefaultFR = () => {
           </div>
 
           <CTABanner
-            title="Rencontrons-nous"
-            description="Échangeons sur vos besoins produits dans le secteur public ou data/impact"
-            ctaText="Contact"
+            title="Vous voulez en savoir plus ?"
+            description="Échangeons sur vos besoins produits"
+            ctaText="Rencontrons-nous"
             onClick={() => navigate("/Contact")}
             className="my-2"
           />
@@ -232,8 +238,7 @@ const ContentDefaultFR = () => {
 
           <section className="rounded-xl border p-6 bg-card">
             <p className="text-lg">
-              <b>Conclusion.</b> SONOR a forgé ma pratique de PM : cadrage, exécution et apprentissage continus dans un
-              cadre mêlant <b>innovation, data et service public</b>.
+              <b>Conclusion.</b> SONOR a confirmé mon goût pour la transformation de problématiques en solutions data-driven.
             </p>
           </section>
         </div>
