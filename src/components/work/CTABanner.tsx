@@ -40,8 +40,7 @@ export function CTABanner({
     >
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">          {/* ← largeur contenue */}
         <div
-          className="relative overflow-hidden rounded-[16px] border border-border
-                     shadow-[0_6px_20px_-8px_hsl(var(--overlay))]"
+          className="relative overflow-hidden rounded-[16px] shadow-[0_6px_20px_-8px_hsl(var(--overlay))]"
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >

@@ -40,7 +40,7 @@ export function CardImmersive({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={[
-        "work-card group/card relative overflow-hidden rounded-token bg-card border border-border shadow-overlay",
+        "work-card group/card relative overflow-hidden rounded-token bg-card shadow-overlay",
         "transition-transform duration-300 will-change-transform hover:-translate-y-1",
         "focus:outline-none focus:ring-2 focus:ring-offset-2 ring-brand",
         "w-[360px] h-[480px] cursor-pointer",

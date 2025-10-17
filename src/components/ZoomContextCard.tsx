@@ -41,7 +41,7 @@ export function ZoomContextCard({
   const ariaId = `zc-${id}`;
 
   return (
-    <div className="py-4 border-b border-border/60">
+    <div className="py-4">
       <button
         id={ariaId}
         className="w-full text-left flex items-start gap-3 group cursor-pointer"
