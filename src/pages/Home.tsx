@@ -274,13 +274,13 @@ export const Home: React.FC = () => {
                 >
                   Discover my projects →
                 </Button>
-                <Button
-                  size="default"
-                  className="bg-contact hover:bg-contact/90 text-contact-foreground"
-                  onClick={() => scrollToSection("contact")}
-                >
-                  Let&apos;s meet! →
-                </Button>
+              <Button
+                size="default"
+                className="bg-contact hover:bg-white text-contact-foreground hover:text-contact transition-colors duration-300"
+                onClick={() => scrollToSection("contact")}
+              >
+                Let&apos;s meet! →
+              </Button>
               </div>
 
               {/* Pills */}
