@@ -597,10 +597,6 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-    return (
-  <div id="page-root">
-    {/* --- TON CONTENU / SECTIONS EXISTANTS ICI --- */}
-
       {/* Footer */}
       <Footer
         siteName="Ivan de Murard"
@@ -641,7 +637,8 @@ export const Home: React.FC = () => {
         provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
         nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
       />
-    </div>  {/* ← ferme le <div className="min-h-screen bg-background"> ouvert en haut */}
+    </div>
   );
-};         {/* ← ferme la fonction Home */}
+};
+
 export default Home;
