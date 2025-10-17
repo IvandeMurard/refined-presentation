@@ -155,7 +155,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
 
   return (
     <>
-      {/* Bouton flottant */}
+      {/* Bouton flottant - positionné au-dessus du scroll-to-top */}
       <button
         aria-controls="fb-modal"
         aria-expanded={open}
@@ -165,7 +165,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
         style={{
           position: "fixed",
           right: 16,
-          bottom: 16,
+          bottom: 80, // Positionné au-dessus du bouton scroll-to-top
           zIndex: 40,
           border: "1px solid var(--border,#e5e7eb)",
           background: "var(--surface,#fff)",
@@ -173,7 +173,8 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           padding: "10px 12px",
           borderRadius: 999,
           font: "500 14px/1.2 system-ui",
-          opacity: 0.9
+          opacity: 0.9,
+          transition: "all 0.2s ease"
         }}
       >
         {buttonLabel}

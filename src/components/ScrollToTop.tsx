@@ -50,7 +50,7 @@ export const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-8 right-8 z-50 rounded-full p-3 bg-background border border-border shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
+          className="fixed bottom-4 right-4 z-50 rounded-full p-3 bg-background border border-border shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
           aria-label="Retour en haut"
         >
           <ArrowUp className="h-5 w-5" />

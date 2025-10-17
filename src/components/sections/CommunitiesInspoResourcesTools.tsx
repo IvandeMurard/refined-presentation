@@ -92,7 +92,7 @@ export function CommunitiesInspoResourcesTools() {
           <Button
             variant="outline"
             size="lg"
-            className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+            className="group hover:bg-contact hover:text-contact-foreground hover:border-contact transition-all duration-300"
             onClick={() =>
               document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })
             }
