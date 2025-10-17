@@ -320,7 +320,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-5 bg-card/90 border-y border-border">
+      <section className="py-5 bg-card/90">
         <div className="max-w-[1360px] mx-auto px-4">
           <MarqueeBanner
             phrases={[
@@ -430,7 +430,7 @@ export const Home: React.FC = () => {
 
           <div className="space-y-8">
             {hackathons.map((hack, index) => (
-              <div key={index} className="flex gap-8 pb-8 border-b border-border last:border-0">
+              <div key={index} className="flex gap-8 pb-8 last:pb-0">
                 <div className="w-20 flex-shrink-0">
                   <span className="text-sm font-medium text-muted-foreground">{hack.year}</span>
                 </div>
@@ -492,7 +492,7 @@ export const Home: React.FC = () => {
             const id = `exp-${index}`;
             const isOpen = expExpand.isOpen(id);
             return (
-              <div key={id} className="py-4 border-b border-border/60">
+              <div key={id} className="py-4">
                 <button
                   className="w-full text-left"
                   onClick={() => expExpand.toggle(id)}
@@ -581,15 +581,15 @@ export const Home: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="bg-card hover:bg-card/90 text-contact border-2 border-card">
+            <Button size="lg" className="bg-card hover:bg-card/90 text-contact">
               <Mail className="mr-2 h-5 w-5" />
               Email
             </Button>
-            <Button size="lg" className="bg-card hover:bg-card/90 text-contact border-2 border-card">
+            <Button size="lg" className="bg-card hover:bg-card/90 text-contact">
               <Linkedin className="mr-2 h-5 w-5" />
               LinkedIn
             </Button>
-            <Button size="lg" className="bg-card hover:bg-card/90 text-contact border-2 border-card">
+            <Button size="lg" className="bg-card hover:bg-card/90 text-contact">
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
             </Button>
