@@ -22,34 +22,55 @@ export type BaseItem = {
 // -------------------- COMMUNITIES --------------------
 export const communities: BaseItem[] = [
   {
+    id: 'join-lion',
+    title: 'LION',
+    subtitle: 'Communauté IA & entrepreneuriat',
+    logo: '/img/join_lion_le_promptathon Hackathon.png',
+    link: 'https://www.joinlion.co/',
+    excerpt: 'Apprendre à apprendre et entreprendre.',
+    comment: 'Alumni',
+    tags: ['Hackathon', 'IA', 'Entrepreneuriat']
+  },
+  {
+  id: 'maestro',
+    title: 'MAESTRO',
+    subtitle: 'Communauté produit & innovation',
+    logo: '/img/maestro.png',
+    link: 'https://maestro.mariaschools.com/',
+    excerpt: 'Apprentissage continu autour du product management.',
+    comment: 'Alumni',
+    tags: ['Product Management', 'No Code']
+  },
+  {
+    id: 'paatch',
+    title: "Paatch",
+    subtitle: 'Product & Growth meetups',
+    logo: '/img/paatch.png',
+    link: 'https://www.paatch.io/',
+    excerpt: 'Ateliers pour découvrir et prototyper avec de nouveaux outils IA.',
+    comment: 'Participation à deux événements portant sur Manus et Make.',
+    tags: ['Product', 'IA', 'Community', 'Hackathons']
+  },
+  {
     id: 'lennys-paris',
     title: "Lenny's Newsletter • Paris",
-    subtitle: 'Product & Growth meetups',
-    logo: '/img/logos/lennys.svg',
+    subtitle: 'Product management meetups',
+    logo: '/img/lenny_newsletter_logo.PNG',
     link: 'https://www.lennysnewsletter.com/',
-    excerpt: 'Conversations concrètes autour de discovery, AI, go-to-market et growth.',
-    comment: 'J’y co-anime des échanges orientés impact business.',
-    tags: ['Product', 'Growth', 'Community']
+    excerpt: 'Partage de bonnes pratiques sur le product management',
+    comment: 'Organisation dun meet-up en octobre 2025.',
+    tags: ['Product', 'Growth', 'Community', 'IA', 'Go-to-Market']
   },
   {
     id: 'the-ai-collective',
     title: 'The AI Collective',
-    subtitle: 'Builders • Agents • Evaluations',
-    logo: '/img/logos/ai-collective.png',
-    link: 'https://www.theaicollective.co/',
-    excerpt: 'Echanges pratiques sur les agents, l’évaluation et les workflows.',
-    comment: "Structure mes workflows d’évaluation et de LLM-as-a-judge.",
-    tags: ['AI', 'Agents', 'Evals']
+    subtitle: 'Hackathons thématiques',
+    logo: '/img/theaicollective.png',
+    link: 'https://www.aicollective.com/',
+    excerpt: 'Hackathons pour découvrir outils et pratiques.',
+    comment: "J'ai participé à deux événements : Windsurf, Blackbox AI.",
+    tags: ['AI', 'Hackathons', 'Product Builder']
   },
-  {
-    id: 'join-lion',
-    title: 'Join Lion / Promptathon',
-    subtitle: 'Communauté produit & innovation',
-    logo: '/img/logos/join-lion.png',
-    link: 'https://www.joinlion.co/',
-    excerpt: 'Culture du prototypage rapide et des hackathons.',
-    tags: ['Hackathon', 'Prototype']
-  }
 ];
 
 // -------------------- INSPIRATIONS --------------------
@@ -58,62 +79,37 @@ export const inspirations: BaseItem[] = [
     id: 'unreasonable-hospitality',
     title: 'Unreasonable Hospitality',
     subtitle: 'Hospitality as a product advantage',
-    logo: '/img/logos/unreasonable.png',
+    logo: '/img/unreasonable_hospitality.png',
     link: 'https://www.unreasonablehospitality.com/',
-    excerpt: "Comment l’hospitalité radicale devient un différenciateur produit.",
-    comment: 'Mincro-moments de considération intégrés dans l’UX.',
-    tags: ['Experience', 'Delight']
+    excerpt: "If a stumble at the end of a meal can undo all the goodwill a restaurant has earned in the three hours preceeding it, then a gorgeous, gracious gesture at the end can have the opposite effect.",
+    comment: 'Ce livre ma plu par les retours dexpériences terrains et concrets partagés, appliquables au product management.',
+    tags: ['Experience', 'Hospitality', 'User Experience', 'Design']
   },
   {
-    id: 'fh-design',
-    title: 'fh.design',
-    subtitle: 'Lisibilité radicale, vertical flow',
-    logo: '/img/logos/fh.svg',
-    link: 'https://fh.design/',
-    excerpt: 'Clarté visuelle et hiérarchie typographique.',
-    tags: ['Typography', 'Layout']
+    id: 'general-magic',
+    title: 'General Magic',
+    subtitle: 'Documentaire, Vision produit',
+    logo: '/img/general-magic.png',
+    link: 'https://www.generalmagicthemovie.com/',
+    excerpt: '"We are trying to make something people love, we need it to be like your watch, your glasses".',
+    comment: 'Un film étonnant, captivant, et bien rythmé mettant en avant lengagement et la fantastique vision produit de lequipe',
+    tags: ['Product Management', 'Product Vision', 'Innovation']
   },
-  {
-    id: 'product-delight',
-    title: 'Product Delight',
-    subtitle: 'Curated product details',
-    logo: '/img/logos/product-delight.png',
-    link: 'https://productdelight.carrd.co/',
-    excerpt: 'Petits détails qui créent une disproportion de valeur perçue.',
-    tags: ['Delight', 'UX']
-  }
-];
+ ];
 
 // -------------------- RESOURCES --------------------
 export const resources: BaseItem[] = [
   {
-    id: 'lennys-newsletter',
-    title: "Lenny's Newsletter",
-    subtitle: 'PM frameworks, case studies',
-    logo: '/img/logos/lennys.svg',
-    link: 'https://www.lennysnewsletter.com/',
-    excerpt: 'Playbooks concrets sur discovery, PMF, growth et org design.',
-    tags: ['PM', 'Growth']
+    id: 'product-delight',
+    title: 'Product Delight',
+    subtitle: 'How to bring products to life',
+    logo: '/img/product-delight.png',
+    link: 'https://nesrinechanguel.substack.com/',
+    excerpt: 'To convert motivators into actionable insights, reframe them using "How might we…" questions.',
+    comment: 'Les retours dexpériences concrets, et les liens réalisables entre product management et hospitalité sont très intéressants',
+    tags: ['Delight', 'UX', 'Product Design', 'Hospitality']
   },
-  {
-    id: 'first-round-review',
-    title: 'First Round Review',
-    subtitle: "Operators' insights",
-    logo: '/img/logos/first-round.svg',
-    link: 'https://review.firstround.com/',
-    excerpt: 'Retours terrain de leaders produit, design, data.',
-    tags: ['Operations', 'Leadership']
-  },
-  {
-    id: 'laws-of-ux',
-    title: 'Laws of UX',
-    subtitle: 'Psychology × Interface design',
-    logo: '/img/logos/lawsofux.svg',
-    link: 'https://lawsofux.com/',
-    excerpt: 'Principes psychologiques transposés en heuristiques UI/UX.',
-    tags: ['UX', 'Psychology']
-  }
-];
+  ];
 
 // -------------------- TOOLS --------------------
 export const tools: (BaseItem & {
@@ -133,22 +129,24 @@ export const tools: (BaseItem & {
     usedIn: ['Portfolio']
   },
   {
-    id: 'vercel',
-    title: 'Vercel',
-    subtitle: 'Hosting & previews',
-    logo: '/img/logos/vercel.svg',
-    homepage: 'https://vercel.com/',
-    excerpt: 'Déploiements rapides, previews par PR.',
-    tags: ['Infra'],
-    usedIn: ['Portfolio', 'Agents']
+    id: 'notion',
+    title: 'Notion',
+    subtitle: 'Notion',
+    logo: '/img/notion-icon.png',
+    homepage: 'https://notion.com',
+    excerpt: 'Espace de travail',
+    comment: 'Une bonne documentation est la fondation essentielle de tous bons projets',
+    tags: ['Documentation'],
+    usedIn: ['Documentation', 'Knowledge Management']
   },
   {
     id: 'supabase',
     title: 'Supabase',
     subtitle: 'DB + Auth + Storage',
-    logo: '/img/logos/supabase.svg',
+    logo: '/img/supabase-icon.png',
     homepage: 'https://supabase.com/',
     excerpt: 'Tables Resources/Tools/Inspirations.',
+    comment: 'Outil de stockage des données du portfolio et des side-projects',
     tags: ['Data', 'Auth'],
     usedIn: ['Portfolio']
   }
