@@ -86,6 +86,7 @@ export function CommunitiesInspoResourcesTools() {
               onToggle={toggle}
             />
           ))}
+        </div>
 
         <div className="flex justify-center mt-12">
           <Button
@@ -99,8 +100,6 @@ export function CommunitiesInspoResourcesTools() {
             GET IN TOUCH
             <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
           </Button>
-        </div>
-          
         </div>
       </div>
     </section>

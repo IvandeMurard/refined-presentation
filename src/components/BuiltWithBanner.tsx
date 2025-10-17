@@ -20,7 +20,7 @@ export const BuiltWithBanner = () => {
       transition={{ duration: 0.5 }}
     >
       <div className="max-w-[1100px] mx-auto px-4 md:px-6">
-        <div className="relative overflow-hidden rounded-[16px] border border-border bg-muted shadow-sm">
+        <div className="relative overflow-hidden rounded-[16px] bg-muted shadow-sm">
           <div className="px-6 md:px-8 py-5 md:py-6 text-center">
             {/* Title */}
             <h3 className="text-[18px] md:text-[22px] font-[700] text-foreground mb-6">
