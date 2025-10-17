@@ -11,7 +11,7 @@ import { CaseImage } from "@components/case/CaseImage"; // named export (ton fic
 import CaseTldr from "@components/case/CaseTldr"; // default export (si c’est `export default function ...`)
 import { CTABanner } from "@/components/work/CTABanner"; // named export
 
-import sonorHero from "/img/sonor.jpg";
+import sonorHero from "/img/image-banniere-sonor.jpg";
 
 const TLDRBlockFR = () => (
   <section className="rounded-xl border p-5 bg-card">
