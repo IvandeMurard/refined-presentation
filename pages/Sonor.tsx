@@ -11,7 +11,7 @@ import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 
 // ------- ASSETS (remplace les placeholders si tu as des fichiers) --------
-import sonorHero from "@/assets/sonor-hero.png"; // TODO: remplace par ton image (ou crée le fichier)
+import sonorHero from "/img/image-banniere-sonor.jpg"; // TODO: remplace par ton image (ou crée le fichier)
 
 const TLDRBlockFR = () => (
   <section className="rounded-xl border p-5 bg-card">
