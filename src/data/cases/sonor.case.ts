@@ -19,13 +19,12 @@ export const sonorCase: CaseMeta = {
   title: "Réduire la pollution sonore avec l’open data",
   subtitle: "De l’idée à un SaaS incubé par la Banque des Territoires",
   badge: "Open Data",
-  image: "/img/sonor.jpg",
+  image: "/img/image-banniere-sonor.jpg",
   logo: "/img/logo_sonor.png",
   bullets: [
-    "30+ entretiens parties prenantes",
-    "3 POCs avec collectivités",
+    "20+ entretiens parties prenantes",
     "€20k financements",
-    "Cartographie + pipeline data",
+    "Accompagné par La Banque des Territoires"
   ],
   ctaHref: "/Sonor",
 };
