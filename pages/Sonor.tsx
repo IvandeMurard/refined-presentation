@@ -17,23 +17,26 @@ const TLDRBlockFR = () => (
   <section className="rounded-xl border p-5 bg-card">
     <h3 className="text-h4 mb-3">TLDR — En bref</h3>
     <ul className="list-disc pl-5 space-y-1">
+       <li>
+        <b>Equipe :</b> 4 co-fondateurs + 1 développeur/data-scientist
+      </li>
       <li>
         <b>Durée :</b> 2 ans (hackathon → incubation → prototype)
       </li>
       <li>
-        <b>Cible :</b> collectivités, villes et métropoles
+        <b>Cible :</b> collectivités, villes et métropoles françaises
       </li>
       <li>
-        <b>Rôle :</b> cadrage produit, discovery (30 entretiens), prototype, go-to-market B2G, pilotage dev data
+        <b>Rôle :</b> cadrage produit, discovery (20 entretiens), prototypage, go-to-market B2G, commercialisation, pilotage dev data
       </li>
       <li>
-        <b>Méthodo :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels
+        <b>Méthode :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels
       </li>
       <li>
-        <b>Résultats :</b> 20 000 € financements, 30 entretiens, 1 prototype, négociations avec plusieurs métropoles
+        <b>Résultats :</b> 20 000 € financements, 20 entretiens, 1 prototype, échanges commerciaux avec plusieurs métropoles
       </li>
       <li>
-        <b>Apprentissage clé :</b> cadrer une vision 0→1 et dire non aux idées hors scope
+        <b>Apprentissage clé :</b> transformer une problématique en solution, cadrer et livrer une vision produit de 0→1, promouvoir son produit
       </li>
     </ul>
   </section>
@@ -44,22 +47,25 @@ const TLDRBlockEN = () => (
     <h3 className="text-h4 mb-3">TLDR — At a glance</h3>
     <ul className="list-disc pl-5 space-y-1">
       <li>
+        <b>Team:</b> 4 co-founders + 1 developer/data-scientist
+      </li>
+      <li>
         <b>Duration:</b> 2 years (hackathon → incubation → prototype)
       </li>
       <li>
-        <b>Target:</b> cities & metropolitan areas
+        <b>Target:</b> French cities & metropolitan areas
       </li>
       <li>
-        <b>Role:</b> product framing, discovery (30 interviews), prototype, B2G go-to-market, data-dev leadership
+        <b>Role:</b> product framing, discovery (20 interviews), prototyping, B2G go-to-market, sales, data-dev leadership
       </li>
       <li>
         <b>Method:</b> Agile Lean, Kanban, 2–3 week sprints, monthly milestones
       </li>
       <li>
-        <b>Outcomes:</b> €20k grants, 30 interviews, 1 prototype, negotiations with municipalities
+        <b>Outcomes:</b> €20k grants, 20 interviews, 1 prototype, negotiations with municipalities
       </li>
       <li>
-        <b>Key learning:</b> frame a 0→1 vision and say no to out-of-scope ideas
+        <b>Key learnings:</b> turning a problem into a solution, framing a 0→1 product vision and promoting our work
       </li>
     </ul>
   </section>
