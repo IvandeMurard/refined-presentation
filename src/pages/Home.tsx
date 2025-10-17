@@ -253,7 +253,7 @@ export const Home: React.FC = () => {
       <section id="hero" className="px-4 py-16 md:py-20">
         <div className="mx-auto max-w-[900px] w-full">
           {/* Glass Card */}
-          <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl border border-border/50 p-8 md:p-12 lg:p-16">
+          <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
             <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
             {/* Left: titles + subtitle + buttons + pills */}
             <div className="text-left">
