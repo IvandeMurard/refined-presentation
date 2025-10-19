@@ -68,13 +68,13 @@ export function CTABanner({
               {description}
             </motion.p>
 
-            {/* CTA avec bordure verte au survol */}
+            {/* CTA avec bordure et texte blancs */}
             <motion.button
               onClick={handleClick}
               className="inline-flex items-center justify-center h-9 md:h-10 px-4 md:px-5
                          rounded-full border-2 text-[13px] font-[600]
                          border-white text-white
-                         bg-transparent hover:bg-white/10 hover:border-contact
+                         bg-transparent hover:bg-white/10
                          transition-colors duration-200
                          focus:outline-none focus:ring-2 focus:ring-white/30"
               whileHover={{ scale: reducedMotion ? 1 : 1.01 }}
