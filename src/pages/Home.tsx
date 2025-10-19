@@ -21,7 +21,7 @@ import { CommunitiesInspoResourcesTools } from "@/components/sections/Communitie
 import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
 import { experiences } from "@/data/experience";
-import { FeedbackWidget } from "@/components/FeedbackWidget"
+import { FeedbackWidget } from "@/components/FeedbackWidget";
 
 interface Project {
   id: string;
@@ -41,7 +41,7 @@ const projects: Project[] = [
     id: "sonor",
     title: "A 2-year entrepreneurship team project",
     subtitle: "How can cities turn open data into quieter streets?",
-    image: "/img/sonor.jpg",
+    image: "/img/image-banniere-sonor.jpg",
     logo: "/img/logo_sonor.png",
     tags: ["Open Data"],
     category: "product",
@@ -75,7 +75,7 @@ const projects: Project[] = [
     id: "agents-eval",
     title: "Evaluating AI agents at scale",
     subtitle: "How do we turn trust into an asset?",
-    image: "/img/mdreza-jalali-unsplash.jpg",
+    image: "/img/samuel-arkwright-unsplash.jpg",
     tags: ["Agents", "Evaluation"],
     category: "agents",
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",
@@ -175,8 +175,7 @@ const continuousLearning = [
     year: "2025",
     title: "Product Management Intensive Program",
     source: "MAESTRO",
-    description:
-      "I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
+    description: "I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
     link: "https://maestro.mariaschools.com/formations/devenez-product-manager-formation-a-temps-plein-en-presentiel",
   },
   {
@@ -260,66 +259,68 @@ export const Home: React.FC = () => {
           {/* Glass Card */}
           <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
             <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
-            {/* Left: titles + subtitle + buttons + pills */}
-            <div className="text-left">
-              <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
-              <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">Zero-to-One Product Manager</p>
+              {/* Left: titles + subtitle + buttons + pills */}
+              <div className="text-left">
+                <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
+                <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">
+                  Zero-to-One Product Manager
+                </p>
 
-              <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
-                with AI and go-to-market expertise.
-              </p>
+                <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
+                  From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
+                  with AI and go-to-market expertise.
+                </p>
 
-              {/* Desktop buttons */}
-              <div className="mt-6 flex gap-3">
-                <Button
-                  size="default"
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => scrollToSection("work")}
-                >
-                  Discover my projects →
-                </Button>
-              <Button
-                size="default"
-                className="bg-contact hover:bg-white text-contact-foreground hover:text-contact border-2 border-white hover:border-white transition-colors duration-300"
-                onClick={() => scrollToSection("contact")}
-              >
-                Let&apos;s meet! →
-              </Button>
-              </div>
-
-              {/* Pills */}
-              <ul className="mt-6 flex flex-wrap gap-2 text-sm">
-                {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                  <li
-                    key={tag}
-                    className="px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20"
+                {/* Desktop buttons */}
+                <div className="mt-6 flex gap-3">
+                  <Button
+                    size="default"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    onClick={() => scrollToSection("work")}
                   >
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-            </div>
+                    Discover my projects →
+                  </Button>
+                  <Button
+                    size="default"
+                    className="bg-contact hover:bg-white text-contact-foreground hover:text-contact border-2 border-white hover:border-white transition-colors duration-300"
+                    onClick={() => scrollToSection("contact")}
+                  >
+                    Let&apos;s meet! →
+                  </Button>
+                </div>
 
-            {/* Right: photo */}
-            <div className="flex justify-center md:justify-end">
-              <div className="w-full max-w-[220px]">
-                <figure
-                  aria-label="Portrait Ivan de Murard"
-                  className="relative aspect-square w-full rounded-2xl overflow-hidden
-                       shadow-xl"
-                >
-                  <img
-                    src="/img/profile_picture.jpg"
-                    alt="Ivan de Murard — Product Manager"
-                    className="h-full w-full object-cover"
-                    loading="eager"
-                    decoding="async"
-                  />
-                </figure>
-                <p className="text-sm text-muted-foreground text-center mt-3">Usually replies in &lt;24h</p>
+                {/* Pills */}
+                <ul className="mt-6 flex flex-wrap gap-2 text-sm">
+                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
+                    <li
+                      key={tag}
+                      className="px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20"
+                    >
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+
+              {/* Right: photo */}
+              <div className="flex justify-center md:justify-end">
+                <div className="w-full max-w-[220px]">
+                  <figure
+                    aria-label="Portrait Ivan de Murard"
+                    className="relative aspect-square w-full rounded-2xl overflow-hidden
+                       shadow-xl"
+                  >
+                    <img
+                      src="/img/profile_picture.jpg"
+                      alt="Ivan de Murard — Product Manager"
+                      className="h-full w-full object-cover"
+                      loading="eager"
+                      decoding="async"
+                    />
+                  </figure>
+                  <p className="text-sm text-muted-foreground text-center mt-3">Usually replies in &lt;24h</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -477,129 +478,127 @@ export const Home: React.FC = () => {
 
       {/* Experience & Education Section - Left Aligned */}
       <section id="experience" className="py-24 px-4">
-  <div className="max-w-7xl mx-auto">
-    <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
 
-    <FilterChips
-      chips={experienceFilterChips}
-      activeChip={activeExperienceFilter}
-      onChipChange={setActiveExperienceFilter}
-      className="mb-8"
-    />
+          <FilterChips
+            chips={experienceFilterChips}
+            activeChip={activeExperienceFilter}
+            onChipChange={setActiveExperienceFilter}
+            className="mb-8"
+          />
 
-    {/* Contenu selon l’onglet actif */}
-    <div className="space-y-6">
+          {/* Contenu selon l’onglet actif */}
+          <div className="space-y-6">
+            {/* Onglet Experiences — version expand inline */}
+            {activeExperienceFilter === "experiences" && (
+              <div className="space-y-8">
+                {experiences.map((exp, index) => {
+                  const id = `exp-${index}`;
+                  const isOpen = expExpand.isOpen(id);
+                  return (
+                    <div key={id} className="flex gap-8 pb-8 last:pb-0">
+                      <div className="w-20 flex-shrink-0">
+                        <span className="text-sm font-medium text-muted-foreground">{exp.year}</span>
+                      </div>
+                      <div className="flex-1 space-y-2">
+                        <button
+                          className="w-full text-left"
+                          onClick={() => expExpand.toggle(id)}
+                          aria-expanded={isOpen}
+                          aria-controls={`${id}-panel`}
+                        >
+                          <div className="flex items-start gap-2">
+                            <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                            <div>
+                              <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                              <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+                              <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
+                            </div>
+                          </div>
+                        </button>
 
-      {/* Onglet Experiences — version expand inline */}
-      {activeExperienceFilter === "experiences" && (
-        <div className="space-y-8">
-          {experiences.map((exp, index) => {
-            const id = `exp-${index}`;
-            const isOpen = expExpand.isOpen(id);
-            return (
-              <div key={id} className="flex gap-8 pb-8 last:pb-0">
-                <div className="w-20 flex-shrink-0">
-                  <span className="text-sm font-medium text-muted-foreground">{exp.year}</span>
-                </div>
-                <div className="flex-1 space-y-2">
-                  <button
-                    className="w-full text-left"
-                    onClick={() => expExpand.toggle(id)}
-                    aria-expanded={isOpen}
-                    aria-controls={`${id}-panel`}
-                  >
-                    <div className="flex items-start gap-2">
-                      <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                      <div>
-                        <h4 className="font-semibold text-foreground">{exp.title}</h4>
-                        <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
-                        <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
+                        <InlineExpand open={isOpen} ariaId={id}>
+                          <div id={`${id}-panel`} className="pt-3 pl-4">
+                            {exp.details?.length ? (
+                              <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                                {exp.details.map((li, i) => (
+                                  <li key={i}>{li}</li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
+                            )}
+                          </div>
+                        </InlineExpand>
                       </div>
                     </div>
-                  </button>
+                  );
+                })}
+              </div>
+            )}
 
-                  <InlineExpand open={isOpen} ariaId={id}>
-                    <div id={`${id}-panel`} className="pt-3 pl-4">
-                      {exp.details?.length ? (
-                        <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
-                          {exp.details.map((li, i) => (
-                            <li key={i}>{li}</li>
-                          ))}
-                        </ul>
-                      ) : (
-                        <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
-                      )}
+            {/* Onglet Continuous Learning */}
+            {activeExperienceFilter === "continuous-learning" && (
+              <div className="space-y-8">
+                {continuousLearning.map((item, index) => (
+                  <div key={index} className="flex gap-8 pb-8 last:pb-0">
+                    <div className="w-20 flex-shrink-0">
+                      <span className="text-sm font-medium text-muted-foreground">{item.year}</span>
                     </div>
-                  </InlineExpand>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
-
-      {/* Onglet Continuous Learning */}
-      {activeExperienceFilter === "continuous-learning" && (
-        <div className="space-y-8">
-          {continuousLearning.map((item, index) => (
-            <div key={index} className="flex gap-8 pb-8 last:pb-0">
-              <div className="w-20 flex-shrink-0">
-                <span className="text-sm font-medium text-muted-foreground">{item.year}</span>
-              </div>
-              <div className="flex-1 space-y-2">
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">{item.title}</h4>
-                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">{item.title}</h4>
+                          <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
+                          <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            </div>
-          ))}
-        </div>
-      )}
+            )}
 
-      {/* Onglet Education */}
-      {activeExperienceFilter === "education" && (
-        <div className="space-y-8">
-          {education.map((edu, index) => (
-            <div key={index} className="flex gap-8 pb-8 last:pb-0">
-              <div className="w-20 flex-shrink-0">
-                <span className="text-sm font-medium text-muted-foreground">{edu.year}</span>
-              </div>
-              <div className="flex-1 space-y-2">
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-foreground">{edu.title}</h4>
-                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
-                    <p className="text-sm text-muted-foreground mt-1">{edu.description}</p>
+            {/* Onglet Education */}
+            {activeExperienceFilter === "education" && (
+              <div className="space-y-8">
+                {education.map((edu, index) => (
+                  <div key={index} className="flex gap-8 pb-8 last:pb-0">
+                    <div className="w-20 flex-shrink-0">
+                      <span className="text-sm font-medium text-muted-foreground">{edu.year}</span>
+                    </div>
+                    <div className="flex-1 space-y-2">
+                      <div className="flex items-start gap-2">
+                        <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                        <div>
+                          <h4 className="font-semibold text-foreground">{edu.title}</h4>
+                          <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
+                          <p className="text-sm text-muted-foreground mt-1">{edu.description}</p>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            </div>
-          ))}
+            )}
+          </div>
+
+          {/* CTA vers la section Resources/Communautés (dans la page) */}
+          <div className="flex justify-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
+              onClick={() => document.getElementById("resources")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              EXPLORE RESOURCES
+              <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
+            </Button>
+          </div>
         </div>
-      )}
-
-    </div>
-
-    {/* CTA vers la section Resources/Communautés (dans la page) */}
-    <div className="flex justify-center mt-12">
-      <Button
-        variant="outline"
-        size="lg"
-        className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
-        onClick={() => document.getElementById("resources")?.scrollIntoView({ behavior: "smooth" })}
-      >
-        EXPLORE RESOURCES
-        <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
-      </Button>
-    </div>
-  </div>
-</section>
+      </section>
 
       <CommunitiesInspoResourcesTools />
 
@@ -655,10 +654,7 @@ export const Home: React.FC = () => {
           onClose={closeModal}
           onNavigate={navigateToProject}
           canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
-          canNavigateNext={
-            selectedProjectIndex !== null &&
-            selectedProjectIndex < filteredProjects.length - 1
-          }
+          canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
           logo={selectedProject.logo}
           title={selectedProject.title}
           subtitle={selectedProject.longDescription}
