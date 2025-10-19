@@ -276,7 +276,7 @@ export const Home: React.FC = () => {
                 </Button>
               <Button
                 size="default"
-                className="bg-contact hover:bg-white text-contact-foreground hover:text-contact transition-colors duration-300"
+                className="bg-contact hover:bg-white text-contact-foreground hover:text-contact border-2 border-white hover:border-white transition-colors duration-300"
                 onClick={() => scrollToSection("contact")}
               >
                 Let&apos;s meet! →
