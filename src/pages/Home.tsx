@@ -172,37 +172,42 @@ const hackathons = [
 
 const continuousLearning = [
   {
+    year: "2025",
     title: "Product Management Intensive Program",
     source: "MAESTRO",
     description:
-      "2025 - I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
+      "I honed my 0→1 product lifecycle management skills. Use cases: Carrefour, Welcome To The Jungle",
     link: "https://maestro.mariaschools.com/formations/devenez-product-manager-formation-a-temps-plein-en-presentiel",
   },
   {
+    year: "2025",
     title: "Building Strategic Foresight Capabilities",
     source: "EDHEC Business School & UNESCO",
-    description: "2025 - I learned  ",
+    description: "I learned strategic foresight methods to anticipate and shape future scenarios",
     link: "https://www.coursera.org/learn/strategic-foresight",
   },
   {
+    year: "2020",
     title: "Service Design: Delivering Integrated Service Design Experiences.",
     source: "The Interaction Design Foundation",
-    description: "2020 - I learned how to value design to conceive full-stack business-oriented experiences",
+    description: "I learned how to value design to conceive full-stack business-oriented experiences",
     link: "https://www.interaction-design.org/courses/service-design-how-to-design-integrated-service-experiences",
   },
   {
+    year: "2019",
     title: "Lion du Samedi (it became Le Promptathon in 2025, which I also attended)",
     source: "Join Lion",
-    description: "2019 - I learned how to work in the start-up universe and innovate better",
+    description: "I learned how to work in the start-up universe and innovate better",
     link: "https://medium.com/join-lion/une-1%C3%A8re-journ%C3%A9e-chez-lion-66040cf097b2",
   },
 ];
 
 const education = [
   {
-    title: "Master’s in Agri-food Business and Entrepreneurship.",
+    year: "2017",
+    title: "Master's in Agri-food Business and Entrepreneurship.",
     school: "IHEDREA",
-    description: "2017 - Focus on food and agricultural entrepreneurship and product strategy",
+    description: "Focus on food and agricultural entrepreneurship and product strategy",
   },
 ];
 
@@ -487,63 +492,93 @@ export const Home: React.FC = () => {
 
       {/* Onglet Experiences — version expand inline */}
       {activeExperienceFilter === "experiences" && (
-        <div className="space-y-4">
+        <div className="space-y-8">
           {experiences.map((exp, index) => {
             const id = `exp-${index}`;
             const isOpen = expExpand.isOpen(id);
             return (
-              <div key={id} className="py-4">
-                <button
-                  className="w-full text-left"
-                  onClick={() => expExpand.toggle(id)}
-                  aria-expanded={isOpen}
-                  aria-controls={`${id}-panel`}
-                >
-                  <h4 className="font-semibold text-foreground">{exp.title}</h4>
-                  <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
-                  <p className="text-sm text-muted-foreground">{exp.description}</p>
-                </button>
+              <div key={id} className="flex gap-8 pb-8 last:pb-0">
+                <div className="w-20 flex-shrink-0">
+                  <span className="text-sm font-medium text-muted-foreground">{exp.year}</span>
+                </div>
+                <div className="flex-1 space-y-2">
+                  <button
+                    className="w-full text-left"
+                    onClick={() => expExpand.toggle(id)}
+                    aria-expanded={isOpen}
+                    aria-controls={`${id}-panel`}
+                  >
+                    <div className="flex items-start gap-2">
+                      <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                      <div>
+                        <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                        <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+                        <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
+                      </div>
+                    </div>
+                  </button>
 
-                <InlineExpand open={isOpen} ariaId={id}>
-                  <div id={`${id}-panel`} className="pt-3">
-                    {exp.details?.length ? (
-                      <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
-                        {exp.details.map((li, i) => (
-                          <li key={i}>{li}</li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
-                    )}
-                  </div>
-                </InlineExpand>
+                  <InlineExpand open={isOpen} ariaId={id}>
+                    <div id={`${id}-panel`} className="pt-3 pl-4">
+                      {exp.details?.length ? (
+                        <ul className="text-sm text-muted-foreground space-y-1 list-disc pl-5">
+                          {exp.details.map((li, i) => (
+                            <li key={i}>{li}</li>
+                          ))}
+                        </ul>
+                      ) : (
+                        <p className="text-sm text-muted-foreground/80 italic">More details soon.</p>
+                      )}
+                    </div>
+                  </InlineExpand>
+                </div>
               </div>
             );
           })}
         </div>
       )}
 
-      {/* Onglet Continuous Learning — ton bloc existant inchangé */}
+      {/* Onglet Continuous Learning */}
       {activeExperienceFilter === "continuous-learning" && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {continuousLearning.map((item, index) => (
-            <div key={index} className="space-y-2">
-              <h4 className="font-semibold text-foreground">{item.title}</h4>
-              <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
-              <p className="text-sm text-muted-foreground">{item.description}</p>
+            <div key={index} className="flex gap-8 pb-8 last:pb-0">
+              <div className="w-20 flex-shrink-0">
+                <span className="text-sm font-medium text-muted-foreground">{item.year}</span>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-start gap-2">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">{item.title}</h4>
+                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{item.source}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{item.description}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
       )}
 
-      {/* Onglet Education — ton bloc existant inchangé */}
+      {/* Onglet Education */}
       {activeExperienceFilter === "education" && (
-        <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div className="space-y-8">
           {education.map((edu, index) => (
-            <div key={index} className="space-y-2">
-              <h4 className="font-semibold text-foreground">{edu.title}</h4>
-              <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
-              <p className="text-sm text-muted-foreground">{edu.description}</p>
+            <div key={index} className="flex gap-8 pb-8 last:pb-0">
+              <div className="w-20 flex-shrink-0">
+                <span className="text-sm font-medium text-muted-foreground">{edu.year}</span>
+              </div>
+              <div className="flex-1 space-y-2">
+                <div className="flex items-start gap-2">
+                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-semibold text-foreground">{edu.title}</h4>
+                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{edu.school}</p>
+                    <p className="text-sm text-muted-foreground mt-1">{edu.description}</p>
+                  </div>
+                </div>
+              </div>
             </div>
           ))}
         </div>
