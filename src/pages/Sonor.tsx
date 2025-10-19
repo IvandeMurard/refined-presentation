@@ -1,68 +1,49 @@
-import { CaseStudyLayout } from "@/components/CaseStudyLayout";
+// src/pages/Sonor.tsx
+import React from "react";
+import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
-import { useNavigate } from "react-router-dom";
-
+import { FilterChips } from "@/components/FilterChips";
 import { useAudience } from "@/hooks/useAudience";
-import { useLanguage } from "@/hooks/useLanguage";
-
-// Ces 3 viennent du dossier racine "components" (en-dehors de src)
-import { CaseImage } from "@components/case/CaseImage"; // named export (ton fichier exporte `export function CaseImage(...)`)
-import CaseTldr from "@components/case/CaseTldr"; // default export (si c’est `export default function ...`)
-import { CTABanner } from "@/components/work/CTABanner"; // named export
+import { useLanguage } from "@/contexts/LanguageContext";
+import { CTABanner } from "@/components/work/CTABanner";
+import CaseTldr from "@/components/case/CaseTldr";
+import { CaseImage } from "@components/case/CaseImage";
 
 import sonorHero from "/img/image-banniere-sonor.jpg";
 
+// ===================== TL;DR BLOCKS =====================
+
 const TLDRBlockFR = () => (
-  <section className="rounded-xl border p-5 bg-card">
-    <h3 className="text-h4 mb-3">TLDR — En bref</h3>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>
-        <b>Durée :</b> 2 ans (hackathon → incubation → prototype)
-      </li>
-      <li>
-        <b>Cible :</b> collectivités, villes et métropoles
-      </li>
-      <li>
-        <b>Rôle :</b> cadrage produit, discovery (30 entretiens), prototype, go-to-market B2G, pilotage dev data
-      </li>
-      <li>
-        <b>Méthodo :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels
-      </li>
-      <li>
-        <b>Résultats :</b> 20 000 € financements, 30 entretiens, 1 prototype, négociations avec plusieurs métropoles
-      </li>
-      <li>
-        <b>Apprentissage clé :</b> cadrer une vision 0→1 et dire non aux idées hors scope
-      </li>
-    </ul>
-  </section>
+  <CaseTldr
+    tone="wttj"
+    title="TL;DR — En bref"
+    items={[
+      <><b>Equipe :</b> 4 co-fondateurs + 1 développeur/data-scientist</>,
+      <><b>Durée :</b> 2 ans (hackathon → incubation → prototype)</>,
+      <><b>Cible :</b> collectivités, villes et métropoles françaises</>,
+      <><b>Rôle :</b> cadrage produit, discovery (20 entretiens), prototypage, go-to-market B2G, commercialisation, pilotage dev data</>,
+      <><b>Méthode :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels</>,
+      <><b>Résultats :</b> 20 000 € financements, 20 entretiens, 1 prototype, échanges commerciaux avec plusieurs métropoles</>,
+      <><b>Apprentissage clé :</b> transformer une problématique en solution, cadrer et livrer une vision produit de 0→1, promouvoir son produit</>,
+    ]}
+  />
 );
 
 const TLDRBlockEN = () => (
-  <section className="rounded-xl border p-5 bg-card">
-    <h3 className="text-h4 mb-3">TLDR — At a glance</h3>
-    <ul className="list-disc pl-5 space-y-1">
-      <li>
-        <b>Duration:</b> 2 years (hackathon → incubation → prototype)
-      </li>
-      <li>
-        <b>Target:</b> cities & metropolitan areas
-      </li>
-      <li>
-        <b>Role:</b> product framing, discovery (30 interviews), prototype, B2G go-to-market, data-dev leadership
-      </li>
-      <li>
-        <b>Method:</b> Agile Lean, Kanban, 2–3 week sprints, monthly milestones
-      </li>
-      <li>
-        <b>Outcomes:</b> €20k grants, 30 interviews, 1 prototype, negotiations with municipalities
-      </li>
-      <li>
-        <b>Key learning:</b> frame a 0→1 vision and say no to out-of-scope ideas
-      </li>
-    </ul>
-  </section>
+  <CaseTldr
+    tone="wttj"
+    title="TL;DR — At a glance"
+    items={[
+      <><b>Team:</b> 4 co-founders + 1 developer/data-scientist</>,
+      <><b>Duration:</b> 2 years (hackathon → incubation → prototype)</>,
+      <><b>Target:</b> French cities & metropolitan areas</>,
+      <><b>Role:</b> product framing, discovery (20 interviews), prototyping, B2G go-to-market, sales, data-dev leadership</>,
+      <><b>Method:</b> Agile Lean, Kanban, 2–3 week sprints, monthly milestones</>,
+      <><b>Outcomes:</b> €20k grants, 20 interviews, 1 prototype, negotiations with municipalities</>,
+      <><b>Key learnings:</b> turning a problem into a solution, framing a 0→1 product vision and promoting our work</>,
+    ]}
+  />
 );
 
 // ===================== DEFAULT CONTENT =====================
@@ -72,35 +53,43 @@ const ContentDefaultFR = () => {
 
   return (
     <div>
-      {/* Section 1: TL;DR + Contexte */}
+      {/* TL;DR en premier */}
+      <div className="mb-10">
+        <TLDRBlockFR />
+      </div>
+
+      {/* Section 1: Contexte */}
       <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
-          <TLDRBlockFR />
-
           <section className="grid md:grid-cols-2 gap-6 items-start">
             <div className="space-y-4">
               <h2 className="text-h3">Contexte & Déclencheur</h2>
               <p>
-                Le projet <b>SONOR</b> naît du <b>Hackathon Recoder l’Habitat #2</b> (victoire, bourse 1 000 €), puis
-                est incubé par <b>Matrice</b> et <b>La Banque des Territoires</b>. Problématique : la{" "}
-                <b>pollution sonore</b>, peu adressée, aux impacts sanitaires et sociaux significatifs.
+                Le projet <b>SONOR</b> naît en octobre 2020 grâce au <b>Hackathon Recoder l'Habitat #2</b> portant sur la thématique de l'Habitat et de la Santé.
+                Lors du hackahton, le constat de la pollution sonore est fait, l'équipe est formée, le travail de définition de la solution et de prototypage commence.
+                24h après, l'équipe Sonor (Emilie, Majda, Benjamin, et moi Ivan) remporte ce hackathon, présentant un outil de diagnostic complet de la pollution sonore dans une ville à partir d'open data : 
+                cartographie, recommandations d'actions publiques, suivi de la réglementation et alertes citoyennes, notre plateforme séduit.
+                Sonor obtient une bourse et un accompagnement par <b>l'Association Loi 1901 Matrice</b> et <b>La Banque des Territoires</b>, l'aventure entrepreneuriale est lancée.
+                Problématique à résoudre : la <b>pollution sonore</b>, 2ème source de nuisances urbaines aux impacts sanitaires, sociaux, et environnementaux significatifs, est invisible, insidieuse et peu adressée.
               </p>
               <p>
-                Ambition : une solution SaaS <b>open data</b> pour permettre aux villes de <b>mesurer, cartographier</b>{" "}
-                et
-                <b> réduire</b> la pollution sonore, avec une approche orientée service public et citoyens.
+                Solution : Offrir une solution SaaS <b>open data</b> pour permettre aux villes de <b>mesurer, cartographier</b>{" "}
+                et <b> réduire</b> durablement la pollution sonore, accompagner les collectivités dans le déploiement de solutions adaptées et favoriser la collaboration entre service public, citoyens, et acteurs privés.
+              </p>
+              <p>
+                Proposition de valeur: Anticiper et agir sur le bruit pour garantir la santé des habitants et l'attractivité des territoires.
               </p>
             </div>
             <CaseImage
               alt="Hackathon & partenaires"
-              desktopSrc="/SONOR/partenaires-desktop.png" // TODO
-              caption="Hackathon & écosystème d'accompagnement"
+              desktopSrc="/img/sonor-hackathon.jpeg"
+              caption="Ecosystème d'accompagnement"
             />
           </section>
 
-          <section className="rounded-xl border p-6 bg-card">
+          <section className="rounded-xl p-6 bg-card">
             <p className="text-2xl italic">
-              “La pollution sonore est une nuisance réelle, dangereuse, encore trop peu adressée.”
+              "La pollution sonore est une nuisance réelle, dangereuse, encore trop peu adressée."
             </p>
           </section>
         </div>
@@ -113,12 +102,12 @@ const ContentDefaultFR = () => {
           <div className="grid md:grid-cols-5 gap-4">
             {[
               "Cadrage produit (vision, roadmap, business model)",
-              "Discovery (30 entretiens : collectivités, ministères, bailleurs, associations)",
+              "Discovery (20 entretiens : collectivités, ministères, bailleurs, associations, experts techniques)",
               "Prototype (UX/UI Figma, cartographies open data)",
               "Go-to-market B2G (ciblage, cold-calling, rendez-vous avec élus, propals commerciales)",
               "Pilotage dev data scientist (sprints Kanban, jalons mensuels)",
             ].map((item) => (
-              <div key={item} className="rounded-xl border p-4 bg-card">
+              <div key={item} className="rounded-xl p-4 bg-card">
                 <p className="text-sm">{item}</p>
               </div>
             ))}
@@ -132,12 +121,12 @@ const ContentDefaultFR = () => {
           <h2 className="text-h3">Process & Méthodologie (Agile Lean)</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { t: "Discovery", d: "Analyse marché, 30+ entretiens, personas" },
+              { t: "Discovery", d: "Analyse marché, 20+ entretiens, personas" },
               { t: "Prototype", d: "Cartographies open data, UX/UI sur Figma" },
               { t: "Go-to-market", d: "Pivot promoteurs → collectivités, RDV métropoles" },
               { t: "Cadence", d: "Sprints 2–3 semaines, review & reporting mensuel" },
             ].map((s) => (
-              <div key={s.t} className="rounded-xl border p-5 bg-card">
+              <div key={s.t} className="rounded-xl p-5 bg-card">
                 <h4 className="font-semibold mb-1">{s.t}</h4>
                 <p className="text-sm text-muted-foreground">{s.d}</p>
               </div>
@@ -146,7 +135,7 @@ const ContentDefaultFR = () => {
 
           <CaseImage
             alt="Extrait cartographie prototype"
-            desktopSrc="/SONOR/carto-proto-desktop.png" // TODO
+            desktopSrc="/img/sonor_platform_desktop.png"
             caption="Prototype — Cartographie open data (extrait)"
           />
         </div>
@@ -160,39 +149,33 @@ const ContentDefaultFR = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { v: "20 000 €", l: "Financements obtenus" },
-              { v: "30", l: "Entretiens qualitatifs" },
+              { v: "20", l: "Entretiens qualitatifs" },
               { v: "1", l: "Prototype cartographique" },
             ].map((k) => (
-              <div key={k.l} className="bg-card p-6 rounded-2xl border">
+              <div key={k.l} className="bg-card p-6 rounded-2xl">
                 <div className="text-4xl font-extrabold mb-2">{k.v}</div>
                 <div className="text-muted-foreground">{k.l}</div>
               </div>
             ))}
           </div>
 
-          <CaseImage
-            alt="Villes & partenaires rencontrés"
-            desktopSrc="/SONOR/partenaires-villes-desktop.png" // TODO
-            caption="Aix-Marseille, Paris (15e, 19e), Annecy, Nice, Arras, Houilles… + BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministère de l’Écologie"
-          />
-
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              "Durée 2 ans (au-delà d’un hackathon)",
+              "Durée 2 ans (au-delà d'un hackathon)",
               "Cadre institutionnel (Banque des Territoires, Matrice)",
               "Enjeu santé/environnement/citoyenneté",
               "Approche data-driven (open data, engagement citoyen)",
             ].map((d) => (
-              <div key={d} className="rounded-xl border p-4 bg-card">
+              <div key={d} className="rounded-xl p-4 bg-card">
                 <p className="text-sm">{d}</p>
               </div>
             ))}
           </div>
 
           <CTABanner
-            title="Rencontrons-nous"
-            description="Échangeons sur vos besoins produits dans le secteur public ou data/impact"
-            ctaText="Contact"
+            title="Vous voulez en savoir plus ?"
+            description="Échangeons sur vos besoins produits"
+            ctaText="Rencontrons-nous"
             onClick={() => navigate("/Contact")}
             className="my-2"
           />
@@ -204,17 +187,15 @@ const ContentDefaultFR = () => {
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Apprentissages</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="rounded-xl border p-5 bg-card">
+            <div className="rounded-xl p-5 bg-card">
               <h4 className="font-semibold mb-2">Pratiques</h4>
               <ul className="list-disc pl-5 space-y-1 text-sm">
                 <li>0→1 complet : discovery → delivery → commercial</li>
-                <li>
-                  Priorisation et <b>dire non</b> aux idées hors scope
-                </li>
+                <li>Priorisation et <b>dire non</b> aux idées hors scope</li>
                 <li>Go-to-market B2G (élus, mairies, métropoles)</li>
               </ul>
             </div>
-            <div className="rounded-xl border p-5 bg-card">
+            <div className="rounded-xl p-5 bg-card">
               <h4 className="font-semibold mb-2">Personnels</h4>
               <ul className="list-disc pl-5 space-y-1 text-sm">
                 <li>Goût confirmé pour les produits à impact</li>
@@ -224,10 +205,9 @@ const ContentDefaultFR = () => {
             </div>
           </div>
 
-          <section className="rounded-xl border p-6 bg-card">
+          <section className="rounded-xl p-6 bg-card">
             <p className="text-lg">
-              <b>Conclusion.</b> SONOR a forgé ma pratique de PM : cadrage, exécution et apprentissage continus dans un
-              cadre mêlant <b>innovation, data et service public</b>.
+              <b>Conclusion.</b> SONOR a confirmé mon goût pour la transformation de problématiques en solutions data-driven.
             </p>
           </section>
         </div>
@@ -241,18 +221,20 @@ const ContentDefaultEN = () => {
 
   return (
     <div>
-      {/* Section 1: TL;DR + Context */}
+      {/* TL;DR first */}
+      <div className="mb-10">
+        <TLDRBlockEN />
+      </div>
+
+      {/* Section 1: Context */}
       <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
-          <TLDRBlockEN />
-
           <section className="grid md:grid-cols-2 gap-6 items-start">
             <div className="space-y-4">
               <h2 className="text-h3">Context & Trigger</h2>
               <p>
-                <b>SONOR</b> started with the <b>“Recoder l’Habitat #2”</b> hackathon (win, €1,000 grant), then was
-                incubated by
-                <b> Matrice</b> and <b>Banque des Territoires</b>. The challenge: <b>noise pollution</b>—an
+                <b>SONOR</b> started with the <b>"Recoder l'Habitat #2"</b> hackathon (win, €1,000 grant), then was
+                incubated by <b> Matrice</b> and <b>Banque des Territoires</b>. The challenge: <b>noise pollution</b>—an
                 under-addressed public health issue with strong societal impact.
               </p>
               <p>
@@ -262,13 +244,13 @@ const ContentDefaultEN = () => {
             </div>
             <CaseImage
               alt="Hackathon & partners"
-              desktopSrc="/SONOR/partners-desktop.png" // TODO
+              desktopSrc="/img/sonor-hackathon.jpeg"
               caption="Hackathon & incubation ecosystem"
             />
           </section>
 
-          <section className="rounded-xl border p-6 bg-card">
-            <p className="text-2xl italic">“Noise pollution is real and harmful — yet still under-addressed.”</p>
+          <section className="rounded-xl p-6 bg-card">
+            <p className="text-2xl italic">"Noise pollution is real and harmful — yet still under-addressed."</p>
           </section>
         </div>
       </div>
@@ -280,12 +262,12 @@ const ContentDefaultEN = () => {
           <div className="grid md:grid-cols-5 gap-4">
             {[
               "Product framing (vision, roadmap, business model)",
-              "Discovery (30 interviews: municipalities, ministries, housing bodies, associations)",
+              "Discovery (20 interviews: municipalities, ministries, housing bodies, associations)",
               "Prototype (Figma UX/UI, open-data mapping)",
               "B2G go-to-market (targeting, cold-calling, meetings with elected officials, proposals)",
               "Data-dev leadership (Kanban sprints, monthly milestones)",
             ].map((item) => (
-              <div key={item} className="rounded-xl border p-4 bg-card">
+              <div key={item} className="rounded-xl p-4 bg-card">
                 <p className="text-sm">{item}</p>
               </div>
             ))}
@@ -299,12 +281,12 @@ const ContentDefaultEN = () => {
           <h2 className="text-h3">Process & Method (Agile Lean)</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {[
-              { t: "Discovery", d: "Market analysis, 30+ interviews, personas" },
+              { t: "Discovery", d: "Market analysis, 20+ interviews, personas" },
               { t: "Prototype", d: "Open-data mapping, UX/UI in Figma" },
               { t: "Go-to-market", d: "Pivot developers → municipalities, first meetings" },
               { t: "Cadence", d: "2–3 week sprints, monthly reviews & reporting" },
             ].map((s) => (
-              <div key={s.t} className="rounded-xl border p-5 bg-card">
+              <div key={s.t} className="rounded-xl p-5 bg-card">
                 <h4 className="font-semibold mb-1">{s.t}</h4>
                 <p className="text-sm text-muted-foreground">{s.d}</p>
               </div>
@@ -313,7 +295,7 @@ const ContentDefaultEN = () => {
 
           <CaseImage
             alt="Mapping prototype"
-            desktopSrc="/SONOR/map-proto-desktop.png" // TODO
+            desktopSrc="/img/sonor_platform_desktop.png"
             caption="Prototype — Open-data mapping (excerpt)"
           />
         </div>
@@ -327,21 +309,15 @@ const ContentDefaultEN = () => {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { v: "€20k", l: "Grants obtained" },
-              { v: "30", l: "Qualitative interviews" },
+              { v: "20", l: "Qualitative interviews" },
               { v: "1", l: "Mapping prototype" },
             ].map((k) => (
-              <div key={k.l} className="bg-card p-6 rounded-2xl border">
+              <div key={k.l} className="bg-card p-6 rounded-2xl">
                 <div className="text-4xl font-extrabold mb-2">{k.v}</div>
                 <div className="text-muted-foreground">{k.l}</div>
               </div>
             ))}
           </div>
-
-          <CaseImage
-            alt="Cities & partners"
-            desktopSrc="/SONOR/partners-cities-desktop.png" // TODO
-            caption="Aix-Marseille, Paris (15th, 19th), Annecy, Nice, Arras, Houilles… + BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministry of Ecology"
-          />
 
           <div className="grid md:grid-cols-4 gap-4">
             {[
@@ -350,14 +326,14 @@ const ContentDefaultEN = () => {
               "Societal/health/environment impact",
               "Data-driven approach (open data, citizen engagement)",
             ].map((d) => (
-              <div key={d} className="rounded-xl border p-4 bg-card">
+              <div key={d} className="rounded-xl p-4 bg-card">
                 <p className="text-sm">{d}</p>
               </div>
             ))}
           </div>
 
           <CTABanner
-            title="Let’s connect"
+            title="Let's connect"
             description="Discussing public-sector or data/impact product challenges"
             ctaText="Contact"
             onClick={() => navigate("/Contact")}
@@ -371,17 +347,15 @@ const ContentDefaultEN = () => {
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Learnings</h2>
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="rounded-xl border p-5 bg-card">
+            <div className="rounded-xl p-5 bg-card">
               <h4 className="font-semibold mb-2">Practical</h4>
               <ul className="list-disc pl-5 space-y-1 text-sm">
                 <li>End-to-end 0→1 (discovery → delivery → commercial)</li>
-                <li>
-                  Prioritization & <b>saying no</b> to out-of-scope ideas
-                </li>
+                <li>Prioritization & <b>saying no</b> to out-of-scope ideas</li>
                 <li>B2G go-to-market (elected officials, cities, metros)</li>
               </ul>
             </div>
-            <div className="rounded-xl border p-5 bg-card">
+            <div className="rounded-xl p-5 bg-card">
               <h4 className="font-semibold mb-2">Personal</h4>
               <ul className="list-disc pl-5 space-y-1 text-sm">
                 <li>Affinity for impact-driven products confirmed</li>
@@ -391,7 +365,7 @@ const ContentDefaultEN = () => {
             </div>
           </div>
 
-          <section className="rounded-xl border p-6 bg-card">
+          <section className="rounded-xl p-6 bg-card">
             <p className="text-lg">
               <b>Conclusion.</b> SONOR shaped my PM practice — framing, execution and learning in a context blending
               <b> innovation, data and public service</b>.
@@ -407,18 +381,22 @@ const ContentDefaultEN = () => {
 
 const ContentPMFR = () => (
   <div>
+    {/* TL;DR en premier */}
+    <div className="mb-10">
+      <TLDRBlockFR />
+    </div>
+
     <div className="py-16 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto space-y-10">
-        <CaseTldr />
         <section className="space-y-4">
           <h2 className="text-h3">Process PM & Priorisation</h2>
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              ["Discovery", "30 entretiens, JTBD, critères décisionnels collectivités"],
+              ["Discovery", "20 entretiens, JTBD, critères décisionnels collectivités"],
               ["Prototype", "Cartographie open data, parcours décideur, livrables Figma"],
               ["GTM B2G", "Ciblage mairies/métropoles, séquence mail/call, RDV élus"],
             ].map(([h, d]) => (
-              <div key={h} className="rounded-xl border p-5 bg-card">
+              <div key={h} className="rounded-xl p-5 bg-card">
                 <h4 className="font-semibold mb-1">{h}</h4>
                 <p className="text-sm text-muted-foreground">{d}</p>
               </div>
@@ -431,11 +409,11 @@ const ContentPMFR = () => (
           <div className="grid md:grid-cols-4 gap-4">
             {[
               ["€20k", "Financements"],
-              ["30", "Entretiens"],
+              ["20", "Entretiens"],
               ["1", "Prototype"],
               ["8+", "Villes & métropoles rencontrées"],
             ].map(([v, l]) => (
-              <div key={l} className="bg-card p-6 rounded-2xl border">
+              <div key={l} className="bg-card p-6 rounded-2xl">
                 <div className="text-3xl font-extrabold mb-1">{v}</div>
                 <div className="text-muted-foreground text-sm">{l}</div>
               </div>
@@ -447,7 +425,7 @@ const ContentPMFR = () => (
           <h2 className="text-h3">Risques & Parades</h2>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <b>Disponibilité/qualité de l’open data</b> → normalisation, fallback partenaires capteurs
+              <b>Disponibilité/qualité de l'open data</b> → normalisation, fallback partenaires capteurs
             </li>
             <li>
               <b>Adoption côté ville</b> → focus ROI concret (priorisation interventions, coûts évités)
@@ -464,18 +442,22 @@ const ContentPMFR = () => (
 
 const ContentPMEN = () => (
   <div>
+    {/* TL;DR first */}
+    <div className="mb-10">
+      <TLDRBlockEN />
+    </div>
+
     <div className="py-16 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto space-y-10">
-        <CaseTldr />
         <section className="space-y-4">
           <h2 className="text-h3">PM Process & Prioritization</h2>
           <div className="grid md:grid-cols-3 gap-4">
             {[
-              ["Discovery", "30 interviews, JTBD, municipal decision criteria"],
+              ["Discovery", "20 interviews, JTBD, municipal decision criteria"],
               ["Prototype", "Open-data mapping, decision-maker journey, Figma deliverables"],
               ["B2G GTM", "Targeting municipalities, mail/call sequence, meetings with officials"],
             ].map(([h, d]) => (
-              <div key={h} className="rounded-xl border p-5 bg-card">
+              <div key={h} className="rounded-xl p-5 bg-card">
                 <h4 className="font-semibold mb-1">{h}</h4>
                 <p className="text-sm text-muted-foreground">{d}</p>
               </div>
@@ -488,11 +470,11 @@ const ContentPMEN = () => (
           <div className="grid md:grid-cols-4 gap-4">
             {[
               ["€20k", "Grants"],
-              ["30", "Interviews"],
+              ["20", "Interviews"],
               ["1", "Prototype"],
               ["8+", "Cities & metros engaged"],
             ].map(([v, l]) => (
-              <div key={l} className="bg-card p-6 rounded-2xl border">
+              <div key={l} className="bg-card p-6 rounded-2xl">
                 <div className="text-3xl font-extrabold mb-1">{v}</div>
                 <div className="text-muted-foreground text-sm">{l}</div>
               </div>
@@ -523,32 +505,28 @@ const ContentPMEN = () => (
 
 const ContentDesignerFR = () => (
   <div>
+    {/* TL;DR en premier */}
+    <div className="mb-10">
+      <TLDRBlockFR />
+    </div>
+
     <div className="py-16 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto space-y-10">
-        <CaseTldr />
-
         <section className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6 items-start">
-            <div className="space-y-4">
-              <h2 className="text-h3">Discovery & Research</h2>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>30 entretiens (collectivités, bailleurs, ministères, experts)</li>
-                <li>JTBD décideurs publics, contraintes réglementaires & data</li>
-                <li>Parcours utilisateur cible : élu/chargé de mission</li>
-              </ul>
-            </div>
-            <CaseImage
-              alt="JTBD & verbatims"
-              desktopSrc="/SONOR/jtbd-desktop.png" // TODO
-              caption="JTBD & verbatims décideurs"
-            />
+          <div className="space-y-4">
+            <h2 className="text-h3">Discovery & Research</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>20 entretiens (collectivités, bailleurs, ministères, experts)</li>
+              <li>JTBD décideurs publics, contraintes réglementaires & data</li>
+              <li>Parcours utilisateur cible : élu/chargé de mission</li>
+            </ul>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-h4">Prototype & Cartographie</h3>
             <CaseImage
               alt="Parcours / wireframes Figma"
-              desktopSrc="/SONOR/ux-flow-desktop.png" // TODO
+              desktopSrc="/img/sonor_platform_desktop.png"
               caption="Parcours décision & wireframes (Figma)"
             />
           </div>
@@ -560,10 +538,10 @@ const ContentDesignerFR = () => (
             {[
               ["Carto lisible", "Palette perceptive & focus zones chaudes"],
               ["Infos actionnables", "Indicateurs prioritaires (heures, axes, hotspots)"],
-              ["Parcours décideur", "De la carte à l’action (scénarios d’intervention)"],
+              ["Parcours décideur", "De la carte à l'action (scénarios d'intervention)"],
               ["Frugalité", "UI sobre, mise en avant des données publiques"],
             ].map(([h, d]) => (
-              <div key={h} className="rounded-xl border p-4 bg-card">
+              <div key={h} className="rounded-xl p-4 bg-card">
                 <h4 className="font-semibold mb-1">{h}</h4>
                 <p className="text-sm text-muted-foreground">{d}</p>
               </div>
@@ -577,32 +555,28 @@ const ContentDesignerFR = () => (
 
 const ContentDesignerEN = () => (
   <div>
+    {/* TL;DR first */}
+    <div className="mb-10">
+      <TLDRBlockEN />
+    </div>
+
     <div className="py-16 px-4 md:px-8 bg-background">
       <div className="max-w-6xl mx-auto space-y-10">
-        <CaseTldr />
-
         <section className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6 items-start">
-            <div className="space-y-4">
-              <h2 className="text-h3">Discovery & Research</h2>
-              <ul className="list-disc pl-5 space-y-2">
-                <li>30 interviews (cities, housing, ministries, experts)</li>
-                <li>Public decision-maker JTBD, regulatory/data constraints</li>
-                <li>Target journey: elected official / mission officer</li>
-              </ul>
-            </div>
-            <CaseImage
-              alt="JTBD & verbatims"
-              desktopSrc="/SONOR/jtbd-desktop.png" // TODO
-              caption="JTBD & key verbatims"
-            />
+          <div className="space-y-4">
+            <h2 className="text-h3">Discovery & Research</h2>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>20 interviews (cities, housing, ministries, experts)</li>
+              <li>Public decision-maker JTBD, regulatory/data constraints</li>
+              <li>Target journey: elected official / mission officer</li>
+            </ul>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-h4">Prototype & Mapping</h3>
             <CaseImage
               alt="User flow / Figma wireframes"
-              desktopSrc="/SONOR/ux-flow-desktop.png" // TODO
+              desktopSrc="/img/sonor_platform_desktop.png"
               caption="Decision flow & wireframes (Figma)"
             />
           </div>
@@ -617,7 +591,7 @@ const ContentDesignerEN = () => (
               ["Decision journey", "From map to action (intervention scenarios)"],
               ["Frugality", "Sober UI, public data forward"],
             ].map(([h, d]) => (
-              <div key={h} className="rounded-xl border p-4 bg-card">
+              <div key={h} className="rounded-xl p-4 bg-card">
                 <h4 className="font-semibold mb-1">{h}</h4>
                 <p className="text-sm text-muted-foreground">{d}</p>
               </div>
@@ -633,59 +607,70 @@ const ContentDesignerEN = () => (
 
 export default function SonorPage() {
   const navigate = useNavigate();
-  const { activeAudience, setActiveAudience } = useAudience("default");
-  const { language, setLanguage } = useLanguage("fr");
+  const { activeAudience, setActiveAudience, audiences } = useAudience('default');
+  const { language } = useLanguage();
 
-  const audienceContentFR = [
-    { id: "default", label: "Vue d’ensemble", content: <ContentDefaultFR /> },
-    { id: "pm", label: "Product Manager", content: <ContentPMFR /> },
-    { id: "design", label: "Designer", content: <ContentDesignerFR /> },
-  ];
-
-  const audienceContentEN = [
-    { id: "default", label: "Overview", content: <ContentDefaultEN /> },
-    { id: "pm", label: "Product Manager", content: <ContentPMEN /> },
-    { id: "design", label: "Designer", content: <ContentDesignerEN /> },
-  ];
-
-  const content = language === "fr" ? audienceContentFR : audienceContentEN;
-
-  const title =
-    language === "fr"
-      ? "SONOR — Réduire la pollution sonore grâce à l’open data"
-      : "SONOR — Reducing noise pollution with open data";
-
-  const subtitle =
-    language === "fr"
-      ? "Deux ans d’entrepreneuriat : du hackathon au prototype, avec Matrice & la Banque des Territoires"
-      : "Two-year journey: from hackathon to prototype, with Matrice & Banque des Territoires";
-
-  const perspectiveLabel = language === "fr" ? "Choisissez votre perspective" : "Choose your perspective";
-
-  const scrollToSection = (id: string) => {
-    if (id === "home") navigate("/");
+  // Contenu selon langue + audience
+  const getContent = () => {
+    if (activeAudience === 'pm') {
+      return language === 'fr' ? <ContentPMFR /> : <ContentPMEN />;
+    }
+    if (activeAudience === 'design') {
+      return language === 'fr' ? <ContentDesignerFR /> : <ContentDesignerEN />;
+    }
+    // Default
+    return language === 'fr' ? <ContentDefaultFR /> : <ContentDefaultEN />;
   };
 
+  const title = language === 'fr'
+    ? "SONOR — Réduire la pollution sonore grâce à l'open data"
+    : "SONOR — Reducing noise pollution with open data";
+
+  const subtitle = language === 'fr'
+    ? "Deux ans d'entrepreneuriat : du hackathon au prototype, avec Matrice & la Banque des Territoires"
+    : "Two-year journey: from hackathon to prototype, with Matrice & Banque des Territoires";
+
   return (
-    <>
+    <div>
       <Navigation />
-      <CaseStudyLayout
-        title={title}
-        subtitle={subtitle}
-        heroImage={sonorHero}
-        audiences={content}
-        activeAudience={activeAudience}
-        onAudienceChange={setActiveAudience}
-        language={language}
-        onLanguageChange={setLanguage}
-        perspectiveLabel={perspectiveLabel}
-      />
+
+      {/* Hero section */}
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+        <img
+          src={sonorHero}
+          alt="SONOR hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
+        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
+          <h1 className="text-3xl md:text-5xl font-bold mb-3">{title}</h1>
+          <p className="text-lg md:text-xl text-white/90">{subtitle}</p>
+        </div>
+      </section>
+
+      {/* Audience filter chips */}
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <FilterChips
+          chips={audiences}
+          activeChip={activeAudience}
+          onChipChange={setActiveAudience}
+        />
+      </div>
+
+      {/* Content dynamique selon audience ET langue */}
+      <div className="max-w-6xl mx-auto px-4 pb-16">
+        {getContent()}
+      </div>
+
       <Footer
         siteName="Ivan de Murard"
-        tagline="Product Designer & Manager crafting user-centered experiences"
-        sections={[{ id: "home", label: "Back to Portfolio" }]}
-        onSectionClick={scrollToSection}
+        tagline={language === 'fr' 
+          ? "Product Designer & Manager créant des expériences centrées sur l'utilisateur"
+          : "Product Designer & Manager crafting user-centered experiences"
+        }
+        sections={[{ id: "home", label: language === 'fr' ? "Retour au Portfolio" : "Back to Portfolio" }]}
+        onSectionClick={() => navigate("/")}
       />
-    </>
+    </div>
   );
 }

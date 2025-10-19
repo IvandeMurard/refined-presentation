@@ -2,6 +2,7 @@
 import React, { type FC, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ThemeToggle } from "./ThemeToggle";
+import { useLanguage } from "@/contexts/LanguageContext";
 import { designTokens } from "@/design-tokens";
 
 const COLORS = {
@@ -22,6 +23,7 @@ const navLinkBase =
 export const Navigation: FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const { language, setLanguage } = useLanguage();
 
   // --- Scroll state (glass elevation)
   const [isScrolled, setIsScrolled] = useState(false);
@@ -192,7 +194,12 @@ export const Navigation: FC = () => {
             <div className="flex items-center gap-3">
               <div className="hidden sm:flex items-center gap-2 text-sm">
                 <button
-                  className="h-9 px-2 rounded-lg font-medium text-foreground/80 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                  className={`h-9 px-2 rounded-lg font-medium transition-all ${
+                    language === 'en' 
+                      ? 'text-foreground font-bold' 
+                      : 'text-foreground/70 hover:text-foreground'
+                  } hover:bg-black/[0.04] dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30`}
+                  onClick={() => setLanguage('en')}
                   aria-label="Switch to English"
                 >
                   EN
@@ -201,7 +208,12 @@ export const Navigation: FC = () => {
                   |
                 </span>
                 <button
-                  className="h-9 px-2 rounded-lg font-medium text-foreground/70 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg:white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30"
+                  className={`h-9 px-2 rounded-lg font-medium transition-all ${
+                    language === 'fr' 
+                      ? 'text-foreground font-bold' 
+                      : 'text-foreground/70 hover:text-foreground'
+                  } hover:bg-black/[0.04] dark:hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30`}
+                  onClick={() => setLanguage('fr')}
                   aria-label="Passer en français"
                 >
                   FR

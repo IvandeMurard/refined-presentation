@@ -26,15 +26,15 @@ export default function CaseTldr({
   const isWttj = tone === "wttj";
 
   return (
-    <aside
-      className={clsx(
-        "rounded-2xl p-5 md:p-6 lg:p-8 border shadow-sm",
-        isWttj ? "border-transparent" : "bg-card",
-        className
-      )}
-      style={isWttj ? { backgroundColor: "#FEE440" } : undefined}
-      aria-label="Project TL;DR"
-    >
+  <aside
+    className={clsx(
+      "rounded-2xl p-5 md:p-6 lg:p-8 shadow-sm",
+      isWttj ? "" : "bg-card",
+      className
+    )}
+    style={isWttj ? { backgroundColor: "#FEE440" } : undefined}
+    aria-label="Project TL;DR"
+  >
       <h3 className="text-lg font-bold mb-4 text-foreground">{title}</h3>
 
       <ul className="list-disc pl-5 space-y-2 text-sm md:text-base leading-relaxed">
