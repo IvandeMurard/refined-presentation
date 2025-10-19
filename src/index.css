@@ -228,9 +228,10 @@
   }
   
   .chip-filter:hover {
-    background-color: hsl(224 64% 96%);
+    background-color: hsl(var(--primary) / 0.1);
     border-color: hsl(var(--primary));
     border-width: 1.5px;
+    color: hsl(var(--primary));
     transform: translateY(-1px);
     box-shadow: 0 2px 8px rgba(30, 59, 138, 0.12);
   }
