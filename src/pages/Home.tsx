@@ -635,9 +635,7 @@ export const Home: React.FC = () => {
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Let's design a meaningful future</h2>
 
-          <p className="text-lg max-w-2xl mx-auto opacity-90">
-            Do you have an idea to validate or a product to optimize? Let's discuss and explore opportunities together.
-          </p>
+          <p className="text-lg max-w-2xl mx-auto opacity-90">Let's explore opportunities together.</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="bg-card hover:bg-card/90 text-contact">
