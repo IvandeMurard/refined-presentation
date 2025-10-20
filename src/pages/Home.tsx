@@ -365,7 +365,6 @@ export const Home: React.FC = () => {
                   tagline="De l'idée au produit validé"
                   badge={project.tags[0] || "Project"}
                   image={project.image}
-                  videoSrc="/sonor_card_illustration.mp4"
                   onClick={() => openModal(index)}
                 />
               ) : (
@@ -396,7 +395,6 @@ export const Home: React.FC = () => {
                     tagline="De l'idée au produit validé"
                     badge={project.tags[0] || "Project"}
                     image={project.image}
-                    videoSrc="/sonor_card_illustration.mp4"
                     onClick={() => openModal(index)}
                   />
                 ) : (
