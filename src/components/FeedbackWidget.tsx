@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 type Provider =
   | { type: "form"; url: string } // ex: Formspree/Getform/Netlify Forms
@@ -27,15 +28,34 @@ type FeedbackWidgetProps = {
 
 export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
   provider,
-  buttonLabel = "✍️ Avis",
-  modalTitle = "Qu’est-ce qu’on peut améliorer ?",
-  submitLabel = "Envoyer",
-  cancelLabel = "Annuler",
+  buttonLabel,
+  modalTitle,
+  submitLabel,
+  cancelLabel,
   nudge = { enabled: true, delayMs: 25000, scrollPct: 0.8 },
   storageKeys = { shown: "fb_nudge_shown", submitted: "fb_submitted" },
   includeMeta = true,
   className
 }) => {
+  // --- Language
+  const { isFrench } = useLanguage();
+  
+  // --- Translations
+  const t = {
+    buttonLabel: isFrench ? "✍️ Avis" : "✍️ Tips",
+    modalTitle: isFrench ? "Qu'est-ce qu'on peut améliorer ?" : "Any feedback to help improve the site?",
+    feedbackPlaceholder: isFrench ? "Votre retour (libre)..." : "Your feedback...",
+    namePlaceholder: isFrench ? "Nom (facultatif)" : "Name (optional)",
+    emailPlaceholder: isFrench ? "Email (facultatif)" : "Email (optional)",
+    submitLabel: isFrench ? "Envoyer" : "Send",
+    cancelLabel: isFrench ? "Annuler" : "Cancel",
+    sendingLabel: isFrench ? "Envoi…" : "Sending…",
+    successMessage: isFrench ? "Merci pour votre retour !" : "Thanks for your feedback!",
+    nudgeText: isFrench ? "Une idée pour améliorer ce portfolio ?" : "Got an idea to improve this portfolio?",
+    nudgeButton: isFrench ? "Laisser un avis" : "Leave feedback",
+    closeLabel: isFrench ? "Fermer" : "Close"
+  };
+  
   // --- State & refs
   const [open, setOpen] = useState(false);
   const [success, setSuccess] = useState(false);
@@ -121,7 +141,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
     // enrich meta
     if (includeMeta) {
       fd.set("page", `${location.pathname}${location.search}`);
-      fd.set("lang", navigator.language || "fr");
+      fd.set("lang", navigator.language || "en");
       fd.set("theme", isDark ? "dark" : "light");
       fd.set("ua", navigator.userAgent || "");
     }
@@ -159,7 +179,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
       <button
         aria-controls="fb-modal"
         aria-expanded={open}
-        aria-label="Donner un avis"
+        aria-label={buttonLabel || t.buttonLabel}
         onClick={() => setOpen(true)}
         className={className}
         style={{
@@ -177,7 +197,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           transition: "all 0.2s ease"
         }}
       >
-        {buttonLabel}
+        {buttonLabel || t.buttonLabel}
       </button>
 
       {/* Nudge bas de page */}
@@ -201,7 +221,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
             boxShadow: "0 6px 24px rgba(0,0,0,.12)"
           }}
         >
-          <span style={{ font: "500 14px/1.2 system-ui" }}>Une idée pour améliorer ce portfolio&nbsp;?</span>
+          <span style={{ font: "500 14px/1.2 system-ui" }}>{t.nudgeText}</span>
           <button
             onClick={() => {
               setNudgeVisible(false);
@@ -216,10 +236,10 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
               font: "600 12px/1.2 system-ui"
             }}
           >
-            Laisser un avis
+            {t.nudgeButton}
           </button>
           <button
-            aria-label="Fermer"
+            aria-label={t.closeLabel}
             onClick={() => setNudgeVisible(false)}
             style={{ border: 0, background: "transparent", fontSize: 16, lineHeight: 1 }}
           >
@@ -259,10 +279,10 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
               <h2 id="fb-title" style={{ margin: 0, font: "600 16px/1.3 system-ui" }}>
-                {modalTitle}
+                {modalTitle || t.modalTitle}
               </h2>
               <button
-                aria-label="Fermer"
+                aria-label={t.closeLabel}
                 onClick={() => setOpen(false)}
                 style={{ border: 0, background: "transparent", fontSize: 18, lineHeight: 1 }}
               >
@@ -283,7 +303,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                 <textarea
                   ref={textareaRef}
                   name="feedback"
-                  placeholder="Votre retour (libre)..."
+                  placeholder={t.feedbackPlaceholder}
                   required
                   rows={5}
                   style={{
@@ -292,21 +312,41 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     borderRadius: 8,
                     padding: 10,
                     font: "400 14px/1.5 system-ui",
-                    resize: "vertical"
+                    resize: "vertical",
+                    background: "var(--surface,#fff)",
+                    color: "var(--text,#111)"
                   }}
                 />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Email (facultatif)"
-                  style={{
-                    width: "100%",
-                    border: "1px solid var(--border,#e5e7eb)",
-                    borderRadius: 8,
-                    padding: 10,
-                    font: "400 14px/1.5 system-ui"
-                  }}
-                />
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder={t.namePlaceholder}
+                    style={{
+                      width: "100%",
+                      border: "1px solid var(--border,#e5e7eb)",
+                      borderRadius: 8,
+                      padding: 10,
+                      font: "400 14px/1.5 system-ui",
+                      background: "var(--surface,#fff)",
+                      color: "var(--text,#111)"
+                    }}
+                  />
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder={t.emailPlaceholder}
+                    style={{
+                      width: "100%",
+                      border: "1px solid var(--border,#e5e7eb)",
+                      borderRadius: 8,
+                      padding: 10,
+                      font: "400 14px/1.5 system-ui",
+                      background: "var(--surface,#fff)",
+                      color: "var(--text,#111)"
+                    }}
+                  />
+                </div>
                 <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", marginTop: 4 }}>
                   <button
                     type="button"
@@ -316,10 +356,11 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       background: "transparent",
                       padding: "8px 12px",
                       borderRadius: 8,
-                      font: "500 14px/1.2 system-ui"
+                      font: "500 14px/1.2 system-ui",
+                      color: "var(--text,#111)"
                     }}
                   >
-                    {cancelLabel}
+                    {cancelLabel || t.cancelLabel}
                   </button>
                   <button
                     type="submit"
@@ -334,7 +375,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       opacity: loading ? 0.8 : 1
                     }}
                   >
-                    {loading ? "Envoi…" : submitLabel}
+                    {loading ? t.sendingLabel : (submitLabel || t.submitLabel)}
                   </button>
                 </div>
                 {/* champs meta (provider form) */}
@@ -348,7 +389,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                 )}
               </form>
             ) : (
-              <p style={{ margin: "8px 0 0", font: "500 14px/1.4 system-ui" }}>Merci pour votre retour !</p>
+              <p style={{ margin: "8px 0 0", font: "500 14px/1.4 system-ui" }}>{t.successMessage}</p>
             )}
           </div>
         </div>
