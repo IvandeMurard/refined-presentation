@@ -299,7 +299,7 @@ export const Home: React.FC = () => {
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  I bring an on-field retail and hospitality experience, a taste for design, seasoned with a data-driven
+                  I bring on-field retail and hospitality experience, a taste for design, seasoned with a data-driven
                   product journey, and an entrepreneurial, explorative and collaborative mindset.
                 </p>
 
