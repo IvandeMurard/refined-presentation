@@ -102,7 +102,8 @@ const projects: Project[] = [
     kicker: "CASE STUDY – AN EXPERIMENTAL PRODUCT IN AGENTIC DESIGN",
     tagline: "A product exploration in Agent Experience (AX)",
     modalTitle: "The Agentic Studio — AX design in practice",
-    modalSubtitle: "Exploring how intelligent agents can interpret human intention within a creative environment. This prototype tests how gesture, voice and context can drive co-creation — while keeping human supervision at the core of the experience.",
+    modalSubtitle:
+      "Exploring how intelligent agents can interpret human intention within a creative environment. This prototype tests how gesture, voice and context can drive co-creation — while keeping human supervision at the core of the experience.",
     longDescription: "A product exploration in Agent Experience (AX)",
     bullets: [
       "Designed a multimodal co-creation flow combining gesture and voice inputs",
@@ -244,11 +245,12 @@ export const Home: React.FC = () => {
   const expExpand = useInlineExpand(); // pour l’onglet Experiences
 
   const filteredProjects =
-    activeFilter === "all" 
-      ? projects 
-      : projects.filter((project) => 
-          project.category === activeFilter || 
-          project.tags.some(tag => tag.toLowerCase() === activeFilter.toLowerCase())
+    activeFilter === "all"
+      ? projects
+      : projects.filter(
+          (project) =>
+            project.category === activeFilter ||
+            project.tags.some((tag) => tag.toLowerCase() === activeFilter.toLowerCase()),
         );
 
   const scrollToSection = (id: string) => {
@@ -297,8 +299,10 @@ export const Home: React.FC = () => {
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  From initial discovery to validated MVP, I turn user insights into impactful products and experiences,
-                  with AI and go-to-market expertise.
+                  With a passion for food and hospitality, I graduated in Agriculture and Food-business Entrepreneurship
+                  to understand where products came from. I confirmed my passion for product development, which led my
+                  professional and personal journey, from working as an entrepreneur, to joining start-ups, scale-ups
+                  and large corporations to build impactful products from 0 to 1.
                 </p>
 
                 {/* Desktop buttons */}
@@ -385,36 +389,6 @@ export const Home: React.FC = () => {
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
-              {filteredProjects.map((project, index) =>
-                project.id === "sonor" ? (
-                  <MediaCard
-                    key={project.id}
-                    id={project.id}
-                    kicker={project.kicker || `Case Study – ${project.title}`}
-                    title={project.subtitle}
-                    tagline={project.tagline || "De l'idée au produit validé"}
-                    badge={project.tags[0] || "Project"}
-                    image={project.image}
-                    onClick={() => openModal(index)}
-                  />
-                ) : (
-                  <CardImmersive
-                    key={project.id}
-                    id={project.id}
-                    kicker={project.kicker || `Case Study – ${project.title}`}
-                    title={project.subtitle}
-                    tagline={project.tagline || "De l'idée au produit validé"}
-                    badge={project.tags[0] || "Project"}
-                    image={project.image}
-                    onClick={() => openModal(index)}
-                  />
-                ),
-              )}
-          </div>
-
-          {/* Desktop: Carousel Layout */}
-          <div className="hidden lg:block mb-12">
-            <CarouselRow>
             {filteredProjects.map((project, index) =>
               project.id === "sonor" ? (
                 <MediaCard
@@ -440,6 +414,36 @@ export const Home: React.FC = () => {
                 />
               ),
             )}
+          </div>
+
+          {/* Desktop: Carousel Layout */}
+          <div className="hidden lg:block mb-12">
+            <CarouselRow>
+              {filteredProjects.map((project, index) =>
+                project.id === "sonor" ? (
+                  <MediaCard
+                    key={project.id}
+                    id={project.id}
+                    kicker={project.kicker || `Case Study – ${project.title}`}
+                    title={project.subtitle}
+                    tagline={project.tagline || "De l'idée au produit validé"}
+                    badge={project.tags[0] || "Project"}
+                    image={project.image}
+                    onClick={() => openModal(index)}
+                  />
+                ) : (
+                  <CardImmersive
+                    key={project.id}
+                    id={project.id}
+                    kicker={project.kicker || `Case Study – ${project.title}`}
+                    title={project.subtitle}
+                    tagline={project.tagline || "De l'idée au produit validé"}
+                    badge={project.tags[0] || "Project"}
+                    image={project.image}
+                    onClick={() => openModal(index)}
+                  />
+                ),
+              )}
             </CarouselRow>
           </div>
 
