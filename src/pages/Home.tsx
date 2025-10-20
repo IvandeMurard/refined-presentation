@@ -33,6 +33,10 @@ interface Project {
   logo?: string;
   bullets?: string[];
   longDescription?: string;
+  kicker?: string;
+  tagline?: string;
+  modalTitle?: string;
+  modalSubtitle?: string;
 }
 
 const projects: Project[] = [
@@ -87,6 +91,27 @@ const projects: Project[] = [
     ],
   },
 
+  // — The Agentic Studio —
+  {
+    id: "agentic-studio",
+    title: "AN EXPERIMENTAL PRODUCT IN AGENTIC DESIGN",
+    subtitle: "How might we bridge human intuition and agent intelligence?",
+    image: "/img/gabriella-clare-marino-unsplash.jpg",
+    tags: ["Experience", "Agents"],
+    category: "experience",
+    kicker: "CASE STUDY – AN EXPERIMENTAL PRODUCT IN AGENTIC DESIGN",
+    tagline: "A product exploration in Agent Experience (AX)",
+    modalTitle: "The Agentic Studio — AX design in practice",
+    modalSubtitle: "Exploring how intelligent agents can interpret human intention within a creative environment. This prototype tests how gesture, voice and context can drive co-creation — while keeping human supervision at the core of the experience.",
+    longDescription: "A product exploration in Agent Experience (AX)",
+    bullets: [
+      "Designed a multimodal co-creation flow combining gesture and voice inputs",
+      "Built a human-in-the-loop feedback system for supervision and correction",
+      "Implemented adaptive guidance based on user habits and style",
+      "Documented a framework for Agent Experience (AX) design and evaluation",
+    ],
+  },
+
   // — Spotify / Valence —
   {
     id: "spotify-valence-journeys",
@@ -123,10 +148,10 @@ const projects: Project[] = [
 ];
 
 const filterChips = [
-  { id: "all", label: "All (5)" },
+  { id: "all", label: "All (6)" },
   { id: "product", label: "Product (3)" }, // Sonor, WTTJ, On Air
-  { id: "experience", label: "Expérience (1)" }, // Spotify valence
-  { id: "agents", label: "Agents (1)" }, // Agents d’évaluation
+  { id: "experience", label: "Expérience (2)" }, // Spotify valence, Agentic Studio
+  { id: "agents", label: "Agents (2)" }, // Agents d'évaluation, Agentic Studio
   { id: "automatisations", label: "Automatisations (0)" },
 ];
 
@@ -219,7 +244,12 @@ export const Home: React.FC = () => {
   const expExpand = useInlineExpand(); // pour l’onglet Experiences
 
   const filteredProjects =
-    activeFilter === "all" ? projects : projects.filter((project) => project.category === activeFilter);
+    activeFilter === "all" 
+      ? projects 
+      : projects.filter((project) => 
+          project.category === activeFilter || 
+          project.tags.some(tag => tag.toLowerCase() === activeFilter.toLowerCase())
+        );
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -355,44 +385,14 @@ export const Home: React.FC = () => {
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
-            {filteredProjects.map((project, index) =>
-              project.id === "sonor" ? (
-                <MediaCard
-                  key={project.id}
-                  id={project.id}
-                  kicker={`Case Study – ${project.title}`}
-                  title={project.subtitle}
-                  tagline="De l'idée au produit validé"
-                  badge={project.tags[0] || "Project"}
-                  image={project.image}
-                  onClick={() => openModal(index)}
-                />
-              ) : (
-                <CardImmersive
-                  key={project.id}
-                  id={project.id}
-                  kicker={`Case Study – ${project.title}`}
-                  title={project.subtitle}
-                  tagline="De l'idée au produit validé"
-                  badge={project.tags[0] || "Project"}
-                  image={project.image}
-                  onClick={() => openModal(index)}
-                />
-              ),
-            )}
-          </div>
-
-          {/* Desktop: Carousel Layout */}
-          <div className="hidden lg:block mb-12">
-            <CarouselRow>
               {filteredProjects.map((project, index) =>
                 project.id === "sonor" ? (
                   <MediaCard
                     key={project.id}
                     id={project.id}
-                    kicker={`Case Study – ${project.title}`}
+                    kicker={project.kicker || `Case Study – ${project.title}`}
                     title={project.subtitle}
-                    tagline="De l'idée au produit validé"
+                    tagline={project.tagline || "De l'idée au produit validé"}
                     badge={project.tags[0] || "Project"}
                     image={project.image}
                     onClick={() => openModal(index)}
@@ -401,15 +401,45 @@ export const Home: React.FC = () => {
                   <CardImmersive
                     key={project.id}
                     id={project.id}
-                    kicker={`Case Study – ${project.title}`}
+                    kicker={project.kicker || `Case Study – ${project.title}`}
                     title={project.subtitle}
-                    tagline="De l'idée au produit validé"
+                    tagline={project.tagline || "De l'idée au produit validé"}
                     badge={project.tags[0] || "Project"}
                     image={project.image}
                     onClick={() => openModal(index)}
                   />
                 ),
               )}
+          </div>
+
+          {/* Desktop: Carousel Layout */}
+          <div className="hidden lg:block mb-12">
+            <CarouselRow>
+            {filteredProjects.map((project, index) =>
+              project.id === "sonor" ? (
+                <MediaCard
+                  key={project.id}
+                  id={project.id}
+                  kicker={project.kicker || `Case Study – ${project.title}`}
+                  title={project.subtitle}
+                  tagline={project.tagline || "De l'idée au produit validé"}
+                  badge={project.tags[0] || "Project"}
+                  image={project.image}
+                  onClick={() => openModal(index)}
+                />
+              ) : (
+                <CardImmersive
+                  key={project.id}
+                  id={project.id}
+                  kicker={project.kicker || `Case Study – ${project.title}`}
+                  title={project.subtitle}
+                  tagline={project.tagline || "De l'idée au produit validé"}
+                  badge={project.tags[0] || "Project"}
+                  image={project.image}
+                  onClick={() => openModal(index)}
+                />
+              ),
+            )}
             </CarouselRow>
           </div>
 
@@ -654,8 +684,8 @@ export const Home: React.FC = () => {
           canNavigatePrev={selectedProjectIndex !== null && selectedProjectIndex > 0}
           canNavigateNext={selectedProjectIndex !== null && selectedProjectIndex < filteredProjects.length - 1}
           logo={selectedProject.logo}
-          title={selectedProject.title}
-          subtitle={selectedProject.longDescription}
+          title={selectedProject.modalTitle || selectedProject.title}
+          subtitle={selectedProject.modalSubtitle || selectedProject.longDescription}
           bullets={selectedProject.bullets}
           cta={{ label: "Lire le case study", href: `/case-study/${selectedProject.id}` }}
         />
