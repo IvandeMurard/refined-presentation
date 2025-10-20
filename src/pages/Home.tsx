@@ -284,7 +284,7 @@ export const Home: React.FC = () => {
       <Navigation />
 
       {/* Hero Section */}
-      <section id="hero" className="px-4 py-16 md:py-20">
+      <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
         <div className="mx-auto max-w-[900px] w-full">
           {/* Glass Card */}
           <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
