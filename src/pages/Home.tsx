@@ -299,8 +299,8 @@ export const Home: React.FC = () => {
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  With a passion for food and hospitality, I graduated in Agriculture and Food-business Entrepreneurship
-                  to understand where ingredients came from and how to build a product.
+                  I bring an on-field retail and hospitality experience, a taste for design, seasoned with a data-driven
+                  product journey, and an entrepreneurial, explorative and collaborative mindset. Your turn!
                 </p>
 
                 {/* Desktop buttons */}
