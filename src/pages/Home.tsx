@@ -300,9 +300,7 @@ export const Home: React.FC = () => {
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
                   With a passion for food and hospitality, I graduated in Agriculture and Food-business Entrepreneurship
-                  to understand where products came from. I confirmed my passion for product development, which led my
-                  professional and personal journey, from working as an entrepreneur, to joining start-ups, scale-ups
-                  and large corporations to build impactful products from 0 to 1.
+                  to understand where ingredients came from and how to build a product.
                 </p>
 
                 {/* Desktop buttons */}
