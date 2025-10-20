@@ -25,7 +25,7 @@ export const communities: BaseItem[] = [
     id: 'join-lion',
     title: 'LION',
     subtitle: 'Communauté IA & entrepreneuriat',
-    logo: '/img/join_lion_le_promptathon Hackathon.png',
+    logo: '/img/join_lion_le_promptathon.png',
     link: 'https://www.joinlion.co/',
     excerpt: 'Apprendre à apprendre et entreprendre.',
     comment: 'Alumni',
