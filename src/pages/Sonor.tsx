@@ -1,5 +1,5 @@
-// src/pages/Sonor.tsx
-import React from "react";
+// src/pages/Sonor.tsx - VERSION MISE À JOUR COMPLÈTE
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
@@ -8,9 +8,77 @@ import { useAudience } from "@/hooks/useAudience";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { CTABanner } from "@/components/work/CTABanner";
 import CaseTldr from "@/components/case/CaseTldr";
-import { CaseImage } from "@components/case/CaseImage";
+import { CaseImage } from "@/components/case/CaseImage";
+import { InlineExpand } from "@/components/InlineExpand";
+import { Plus } from "lucide-react";
 
 import sonorHero from "/img/image-banniere-sonor.jpg";
+
+// ============= COMPOSANT TERM EXPLAIN =============
+const TermExplain = ({ term, children }: { term: string; children: React.ReactNode }) => {
+  const [open, setOpen] = useState(false);
+  const id = `term-${term.replace(/\s+/g, "-").toLowerCase()}`;
+
+  return (
+    <span className="inline">
+      <button
+        onClick={() => setOpen(v => !v)}
+        aria-expanded={open}
+        aria-controls={`${id}-panel`}
+        className="underline decoration-dotted underline-offset-4 text-foreground/90 hover:text-foreground cursor-help transition-all"
+      >
+        {term}
+      </button>
+      <InlineExpand open={open} ariaId={id}>
+        <div 
+          id={`${id}-panel`} 
+          className="mt-2 p-3 rounded-lg border-l-4 border-accent bg-muted/60 text-sm italic"
+        >
+          <strong className="not-italic text-accent">{term} :</strong> {children}
+        </div>
+      </InlineExpand>
+    </span>
+  );
+};
+
+// ============= COMPOSANT SECTION EXPANDABLE =============
+const ExpandSection = ({ 
+  id, 
+  title, 
+  children,
+  defaultOpen = false 
+}: { 
+  id: string; 
+  title: string; 
+  children: React.ReactNode;
+  defaultOpen?: boolean;
+}) => {
+  const [open, setOpen] = useState(defaultOpen);
+
+  return (
+    <div className="space-y-3">
+      <button
+        onClick={() => setOpen(!open)}
+        aria-expanded={open}
+        aria-controls={`${id}-panel`}
+        className="flex items-center justify-between w-full group cursor-pointer"
+      >
+        <h4 className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4">
+          {title}
+        </h4>
+        <Plus 
+          className={`w-5 h-5 transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
+          aria-hidden="true"
+        />
+      </button>
+      <InlineExpand open={open} ariaId={id}>
+        <div id={`${id}-panel`} className="pt-2 space-y-3 text-sm text-muted-foreground">
+          {children}
+        </div>
+      </InlineExpand>
+    </div>
+  );
+};
 
 // ===================== TL;DR BLOCKS =====================
 
@@ -19,13 +87,26 @@ const TLDRBlockFR = () => (
     tone="wttj"
     title="TL;DR — En bref"
     items={[
-      <><b>Equipe :</b> 4 co-fondateurs + 1 développeur/data-scientist</>,
-      <><b>Durée :</b> 2 ans (hackathon → incubation → prototype)</>,
-      <><b>Cible :</b> collectivités, villes et métropoles françaises</>,
-      <><b>Rôle :</b> cadrage produit, discovery (20 entretiens), prototypage, go-to-market B2G, commercialisation, pilotage dev data</>,
-      <><b>Méthode :</b> Agile Lean, kanban, sprints 2–3 semaines, jalons mensuels</>,
-      <><b>Résultats :</b> 20 000 € financements, 20 entretiens, 1 prototype, échanges commerciaux avec plusieurs métropoles</>,
-      <><b>Apprentissage clé :</b> transformer une problématique en solution, cadrer et livrer une vision produit de 0→1, promouvoir son produit</>,
+      <>
+        <b>Solution :</b> Une offre 360° de plateforme SaaS <TermExplain term="open data">données publiques librement accessibles et réutilisables</TermExplain> pour villes et métropoles : 
+        de la cartographie de la pollution sonore aux recommandations d'action publique, 
+        et l'engagement citoyen via la sensibilisation sur les actions de la collectivité
+      </>,
+      <>
+        <b>Sources de données :</b> NoiseModeling, NoisePlanet, et données ouvertes des collectivités 
+        (obligation légale pour villes &gt;3 500 habitants et agglomérations &gt;100 000 habitants)
+      </>,
+      <>
+        <b>Équipe :</b> 4 co-fondateurs (Émilie, Majda, Benjamin, Ivan) + 1 dev/data-scientist à temps partiel
+      </>,
+      <>
+        <b>Mon rôle :</b> Product framing, <TermExplain term="discovery">phase de recherche utilisateur et marché approfondie</TermExplain> (20 entretiens), 
+        Prototypage (UX/UI Figma), Go-to-Market <TermExplain term="B2G">Business-to-Government, ventes aux collectivités publiques</TermExplain>, 
+        Sales, Pilotage d'un développeur data-scientist
+      </>,
+      <>
+        <b>Résultats Go-to-market :</b> 20+ villes contactées → 4-5 échanges constructifs → 2 proposales commerciales
+      </>,
     ]}
   />
 );
@@ -35,25 +116,36 @@ const TLDRBlockEN = () => (
     tone="wttj"
     title="TL;DR — At a glance"
     items={[
-      <><b>Team:</b> 4 co-founders + 1 developer/data-scientist</>,
-      <><b>Duration:</b> 2 years (hackathon → incubation → prototype)</>,
-      <><b>Target:</b> French cities & metropolitan areas</>,
-      <><b>Role:</b> product framing, discovery (20 interviews), prototyping, B2G go-to-market, sales, data-dev leadership</>,
-      <><b>Method:</b> Agile Lean, Kanban, 2–3 week sprints, monthly milestones</>,
-      <><b>Outcomes:</b> €20k grants, 20 interviews, 1 prototype, negotiations with municipalities</>,
-      <><b>Key learnings:</b> turning a problem into a solution, framing a 0→1 product vision and promoting our work</>,
+      <>
+        <b>Solution:</b> A 360° SaaS platform offering for cities: from noise pollution mapping 
+        to public action recommendations and citizen engagement
+      </>,
+      <>
+        <b>Data sources:</b> NoiseModeling, NoisePlanet, and open data from municipalities 
+        (legal obligation for cities &gt;3,500 inhabitants and agglomerations &gt;100,000 inhabitants)
+      </>,
+      <>
+        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) + 1 part-time dev/data-scientist
+      </>,
+      <>
+        <b>My role:</b> Product framing, discovery (20 interviews), Prototyping (UX/UI Figma), 
+        B2G go-to-market, Sales, Data-scientist leadership
+      </>,
+      <>
+        <b>Go-to-market results:</b> 20+ cities contacted → 4-5 constructive exchanges → 2 commercial proposals
+      </>,
     ]}
   />
 );
 
-// ===================== DEFAULT CONTENT =====================
+// ===================== CONTENT DEFAULT FR =====================
 
 const ContentDefaultFR = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      {/* TL;DR en premier */}
+      {/* TL;DR */}
       <div className="mb-10">
         <TLDRBlockFR />
       </div>
@@ -66,24 +158,26 @@ const ContentDefaultFR = () => {
               <h2 className="text-h3">Contexte & Déclencheur</h2>
               <p>
                 Le projet <b>SONOR</b> naît en octobre 2020 grâce au <b>Hackathon Recoder l'Habitat #2</b> portant sur la thématique de l'Habitat et de la Santé.
-                Lors du hackahton, le constat de la pollution sonore est fait, l'équipe est formée, le travail de définition de la solution et de prototypage commence.
-                24h après, l'équipe Sonor (Emilie, Majda, Benjamin, et moi Ivan) remporte ce hackathon, présentant un outil de diagnostic complet de la pollution sonore dans une ville à partir d'open data : 
+                Lors du hackathon, le constat de la pollution sonore est fait, l'équipe est formée, le travail de définition de la solution et de prototypage commence.
+                24h après, l'équipe Sonor (Émilie, Majda, Benjamin, et moi Ivan) remporte ce hackathon, présentant un outil de diagnostic complet de la pollution sonore dans une ville à partir d'<TermExplain term="open data">données publiques librement accessibles</TermExplain> : 
                 cartographie, recommandations d'actions publiques, suivi de la réglementation et alertes citoyennes, notre plateforme séduit.
-                Sonor obtient une bourse et un accompagnement par <b>l'Association Loi 1901 Matrice</b> et <b>La Banque des Territoires</b>, l'aventure entrepreneuriale est lancée.
+              </p>
+              <p>
+                Sonor obtient une bourse et un accompagnement par l'<b>Association Matrice Loi 1901</b> et <b>La Banque des Territoires</b>, l'aventure entrepreneuriale est lancée.
                 Problématique à résoudre : la <b>pollution sonore</b>, 2ème source de nuisances urbaines aux impacts sanitaires, sociaux, et environnementaux significatifs, est invisible, insidieuse et peu adressée.
               </p>
               <p>
-                Solution : Offrir une solution SaaS <b>open data</b> pour permettre aux villes de <b>mesurer, cartographier</b>{" "}
-                et <b> réduire</b> durablement la pollution sonore, accompagner les collectivités dans le déploiement de solutions adaptées et favoriser la collaboration entre service public, citoyens, et acteurs privés.
+                <b>Solution :</b> Offrir une solution <TermExplain term="SaaS">Software as a Service, logiciel accessible en ligne par abonnement</TermExplain> open data pour permettre aux villes de <b>mesurer, cartographier</b> et <b>réduire</b> durablement la pollution sonore, 
+                accompagner les collectivités dans le déploiement de solutions adaptées et favoriser la collaboration entre service public, citoyens, et acteurs privés.
               </p>
               <p>
-                Proposition de valeur: Anticiper et agir sur le bruit pour garantir la santé des habitants et l'attractivité des territoires.
+                <b>Proposition de valeur :</b> Anticiper et agir sur le bruit pour garantir la santé des habitants et l'attractivité des territoires.
               </p>
             </div>
             <CaseImage
               alt="Hackathon & partenaires"
-              desktopSrc="/img/sonor-hackathon.jpeg"
-              caption="Ecosystème d'accompagnement"
+              desktopSrc="/img/Sonor Hackathon.jpeg"
+              caption="Écosystème d'accompagnement"
             />
           </section>
 
@@ -104,7 +198,7 @@ const ContentDefaultFR = () => {
               "Cadrage produit (vision, roadmap, business model)",
               "Discovery (20 entretiens : collectivités, ministères, bailleurs, associations, experts techniques)",
               "Prototype (UX/UI Figma, cartographies open data)",
-              "Go-to-market B2G (ciblage, cold-calling, rendez-vous avec élus, propals commerciales)",
+              "Go-to-market B2G (ciblage, cold-calling, rendez-vous avec élus, proposales commerciales)",
               "Pilotage dev data scientist (sprints Kanban, jalons mensuels)",
             ].map((item) => (
               <div key={item} className="rounded-xl p-4 bg-card">
@@ -118,7 +212,7 @@ const ContentDefaultFR = () => {
       {/* Section 3: Process & Méthodo */}
       <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Process & Méthodologie (Agile Lean)</h2>
+          <h2 className="text-h3">Process & Méthodologie (<TermExplain term="Agile Lean">méthodologie itérative et incrémentale centrée sur la valeur</TermExplain>)</h2>
           <div className="grid md:grid-cols-4 gap-4">
             {[
               { t: "Discovery", d: "Analyse marché, 20+ entretiens, personas" },
@@ -141,7 +235,7 @@ const ContentDefaultFR = () => {
         </div>
       </div>
 
-      {/* Section 4: Résultats & Différenciation */}
+      {/* Section 4: Résultats */}
       <div className="py-16 px-4 md:px-8 bg-secondary">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Résultats & Différenciation</h2>
@@ -158,6 +252,15 @@ const ContentDefaultFR = () => {
               </div>
             ))}
           </div>
+
+          <ExpandSection id="acteurs-rencontres" title="Acteurs rencontrés">
+            <p>
+              <b>Typologie :</b> Métropoles régionales, villes moyennes, collectivités territoriales, acteurs publics locaux
+            </p>
+            <p>
+              <b>Partenaires techniques et institutionnels :</b> BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministère de l'Écologie
+            </p>
+          </ExpandSection>
 
           <div className="grid md:grid-cols-4 gap-4">
             {[
@@ -182,46 +285,310 @@ const ContentDefaultFR = () => {
         </div>
       </div>
 
-      {/* Section 5: Apprentissages + Conclusion */}
+      {/* Section 5: Moments clés */}
       <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Apprentissages</h2>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="rounded-xl p-5 bg-card">
-              <h4 className="font-semibold mb-2">Pratiques</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>0→1 complet : discovery → delivery → commercial</li>
-                <li>Priorisation et <b>dire non</b> aux idées hors scope</li>
-                <li>Go-to-market B2G (élus, mairies, métropoles)</li>
-              </ul>
+          <h2 className="text-h3">Moments clés</h2>
+          
+          <ExpandSection id="cycles-vente" title="Les cycles de vente B2G">
+            <p>
+              Les cycles de vente auprès des collectivités sont particulièrement longs (6-12 mois minimum). 
+              Malgré des échanges constructifs avec plusieurs collectivités, nous avons manqué de temps pour finaliser les signatures.
+            </p>
+            <div className="space-y-3 mt-4">
+              <div>
+                <p className="font-semibold">Obstacle : Budget et arbitrage politique</p>
+                <p className="text-sm">
+                  Difficulté à faire rentrer le projet dans les budgets pluriannuels déjà engagés. 
+                  La pollution sonore reste un enjeu secondaire face aux priorités budgétaires.
+                </p>
+              </div>
+              <div>
+                <p className="font-semibold">Obstacle : Complexité technique</p>
+                <p className="text-sm">
+                  Difficulté à convaincre sur la fiabilité des données open data et la pertinence 
+                  des algorithmes de simulation acoustique.
+                </p>
+              </div>
             </div>
-            <div className="rounded-xl p-5 bg-card">
-              <h4 className="font-semibold mb-2">Personnels</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>Goût confirmé pour les produits à impact</li>
-                <li>Aller-retour terrain ↔ conception digitale</li>
-                <li>Travail en équipe pluridisciplinaire</li>
+          </ExpandSection>
+        </div>
+      </div>
+
+      {/* Section 6: Segmentation & Go-to-Market */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Segmentation & Ciblage</h2>
+          
+          <p>
+            J'ai principalement ciblé par <b>appétence et sensibilisation à la donnée</b> plutôt que par taille de collectivités. 
+            Le démarchage s'est déroulé en 3 phases progressives, chaque phase étant plus ciblée que la précédente.
+          </p>
+
+          <div className="space-y-4">
+            <ExpandSection id="phase-1" title="Phase 1 : Exploration large (tous secteurs)">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Promoteurs immobiliers</li>
+                <li>Bailleurs sociaux</li>
+                <li>Collectivités (première approche)</li>
               </ul>
-            </div>
+              <p className="mt-2 italic">→ Pivot vers les collectivités après identification du meilleur product-market fit</p>
+            </ExpandSection>
+
+            <ExpandSection id="phase-2" title="Phase 2 : Collectivités sensibilisées à la donnée">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Villes ayant une culture open data établie</li>
+                <li>Métropoles avec des services environnement structurés</li>
+              </ul>
+            </ExpandSection>
+
+            <ExpandSection id="phase-3" title="Phase 3 : Ciblage affiné (appétence data + culture innovation)">
+              <ul className="list-disc pl-5 space-y-1">
+                <li>Contact direct sur LinkedIn avec élus et chargés de mission</li>
+                <li>Collectivités déjà engagées dans des démarches smart city</li>
+              </ul>
+              <p className="mt-2 italic">→ Meilleurs résultats en phase 3 (pas de chiffres précis disponibles)</p>
+            </ExpandSection>
           </div>
+
+          <ExpandSection id="process-vente" title="Process de vente détaillé">
+            <ol className="list-decimal pl-5 space-y-2">
+              <li>
+                <b>Qualification initiale :</b> Recherche LinkedIn + analyse des publications open data de la collectivité
+              </li>
+              <li>
+                <b>Premier contact :</b> Email personnalisé présentant la proposition de valeur adaptée aux enjeux locaux
+              </li>
+              <li>
+                <b>Relances :</b> Téléphone, échanges visios pour qualifier le besoin
+              </li>
+              <li>
+                <b>Entretien physique :</b> Présentation personnalisée de la solution Sonor et des besoins spécifiques de la collectivité
+              </li>
+              <li>
+                <b>Propale commerciale :</b> Rédaction d'une proposition adaptée (marché <TermExplain term="gré-à-gré">marché public sans appel d'offres, pour montants inférieurs à 40k€</TermExplain>)
+              </li>
+            </ol>
+          </ExpandSection>
+
+          <ExpandSection id="funnel-global" title="Funnel global (hors LinkedIn)">
+            <div className="space-y-2">
+              <p>20+ villes contactées</p>
+              <p>→ 4-5 échanges constructifs</p>
+              <p>→ 2 proposales commerciales</p>
+              <p className="text-sm italic mt-3">
+                Note : Le funnel ne contient pas les chiffres LinkedIn (phase 3), où les résultats étaient meilleurs.
+              </p>
+            </div>
+          </ExpandSection>
+
+          <div className="rounded-xl p-6 bg-card">
+            <p className="text-base">
+              <b>Apprentissage clé :</b> Grâce à l'accompagnement et l'expertise de La Banque des Territoires 
+              et l'association Matrice, nous avons solidifié notre démarche commerciale et notre crédibilité 
+              auprès des décideurs publics.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Section 7: Sprints & Cadences */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Sprints & Cadences</h2>
+          
+          <ExpandSection id="sprints-kanbans" title="Sprints Kanbans & cadences">
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <b>Sprints 2–3 semaines :</b> cycles courts pour itérer rapidement sur le prototype et les hypothèses business
+              </li>
+              <li>
+                <b>Review mensuelle :</b> point d'étape avec les mentors (Banque des Territoires, Matrice)
+              </li>
+              <li>
+                <b>Reporting financier :</b> suivi des dépenses et jalons de financement
+              </li>
+            </ul>
+          </ExpandSection>
+
+          <ExpandSection id="could-have" title="Could Have (priorisation future)">
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Dashboard analytics avancé pour les élus</li>
+              <li>Module de communication citoyenne automatisée</li>
+              <li>Intégration avec systèmes SIG existants</li>
+            </ul>
+          </ExpandSection>
+
+          <ExpandSection id="wont-have" title="Won't Have (écartés)">
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <b>Capteurs IoT propriétaires :</b> Impact technologique + temps de développement trop important. 
+                Volonté de bypasser l'usage de capteurs en valorisant l'information citoyenne via l'open data.
+              </li>
+              <li>
+                <b>Module de prédiction météo sonore :</b> Complexité technique excessive pour le MVP
+              </li>
+            </ul>
+          </ExpandSection>
+        </div>
+      </div>
+
+      {/* Section 8: Si c'était à refaire */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Si c'était à refaire</h2>
+          
+          <ExpandSection id="concentration-mvp" title="Se concentrer sur le MVP de la plateforme SaaS et la cartographie open data avant l'offre complète d'accompagnement">
+            <p>
+              Nous aurions dû prioriser la livraison d'un <TermExplain term="MVP">Minimum Viable Product, version minimale testable du produit</TermExplain> fonctionnel 
+              de la plateforme de cartographie avant de proposer une offre complète incluant l'accompagnement des collectivités.
+            </p>
+            <p className="mt-2">
+              Cela aurait permis de valider plus rapidement la proposition de valeur technique 
+              et de créer un effet démonstration auprès des prospects.
+            </p>
+          </ExpandSection>
+
+          <ExpandSection id="tests-beta" title="Lancer des tests bêta avec 2-3 villes pilotes">
+            <p>
+              Des tests bêta avec quelques villes volontaires auraient permis de :
+            </p>
+            <ul className="list-disc pl-5 space-y-1 mt-2">
+              <li>Valider la pertinence des données et de la cartographie</li>
+              <li>Affiner les fonctionnalités selon les retours terrain</li>
+              <li>Créer des cas clients pour faciliter le démarchage commercial</li>
+            </ul>
+          </ExpandSection>
+
+          <ExpandSection id="partenariats-strategiques" title="Nouer des partenariats stratégiques plus tôt">
+            <p>
+              Identifier et contractualiser des partenariats avec des acteurs clés du secteur 
+              (associations d'élus, réseaux de villes, consultants en environnement) dès le début 
+              pour faciliter l'accès au marché.
+            </p>
+          </ExpandSection>
+        </div>
+      </div>
+
+      {/* Section 9: Épilogue & Learnings */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Épilogue & Apprentissages</h2>
 
           <section className="rounded-xl p-6 bg-card">
             <p className="text-lg">
-              <b>Conclusion.</b> SONOR a confirmé mon goût pour la transformation de problématiques en solutions data-driven.
+              Le projet SONOR n'est pas devenu une start-up à proprement parlé, mais l'expérience a été formatrice 
+              à plusieurs niveaux, tant sur le plan professionnel que personnel.
             </p>
           </section>
+
+          <div className="space-y-6">
+            <ExpandSection id="learning-1" title="1. Complexité technique sous-estimée">
+              <p>
+                Nous avons sous-estimé la difficulté d'accès et de traitement des données open data de qualité exploitable 
+                sur la pollution sonore. Le manque de matière première (données ouvertes fiables et standardisées) 
+                a ralenti le développement du prototype.
+              </p>
+            </ExpandSection>
+
+            <ExpandSection id="learning-2" title="2. Cycles de vente B2G longs">
+              <p>
+                Les cycles de vente auprès des collectivités sont très longs (6-12 mois minimum), 
+                mais nous manquons de temps pour finaliser les signatures avant l'épuisement de nos financements.
+              </p>
+            </ExpandSection>
+
+            <ExpandSection id="learning-3" title="3. Positionnement flou">
+              <p>
+                Notre positionnement entre plateforme SaaS et accompagnement conseil n'était pas assez clair. 
+                Il fallait choisir un angle d'attaque plus précis pour faciliter la compréhension de la proposition de valeur.
+              </p>
+            </ExpandSection>
+          </div>
+
+          <div className="mt-10">
+            <h3 className="text-h4 mb-4">Apprentissages personnels</h3>
+            <div className="space-y-4">
+              <ExpandSection id="learning-perso-1" title="1. Appétence pour l'exploration et l'analyse" defaultOpen={true}>
+                <p>
+                  J'ai confirmé mon goût pour l'étude approfondie de problématiques complexes, 
+                  la recherche de solutions concrètes, et la capacité à transformer des apprentissages techniques 
+                  et des données en réponses adaptées aux besoins terrain. Cette approche analytique et exploratoire 
+                  guide aujourd'hui ma pratique produit.
+                </p>
+              </ExpandSection>
+
+              <ExpandSection id="learning-perso-2" title="2. Produits à impact">
+                <p>
+                  Confirmation de mon intérêt pour les produits à fort impact sociétal et environnemental, 
+                  où la technologie sert un objectif d'utilité publique.
+                </p>
+              </ExpandSection>
+
+              <ExpandSection id="learning-perso-3" title="3. Aller-retour terrain ↔ conception">
+                <p>
+                  Importance de la confrontation régulière avec le terrain pour affiner la vision produit 
+                  et éviter de construire dans l'abstrait.
+                </p>
+              </ExpandSection>
+
+              <ExpandSection id="learning-perso-4" title="4. Travail en équipe pluridisciplinaire">
+                <p>
+                  Apprentissage du travail en équipe avec des profils variés (design, data science, business), 
+                  nécessitant une communication claire et une capacité à synthétiser des enjeux complexes.
+                </p>
+              </ExpandSection>
+            </div>
+          </div>
+
+          <section className="rounded-xl p-6 bg-card mt-10">
+            <p className="text-lg">
+              <b>Conclusion.</b> SONOR a confirmé mon goût pour la transformation de problématiques en solutions data-driven 
+              et m'a permis d'acquérir une expérience précieuse en product management 0→1, 
+              de la discovery à la commercialisation.
+            </p>
+          </section>
+        </div>
+      </div>
+
+      {/* Section 10: À propos */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-6">
+          <h2 className="text-h3">À propos de ce projet</h2>
+          
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { v: "Oct 2020 - Déc 2022", l: "Durée" },
+              { v: "20", l: "Entretiens" },
+              { v: "Métropoles, villes, acteurs publics", l: "Typologie d'acteurs" },
+            ].map((k) => (
+              <div key={k.l} className="bg-card p-6 rounded-2xl">
+                <div className="text-2xl font-bold mb-2">{k.v}</div>
+                <div className="text-muted-foreground text-sm">{k.l}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="rounded-xl p-6 bg-card">
+            <p className="text-base">
+              <b>Technologies & outils :</b> Figma (prototypage UX/UI), NoiseModeling (simulation acoustique), 
+              NoisePlanet (données participatives), Python (traitement data), Notion (gestion projet)
+            </p>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
+// ===================== CONTENT DEFAULT EN =====================
+
 const ContentDefaultEN = () => {
   const navigate = useNavigate();
 
   return (
     <div>
-      {/* TL;DR first */}
+      {/* TL;DR */}
       <div className="mb-10">
         <TLDRBlockEN />
       </div>
@@ -234,17 +601,17 @@ const ContentDefaultEN = () => {
               <h2 className="text-h3">Context & Trigger</h2>
               <p>
                 <b>SONOR</b> started with the <b>"Recoder l'Habitat #2"</b> hackathon (win, €1,000 grant), then was
-                incubated by <b> Matrice</b> and <b>Banque des Territoires</b>. The challenge: <b>noise pollution</b>—an
+                incubated by <b>Matrice Association</b> and <b>Banque des Territoires</b>. The challenge: <b>noise pollution</b>—an
                 under-addressed public health issue with strong societal impact.
               </p>
               <p>
-                Vision: a <b>SaaS open-data</b> solution enabling cities to <b>measure, map</b> and <b>reduce</b> noise
+                Vision: a SaaS open-data solution enabling cities to <b>measure, map</b> and <b>reduce</b> noise
                 pollution, oriented toward public service and citizen engagement.
               </p>
             </div>
             <CaseImage
               alt="Hackathon & partners"
-              desktopSrc="/img/sonor-hackathon.jpeg"
+              desktopSrc="/img/Sonor Hackathon.jpeg"
               caption="Hackathon & incubation ecosystem"
             />
           </section>
@@ -377,11 +744,10 @@ const ContentDefaultEN = () => {
   );
 };
 
-// ===================== PM-FOCUSED CONTENT =====================
+// ===================== PM CONTENT FR =====================
 
 const ContentPMFR = () => (
   <div>
-    {/* TL;DR en premier */}
     <div className="mb-10">
       <TLDRBlockFR />
     </div>
@@ -442,7 +808,6 @@ const ContentPMFR = () => (
 
 const ContentPMEN = () => (
   <div>
-    {/* TL;DR first */}
     <div className="mb-10">
       <TLDRBlockEN />
     </div>
@@ -501,11 +866,10 @@ const ContentPMEN = () => (
   </div>
 );
 
-// ===================== DESIGN-FOCUSED CONTENT =====================
+// ===================== DESIGNER CONTENT FR =====================
 
 const ContentDesignerFR = () => (
   <div>
-    {/* TL;DR en premier */}
     <div className="mb-10">
       <TLDRBlockFR />
     </div>
@@ -555,7 +919,6 @@ const ContentDesignerFR = () => (
 
 const ContentDesignerEN = () => (
   <div>
-    {/* TL;DR first */}
     <div className="mb-10">
       <TLDRBlockEN />
     </div>
@@ -610,7 +973,6 @@ export default function SonorPage() {
   const { activeAudience, setActiveAudience, audiences } = useAudience('default');
   const { language } = useLanguage();
 
-  // Contenu selon langue + audience
   const getContent = () => {
     if (activeAudience === 'pm') {
       return language === 'fr' ? <ContentPMFR /> : <ContentPMEN />;
@@ -618,7 +980,6 @@ export default function SonorPage() {
     if (activeAudience === 'design') {
       return language === 'fr' ? <ContentDesignerFR /> : <ContentDesignerEN />;
     }
-    // Default
     return language === 'fr' ? <ContentDefaultFR /> : <ContentDefaultEN />;
   };
 
@@ -634,7 +995,6 @@ export default function SonorPage() {
     <div>
       <Navigation />
 
-      {/* Hero section */}
       <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         <img
           src={sonorHero}
@@ -648,7 +1008,6 @@ export default function SonorPage() {
         </div>
       </section>
 
-      {/* Audience filter chips */}
       <div className="max-w-6xl mx-auto px-4 py-8">
         <FilterChips
           chips={audiences}
@@ -657,7 +1016,6 @@ export default function SonorPage() {
         />
       </div>
 
-      {/* Content dynamique selon audience ET langue */}
       <div className="max-w-6xl mx-auto px-4 pb-16">
         {getContent()}
       </div>
