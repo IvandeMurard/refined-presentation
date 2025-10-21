@@ -499,7 +499,12 @@ export const Home: React.FC = () => {
       </section>
 
       {/* CTA Banner */}
-      <CTABanner title="Ready to build the future?" ctaText="Let's talk!" onClick={() => scrollToSection("contact")} />
+      <CTABanner 
+        title="Ready to build the future?" 
+        description="Let's discuss your product vision and build something great together"
+        ctaText="Let's talk!" 
+        onClick={() => scrollToSection("contact")} 
+      />
 
       {/* Experience & Education Section - Left Aligned */}
       <section id="experience" className="py-24 px-4">
