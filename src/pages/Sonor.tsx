@@ -1,4 +1,3 @@
-// src/pages/Sonor.tsx - VERSION MISE À JOUR COMPLÈTE
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
