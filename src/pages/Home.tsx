@@ -13,7 +13,7 @@ import { BuiltWithBanner } from "../components/BuiltWithBanner";
 import { Button } from "../components/ui/button";
 import { Separator } from "../components/ui/separator";
 import { Mail, Linkedin, MessageCircle, ArrowDown } from "lucide-react";
-import { sonorCase } from "src/pages/Sonor.tsx";
+import { sonorCase } from "./pages/Sonor.tsx";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
 import MarqueeBanner from "../components/MarqueeBanner";
