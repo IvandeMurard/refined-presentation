@@ -26,5 +26,5 @@ export const sonorCase: CaseMeta = {
     "€20k financements",
     "Accompagné par La Banque des Territoires"
   ],
-  ctaHref: "/Sonor",
+  ctaHref: "/case-study/sonor",
 };

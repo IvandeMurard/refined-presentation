@@ -40,17 +40,17 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // — SONOR (Open Data) — remplacement homogène
+  // — SONOR (Open Data) — utilisation des données de sonor.case.ts
   {
-    id: "sonor",
+    id: sonorCase.id,
     title: "A 2-year entrepreneurship team project",
     subtitle: "How can cities turn open data into quieter streets?",
-    image: "/img/image-banniere-sonor.jpg",
-    logo: "/img/logo_sonor.png",
-    tags: ["Open Data"],
+    image: sonorCase.image,
+    logo: sonorCase.logo,
+    tags: [sonorCase.badge],
     category: "product",
     longDescription: "Reducing urban noise by transforming open data into actionable city insights.",
-    bullets: [
+    bullets: sonorCase.bullets || [
       "20+ stakeholder interviews across city departments",
       "€20k pre-seed funding secured for the concept",
       "Map + data pipeline prototype to surface hotspots",
