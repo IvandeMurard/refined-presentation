@@ -13,7 +13,7 @@ import { BuiltWithBanner } from "../components/BuiltWithBanner";
 import { Button } from "../components/ui/button";
 import { Separator } from "../components/ui/separator";
 import { Mail, Linkedin, MessageCircle, ArrowDown } from "lucide-react";
-import { sonorCase } from "../data/cases/sonor.case";
+import { sonorCase } from "src/pages/Sonor.tsx";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
 import MarqueeBanner from "../components/MarqueeBanner";
@@ -499,11 +499,11 @@ export const Home: React.FC = () => {
       </section>
 
       {/* CTA Banner */}
-      <CTABanner 
-        title="Ready to build the future?" 
+      <CTABanner
+        title="Ready to build the future?"
         description="Let's discuss your product vision and build something great together"
-        ctaText="Let's talk!" 
-        onClick={() => scrollToSection("contact")} 
+        ctaText="Let's talk!"
+        onClick={() => scrollToSection("contact")}
       />
 
       {/* Experience & Education Section - Left Aligned */}
