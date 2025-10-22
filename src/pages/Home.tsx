@@ -21,7 +21,6 @@ import { CommunitiesInspoResourcesTools } from "@/components/sections/Communitie
 import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
 import { experiences } from "@/data/experience";
-import { FeedbackWidget } from "@/components/FeedbackWidget";
 
 interface Project {
   id: string;
@@ -690,12 +689,6 @@ export const Home: React.FC = () => {
           cta={{ label: "Lire le case study", href: `/case-study/${selectedProject.id}` }}
         />
       )}
-
-      {/* Feedback Widget */}
-      <FeedbackWidget
-        provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
-        nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
-      />
     </div>
   );
 };

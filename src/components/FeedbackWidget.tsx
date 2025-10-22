@@ -271,10 +271,15 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
             style={{
               width: "min(92vw,520px)",
               border: "1px solid var(--border,#e5e7eb)",
-              background: "var(--surface,#fff)",
+              background: isDark 
+                ? "rgba(11, 11, 11, 0.85)" 
+                : "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(12px) saturate(180%)",
+              WebkitBackdropFilter: "blur(12px) saturate(180%)",
               color: "var(--text,#111)",
               borderRadius: 12,
-              padding: 16
+              padding: 16,
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
@@ -367,12 +372,14 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     disabled={loading}
                     style={{
                       border: 0,
-                      background: "var(--accent,#111)",
+                      background: "#1E3A8A",
                       color: "#fff",
                       padding: "8px 12px",
                       borderRadius: 8,
                       font: "600 14px/1.2 system-ui",
-                      opacity: loading ? 0.8 : 1
+                      opacity: loading ? 0.8 : 1,
+                      cursor: loading ? "not-allowed" : "pointer",
+                      transition: "opacity 0.2s ease"
                     }}
                   >
                     {loading ? t.sendingLabel : (submitLabel || t.submitLabel)}

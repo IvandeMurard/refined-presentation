@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ScrollToTop } from "@/components/ScrollToTop";
 import { LanguageProvider } from "@/contexts/LanguageContext";
+import { FeedbackWidget } from "@/components/FeedbackWidget";
 import { Home } from "./pages/Home";
 import Sonor from "./pages/Sonor";
 import Wttj from "./pages/cases/Wttj";
@@ -23,6 +24,11 @@ const App = () => (
           <Sonner />
           <BrowserRouter>
             <ScrollToTop />
+            <FeedbackWidget
+              provider={{ type: "form", url: "https://formspree.io/f/mqaywvpg" }}
+              includeMeta={true}
+              nudge={{ enabled: true, delayMs: 25000, scrollPct: 0.8 }}
+            />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/case-study/sonor" element={<Sonor />} />
