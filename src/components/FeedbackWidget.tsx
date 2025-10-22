@@ -270,16 +270,14 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           <div
             style={{
               width: "min(92vw,520px)",
-              border: "1px solid var(--border,#e5e7eb)",
-              background: isDark 
-                ? "rgba(11, 11, 11, 0.85)" 
-                : "rgba(255, 255, 255, 0.85)",
-              backdropFilter: "blur(12px) saturate(180%)",
-              WebkitBackdropFilter: "blur(12px) saturate(180%)",
-              color: "var(--text,#111)",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              background: "rgba(255, 255, 255, 0.90)",
+              backdropFilter: "blur(16px) saturate(180%)",
+              WebkitBackdropFilter: "blur(16px) saturate(180%)",
+              color: "#111",
               borderRadius: 12,
               padding: 16,
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.12)"
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
