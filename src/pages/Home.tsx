@@ -298,8 +298,10 @@ export const Home: React.FC = () => {
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  I bring on-field retail and hospitality experience, a taste for design, seasoned with a data-driven
-                  product journey, and an entrepreneurial, explorative and collaborative mindset.
+                  A passion for food and on-field retail and hospitality experience, developed my taste for customer
+                  experience design. My product and entrepreneurial journey, built my data-driven, exploratory, and
+                  collaborative mindset. Welcome to my portfolio, where I share projects I explore, my journey, and what
+                  drives me. Enjoy the tour!
                 </p>
 
                 {/* Desktop buttons */}
@@ -309,14 +311,14 @@ export const Home: React.FC = () => {
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
                     onClick={() => scrollToSection("work")}
                   >
-                    Discover my projects →
+                    Discover my projects
                   </Button>
                   <Button
                     size="default"
                     className="bg-contact hover:bg-white text-contact-foreground hover:text-contact border-2 border-white hover:border-white transition-colors duration-300"
                     onClick={() => scrollToSection("contact")}
                   >
-                    Your turn! →
+                    Let's meet!
                   </Button>
                 </div>
 
@@ -361,12 +363,12 @@ export const Home: React.FC = () => {
         <div className="max-w-[1360px] mx-auto px-4">
           <MarqueeBanner
             phrases={[
-              "Discovery → MVP → Go-to-Market",
-              "AI-assisted product acceleration",
+              "Welcome",
+              "AI-assisted product building",
               "Hands-on PM across design, data & GTM",
               "Paris • Open to remote",
             ]}
-            speed={0.6}
+            speed={0.65}
             pauseOnHover
             ariaLabel="Highlights"
             className="py-1"
@@ -386,8 +388,11 @@ export const Home: React.FC = () => {
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
-            {filteredProjects.map((project, index) =>
-              project.id === "sonor" ? (
+            {filteredProjects.map((project, index) => {
+              const originalIndex = projects.findIndex((p) => p.id === project.id);
+              const isComingSoon = originalIndex >= 2;
+
+              return project.id === "sonor" ? (
                 <MediaCard
                   key={project.id}
                   id={project.id}
@@ -397,6 +402,7 @@ export const Home: React.FC = () => {
                   badge={project.tags[0] || "Project"}
                   image={project.image}
                   onClick={() => openModal(index)}
+                  showComingSoon={isComingSoon}
                 />
               ) : (
                 <CardImmersive
@@ -408,16 +414,20 @@ export const Home: React.FC = () => {
                   badge={project.tags[0] || "Project"}
                   image={project.image}
                   onClick={() => openModal(index)}
+                  showComingSoon={isComingSoon}
                 />
-              ),
-            )}
+              );
+            })}
           </div>
 
           {/* Desktop: Carousel Layout */}
           <div className="hidden lg:block mb-12">
             <CarouselRow>
-              {filteredProjects.map((project, index) =>
-                project.id === "sonor" ? (
+              {filteredProjects.map((project, index) => {
+                const originalIndex = projects.findIndex((p) => p.id === project.id);
+                const isComingSoon = originalIndex >= 2;
+
+                return project.id === "sonor" ? (
                   <MediaCard
                     key={project.id}
                     id={project.id}
@@ -427,6 +437,7 @@ export const Home: React.FC = () => {
                     badge={project.tags[0] || "Project"}
                     image={project.image}
                     onClick={() => openModal(index)}
+                    showComingSoon={isComingSoon}
                   />
                 ) : (
                   <CardImmersive
@@ -438,9 +449,10 @@ export const Home: React.FC = () => {
                     badge={project.tags[0] || "Project"}
                     image={project.image}
                     onClick={() => openModal(index)}
+                    showComingSoon={isComingSoon}
                   />
-                ),
-              )}
+                );
+              })}
             </CarouselRow>
           </div>
 
@@ -687,6 +699,7 @@ export const Home: React.FC = () => {
           subtitle={selectedProject.modalSubtitle || selectedProject.longDescription}
           bullets={selectedProject.bullets}
           cta={{ label: "Lire le case study", href: `/case-study/${selectedProject.id}` }}
+          showComingSoon={projects.findIndex((p) => p.id === selectedProject.id) >= 2}
         />
       )}
     </div>
