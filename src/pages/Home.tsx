@@ -298,9 +298,10 @@ export const Home: React.FC = () => {
                 </p>
 
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  A passion for food and hospitality developed my taste for customer experience design and building
-                  products. My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and
-                  collaborative mindset. Welcome to my portfolio, where I share what drives me. Enjoy the tour!
+                  A passion for food and hospitality developed my taste for customer experience design and building products.<br>
+                  My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and collaborative mindset.<br>
+                  Welcome to my portfolio, where I share what drives me.<br>
+                  Enjoy the tour!
                 </p>
 
                 {/* Desktop buttons */}
