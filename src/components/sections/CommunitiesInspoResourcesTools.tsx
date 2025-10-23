@@ -29,8 +29,8 @@ export function CommunitiesInspoResourcesTools() {
   const { language } = useLanguage();
   
   const sectionTitle = language === 'fr' 
-    ? "Communautés · Inspirations · Resources · Outils"
-    : "Communities · Inspirations · Resources · Tools";
+    ? "Ce qui me motive"
+    : "What Drives Me";
 
   // Fermer l’item ouvert lorsqu’on change d’onglet
   useEffect(() => {
