@@ -270,14 +270,14 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           <div
             style={{
               width: "min(92vw,520px)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-              background: "rgba(255, 255, 255, 0.90)",
-              backdropFilter: "blur(16px) saturate(180%)",
-              WebkitBackdropFilter: "blur(16px) saturate(180%)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              background: "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(20px) saturate(200%)",
+              WebkitBackdropFilter: "blur(20px) saturate(200%)",
               color: "#111",
               borderRadius: 12,
               padding: 16,
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.15)"
+              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.18)"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
@@ -311,13 +311,24 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                   rows={5}
                   style={{
                     width: "100%",
-                    border: "1px solid var(--border,#e5e7eb)",
+                    border: "1px solid rgba(200, 200, 200, 0.3)",
                     borderRadius: 8,
                     padding: 10,
                     font: "400 14px/1.5 system-ui",
                     resize: "vertical",
-                    background: "var(--surface,#fff)",
-                    color: "var(--text,#111)"
+                    background: "rgba(240, 240, 240, 0.6)",
+                    backdropFilter: "blur(8px)",
+                    WebkitBackdropFilter: "blur(8px)",
+                    color: "#111",
+                    transition: "all 0.2s ease",
+                    outline: "2px solid transparent",
+                    outlineOffset: "2px"
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.outline = "2px solid #1E3A8A";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.outline = "2px solid transparent";
                   }}
                 />
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
@@ -327,12 +338,23 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     placeholder={t.namePlaceholder}
                     style={{
                       width: "100%",
-                      border: "1px solid var(--border,#e5e7eb)",
+                      border: "1px solid rgba(200, 200, 200, 0.3)",
                       borderRadius: 8,
                       padding: 10,
                       font: "400 14px/1.5 system-ui",
-                      background: "var(--surface,#fff)",
-                      color: "var(--text,#111)"
+                      background: "rgba(240, 240, 240, 0.6)",
+                      backdropFilter: "blur(8px)",
+                      WebkitBackdropFilter: "blur(8px)",
+                      color: "#111",
+                      transition: "all 0.2s ease",
+                      outline: "2px solid transparent",
+                      outlineOffset: "2px"
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.outline = "2px solid #1E3A8A";
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.outline = "2px solid transparent";
                     }}
                   />
                   <input
@@ -341,12 +363,23 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     placeholder={t.emailPlaceholder}
                     style={{
                       width: "100%",
-                      border: "1px solid var(--border,#e5e7eb)",
+                      border: "1px solid rgba(200, 200, 200, 0.3)",
                       borderRadius: 8,
                       padding: 10,
                       font: "400 14px/1.5 system-ui",
-                      background: "var(--surface,#fff)",
-                      color: "var(--text,#111)"
+                      background: "rgba(240, 240, 240, 0.6)",
+                      backdropFilter: "blur(8px)",
+                      WebkitBackdropFilter: "blur(8px)",
+                      color: "#111",
+                      transition: "all 0.2s ease",
+                      outline: "2px solid transparent",
+                      outlineOffset: "2px"
+                    }}
+                    onFocus={(e) => {
+                      e.currentTarget.style.outline = "2px solid #1E3A8A";
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.outline = "2px solid transparent";
                     }}
                   />
                 </div>
@@ -355,12 +388,16 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     type="button"
                     onClick={() => setOpen(false)}
                     style={{
-                      border: "1px solid var(--border,#e5e7eb)",
-                      background: "transparent",
+                      border: "1px solid rgba(200, 200, 200, 0.4)",
+                      background: "rgba(255, 255, 255, 0.4)",
+                      backdropFilter: "blur(4px)",
+                      WebkitBackdropFilter: "blur(4px)",
                       padding: "8px 12px",
                       borderRadius: 8,
                       font: "500 14px/1.2 system-ui",
-                      color: "var(--text,#111)"
+                      color: "#666",
+                      cursor: "pointer",
+                      transition: "all 0.2s ease"
                     }}
                   >
                     {cancelLabel || t.cancelLabel}
@@ -372,12 +409,24 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                       border: 0,
                       background: "#1E3A8A",
                       color: "#fff",
-                      padding: "8px 12px",
+                      padding: "10px 14px",
                       borderRadius: 8,
                       font: "600 14px/1.2 system-ui",
                       opacity: loading ? 0.8 : 1,
                       cursor: loading ? "not-allowed" : "pointer",
-                      transition: "opacity 0.2s ease"
+                      transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
+                      boxShadow: "0 2px 8px rgba(30, 58, 138, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
+                      transform: "translateY(0)"
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!loading) {
+                        e.currentTarget.style.transform = "translateY(-2px)";
+                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(30, 58, 138, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.1)";
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = "translateY(0)";
+                      e.currentTarget.style.boxShadow = "0 2px 8px rgba(30, 58, 138, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.1)";
                     }}
                   >
                     {loading ? t.sendingLabel : (submitLabel || t.submitLabel)}
