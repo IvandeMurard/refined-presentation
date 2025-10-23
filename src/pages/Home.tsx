@@ -300,8 +300,7 @@ export const Home: React.FC = () => {
                 <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
                   A passion for food and hospitality developed my taste for customer experience design and building
                   products. My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and
-                  collaborative mindset. Welcome to my portfolio, where I share projects I explore, my journey, and what
-                  drives me. Enjoy the tour!
+                  collaborative mindset. Welcome to my portfolio, where I share what drives me. Enjoy the tour!
                 </p>
 
                 {/* Desktop buttons */}
