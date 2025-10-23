@@ -1,6 +1,5 @@
 // src/components/work/MediaCard.tsx
 import * as React from "react";
-import { ComingSoonBadge } from "../ComingSoonBadge";
 
 type MediaCardProps = {
   id: string;
@@ -12,7 +11,6 @@ type MediaCardProps = {
   videoSrc?: string;       // MP4/WebM (optionnel)
   onClick?: () => void;
   className?: string;
-  showComingSoon?: boolean;
 };
 
 export function MediaCard({
@@ -25,7 +23,6 @@ export function MediaCard({
   videoSrc,
   onClick,
   className = "",
-  showComingSoon = false,
 }: MediaCardProps) {
   const [hover, setHover] = React.useState(false);
   const [imgError, setImgError] = React.useState(false);
@@ -142,25 +139,21 @@ export function MediaCard({
             <div className="flex items-end justify-between">
               <span className="work-badge">{badge}</span>
 
-              {showComingSoon ? (
-                <ComingSoonBadge />
-              ) : (
-                <div className="flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover/card:w-auto group-hover/card:h-10 group-hover/card:px-4 group-hover/card:gap-2 w-10 h-10">
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className="transition-opacity duration-200 group-hover/card:opacity-0"
-                    aria-hidden="true"
-                  >
-                    <path d="M8 3.5V12.5M3.5 8H12.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-                  <span className="text-[13px] font-[600] text-white whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover/card:opacity-100">
-                    Lire le case study
-                  </span>
-                </div>
-              )}
+              <div className="flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300 group-hover/card:w-auto group-hover/card:h-10 group-hover/card:px-4 group-hover/card:gap-2 w-10 h-10">
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className="transition-opacity duration-200 group-hover/card:opacity-0"
+                  aria-hidden="true"
+                >
+                  <path d="M8 3.5V12.5M3.5 8H12.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+                <span className="text-[13px] font-[600] text-white whitespace-nowrap opacity-0 transition-opacity duration-200 group-hover/card:opacity-100">
+                  Lire le case study
+                </span>
+              </div>
             </div>
           </div>
         </div>

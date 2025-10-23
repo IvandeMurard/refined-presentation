@@ -386,11 +386,8 @@ export const Home: React.FC = () => {
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
-            {filteredProjects.map((project, index) => {
-              const originalIndex = projects.findIndex(p => p.id === project.id);
-              const isComingSoon = originalIndex >= 2;
-              
-              return project.id === "sonor" ? (
+            {filteredProjects.map((project, index) =>
+              project.id === "sonor" ? (
                 <MediaCard
                   key={project.id}
                   id={project.id}
@@ -400,7 +397,6 @@ export const Home: React.FC = () => {
                   badge={project.tags[0] || "Project"}
                   image={project.image}
                   onClick={() => openModal(index)}
-                  showComingSoon={isComingSoon}
                 />
               ) : (
                 <CardImmersive
@@ -412,20 +408,16 @@ export const Home: React.FC = () => {
                   badge={project.tags[0] || "Project"}
                   image={project.image}
                   onClick={() => openModal(index)}
-                  showComingSoon={isComingSoon}
                 />
-              );
-            })}
+              ),
+            )}
           </div>
 
           {/* Desktop: Carousel Layout */}
           <div className="hidden lg:block mb-12">
             <CarouselRow>
-              {filteredProjects.map((project, index) => {
-                const originalIndex = projects.findIndex(p => p.id === project.id);
-                const isComingSoon = originalIndex >= 2;
-                
-                return project.id === "sonor" ? (
+              {filteredProjects.map((project, index) =>
+                project.id === "sonor" ? (
                   <MediaCard
                     key={project.id}
                     id={project.id}
@@ -435,7 +427,6 @@ export const Home: React.FC = () => {
                     badge={project.tags[0] || "Project"}
                     image={project.image}
                     onClick={() => openModal(index)}
-                    showComingSoon={isComingSoon}
                   />
                 ) : (
                   <CardImmersive
@@ -447,10 +438,9 @@ export const Home: React.FC = () => {
                     badge={project.tags[0] || "Project"}
                     image={project.image}
                     onClick={() => openModal(index)}
-                    showComingSoon={isComingSoon}
                   />
-                );
-              })}
+                ),
+              )}
             </CarouselRow>
           </div>
 
@@ -697,7 +687,6 @@ export const Home: React.FC = () => {
           subtitle={selectedProject.modalSubtitle || selectedProject.longDescription}
           bullets={selectedProject.bullets}
           cta={{ label: "Lire le case study", href: `/case-study/${selectedProject.id}` }}
-          showComingSoon={projects.findIndex(p => p.id === selectedProject.id) >= 2}
         />
       )}
     </div>

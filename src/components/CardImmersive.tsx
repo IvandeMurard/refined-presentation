@@ -1,5 +1,4 @@
 import * as React from "react";
-import { ComingSoonBadge } from "./ComingSoonBadge";
 
 type Props = {
   id: string;
@@ -13,7 +12,6 @@ type Props = {
   ariaLabel?: string;
   onClick?: () => void;
   className?: string;
-  showComingSoon?: boolean;
 };
 
 export function CardImmersive({
@@ -28,7 +26,6 @@ export function CardImmersive({
   ariaLabel,
   onClick,
   className = "",
-  showComingSoon = false,
 }: Props) {
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -84,39 +81,35 @@ export function CardImmersive({
             <div className="flex items-end justify-between">
               <span className="work-badge">{badge}</span>
 
-              {showComingSoon ? (
-                <ComingSoonBadge />
-              ) : (
-                <div
+              <div
+                className={[
+                  "flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300",
+                  isHovered ? "w-auto h-10 px-4 gap-2" : "w-10 h-10",
+                ].join(" ")}
+              >
+                {/* plus icon */}
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  className={["transition-opacity duration-200", isHovered ? "opacity-0 absolute" : "opacity-100"].join(
+                    " ",
+                  )}
+                  aria-hidden="true"
+                >
+                  <path d="M8 3.5V12.5M3.5 8H12.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+
+                <span
                   className={[
-                    "flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm transition-all duration-300",
-                    isHovered ? "w-auto h-10 px-4 gap-2" : "w-10 h-10",
+                    "text-[13px] font-[600] text-white whitespace-nowrap transition-opacity duration-200",
+                    isHovered ? "opacity-100" : "opacity-0",
                   ].join(" ")}
                 >
-                  {/* plus icon */}
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    className={["transition-opacity duration-200", isHovered ? "opacity-0 absolute" : "opacity-100"].join(
-                      " ",
-                    )}
-                    aria-hidden="true"
-                  >
-                    <path d="M8 3.5V12.5M3.5 8H12.5" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
-                  </svg>
-
-                  <span
-                    className={[
-                      "text-[13px] font-[600] text-white whitespace-nowrap transition-opacity duration-200",
-                      isHovered ? "opacity-100" : "opacity-0",
-                    ].join(" ")}
-                  >
-                    {ctaLabel}
-                  </span>
-                </div>
-              )}
+                  {ctaLabel}
+                </span>
+              </div>
             </div>
           </div>
         </div>

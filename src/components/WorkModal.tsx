@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ComingSoonBadge } from "./ComingSoonBadge";
 
 interface WorkModalProps {
   open: boolean;
@@ -15,7 +14,6 @@ interface WorkModalProps {
   subtitle?: string;
   bullets?: string[];
   cta: { label: string; href: string };
-  showComingSoon?: boolean;
 }
 
 export function WorkModal({
@@ -29,7 +27,6 @@ export function WorkModal({
   subtitle,
   bullets,
   cta,
-  showComingSoon = false,
 }: WorkModalProps) {
   // Handle keyboard navigation
   useEffect(() => {
@@ -90,18 +87,11 @@ export function WorkModal({
             exit={{ y: 24, opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            {/* Badge Coming Soon en haut à droite */}
-            {showComingSoon && (
-              <div className="absolute right-4 top-4">
-                <ComingSoonBadge />
-              </div>
-            )}
-
             {/* Close button */}
             <button
               onClick={onClose}
               aria-label="Fermer"
-              className="absolute right-4 top-16 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/50 text-foreground hover:bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
+              className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-background/50 text-foreground hover:bg-background focus:outline-none focus:ring-2 focus:ring-accent transition-colors"
             >
               <X className="h-5 w-5" />
             </button>
@@ -127,16 +117,14 @@ export function WorkModal({
                 </ul>
               )}
 
-              {!showComingSoon && (
-                <div className="pt-4">
-                  <Link
-                    to={cta.href}
-                    className="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary/90 px-5 py-2 text-sm font-medium text-primary-foreground transition-colors"
-                  >
-                    {cta.label}
-                  </Link>
-                </div>
-              )}
+              <div className="pt-4">
+                <Link
+                  to={cta.href}
+                  className="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary/90 px-5 py-2 text-sm font-medium text-primary-foreground transition-colors"
+                >
+                  {cta.label}
+                </Link>
+              </div>
             </div>
 
             {/* Navigation buttons - Discrete */}
