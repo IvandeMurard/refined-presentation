@@ -306,7 +306,7 @@ export const Home: React.FC = () => {
                   <br />
                   Welcome to my portfolio, where I share what drives me.
                   <br />
-                  Enjoy the tour!
+                  Enjoy the tour! <i>(It's a work-in-progress)</i>
                 </p>
 
                 {/* Desktop buttons */}
