@@ -92,7 +92,7 @@ export function WorkModal({
           >
             {/* Coming Soon Badge (top-right) */}
             {showComingSoon && (
-              <div className="absolute -top-3 -right-3 z-20">
+              <div className="absolute top-2 right-14 z-20">
                 <ComingSoonBadge />
               </div>
             )}
