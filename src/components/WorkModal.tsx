@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { ComingSoonBadge } from "./ComingSoonBadge";
 
 interface WorkModalProps {
   open: boolean;
@@ -90,13 +89,6 @@ export function WorkModal({
             exit={{ y: 24, opacity: 0, scale: 0.95 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            {/* Coming Soon Badge (top-right) */}
-            {showComingSoon && (
-              <div className="absolute top-2 right-14 z-20">
-                <ComingSoonBadge />
-              </div>
-            )}
-
             {/* Close button */}
             <button
               onClick={onClose}
@@ -127,16 +119,23 @@ export function WorkModal({
                 </ul>
               )}
 
-              {!showComingSoon && (
-                <div className="pt-4">
+              <div className="pt-4">
+                {showComingSoon ? (
+                  <button
+                    disabled
+                    className="inline-flex items-center justify-center rounded-full bg-muted px-5 py-2 text-sm font-medium text-muted-foreground cursor-not-allowed opacity-60"
+                  >
+                    Coming soon!
+                  </button>
+                ) : (
                   <Link
                     to={cta.href}
                     className="inline-flex items-center justify-center rounded-full bg-primary hover:bg-primary/90 px-5 py-2 text-sm font-medium text-primary-foreground transition-colors"
                   >
                     {cta.label}
                   </Link>
-                </div>
-              )}
+                )}
+              </div>
             </div>
 
             {/* Navigation buttons - Discrete */}
