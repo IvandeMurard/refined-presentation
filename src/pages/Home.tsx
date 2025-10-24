@@ -83,6 +83,7 @@ const projects: Project[] = [
     category: "agents",
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",
     bullets: [
+      "Built with SOC 2 principles: secure, auditable, and privacy-first.",
       "Simple lifecycle and dashboard to see what matters",
       "Automatic scoring with LLM-as-a-Judge guardrails for “go/no-go”",
       "Issues & recommendations captured for fast iteration",
