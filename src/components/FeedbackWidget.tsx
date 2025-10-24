@@ -43,7 +43,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
   // --- Translations
   const t = {
     buttonLabel: isFrench ? "✍️ Avis" : "✍️ Tips",
-    modalTitle: isFrench ? "Qu'est-ce qu'on peut améliorer ?" : "Any feedback to help improve the site?",
+    modalTitle: isFrench ? "Qu'est-ce qu'on peut améliorer ?" : "Please, share any feedback you may have!",
     feedbackPlaceholder: isFrench ? "Votre retour (libre)..." : "Your feedback...",
     namePlaceholder: isFrench ? "Nom (facultatif)" : "Name (optional)",
     emailPlaceholder: isFrench ? "Email (facultatif)" : "Email (optional)",
@@ -51,7 +51,7 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
     cancelLabel: isFrench ? "Annuler" : "Cancel",
     sendingLabel: isFrench ? "Envoi…" : "Sending…",
     successMessage: isFrench ? "Merci pour votre retour !" : "Thanks for your feedback!",
-    nudgeText: isFrench ? "Une idée pour améliorer ce portfolio ?" : "Got an idea to improve this portfolio?",
+    nudgeText: isFrench ? "Une idée pour améliorer ce portfolio ?" : "Have an idea to help improve this portfolio?",
     nudgeButton: isFrench ? "Laisser un avis" : "Leave feedback",
     closeLabel: isFrench ? "Fermer" : "Close"
   };
