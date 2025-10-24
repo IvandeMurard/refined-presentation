@@ -105,7 +105,7 @@ const projects: Project[] = [
       "Exploring how intelligent agents can interpret human intention within a creative environment. This prototype tests how gesture, voice, and context can drive co-creation, while keeping human supervision at the core of the experience.",
     longDescription: "A product exploration in Agent Experience (AX)",
     bullets: [
-      "The Agentic Studio serves as a scalable testbed for an agentic architecture that can be deployed across creative or operational environments."
+      "The Agentic Studio serves as a scalable testbed for an agentic architecture that can be deployed across creative or operational environments.",
       "Designed a multimodal co-creation flow combining gesture and voice inputs",
       "Built a human-in-the-loop feedback system for supervision and correction",
       "Implemented adaptive guidance based on user habits and style",
