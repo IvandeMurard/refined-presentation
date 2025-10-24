@@ -111,8 +111,8 @@ export function WorkModal({
               {bullets && bullets.length > 0 && (
                 <ul className="mt-3 space-y-2 text-left text-sm text-muted-foreground">
                   {bullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-accent flex-shrink-0" />
+                    <li key={i} className="flex items-start gap-3">
+                      <span className="mt-1 h-1.5 w-1.5 rounded-full bg-foreground/60 flex-shrink-0" />
                       <span>{b}</span>
                     </li>
                   ))}
