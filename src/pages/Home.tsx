@@ -299,17 +299,23 @@ export const Home: React.FC = () => {
                   Zero-to-One Product Manager
                 </p>
 
-                <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  A passion for food and hospitality developed my taste for customer experience design and building
-                  products.
-                  <br />
-                  My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and
-                  collaborative mindset.
-                  <br />
-                  Welcome to my portfolio, where I share what drives me.
-                  <br />
-                  Enjoy the tour! <i>(It's a work-in-progress)</i>
-                </p>
+                <div className="mt-6 space-y-4">
+                  <p className="text-base md:text-lg leading-relaxed text-foreground/90 font-semibold transition-opacity">
+                    A passion for food and hospitality developed my taste for customer experience design and building products.
+                  </p>
+                  
+                  <p className="text-base md:text-lg leading-relaxed text-muted-foreground transition-opacity">
+                    My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and collaborative mindset.
+                  </p>
+                  
+                  <p className="text-base md:text-lg leading-relaxed text-muted-foreground transition-opacity">
+                    Welcome to my portfolio, where I share what drives me.
+                  </p>
+                  
+                  <p className="text-sm leading-normal text-muted-foreground/80 italic transition-opacity">
+                    Enjoy the tour! (It's a work-in-progress)
+                  </p>
+                </div>
 
                 {/* Desktop buttons */}
                 <div className="mt-6 flex gap-3">
