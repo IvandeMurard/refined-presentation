@@ -289,7 +289,7 @@ export const Home: React.FC = () => {
       <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
         <div className="mx-auto max-w-[900px] w-full">
           {/* Glass Card */}
-          <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-8 md:p-12 lg:p-16">
+          <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10">
             <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
               {/* Left: titles + subtitle + buttons + pills */}
               <div className="text-left">
@@ -298,20 +298,23 @@ export const Home: React.FC = () => {
                   Zero-to-One Product Manager
                 </p>
 
-                <p className="mt-6 text-base md:text-lg leading-relaxed text-muted-foreground">
-                  A passion for food and hospitality developed my taste for customer experience design and building
-                  products.
-                  <br />
-                  My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and
-                  collaborative mindset.
-                  <br />
-                  Welcome to my portfolio.
-                  <br />
-                  Enjoy the tour! <i>(It's a work-in-progress)</i>
-                </p>
+                <div className="mt-4 text-base md:text-lg space-y-3">
+                  <p className="font-semibold text-foreground/90 leading-normal transition-opacity">
+                    A passion for food and hospitality developed my taste for customer experience design and building products.
+                  </p>
+                  <p className="text-muted-foreground leading-normal transition-opacity">
+                    My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and collaborative mindset.
+                  </p>
+                  <p className="text-muted-foreground leading-normal transition-opacity">
+                    Welcome to my portfolio.
+                  </p>
+                  <p className="text-sm italic text-muted-foreground/70 leading-normal transition-opacity">
+                    Enjoy the tour! (It's a work-in-progress)
+                  </p>
+                </div>
 
                 {/* Desktop buttons */}
-                <div className="mt-6 flex gap-3">
+                <div className="mt-5 flex gap-3">
                   <Button
                     size="default"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -329,7 +332,7 @@ export const Home: React.FC = () => {
                 </div>
 
                 {/* Pills */}
-                <ul className="mt-6 flex flex-wrap gap-2 text-sm">
+                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
                   {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
                     <li
                       key={tag}
