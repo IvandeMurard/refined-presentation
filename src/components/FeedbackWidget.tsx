@@ -65,21 +65,25 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
   const [loading, setLoading] = useState(false);
 
   // --- Theme vars (auto dark si data-theme="dark" ou prefers dark)
-  const isDark = useMemo(() => {
-    const explicit = document.body?.getAttribute("data-theme") === "dark";
+  const [isDark, setIsDark] = useState(() => {
+    const explicit = document.documentElement.classList.contains("dark");
     const prefers = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
     return explicit || prefers;
-  }, []);
+  });
 
   useEffect(() => {
-    const root = document.documentElement;
-    if (isDark) {
-      root.style.setProperty("--surface", "#0b0b0b");
-      root.style.setProperty("--text", "#eaeaea");
-      root.style.setProperty("--border", "#2a2a2a");
-      root.style.setProperty("--accent", "#3b82f6");
-    }
-  }, [isDark]);
+    const observer = new MutationObserver(() => {
+      const isDarkMode = document.documentElement.classList.contains("dark");
+      setIsDark(isDarkMode);
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   // --- Nudge (timer + scroll, 1x/session)
   useEffect(() => {
@@ -270,24 +274,48 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           <div
             style={{
               width: "min(92vw,520px)",
-              border: "1px solid rgba(255, 255, 255, 0.3)",
-              background: "rgba(255, 255, 255, 0.85)",
-              backdropFilter: "blur(20px) saturate(200%)",
-              WebkitBackdropFilter: "blur(20px) saturate(200%)",
-              color: "#111",
-              borderRadius: 12,
-              padding: 16,
-              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.18)"
+              border: isDark 
+                ? "1px solid rgba(255, 255, 255, 0.15)" 
+                : "1px solid rgba(255, 255, 255, 0.4)",
+              background: isDark 
+                ? "rgba(15, 23, 42, 0.85)" 
+                : "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(40px) saturate(180%)",
+              WebkitBackdropFilter: "blur(40px) saturate(180%)",
+              color: isDark ? "#f1f5f9" : "#0f172a",
+              borderRadius: 16,
+              padding: 20,
+              boxShadow: isDark
+                ? "0 20px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                : "0 20px 60px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.6)"
             }}
           >
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8 }}>
-              <h2 id="fb-title" style={{ margin: 0, font: "600 16px/1.3 system-ui" }}>
+              <h2 id="fb-title" style={{ 
+                margin: 0, 
+                font: "600 18px/1.3 system-ui",
+                color: isDark ? "#f1f5f9" : "#0f172a"
+              }}>
                 {modalTitle || t.modalTitle}
               </h2>
               <button
                 aria-label={t.closeLabel}
                 onClick={() => setOpen(false)}
-                style={{ border: 0, background: "transparent", fontSize: 18, lineHeight: 1 }}
+                style={{ 
+                  border: 0, 
+                  background: "transparent", 
+                  fontSize: 20, 
+                  lineHeight: 1,
+                  color: isDark ? "#cbd5e1" : "#64748b",
+                  cursor: "pointer",
+                  transition: "color 0.2s ease"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = isDark ? "#f1f5f9" : "#0f172a";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = isDark ? "#cbd5e1" : "#64748b";
+                }}
               >
                 ✕
               </button>
@@ -311,50 +339,74 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                   rows={5}
                   style={{
                     width: "100%",
-                    border: "1px solid rgba(200, 200, 200, 0.3)",
-                    borderRadius: 8,
-                    padding: 10,
+                    border: isDark 
+                      ? "1px solid rgba(148, 163, 184, 0.2)" 
+                      : "1px solid rgba(203, 213, 225, 0.5)",
+                    borderRadius: 10,
+                    padding: 12,
                     font: "400 14px/1.5 system-ui",
                     resize: "vertical",
-                    background: "rgba(240, 240, 240, 0.6)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                    color: "#111",
+                    background: isDark 
+                      ? "rgba(30, 41, 59, 0.5)" 
+                      : "rgba(248, 250, 252, 0.8)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    color: isDark ? "#f1f5f9" : "#0f172a",
                     transition: "all 0.2s ease",
                     outline: "2px solid transparent",
                     outlineOffset: "2px"
                   }}
                   onFocus={(e) => {
-                    e.currentTarget.style.outline = "2px solid #1E3A8A";
+                    e.currentTarget.style.outline = isDark 
+                      ? "2px solid #3b82f6" 
+                      : "2px solid #1e40af";
+                    e.currentTarget.style.borderColor = isDark 
+                      ? "rgba(59, 130, 246, 0.4)" 
+                      : "rgba(30, 64, 175, 0.4)";
                   }}
                   onBlur={(e) => {
                     e.currentTarget.style.outline = "2px solid transparent";
+                    e.currentTarget.style.borderColor = isDark 
+                      ? "rgba(148, 163, 184, 0.2)" 
+                      : "rgba(203, 213, 225, 0.5)";
                   }}
                 />
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 10 }}>
                   <input
                     type="text"
                     name="name"
                     placeholder={t.namePlaceholder}
                     style={{
                       width: "100%",
-                      border: "1px solid rgba(200, 200, 200, 0.3)",
-                      borderRadius: 8,
-                      padding: 10,
+                      border: isDark 
+                        ? "1px solid rgba(148, 163, 184, 0.2)" 
+                        : "1px solid rgba(203, 213, 225, 0.5)",
+                      borderRadius: 10,
+                      padding: 12,
                       font: "400 14px/1.5 system-ui",
-                      background: "rgba(240, 240, 240, 0.6)",
-                      backdropFilter: "blur(8px)",
-                      WebkitBackdropFilter: "blur(8px)",
-                      color: "#111",
+                      background: isDark 
+                        ? "rgba(30, 41, 59, 0.5)" 
+                        : "rgba(248, 250, 252, 0.8)",
+                      backdropFilter: "blur(12px)",
+                      WebkitBackdropFilter: "blur(12px)",
+                      color: isDark ? "#f1f5f9" : "#0f172a",
                       transition: "all 0.2s ease",
                       outline: "2px solid transparent",
                       outlineOffset: "2px"
                     }}
                     onFocus={(e) => {
-                      e.currentTarget.style.outline = "2px solid #1E3A8A";
+                      e.currentTarget.style.outline = isDark 
+                        ? "2px solid #3b82f6" 
+                        : "2px solid #1e40af";
+                      e.currentTarget.style.borderColor = isDark 
+                        ? "rgba(59, 130, 246, 0.4)" 
+                        : "rgba(30, 64, 175, 0.4)";
                     }}
                     onBlur={(e) => {
                       e.currentTarget.style.outline = "2px solid transparent";
+                      e.currentTarget.style.borderColor = isDark 
+                        ? "rgba(148, 163, 184, 0.2)" 
+                        : "rgba(203, 213, 225, 0.5)";
                     }}
                   />
                   <input
@@ -363,41 +415,73 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     placeholder={t.emailPlaceholder}
                     style={{
                       width: "100%",
-                      border: "1px solid rgba(200, 200, 200, 0.3)",
-                      borderRadius: 8,
-                      padding: 10,
+                      border: isDark 
+                        ? "1px solid rgba(148, 163, 184, 0.2)" 
+                        : "1px solid rgba(203, 213, 225, 0.5)",
+                      borderRadius: 10,
+                      padding: 12,
                       font: "400 14px/1.5 system-ui",
-                      background: "rgba(240, 240, 240, 0.6)",
-                      backdropFilter: "blur(8px)",
-                      WebkitBackdropFilter: "blur(8px)",
-                      color: "#111",
+                      background: isDark 
+                        ? "rgba(30, 41, 59, 0.5)" 
+                        : "rgba(248, 250, 252, 0.8)",
+                      backdropFilter: "blur(12px)",
+                      WebkitBackdropFilter: "blur(12px)",
+                      color: isDark ? "#f1f5f9" : "#0f172a",
                       transition: "all 0.2s ease",
                       outline: "2px solid transparent",
                       outlineOffset: "2px"
                     }}
                     onFocus={(e) => {
-                      e.currentTarget.style.outline = "2px solid #1E3A8A";
+                      e.currentTarget.style.outline = isDark 
+                        ? "2px solid #3b82f6" 
+                        : "2px solid #1e40af";
+                      e.currentTarget.style.borderColor = isDark 
+                        ? "rgba(59, 130, 246, 0.4)" 
+                        : "rgba(30, 64, 175, 0.4)";
                     }}
                     onBlur={(e) => {
                       e.currentTarget.style.outline = "2px solid transparent";
+                      e.currentTarget.style.borderColor = isDark 
+                        ? "rgba(148, 163, 184, 0.2)" 
+                        : "rgba(203, 213, 225, 0.5)";
                     }}
                   />
                 </div>
-                <div style={{ display: "flex", gap: 8, justifyContent: "flex-end", marginTop: 4 }}>
+                <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", marginTop: 8 }}>
                   <button
                     type="button"
                     onClick={() => setOpen(false)}
                     style={{
-                      border: "1px solid rgba(200, 200, 200, 0.4)",
-                      background: "rgba(255, 255, 255, 0.4)",
-                      backdropFilter: "blur(4px)",
-                      WebkitBackdropFilter: "blur(4px)",
-                      padding: "8px 12px",
-                      borderRadius: 8,
+                      border: isDark 
+                        ? "1px solid rgba(148, 163, 184, 0.3)" 
+                        : "1px solid rgba(203, 213, 225, 0.5)",
+                      background: isDark 
+                        ? "rgba(51, 65, 85, 0.5)" 
+                        : "rgba(255, 255, 255, 0.6)",
+                      backdropFilter: "blur(8px)",
+                      WebkitBackdropFilter: "blur(8px)",
+                      padding: "10px 16px",
+                      borderRadius: 10,
                       font: "500 14px/1.2 system-ui",
-                      color: "#666",
+                      color: isDark ? "#cbd5e1" : "#475569",
                       cursor: "pointer",
                       transition: "all 0.2s ease"
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = isDark 
+                        ? "rgba(71, 85, 105, 0.6)" 
+                        : "rgba(241, 245, 249, 0.8)";
+                      e.currentTarget.style.borderColor = isDark 
+                        ? "rgba(148, 163, 184, 0.5)" 
+                        : "rgba(148, 163, 184, 0.6)";
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = isDark 
+                        ? "rgba(51, 65, 85, 0.5)" 
+                        : "rgba(255, 255, 255, 0.6)";
+                      e.currentTarget.style.borderColor = isDark 
+                        ? "rgba(148, 163, 184, 0.3)" 
+                        : "rgba(203, 213, 225, 0.5)";
                     }}
                   >
                     {cancelLabel || t.cancelLabel}
@@ -407,26 +491,34 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                     disabled={loading}
                     style={{
                       border: 0,
-                      background: "#1E3A8A",
-                      color: "#fff",
-                      padding: "10px 14px",
-                      borderRadius: 8,
+                      background: isDark 
+                        ? "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)" 
+                        : "linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%)",
+                      color: "#ffffff",
+                      padding: "10px 20px",
+                      borderRadius: 10,
                       font: "600 14px/1.2 system-ui",
-                      opacity: loading ? 0.8 : 1,
+                      opacity: loading ? 0.7 : 1,
                       cursor: loading ? "not-allowed" : "pointer",
                       transition: "all 0.2s cubic-bezier(0.4, 0, 0.2, 1)",
-                      boxShadow: "0 2px 8px rgba(30, 58, 138, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.1)",
+                      boxShadow: isDark
+                        ? "0 4px 12px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
+                        : "0 4px 12px rgba(30, 58, 138, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2)",
                       transform: "translateY(0)"
                     }}
                     onMouseEnter={(e) => {
                       if (!loading) {
                         e.currentTarget.style.transform = "translateY(-2px)";
-                        e.currentTarget.style.boxShadow = "0 4px 12px rgba(30, 58, 138, 0.4), inset 0 -2px 0 rgba(0, 0, 0, 0.1)";
+                        e.currentTarget.style.boxShadow = isDark
+                          ? "0 6px 20px rgba(59, 130, 246, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2)"
+                          : "0 6px 20px rgba(30, 58, 138, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25)";
                       }
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = "translateY(0)";
-                      e.currentTarget.style.boxShadow = "0 2px 8px rgba(30, 58, 138, 0.3), inset 0 -2px 0 rgba(0, 0, 0, 0.1)";
+                      e.currentTarget.style.boxShadow = isDark
+                        ? "0 4px 12px rgba(59, 130, 246, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
+                        : "0 4px 12px rgba(30, 58, 138, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2)";
                     }}
                   >
                     {loading ? t.sendingLabel : (submitLabel || t.submitLabel)}
@@ -443,7 +535,14 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
                 )}
               </form>
             ) : (
-              <p style={{ margin: "8px 0 0", font: "500 14px/1.4 system-ui" }}>{t.successMessage}</p>
+              <p style={{ 
+                margin: "16px 0 0", 
+                font: "500 15px/1.4 system-ui",
+                color: isDark ? "#10b981" : "#059669",
+                textAlign: "center"
+              }}>
+                {t.successMessage}
+              </p>
             )}
           </div>
         </div>
