@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "@/components/footer";
@@ -73,7 +73,7 @@ const projects: Project[] = [
     ],
   },
 
-  // — Agents d’évaluation —
+  // — Agents d'évaluation —
   {
     id: "agents-eval",
     title: "Evaluating AI agents at scale",
@@ -84,7 +84,7 @@ const projects: Project[] = [
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",
     bullets: [
       "Simple lifecycle and dashboard to see what matters",
-      "Automatic scoring with LLM-as-a-Judge guardrails for “go/no-go”",
+      "Automatic scoring with LLM-as-a-Judge guardrails for \"go/no-go\"",
       "Issues & recommendations captured for fast iteration",
       "Ready to specialize per domain (UX, data quality, robustness)",
     ],
@@ -180,7 +180,7 @@ const hackathons = [
   },
   {
     year: "2020",
-    title: "Recoder l’Habitat #2",
+    title: "Recoder l'Habitat #2",
     team: "Team of 4",
     status: "1st Place 🏆",
     description: "Prototyped an open-data SaaS for city noise-pollution diagnostics.",
@@ -242,7 +242,36 @@ export const Home: React.FC = () => {
   const [activeExperienceFilter, setActiveExperienceFilter] = useState("experiences");
   const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const expExpand = useInlineExpand(); // pour l’onglet Experiences
+  const [isStickyDisabled, setIsStickyDisabled] = useState(false);
+  const expExpand = useInlineExpand();
+  const contactSectionRef = useRef<HTMLElement>(null);
+
+  // Intersection Observer pour désactiver le sticky avant la section Contact
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-80px 0px 0px 0px',
+      threshold: 0,
+    };
+
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        setIsStickyDisabled(entry.isIntersecting);
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    if (contactSectionRef.current) {
+      observer.observe(contactSectionRef.current);
+    }
+
+    return () => {
+      if (contactSectionRef.current) {
+        observer.unobserve(contactSectionRef.current);
+      }
+    };
+  }, []);
 
   const filteredProjects =
     activeFilter === "all"
@@ -393,7 +422,7 @@ export const Home: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">Work</h2>
           </div>
 
-          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-12" />
+          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-12" disableSticky={isStickyDisabled} />
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
@@ -536,9 +565,10 @@ export const Home: React.FC = () => {
             activeChip={activeExperienceFilter}
             onChipChange={setActiveExperienceFilter}
             className="mb-8"
+            disableSticky={isStickyDisabled}
           />
 
-          {/* Contenu selon l’onglet actif */}
+          {/* Contenu selon l'onglet actif */}
           <div className="space-y-6">
             {/* Onglet Experiences — version expand inline */}
             {activeExperienceFilter === "experiences" && (
@@ -656,7 +686,7 @@ export const Home: React.FC = () => {
       <BuiltWithBanner />
 
       {/* Contact Section - Centered */}
-      <section id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
+      <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Let's design a meaningful future</h2>
 
