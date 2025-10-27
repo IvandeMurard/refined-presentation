@@ -18,11 +18,10 @@ export function Footer({
 }: Props) {
   const [hoveredIcon, setHoveredIcon] = React.useState<string | null>(null);
 
-  const socialLinks = [
-    { id: "mail", icon: Mail, label: "Email" },
-    { id: "calendar", icon: Calendar, label: "Calendar" },
-    { id: "linkedin", icon: Linkedin, label: "LinkedIn" },
-    { id: "whatsapp", icon: MessageCircle, label: "WhatsApp" },
+     const socialLinks = [
+  { id: "mail", icon: Mail, label: "Email", href: "mailto:ivandemurard@gmail.com" },
+  { id: "calendar", icon: Calendar, label: "Calendar", href: "https://cal.com/ivandemurard/30min?user=ivandemurard" },
+  { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ivandemurard/" },
   ];
 
   return (
@@ -147,7 +146,7 @@ export function Footer({
             © 2025 Ivan de Murard. All rights reserved.
             <br className="md:hidden" />
             <span className="hidden md:inline"> • </span>
-            Crafted with passion.
+            Crafted with care.
           </p>
         </div>
       </div>
