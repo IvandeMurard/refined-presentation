@@ -193,10 +193,10 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           zIndex: 40,
           border: isDark 
             ? "1px solid rgba(255, 255, 255, 0.2)" 
-            : "1px solid rgba(0, 0, 0, 0.1)",
+            : "1px solid rgba(0, 0, 0, 0.15)",
           background: isDark 
             ? "rgba(15, 23, 42, 0.6)" 
-            : "rgba(255, 255, 255, 0.6)",
+            : "rgba(255, 255, 255, 0.85)",
           backdropFilter: "blur(20px) saturate(180%)",
           WebkitBackdropFilter: "blur(20px) saturate(180%)",
           color: isDark ? "#f1f5f9" : "#0f172a",
@@ -206,20 +206,20 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
           cursor: "pointer",
           boxShadow: isDark
             ? "0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-            : "0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)",
+            : "0 6px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1)",
           transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.transform = "translateY(-2px) scale(1.05)";
           e.currentTarget.style.boxShadow = isDark
             ? "0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
-            : "0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.9)";
+            : "0 10px 30px rgba(0, 0, 0, 0.18), inset 0 1px 0 rgba(255, 255, 255, 1)";
         }}
         onMouseLeave={(e) => {
           e.currentTarget.style.transform = "translateY(0) scale(1)";
           e.currentTarget.style.boxShadow = isDark
             ? "0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
-            : "0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)";
+            : "0 6px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1)";
         }}
       >
         {buttonLabel || t.buttonLabel}
