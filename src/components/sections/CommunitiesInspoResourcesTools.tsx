@@ -17,7 +17,7 @@ const TABS = [
   { id: "communities", label: "Communautés" },
   { id: "inspirations", label: "Inspirations" },
   { id: "resources", label: "Resources" },
-  { id: "tools", label: "Outils" },
+  { id: "tools", label: "Tools" },
 ] as const;
 
 export function CommunitiesInspoResourcesTools() {
