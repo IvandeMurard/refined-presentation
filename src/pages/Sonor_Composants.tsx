@@ -148,7 +148,7 @@ const TabProcessPM = ({ language }: { language: string }) => {
         <section className="space-y-4">
           <h3 className="text-h4">Discovery approfondie</h3>
           <p>
-            Phase cruciale de 3 mois (Oct. 2020 - Janv. 2021) avec <b>20+ entretiens qualitatifs</b> auprès de :
+            Phase cruciale de 3 mois (Oct. 2020 - Dec. 2021) avec <b>20+ entretiens qualitatifs</b> auprès de :
           </p>
           <ul className="list-disc pl-5 space-y-2">
             <li><b>Collectivités territoriales</b> : élus, chargés de mission environnement, responsables open data</li>
@@ -213,7 +213,7 @@ const TabProcessPM = ({ language }: { language: string }) => {
           <ExpandSection id="wont-have" title="Won't Have (Écartés)">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <b>Capteurs IoT propriétaires</b> : Impact technologique + temps développement trop important. 
+                <b>Capteurs IoT propriétaires</b> : Impact technologique + temps de développement trop important. 
                 Volonté de bypasser l'usage de capteurs en valorisant l'information citoyenne via l'open data.
               </li>
               <li><b>Module prédiction météo sonore</b> : Complexité technique excessive pour MVP</li>
@@ -249,7 +249,7 @@ const TabProcessPM = ({ language }: { language: string }) => {
             <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
               <h4 className="font-semibold mb-2">Complexité technique sous-estimée</h4>
               <p className="text-sm">
-                Difficulté d'accès et de traitement des données de qualité exploitable. 
+                Difficulté d'accès et de traitement des données de qualité en une cartographie exploitable. 
                 Ralentissement développement prototype.
               </p>
             </div>
@@ -265,7 +265,7 @@ const TabProcessPM = ({ language }: { language: string }) => {
       <section className="space-y-4">
         <h3 className="text-h4">In-depth Discovery</h3>
         <p>
-          Critical 3-month phase (Oct. 2020 - Jan. 2021) with <b>20+ qualitative interviews</b> with:
+          Critical 3-month phase (Oct. 2020 - Dec. 2021) with <b>20+ qualitative interviews</b> with:
         </p>
         <ul className="list-disc pl-5 space-y-2">
           <li><b>Local authorities</b>: elected officials, environmental officers, open data managers</li>
@@ -342,8 +342,8 @@ const TabDesign = ({ language }: { language: string }) => {
               <p className="text-sm">Pivot vers composant intégrable, reprise charte graphique collectivité</p>
             </div>
             <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Version 4 : Marque blanche Issy (Mars 2021)</h4>
-              <p className="text-sm">Prototype spécifique Issy-les-Moulineaux, intégration portail open data</p>
+              <h4 className="font-semibold mb-2">Version 4 : Marque blanche spécifique (Mars 2021)</h4>
+              <p className="text-sm">Prototype spécifique d'une ville, intégration portail open data</p>
             </div>
             <div className="p-4 rounded-lg bg-card">
               <h4 className="font-semibold mb-2">Version 5 : Prototype codé (Avril 2021)</h4>
@@ -353,17 +353,16 @@ const TabDesign = ({ language }: { language: string }) => {
         </section>
 
         <section className="space-y-4">
-          <h3 className="text-h4">Marque blanche Issy-les-Moulineaux</h3>
+          <h3 className="text-h4">Marque blanche spécifique</h3>
           <p>
-            Suite au feedback d'Issy-les-Moulineaux : <i>"Votre solution nous intéresse, mais nous ne pouvons pas 
-            renvoyer nos citoyens vers un site externe. Il faudrait que ce soit intégrable à notre portail open-data."</i>
+            Suite au feedback de la ville : <i>"Votre solution nous intéresse, mais nous ne pouvons pas 
+            renvoyer nos citoyens vers un site externe. Il faudrait que ce soit intégré à notre portail open-data."</i>
           </p>
           <p>
-            Décision de pivoter vers un composant en marque blanche, reprise complète de la direction artistique 
-            de la collectivité (couleurs, typographie, logo).
+            Décision de pivoter vers un composant en marque blanche.
           </p>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Intégration portail "Environnements Sonores" ville d'Issy</li>
+            <li>Intégration portail "Environnements Sonores"</li>
             <li>Formulaire dépôt alerte citoyen avec géolocalisation</li>
             <li>Quiz sensibilisation pollution sonore</li>
             <li>Suivi actions mairie en temps réel</li>
@@ -387,7 +386,7 @@ const TabDesign = ({ language }: { language: string }) => {
             </div>
             <div className="rounded-lg p-4 bg-card">
               <h4 className="font-semibold mb-1">UI sobre</h4>
-              <p className="text-sm text-muted-foreground">Mise en avant données publiques</p>
+              <p className="text-sm text-muted-foreground">Mise en avant des données publiques</p>
             </div>
           </div>
         </section>
@@ -424,8 +423,8 @@ const TabDesign = ({ language }: { language: string }) => {
             <p className="text-sm">Pivot to integrable component, municipality branding adoption</p>
           </div>
           <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Version 4: Issy white label (March 2021)</h4>
-            <p className="text-sm">Issy-les-Moulineaux specific prototype, open data portal integration</p>
+            <h4 className="font-semibold mb-2">Version 4: Specific white label (March 2021)</h4>
+            <p className="text-sm">Specific prototype, open data portal integration</p>
           </div>
           <div className="p-4 rounded-lg bg-card">
             <h4 className="font-semibold mb-2">Version 5: Coded prototype (April 2021)</h4>
@@ -437,136 +436,15 @@ const TabDesign = ({ language }: { language: string }) => {
   );
 };
 
-// ============= TAB GO-TO-MARKET B2G =============
-const TabGTM = ({ language }: { language: string }) => {
-  if (language === 'fr') {
-    return (
-      <div className="space-y-8">
         <section className="space-y-4">
-          <h3 className="text-h4">3 stratégies commerciales (phases progressives)</h3>
-          
-          <ExpandSection id="phase-1-gtm" title="Phase 1 : Exploration large (tous secteurs)" defaultOpen={true}>
-            <p className="mb-2"><b>Période</b> : Oct. 2020 - Janv. 2021 (3 mois)</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Promoteurs immobiliers</li>
-              <li>Bailleurs sociaux (CDC Habitat, Icade, OGIC)</li>
-              <li>Collectivités (première approche)</li>
-            </ul>
-            <p className="mt-2 italic">→ Pivot vers les collectivités après identification du meilleur product-market fit</p>
-          </ExpandSection>
-
-          <ExpandSection id="phase-2-gtm" title="Phase 2 : Collectivités sensibilisées à la donnée">
-            <p className="mb-2"><b>Période</b> : Fév. - Avril 2021 (3 mois)</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Villes ayant une culture open data établie</li>
-              <li>Métropoles avec services environnement structurés</li>
-            </ul>
-          </ExpandSection>
-
-          <ExpandSection id="phase-3-gtm" title="Phase 3 : Ciblage affiné (appétence data + culture innovation)">
-            <p className="mb-2"><b>Période</b> : Mai 2021 - Mars 2022 (10 mois)</p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Contact direct LinkedIn avec élus et chargés de mission</li>
-              <li>Collectivités déjà engagées dans démarches smart city</li>
-            </ul>
-            <p className="mt-2 italic">→ Meilleurs résultats en phase 3</p>
-          </ExpandSection>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Process de vente (5 étapes)</h3>
-          <ol className="list-decimal pl-5 space-y-2">
-            <li>
-              <b>Qualification initiale</b> : Recherche LinkedIn + analyse publications open data collectivité
-            </li>
-            <li>
-              <b>Premier contact</b> : Email personnalisé présentant proposition valeur adaptée enjeux locaux
-            </li>
-            <li>
-              <b>Relances</b> : Téléphone, échanges visios pour qualifier besoin
-            </li>
-            <li>
-              <b>Entretien physique</b> : Présentation personnalisée solution Sonor et besoins spécifiques collectivité
-            </li>
-            <li>
-              <b>Propale commerciale</b> : Rédaction proposition adaptée (marché gré-à-gré, montants &lt;40k€)
-            </li>
-          </ol>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Obstacles par ville</h3>
-          
-          <div className="space-y-3">
-            <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
-              <h4 className="font-semibold mb-2">Paris 15e arrondissement</h4>
-              <p className="text-sm">
-                <b>Obstacle</b> : Validation propale interne (compétence Ville de Paris, pas arrondissement) 
-                + budget expérimentation → financements épuisés avant décision. <b>Timing fatal.</b>
-              </p>
-            </div>
-
-            <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
-              <h4 className="font-semibold mb-2">Arras</h4>
-              <p className="text-sm">
-                <b>Obstacle</b> : Ville intéressée, mais trop tôt : pas de plateforme fonctionnelle, 
-                manque ressources dev. Besoin prototype codé pour convaincre.
-              </p>
-            </div>
-
-            <div className="p-4 rounded-lg bg-card border-l-4 border-accent">
-              <h4 className="font-semibold mb-2">Issy-les-Moulineaux</h4>
-              <p className="text-sm">
-                <b>Insight clé</b> : "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer 
-                nos citoyens vers un site externe. Il faudrait que ce soit intégrable à notre portail open-data."
-                <br />→ Pivot vers marque blanche
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Taux de conversion (funnel global)</h3>
-          <div className="space-y-2">
-            <div className="flex items-center gap-4">
-              <div className="w-32 text-right font-bold text-2xl">20+</div>
-              <div className="flex-1 h-8 bg-accent/20 rounded-lg flex items-center px-4">
-                Villes contactées
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-32 text-right font-bold text-2xl">4-5</div>
-              <div className="flex-1 h-8 bg-accent/40 rounded-lg flex items-center px-4">
-                Échanges constructifs
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-32 text-right font-bold text-2xl">2</div>
-              <div className="flex-1 h-8 bg-accent/60 rounded-lg flex items-center px-4">
-                Propales commerciales
-              </div>
-            </div>
-            <div className="flex items-center gap-4">
-              <div className="w-32 text-right font-bold text-2xl text-destructive">0</div>
-              <div className="flex-1 h-8 bg-destructive/20 rounded-lg flex items-center px-4">
-                Signatures (timing + complexité technique)
-              </div>
-            </div>
-          </div>
-          <p className="text-sm italic mt-3">
-            Note : Le funnel ne contient pas les chiffres LinkedIn (phase 3), où les résultats étaient meilleurs.
-          </p>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Insights post-mortem</h3>
+          <h3 className="text-h4">Apprentissages</h3>
           <ul className="list-disc pl-5 space-y-2">
             <li>
-              <b>Cycles B2G longs (12-18 mois)</b> : Sans MVP fonctionnel, difficile de convaincre 
+              <b>Cycles B2G longs (6 mois)</b> : Sans MVP fonctionnel, difficile de convaincre 
               avant épuisement ressources
             </li>
             <li>
-              <b>Importance du prototype codé</b> : Les démos Figma ne suffisent pas pour obtenir budget expérimentation
+              <b>Importance du prototype codé</b> : L'user doit pouvoir "jouer" avec le prototype
             </li>
             <li>
               <b>Segmentation par appétence data</b> : Plus efficace que segmentation par taille de collectivité
@@ -579,60 +457,6 @@ const TabGTM = ({ language }: { language: string }) => {
       </div>
     );
   }
-
-  // English version
-  return (
-    <div className="space-y-8">
-      <section className="space-y-4">
-        <h3 className="text-h4">3 Commercial Strategies (progressive phases)</h3>
-        
-        <ExpandSection id="phase-1-gtm-en" title="Phase 1: Broad exploration (all sectors)" defaultOpen={true}>
-          <p className="mb-2"><b>Period</b>: Oct. 2020 - Jan. 2021 (3 months)</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Real estate developers</li>
-            <li>Social housing bodies (CDC Habitat, Icade, OGIC)</li>
-            <li>Municipalities (first approach)</li>
-          </ul>
-          <p className="mt-2 italic">→ Pivot to municipalities after identifying best product-market fit</p>
-        </ExpandSection>
-
-        <ExpandSection id="phase-2-gtm-en" title="Phase 2: Data-aware municipalities">
-          <p className="mb-2"><b>Period</b>: Feb. - April 2021 (3 months)</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Cities with established open data culture</li>
-            <li>Metropolises with structured environment services</li>
-          </ul>
-        </ExpandSection>
-
-        <ExpandSection id="phase-3-gtm-en" title="Phase 3: Refined targeting (data appetite + innovation culture)">
-          <p className="mb-2"><b>Period</b>: May 2021 - March 2022 (10 months)</p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Direct LinkedIn contact with elected officials and mission officers</li>
-            <li>Municipalities already engaged in smart city initiatives</li>
-          </ul>
-          <p className="mt-2 italic">→ Best results in phase 3</p>
-        </ExpandSection>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-h4">Conversion Rate (global funnel)</h3>
-        <div className="space-y-2">
-          <div className="flex items-center gap-4">
-            <div className="w-32 text-right font-bold text-2xl">20+</div>
-            <div className="flex-1 h-8 bg-accent/20 rounded-lg flex items-center px-4">
-              Cities contacted
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="w-32 text-right font-bold text-2xl">4-5</div>
-            <div className="flex-1 h-8 bg-accent/40 rounded-lg flex items-center px-4">
-              Constructive exchanges
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="w-32 text-right font-bold text-2xl">2</div>
-            <div className="flex-1 h-8 bg-accent/60 rounded-lg flex items-center px-4">
-              Commercial proposals
             </div>
           </div>
           <div className="flex items-center gap-4">
