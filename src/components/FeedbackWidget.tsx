@@ -189,16 +189,37 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
         style={{
           position: "fixed",
           right: 16,
-          bottom: 80, // Positionné au-dessus du bouton scroll-to-top
+          bottom: 80,
           zIndex: 40,
-          border: "1px solid var(--border,#e5e7eb)",
-          background: "var(--surface,#fff)",
-          color: "var(--text,#111)",
-          padding: "10px 12px",
+          border: isDark 
+            ? "1px solid rgba(255, 255, 255, 0.2)" 
+            : "1px solid rgba(0, 0, 0, 0.1)",
+          background: isDark 
+            ? "rgba(15, 23, 42, 0.6)" 
+            : "rgba(255, 255, 255, 0.6)",
+          backdropFilter: "blur(20px) saturate(180%)",
+          WebkitBackdropFilter: "blur(20px) saturate(180%)",
+          color: isDark ? "#f1f5f9" : "#0f172a",
+          padding: "12px 18px",
           borderRadius: 999,
-          font: "500 14px/1.2 system-ui",
-          opacity: 0.9,
-          transition: "all 0.2s ease"
+          font: "600 14px/1.2 system-ui",
+          cursor: "pointer",
+          boxShadow: isDark
+            ? "0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+            : "0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)",
+          transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)"
+        }}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = "translateY(-2px) scale(1.05)";
+          e.currentTarget.style.boxShadow = isDark
+            ? "0 8px 24px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15)"
+            : "0 8px 24px rgba(0, 0, 0, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.9)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = "translateY(0) scale(1)";
+          e.currentTarget.style.boxShadow = isDark
+            ? "0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+            : "0 4px 16px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8)";
         }}
       >
         {buttonLabel || t.buttonLabel}

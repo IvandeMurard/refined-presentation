@@ -50,8 +50,23 @@ export const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-4 right-4 z-50 rounded-full p-3 bg-background border border-border shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-110"
+          className="fixed bottom-4 right-4 z-50 rounded-full p-3.5 transition-all duration-300"
           aria-label="Retour en haut"
+          style={{
+            border: "1px solid hsl(var(--border) / 0.2)",
+            background: "hsl(var(--background) / 0.6)",
+            backdropFilter: "blur(20px) saturate(180%)",
+            WebkitBackdropFilter: "blur(20px) saturate(180%)",
+            boxShadow: "0 4px 16px hsl(var(--foreground) / 0.1), inset 0 1px 0 hsl(var(--background) / 0.8)"
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = "translateY(-2px) scale(1.08)";
+            e.currentTarget.style.boxShadow = "0 8px 24px hsl(var(--foreground) / 0.15), inset 0 1px 0 hsl(var(--background) / 0.9)";
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = "translateY(0) scale(1)";
+            e.currentTarget.style.boxShadow = "0 4px 16px hsl(var(--foreground) / 0.1), inset 0 1px 0 hsl(var(--background) / 0.8)";
+          }}
         >
           <ArrowUp className="h-5 w-5" />
         </button>
