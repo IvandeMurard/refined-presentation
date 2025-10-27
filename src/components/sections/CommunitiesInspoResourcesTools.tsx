@@ -14,7 +14,7 @@ import {
 } from "@/data/inspirationsToolsMerged";
 
 const TABS = [
-  { id: "communities", label: "Communautés" },
+  { id: "communities", label: "Communities" },
   { id: "inspirations", label: "Inspirations" },
   { id: "resources", label: "Resources" },
   { id: "tools", label: "Tools" },
