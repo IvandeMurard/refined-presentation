@@ -1,28 +1,35 @@
 import * as React from "react";
 import { Mail, Calendar, Linkedin, MessageCircle } from "lucide-react";
+import { SITE, SOCIAL_LINKS, type SocialKey } from "@/site.config";
 
 type Props = {
-  siteName: string;
-  tagline: string;
+  siteName?: string;
+  tagline?: string;
   sections: Array<{ id: string; label: string }>;
   onSectionClick?: (sectionId: string) => void;
   className?: string;
 };
 
+const ICONS: Record<Exclude<SocialKey, "x">, React.ComponentType<any>> = {
+  mail: Mail,
+  calendar: Calendar,
+  linkedin: Linkedin,
+};
+
 export function Footer({
-  siteName,
-  tagline,
+  siteName = SITE.name,
+  tagline = SITE.tagline,
   sections,
   onSectionClick,
   className = "",
 }: Props) {
   const [hoveredIcon, setHoveredIcon] = React.useState<string | null>(null);
 
-     const socialLinks = [
-  { id: "mail", icon: Mail, label: "Email", href: "mailto:ivandemurard@gmail.com" },
-  { id: "calendar", icon: Calendar, label: "Calendar", href: "https://cal.com/ivandemurard/30min?user=ivandemurard" },
-  { id: "linkedin", icon: Linkedin, label: "LinkedIn", href: "https://www.linkedin.com/in/ivandemurard/" },
-  ];
+  // Aligne l'ordre d’affichage et mappe les métadonnées depuis la config
+  const socialOrder: SocialKey[] = ["mail", "calendar", "linkedin", "whatsapp", "x"];
+  const socialItems = socialOrder
+    .map((id) => ({ id, ...SOCIAL_LINKS[id] }))
+    .filter((s) => Boolean(s.href));
 
   return (
     <footer className={["w-full bg-[#0B1220] text-white", className].join(" ")}>
@@ -31,9 +38,7 @@ export function Footer({
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-8">
           {/* Column 1: Name & Tagline */}
           <div>
-            <h3 className="text-[20px] font-[700] text-white mb-2">
-              {siteName}
-            </h3>
+            <h3 className="text-[20px] font-[700] text-white mb-2">{siteName}</h3>
             <p className="text-[14px] font-[400] leading-[1.6] text-white/70">
               {tagline}
             </p>
@@ -75,64 +80,82 @@ export function Footer({
             </div>
           </div>
 
-          {/* Column 4: Social Icons */}
+          {/* Column 4: Social Icons + Tooltips */}
           <div>
             <h4 className="text-[13px] font-[600] tracking-[0.15em] uppercase text-white/60 mb-4">
               Connect
             </h4>
+
             <div className="flex items-center gap-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon;
+              {socialItems.map((social) => {
+                const isX = social.id === "x";
+                const Icon = !isX ? ICONS[social.id as Exclude<SocialKey, "x">] : null;
+
                 return (
-                  <div
+                  <a
                     key={social.id}
-                    className="relative group"
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative group outline-none"
                     onMouseEnter={() => setHoveredIcon(social.id)}
                     onMouseLeave={() => setHoveredIcon(null)}
-                    role="img"
                     aria-label={social.label}
+                    title={social.label}
                   >
-                    <Icon
-                      size={20}
-                      strokeWidth={1.5}
+                    {/* Icon */}
+                    {!isX ? (
+                      <Icon
+                        size={20}
+                        strokeWidth={1.5}
+                        className={[
+                          "transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+                          hoveredIcon === social.id
+                            ? "text-[#065f46]"
+                            : "text-white/70",
+                        ].join(" ")}
+                      />
+                    ) : (
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        className={[
+                          "transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
+                          hoveredIcon === "x" ? "stroke-[#065f46]" : "stroke-white/70",
+                        ].join(" ")}
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M4 4l11.733 16h4.267l-11.733-16z" />
+                        <path d="M4 20l6.768-6.768m2.46-2.46L20 4" />
+                      </svg>
+                    )}
+
+                    {/* Tooltip (pure CSS: hover + focus-visible) */}
+                    <span
                       className={[
-                        "transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                        hoveredIcon === social.id
-                          ? "text-[#065f46]"
-                          : "text-white/70",
+                        "pointer-events-none absolute -top-8 left-1/2 -translate-x-1/2",
+                        "rounded-md bg-white/10 px-2 py-1 text-[11px] text-white",
+                        "opacity-0 shadow-lg backdrop-blur-md ring-1 ring-white/15",
+                        "transition-opacity duration-200",
+                        "group-hover:opacity-100 group-focus-visible:opacity-100",
+                        "whitespace-nowrap",
                       ].join(" ")}
-                    />
-                  </div>
+                      role="tooltip"
+                    >
+                      {social.label}
+                      {/* petit caret */}
+                      <span
+                        className="absolute left-1/2 top-full -translate-x-1/2 h-2 w-2 rotate-45 bg-white/10 ring-1 ring-white/15"
+                        aria-hidden="true"
+                      />
+                    </span>
+                  </a>
                 );
               })}
-              
-              {/* X (Twitter) Icon - Custom SVG */}
-              <div
-                className="relative group"
-                onMouseEnter={() => setHoveredIcon("x")}
-                onMouseLeave={() => setHoveredIcon(null)}
-                role="img"
-                aria-label="X (Twitter)"
-              >
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  className={[
-                    "transition-colors duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)]",
-                    hoveredIcon === "x"
-                      ? "stroke-[#065f46]"
-                      : "stroke-white/70",
-                  ].join(" ")}
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M4 4l11.733 16h4.267l-11.733-16z" />
-                  <path d="M4 20l6.768-6.768m2.46-2.46L20 4" />
-                </svg>
-              </div>
             </div>
           </div>
         </div>
@@ -143,10 +166,10 @@ export function Footer({
         {/* Copyright */}
         <div className="text-center md:text-left">
           <p className="text-[13px] font-[400] text-white/60 leading-[1.6]">
-            © 2025 Ivan de Murard. All rights reserved.
+            © {new Date().getFullYear()} {siteName}. All rights reserved.
             <br className="md:hidden" />
             <span className="hidden md:inline"> • </span>
-            Crafted with care.
+            Made with care.
           </p>
         </div>
       </div>
