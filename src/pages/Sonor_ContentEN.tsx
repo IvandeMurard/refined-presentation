@@ -1,0 +1,661 @@
+// src/pages/Sonor_ContentEN.tsx
+// FICHIER 3/4 : Contenu anglais complet pour le case study SONOR
+// Version conforme aux spécifications validées - English version
+
+import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import CaseTldr from "@/components/case/CaseTldr";
+import { CaseImage } from "@/components/case/CaseImage";
+import { CTABanner } from "@/components/work/CTABanner";
+import { ExternalLink } from "lucide-react";
+import { 
+  TermExplain, 
+  ExpandSection, 
+  BandeauAudio, 
+  TabsApprofondir 
+} from "./Sonor_Composants";
+
+// ============= TL;DR BLOCK EN =============
+export const TLDRBlockEN = () => (
+  <CaseTldr
+    tone="wttj"
+    title="TL;DR — At a glance"
+    items={[
+      <>
+        <b>Context:</b> Recoder l'Habitat #2 Hackathon (winner) → incubation Matrice & Banque des Territoires (2020-2022)
+      </>,
+      <>
+        <b>Problem:</b> Noise pollution (2nd urban nuisance), invisible, real health impacts
+      </>,
+      <>
+        <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen engagement (awareness, communication)
+      </>,
+      <>
+        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) including 1 part-time dev/data-scientist
+      </>,
+      <>
+        <b>My role:</b> Product framing, discovery (20+ interviews), Prototyping (UX/UI Figma), 
+        B2G go-to-market, Sales, Data-scientist leadership
+      </>,
+      <>
+        <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner presentations)
+      </>,
+      <>
+        <b>Results:</b><br />
+        • €20k funding (2 grants)<br />
+        • 20+ qualitative interviews<br />
+        • 3 Figma prototype versions + 1 coded version<br />
+        • Negotiations with regional metropolises, medium-sized cities, local authorities
+      </>,
+      <>
+        <b>Key pivot:</b> Developers/buyers → Municipalities (after 3 months discovery private sector)
+      </>,
+      <>
+        <b>Go-to-market:</b> 20+ cities contacted → 4-5 constructive exchanges → 2 commercial proposals → 0 signature (timing + technical complexity)
+      </>,
+      <>
+        <b>Project end:</b> Underestimated technical complexity + long B2G sales cycles (12-18 months) → funding exhaustion before 1st signature
+      </>,
+      <>
+        <b>Learnings:</b> Product focus (1 MVP &gt; 360° offer), importance functional prototype to convince, communicate before being "ready"
+      </>,
+    ]}
+  />
+);
+
+// ============= CONTENT EN =============
+export const ContentEN = () => {
+  const navigate = useNavigate();
+  const tabsRef = useRef<HTMLDivElement>(null);
+
+  const scrollToTabs = () => {
+    tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  return (
+    <div>
+      {/* TL;DR */}
+      <div className="mb-10">
+        <TLDRBlockEN />
+      </div>
+
+      {/* AUDIO BANNER */}
+      <div className="mb-10">
+        <BandeauAudio language="en" />
+      </div>
+
+      {/* ========== SECTION 1: CONTEXT ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Context: Noise Pollution</h2>
+
+          {/* Key figures */}
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">2nd</div>
+              <div className="text-muted-foreground">Source of urban nuisances in Europe (after air pollution)</div>
+            </div>
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">25M</div>
+              <div className="text-muted-foreground">French exposed to excessive noise levels (ANSES 2021)</div>
+            </div>
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">€156B/year</div>
+              <div className="text-muted-foreground">Social cost of noise in France (ADEME 2021)</div>
+            </div>
+          </div>
+
+          {/* Nightingale Article */}
+          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
+                <ExternalLink className="w-6 h-6 text-accent" />
+              </div>
+              <div className="flex-1">
+                <h4 className="font-semibold mb-2">Noisy Cities: Behind the scenes with Karim Douieb</h4>
+                <p className="text-sm text-muted-foreground mb-3">
+                  Discover the urban noise pollution mapping methodology by Karim Douieb (Nightingale DVS), 
+                  inspiring for our data-driven approach.
+                </p>
+                <a 
+                  href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-accent hover:underline"
+                >
+                  Read article <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Noisy Cities Interactive */}
+          <ExpandSection id="noisy-cities-en" title="Interactive map: Noisy Cities Paris">
+            <p className="mb-3">
+              Explore the interactive noise pollution map of Paris by Karim Douieb, 
+              which inspired our cartographic approach for Sonor.
+            </p>
+            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+              <p className="text-sm text-muted-foreground">
+                [Noisy Cities Paris interactive map iframe to integrate]
+              </p>
+            </div>
+          </ExpandSection>
+
+          {/* Explanatory text */}
+          <section className="space-y-4">
+            <p>
+              <b>20% of the European population</b> is exposed to dangerous nighttime noise levels 
+              for health (European Environment Agency, 2024).
+            </p>
+            <p>
+              Health impacts are multiple: sleep disorders, chronic stress, 
+              cardiovascular diseases, cognitive impacts in children.
+            </p>
+            <p>
+              Unlike air pollution, noise remains <b>invisible</b> and <b>under-addressed</b> 
+              by public policies, despite its considerable social cost.
+            </p>
+          </section>
+
+          {/* Sources */}
+          <div className="text-sm text-muted-foreground space-y-1">
+            <p><b>Sources:</b></p>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>WHO Europe (2018): Guidelines on noise</li>
+              <li>ANSES (2021): 25M French exposed</li>
+              <li>ADEME (2021): €156B/year social cost noise</li>
+              <li>European Environment Agency (2024): 20% population exposed</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 2: TIMELINE ========== */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Project Timeline</h2>
+          
+          <div className="space-y-6">
+            {[
+              { date: "Oct. 2020", title: "Hackathon", desc: "Recoder l'Habitat #2 win → Matrice/BdT incubation" },
+              { date: "Oct. 2020 - Jan. 2021", title: "Discovery", desc: "20+ interviews, private sector exploration" },
+              { date: "Jan. 2021", title: "Pivot", desc: "Strategic decision → focus municipalities" },
+              { date: "Jan. - April 2021", title: "Prototype", desc: "3 Figma versions + white-label evolution" },
+              { date: "May 2021 - March 2022", title: "Go-to-market", desc: "20+ cities, 2 proposals, long cycles" },
+              { date: "March 2022", title: "End", desc: "Funding exhaustion, 0 signature" },
+            ].map((step, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="flex-shrink-0 w-32 text-right font-semibold text-accent">
+                  {step.date}
+                </div>
+                <div className="flex-1 p-4 rounded-lg bg-card">
+                  <h4 className="font-semibold mb-1">{step.title}</h4>
+                  <p className="text-sm text-muted-foreground">{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 3: KEY MOMENTS ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Key Moments</h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Moment 1 */}
+            <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
+              <h3 className="text-h4 mb-3">Strategic pivot: Private sector → Municipalities</h3>
+              <p className="text-sm mb-3">
+                <b>Context:</b> After 3 months private sector exploration, 1st milestone presentation.
+              </p>
+              <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                "Municipalities have the skills and resources to act sustainably on this issue. 
+                And we have the network to support you."
+                <footer className="text-xs mt-2">— Banque des Territoires / Matrice Advisor</footer>
+              </blockquote>
+              <p className="text-sm">
+                <b>Decision:</b> Pivot to public market (cities, metropolises). 
+                Internal debate: less "sexy", long processes, but consensus: BdT support decisive.
+              </p>
+            </div>
+
+            {/* Moment 2 */}
+            <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
+              <h3 className="text-h4 mb-3">The insight that diluted focus</h3>
+              <p className="text-sm mb-3">
+                <b>Context:</b> Discovery, interviews with elected officials.
+              </p>
+              <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
+                "We'd especially like human support: communication about our actions, 
+                citizen awareness, identification of field solutions."
+                <footer className="text-xs mt-2">— Municipality</footer>
+              </blockquote>
+              <p className="text-sm">
+                <b>Error:</b> Attempt to meet both needs (platform + human support). 
+                Result: Blurred 360° offering, MVP never finalized. 
+                <br /><b>Learning:</b> Chase only one rabbit at a time.
+              </p>
+            </div>
+
+            {/* Moment 3 */}
+            <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
+              <h3 className="text-h4 mb-3">From standalone platform to integrable component</h3>
+              <p className="text-sm mb-3">
+                <b>Context:</b> Prototype presentation (Sonor branding) to Issy-les-Moulineaux.
+              </p>
+              <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                "Your solution interests us, but we cannot redirect our citizens to an external site. 
+                It would need to be integrable into our open-data portal."
+                <footer className="text-xs mt-2">— Issy-les-Moulineaux</footer>
+              </blockquote>
+              <p className="text-sm">
+                <b>Decision:</b> Pivot to white-label component (full municipality branding adoption). 
+                Key issue: <b>Data sovereignty</b>.
+              </p>
+            </div>
+
+            {/* Moment 4 */}
+            <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
+              <h3 className="text-h4 mb-3">The B2G sales cycle wall</h3>
+              <p className="text-sm mb-3">
+                <b>Context:</b> After 6 months outreach, 2 commercial proposals in progress.
+              </p>
+              <div className="space-y-2 text-sm mb-3">
+                <p><b>Paris 15th district obstacle:</b> Internal proposal validation (City of Paris competence, not district) 
+                + experimentation budget → funding exhausted before decision. <b>Fatal timing.</b></p>
+                <p><b>Arras obstacle:</b> Interested city, but too early: no functional platform, 
+                lacking dev resources.</p>
+              </div>
+              <p className="text-sm">
+                <b>Learning:</b> B2G cycles 12-18 months. Without functional MVP, difficult to convince before resource exhaustion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 4: RESULTS & IMPACT ========== */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Results & Impact</h2>
+
+          {/* Key figures */}
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">€20k</div>
+              <div className="text-muted-foreground text-sm">Funding obtained (2 grants)</div>
+            </div>
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">20+</div>
+              <div className="text-muted-foreground text-sm">Qualitative interviews</div>
+            </div>
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">3+1</div>
+              <div className="text-muted-foreground text-sm">Prototype versions (Figma + coded)</div>
+            </div>
+            <div className="bg-card p-6 rounded-2xl">
+              <div className="text-4xl font-extrabold mb-2">8+</div>
+              <div className="text-muted-foreground text-sm">Metropolises and cities met</div>
+            </div>
+          </div>
+
+          {/* Prototype gallery */}
+          <section className="space-y-4">
+            <h3 className="text-h4">Prototype Gallery</h3>
+            <div className="grid md:grid-cols-2 gap-6">
+              <CaseImage
+                alt="Sonor mapping dashboard"
+                desktopSrc="/img/sonor_cartographie_dashboard.png"
+                caption="Mapping dashboard — Hotspots & real-time indicators"
+              />
+              <CaseImage
+                alt="Action recommendations"
+                desktopSrc="/img/sonor_recommandations.png"
+                caption="Actionable recommendations — Prioritized tasks by zone"
+              />
+              <CaseImage
+                alt="Issy white label"
+                desktopSrc="/img/sonor_issy_marque_blanche.png"
+                caption="White-label integration — Issy-les-Moulineaux"
+              />
+              <CaseImage
+                alt="Citizen engagement"
+                desktopSrc="/img/sonor_engagement_citoyen.png"
+                caption="Citizen engagement — Qualified alert submission"
+              />
+            </div>
+          </section>
+
+          {/* Demo link */}
+          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div>
+                <h4 className="font-semibold mb-2">Functional Prototype</h4>
+                <p className="text-sm text-muted-foreground">
+                  Explore the prototype developed for Banque des Territoires
+                </p>
+              </div>
+              <a
+                href="https://byronbark.github.io/sonor-web-component/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                Open demo <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+
+          {/* Stakeholders met */}
+          <ExpandSection id="stakeholders" title="Stakeholders Met">
+            <p className="mb-2">
+              <b>Municipalities:</b> Regional metropolises, medium-sized cities, local authorities
+            </p>
+            <p>
+              <b>Experts/partners:</b> BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministry of Ecology
+            </p>
+          </ExpandSection>
+        </div>
+      </div>
+
+      {/* ========== SECTION 5: "WANT TO DIVE DEEPER?" ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <div className="text-center space-y-4">
+            <h2 className="text-h3">Want to dive deeper?</h2>
+            <p className="text-muted-foreground">
+              Discover the details of the process, design and commercial strategy
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <button
+              onClick={scrollToTabs}
+              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
+            >
+              <h3 className="text-h4 mb-2 group-hover:text-accent">PM Process</h3>
+              <p className="text-sm text-muted-foreground">
+                Discovery, JTBD, MoSCoW prioritization, sprints and obstacles
+              </p>
+            </button>
+
+            <button
+              onClick={scrollToTabs}
+              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
+            >
+              <h3 className="text-h4 mb-2 group-hover:text-accent">Design & Prototype</h3>
+              <p className="text-sm text-muted-foreground">
+                5 versions, white label, mapping and design system
+              </p>
+            </button>
+
+            <button
+              onClick={scrollToTabs}
+              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
+            >
+              <h3 className="text-h4 mb-2 group-hover:text-accent">B2G Go-to-market</h3>
+              <p className="text-sm text-muted-foreground">
+                3 strategies, sales process, obstacles and conversion rates
+              </p>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 6: DEEP-DIVE TABS (REF) ========== */}
+      <div ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto">
+          <TabsApprofondir language="en" />
+        </div>
+      </div>
+
+      {/* ========== SECTION 7: EPILOGUE ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Epilogue & Learnings</h2>
+
+          <section className="rounded-xl p-6 bg-card">
+            <p className="text-lg">
+              The SONOR project did not become a startup per se, but the experience was formative 
+              on several levels, both professionally and personally.
+            </p>
+          </section>
+
+          {/* 3 causes project end */}
+          <section className="space-y-4">
+            <h3 className="text-h4">3 Causes of Project End</h3>
+            
+            <ExpandSection id="cause-1-en" title="1. Underestimated technical complexity" defaultOpen={true}>
+              <p>
+                We underestimated the difficulty of accessing and processing exploitable quality open data 
+                on noise pollution. The lack of raw material (reliable and standardized open data) 
+                slowed prototype development.
+              </p>
+            </ExpandSection>
+
+            <ExpandSection id="cause-2-en" title="2. Long B2G sales cycles">
+              <p>
+                Sales cycles with municipalities are very long (12-18 months minimum), 
+                but we lacked time to finalize signatures before funding exhaustion.
+              </p>
+            </ExpandSection>
+
+            <ExpandSection id="cause-3-en" title="3. Blurred positioning">
+              <p>
+                Our positioning between SaaS platform and consulting support was not clear enough. 
+                We needed to choose a more precise angle of attack to facilitate value proposition understanding.
+              </p>
+            </ExpandSection>
+          </section>
+
+          {/* 8 learnings */}
+          <section className="space-y-6">
+            <h3 className="text-h4">Learnings</h3>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {/* Practical */}
+              <div className="rounded-xl p-5 bg-card">
+                <h4 className="font-semibold mb-3">Practical</h4>
+                <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <li><b>End-to-end 0→1</b>: Complete discovery → prototyping → go-to-market → commercialization</li>
+                  <li><b>Prioritization & saying no</b>: Importance of staying focused on 1 MVP rather than 360° offering</li>
+                  <li><b>B2G go-to-market</b>: Long cycles (12-18 months), importance of functional prototype</li>
+                  <li><b>Communicate before being "ready"</b>: Functional prototype necessary to convince</li>
+                </ul>
+              </div>
+
+              {/* Personal */}
+              <div className="rounded-xl p-5 bg-card">
+                <h4 className="font-semibold mb-3">Personal</h4>
+                <ul className="list-disc pl-5 space-y-2 text-sm">
+                  <li><b>Appetite for exploration and analysis</b>: Confirmed my taste for in-depth study of complex issues, 
+                  searching for concrete solutions, and ability to transform technical learnings and data into answers adapted to field needs</li>
+                  <li><b>Impact products</b>: Confirmed interest in products with strong societal and environmental impact</li>
+                  <li><b>Field ↔ design back-and-forth</b>: Importance of regular confrontation with field</li>
+                  <li><b>Cross-functional teamwork</b>: Clear communication and synthesis of complex issues</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section className="rounded-xl p-6 bg-card">
+            <p className="text-lg">
+              <b>Conclusion.</b> SONOR confirmed my taste for transforming issues into data-driven solutions 
+              and allowed me to acquire valuable experience in 0→1 product management, 
+              from discovery to commercialization.
+            </p>
+          </section>
+        </div>
+      </div>
+
+      {/* ========== SECTION 8: FAQ ========== */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Frequently Asked Questions</h2>
+
+          <div className="space-y-4">
+            <ExpandSection id="faq-1-en" title="Why did you stop the project?">
+              <p>Three main reasons:</p>
+              <ul className="list-disc pl-5 space-y-1 mt-2">
+                <li><b>Underestimated technical complexity</b>: Difficulty accessing and processing exploitable quality open data</li>
+                <li><b>Long B2G sales cycles</b>: 12-18 months minimum, funding exhaustion before 1st signature</li>
+                <li><b>Blurred positioning</b>: Between SaaS platform and consulting support, not clear enough</li>
+              </ul>
+            </ExpandSection>
+
+            <ExpandSection id="faq-2-en" title="How did you fund the project?">
+              <p>
+                <b>€20k</b> total via 2 grants:
+              </p>
+              <ul className="list-disc pl-5 space-y-1 mt-2">
+                <li>1st grant: Hackathon win Recoder l'Habitat #2</li>
+                <li>2nd grant: Matrice + Banque des Territoires support program</li>
+              </ul>
+            </ExpandSection>
+
+            <ExpandSection id="faq-3-en" title="What was your commercial strategy?">
+              <p>
+                3 progressive phases over 2 years:
+              </p>
+              <ul className="list-disc pl-5 space-y-1 mt-2">
+                <li><b>Phase 1</b>: Broad exploration (developers, housing, municipalities)</li>
+                <li><b>Phase 2</b>: Focus on data-aware municipalities</li>
+                <li><b>Phase 3</b>: Refined targeting (data appetite + innovation culture, via LinkedIn)</li>
+              </ul>
+            </ExpandSection>
+
+            <ExpandSection id="faq-4-en" title="How did you segment municipalities?">
+              <p>
+                By <b>data appetite and awareness</b> rather than size. 
+                Cities with established open data culture and structured environment services 
+                were more receptive, regardless of size.
+              </p>
+            </ExpandSection>
+
+            <ExpandSection id="faq-5-en" title="Why no precise list of contacted cities?">
+              <p>
+                Out of respect for <b>confidentiality</b> of commercial exchanges. 
+                We mention publicly cited cities (Issy-les-Moulineaux, Paris 15th, Arras) 
+                and typologies (regional metropolises, medium-sized cities, local authorities).
+              </p>
+            </ExpandSection>
+
+            <ExpandSection id="faq-6-en" title="Could the project resume?">
+              <p>
+                Current conditions (2025) are more favorable than in 2020-2022:
+              </p>
+              <ul className="list-disc pl-5 space-y-1 mt-2">
+                <li>Growing municipality maturity in open data</li>
+                <li>Reinforced regulatory obligations (Europe + France)</li>
+                <li>Emergence of generative AI for automated support</li>
+                <li>Smart city market structuring</li>
+              </ul>
+              <p className="mt-2">
+                But would require: Functional MVP, freemium model, strategic partnerships, 
+                and clear focus (platform OR support, not both).
+              </p>
+            </ExpandSection>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 9: "GO FURTHER" ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Go Further</h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Content 1 */}
+            <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
+                <span className="text-2xl">🎧</span>
+              </div>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">From natural silence to urban noise</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Sound recording from Risoux forest to contrast natural and urban spaces
+              </p>
+              <div className="flex items-center gap-2 text-accent text-sm">
+                Listen <ExternalLink className="w-4 h-4" />
+              </div>
+            </div>
+
+            {/* Content 2 */}
+            <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
+                <span className="text-2xl">🎤</span>
+              </div>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">Visualizing noisy cities</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                TEDx Brussels by Karim Douieb on noise pollution dataviz methodology
+              </p>
+              <div className="flex items-center gap-2 text-accent text-sm">
+                Watch <ExternalLink className="w-4 h-4" />
+              </div>
+            </div>
+
+            {/* Content 3 */}
+            <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
+              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
+                <span className="text-2xl">📄</span>
+              </div>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">European noise report</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                European Environment Agency (2024): Updated European data
+              </p>
+              <div className="flex items-center gap-2 text-accent text-sm">
+                Read <ExternalLink className="w-4 h-4" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 10: ACKNOWLEDGMENTS ========== */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <div className="text-center space-y-6">
+            <h2 className="text-h3">Acknowledgments</h2>
+            <p className="text-lg max-w-3xl mx-auto">
+              This project would not have been possible without the support of Banque des Territoires 
+              and Matrice association, and the collaboration of my three co-founders: 
+              Émilie, Majda and Benjamin.
+            </p>
+
+            {/* Logos */}
+            <div className="flex items-center justify-center gap-12 flex-wrap pt-6">
+              <div className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+                <img 
+                  src="/img/logo-bdt.png" 
+                  alt="Banque des Territoires" 
+                  className="h-16 object-contain"
+                />
+              </div>
+              <div className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
+                <img 
+                  src="/img/logo-matrice.png" 
+                  alt="Association Matrice" 
+                  className="h-16 object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 11: FINAL CTA ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
+        <div className="max-w-6xl mx-auto">
+          <CTABanner
+            title="Interested in my product approach?"
+            description="Recruiting an impact-oriented Product Manager with B2G experience and interest in data/public health topics? Let's discuss your product challenges."
+            ctaText="Get in touch"
+            onClick={() => navigate("/Contact")}
+          />
+        </div>
+      </div>
+    </div>
+  );
+};
