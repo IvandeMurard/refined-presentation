@@ -133,8 +133,7 @@ export const ContentFR = () => {
           {/* Noisy Cities Interactive */}
           <ExpandSection id="noisy-cities" title="Carte interactive : Noisy Cities Paris">
             <p className="mb-3">
-              Explorez la carte interactive de la pollution sonore à Paris réalisée par Karim Douieb, 
-              qui a inspiré notre approche cartographique pour Sonor.
+              Explorez la carte interactive de la pollution sonore à Paris réalisée par Karim Douieb.
             </p>
             <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
               <p className="text-sm text-muted-foreground">
@@ -210,7 +209,7 @@ export const ContentFR = () => {
             <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
               <h3 className="text-h4 mb-3">Pivot stratégique : Acteurs privés → Collectivités</h3>
               <p className="text-sm mb-3">
-                <b>Contexte :</b> Après 3 mois d'exploration acteurs privés, présentation 1er jalon.
+                <b>Contexte :</b> Après 3 mois d'exploration d'acteurs privés, présentation du 1er jalon.
               </p>
               <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
                 "Les collectivités ont les compétences et les moyens d'agir durablement sur cette problématique. 
@@ -218,7 +217,7 @@ export const ContentFR = () => {
                 <footer className="text-xs mt-2">— Conseil Banque des Territoires / Matrice</footer>
               </blockquote>
               <p className="text-sm">
-                <b>Décision :</b> Pivoter vers marché public (villes, métropoles). 
+                <b>Décision :</b> Pivoter vers le marché public (villes, métropoles). 
                 Débat interne : moins "sexy", processus longs, mais consensus : soutien BdT décisif.
               </p>
             </div>
@@ -245,33 +244,20 @@ export const ContentFR = () => {
             <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
               <h3 className="text-h4 mb-3">De plateforme standalone à composant intégrable</h3>
               <p className="text-sm mb-3">
-                <b>Contexte :</b> Présentation prototype (branding Sonor) à Issy-les-Moulineaux.
+                <b>Contexte :</b> Présentation du prototype (branding Sonor) à une collectivité.
               </p>
               <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
                 "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer nos citoyens vers un site externe. 
                 Il faudrait que ce soit intégrable à notre portail open-data."
-                <footer className="text-xs mt-2">— Issy-les-Moulineaux</footer>
+                <footer className="text-xs mt-2"> </footer>
               </blockquote>
               <p className="text-sm">
                 <b>Décision :</b> Pivot vers composant en marque blanche (reprise direction artistique collectivité). 
                 Enjeu clé : <b>Souveraineté des données</b>.
               </p>
             </div>
-
-            {/* Moment 4 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
-              <h3 className="text-h4 mb-3">Le mur des cycles de vente B2G</h3>
-              <p className="text-sm mb-3">
-                <b>Contexte :</b> Après 6 mois démarchage, 2 propales commerciales en cours.
-              </p>
-              <div className="space-y-2 text-sm mb-3">
-                <p><b>Obstacle Paris 15e :</b> Validation propale interne (compétence Ville de Paris, pas arrondissement) 
-                + budget expérimentation → financements épuisés avant décision. <b>Timing fatal.</b></p>
-                <p><b>Obstacle Arras :</b> Ville intéressée, mais trop tôt : pas de plateforme fonctionnelle, 
-                manque ressources dev.</p>
-              </div>
               <p className="text-sm">
-                <b>Learning :</b> Cycles B2G 12-18 mois. Sans MVP fonctionnel, difficile convaincre avant épuisement ressources.
+                <b>
               </p>
             </div>
           </div>
@@ -287,7 +273,7 @@ export const ContentFR = () => {
           <div className="grid md:grid-cols-4 gap-6">
             <div className="bg-card p-6 rounded-2xl">
               <div className="text-4xl font-extrabold mb-2">20 000 €</div>
-              <div className="text-muted-foreground text-sm">Financements obtenus (2 bourses)</div>
+              <div className="text-muted-foreground text-sm">Financements obtenus (3 bourses)</div>
             </div>
             <div className="bg-card p-6 rounded-2xl">
               <div className="text-4xl font-extrabold mb-2">20+</div>
@@ -336,7 +322,7 @@ export const ContentFR = () => {
               <div>
                 <h4 className="font-semibold mb-2">Prototype fonctionnel</h4>
                 <p className="text-sm text-muted-foreground">
-                  Explorez le prototype développé pour La Banque des Territoires
+                  Explorez le prototype marque-blanche développé pour La Banque des Territoires
                 </p>
               </div>
               <a
@@ -368,7 +354,7 @@ export const ContentFR = () => {
           <div className="text-center space-y-4">
             <h2 className="text-h3">Vous voulez approfondir ?</h2>
             <p className="text-muted-foreground">
-              Découvrez les détails du process, du design et de la stratégie commerciale
+              Découvrez les détails du process produit et du design
             </p>
           </div>
 
@@ -420,7 +406,7 @@ export const ContentFR = () => {
 
           <section className="rounded-xl p-6 bg-card">
             <p className="text-lg">
-              Le projet SONOR n'est pas devenu une start-up à proprement parler, mais l'expérience a été formatrice 
+              Le projet SONOR n'est pas devenu une start-up à proprement parler, mais l'expérience, passionnante, a été formatrice 
               à plusieurs niveaux, tant sur le plan professionnel que personnel.
             </p>
           </section>
@@ -439,8 +425,8 @@ export const ContentFR = () => {
 
             <ExpandSection id="cause-2" title="2. Cycles de vente B2G longs">
               <p>
-                Les cycles de vente auprès des collectivités sont très longs (12-18 mois minimum), 
-                mais nous manquions de temps pour finaliser les signatures avant l'épuisement de nos financements.
+                Les cycles de vente auprès des collectivités sont très longs (4-6 mois minimum), 
+                et nous manquions de temps pour finaliser les signatures avant l'épuisement de nos financements.
               </p>
             </ExpandSection>
 
@@ -463,7 +449,7 @@ export const ContentFR = () => {
                 <ul className="list-disc pl-5 space-y-2 text-sm">
                   <li><b>End-to-end 0→1</b> : Discovery complète → prototypage → go-to-market → commercialisation</li>
                   <li><b>Priorisation & dire non</b> : Importance de rester focus sur 1 MVP plutôt qu'offre 360°</li>
-                  <li><b>B2G go-to-market</b> : Cycles longs (12-18 mois), importance prototype fonctionnel</li>
+                  <li><b>B2G go-to-market</b> : Cycles longs, importance d'un prototype fonctionnel à mettre entre les mains du lead</li>
                   <li><b>Communiquer avant d'être "prêt"</b> : Prototype fonctionnel nécessaire pour convaincre</li>
                 </ul>
               </div>
@@ -475,7 +461,7 @@ export const ContentFR = () => {
                   <li><b>Appétence pour l'exploration et l'analyse</b> : Confirmé mon goût pour l'étude approfondie de problématiques complexes, 
                   la recherche de solutions concrètes, et la capacité à transformer apprentissages techniques et données en réponses adaptées aux besoins terrain</li>
                   <li><b>Produits à impact</b> : Intérêt confirmé pour produits à fort impact sociétal et environnemental</li>
-                  <li><b>Aller-retour terrain ↔ conception</b> : Importance confrontation régulière avec terrain</li>
+                  <li><b>Aller-retour terrain ↔ conception</b> : L'importance de la confrontation régulière avec le terrain</li>
                   <li><b>Travail en équipe pluridisciplinaire</b> : Communication claire et synthèse d'enjeux complexes</li>
                 </ul>
               </div>
@@ -485,8 +471,7 @@ export const ContentFR = () => {
           <section className="rounded-xl p-6 bg-card">
             <p className="text-lg">
               <b>Conclusion.</b> SONOR a confirmé mon goût pour la transformation de problématiques en solutions data-driven 
-              et m'a permis d'acquérir une expérience précieuse en product management 0→1, 
-              de la discovery à la commercialisation.
+              et m'a permis d'acquérir une expérience précieuse en product management 0→1, de la discovery à la commercialisation.
             </p>
           </section>
         </div>
@@ -502,18 +487,18 @@ export const ContentFR = () => {
               <p>Trois raisons principales :</p>
               <ul className="list-disc pl-5 space-y-1 mt-2">
                 <li><b>Complexité technique sous-estimée</b> : Difficulté accès et traitement données open data qualité exploitable</li>
-                <li><b>Cycles vente B2G longs</b> : 12-18 mois minimum, épuisement financements avant 1ère signature</li>
+                <li><b>Cycles vente B2G longs</b> : Epuisement des financements avant la 1ère signature</li>
                 <li><b>Positionnement flou</b> : Entre plateforme SaaS et accompagnement conseil, pas assez clair</li>
               </ul>
             </ExpandSection>
 
             <ExpandSection id="faq-2" title="Comment financiez-vous le projet ?">
               <p>
-                <b>20 000€</b> au total via 2 bourses :
+                <b>20 000€</b> au total via 3 bourses :
               </p>
               <ul className="list-disc pl-5 space-y-1 mt-2">
                 <li>1ère bourse : Victoire hackathon Recoder l'Habitat #2</li>
-                <li>2ème bourse : Programme d'accompagnement Matrice + Banque des Territoires</li>
+                <li>2ème et 3ème bourse : Programme d'accompagnement Matrice + Banque des Territoires</li>
               </ul>
             </ExpandSection>
 
@@ -536,30 +521,7 @@ export const ContentFR = () => {
               </p>
             </ExpandSection>
 
-            <ExpandSection id="faq-5" title="Pourquoi pas de liste précise de villes contactées ?">
-              <p>
-                Par respect de la <b>confidentialité</b> des échanges commerciaux. 
-                Nous mentionnons les villes publiquement citées (Issy-les-Moulineaux, Paris 15e, Arras) 
-                et typologies (métropoles régionales, villes moyennes, collectivités territoriales).
-              </p>
-            </ExpandSection>
-
-            <ExpandSection id="faq-6" title="Le projet pourrait-il reprendre ?">
-              <p>
-                Les conditions actuelles (2025) sont plus favorables qu'en 2020-2022 :
-              </p>
-              <ul className="list-disc pl-5 space-y-1 mt-2">
-                <li>Maturité croissante collectivités en matière d'open data</li>
-                <li>Obligations réglementaires renforcées (Europe + France)</li>
-                <li>Émergence IA générative pour accompagnement automatisé</li>
-                <li>Structuration marché smart city</li>
-              </ul>
-              <p className="mt-2">
-                Mais nécessiterait : MVP fonctionnel, modèle freemium, partenariats stratégiques, 
-                et focus clair (plateforme OU accompagnement, pas les deux).
-              </p>
-            </ExpandSection>
-          </div>
+         </div>
         </div>
       </div>
 
