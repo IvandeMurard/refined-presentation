@@ -399,7 +399,7 @@ export const Home: React.FC = () => {
       </section>
 
       <GradientBorderSection 
-        className="py-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none"
+        className="py-8 my-6 shadow-[0_4px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
         borderPosition="both"
         glassEffect={true}
       >
@@ -420,7 +420,7 @@ export const Home: React.FC = () => {
       </GradientBorderSection>
 
       {/* Work Section */}
-      <section id="work" className="py-20 px-4">
+      <section id="work" className="py-20 px-4 bg-background">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">WORK</p>
