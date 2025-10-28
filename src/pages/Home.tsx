@@ -16,7 +16,8 @@ import { Mail, Linkedin, MessageCircle, ArrowDown } from "lucide-react";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
-import MarqueeBanner from "../components/MarqueeBanner";
+import MarqueeBanner from "@/components/MarqueeBanner";
+import { GradientBorderSection } from "@/components/GradientBorderSection";
 import { CommunitiesInspoResourcesTools } from "@/components/sections/CommunitiesInspoResourcesTools";
 import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
@@ -397,7 +398,11 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <section className="py-5 bg-card/90">
+      <GradientBorderSection 
+        className="py-6 shadow-[0_2px_8px_rgba(0,0,0,0.04)] dark:shadow-none"
+        borderPosition="both"
+        glassEffect={true}
+      >
         <div className="max-w-[1360px] mx-auto px-4">
           <MarqueeBanner
             phrases={[
@@ -412,7 +417,7 @@ export const Home: React.FC = () => {
             className="py-1"
           />
         </div>
-      </section>
+      </GradientBorderSection>
 
       {/* Work Section */}
       <section id="work" className="py-20 px-4">

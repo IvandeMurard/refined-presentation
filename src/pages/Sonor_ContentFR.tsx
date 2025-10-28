@@ -256,10 +256,6 @@ export const ContentFR = () => {
                 Enjeu clé : <b>Souveraineté des données</b>.
               </p>
             </div>
-              <p className="text-sm">
-                <b>
-              </p>
-            </div>
           </div>
         </div>
       </div>

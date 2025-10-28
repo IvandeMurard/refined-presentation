@@ -14,6 +14,7 @@ const ICONS: Record<Exclude<SocialKey, "x">, React.ComponentType<any>> = {
   mail: Mail,
   calendar: Calendar,
   linkedin: Linkedin,
+  whatsapp: MessageCircle,
 };
 
 export function Footer({

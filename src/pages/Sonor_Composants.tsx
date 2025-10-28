@@ -353,50 +353,11 @@ const TabDesign = ({ language }: { language: string }) => {
         </section>
 
         <section className="space-y-4">
-          <h3 className="text-h4">Marque blanche spécifique</h3>
-          <p>
-            Suite au feedback de la ville : <i>"Votre solution nous intéresse, mais nous ne pouvons pas 
-            renvoyer nos citoyens vers un site externe. Il faudrait que ce soit intégré à notre portail open-data."</i>
-          </p>
-          <p>
-            Décision de pivoter vers un composant en marque blanche.
-          </p>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Intégration portail "Environnements Sonores"</li>
-            <li>Formulaire dépôt alerte citoyen avec géolocalisation</li>
-            <li>Quiz sensibilisation pollution sonore</li>
-            <li>Suivi actions mairie en temps réel</li>
-          </ul>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Cartographie open data</h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="rounded-lg p-4 bg-card">
-              <h4 className="font-semibold mb-1">Palette perceptive</h4>
-              <p className="text-sm text-muted-foreground">Focus zones chaudes, contraste élevé</p>
-            </div>
-            <div className="rounded-lg p-4 bg-card">
-              <h4 className="font-semibold mb-1">Indicateurs prioritaires</h4>
-              <p className="text-sm text-muted-foreground">Heures, axes, hotspots identifiés</p>
-            </div>
-            <div className="rounded-lg p-4 bg-card">
-              <h4 className="font-semibold mb-1">Parcours décideur</h4>
-              <p className="text-sm text-muted-foreground">De la carte à l'action (scénarios intervention)</p>
-            </div>
-            <div className="rounded-lg p-4 bg-card">
-              <h4 className="font-semibold mb-1">UI sobre</h4>
-              <p className="text-sm text-muted-foreground">Mise en avant des données publiques</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Design system</h3>
+          <h3 className="text-h4">Design System</h3>
           <ul className="list-disc pl-5 space-y-2">
-            <li><b>Typographie</b> : Inter (interface), Source Sans Pro (contenus)</li>
-            <li><b>Couleurs</b> : Palette modulaire adaptable à charte collectivité</li>
-            <li><b>Composants</b> : Cartographie, dashboard, formulaires, alertes</li>
+            <li><b>Couleurs</b> : Palette graphique sobre (bleus, gris, vert éco)</li>
+            <li><b>Typographie</b> : Open Sans (lisibilité cartes + UI technique)</li>
+            <li><b>Icônes</b> : Material Design (universalité B2G)</li>
             <li><b>Grille</b> : 12 colonnes responsive (mobile, tablet, desktop)</li>
           </ul>
         </section>
@@ -436,36 +397,131 @@ const TabDesign = ({ language }: { language: string }) => {
   );
 };
 
+// ============= TAB GTM (Go-To-Market) =============
+const TabGTM = ({ language }: { language: string }) => {
+  if (language === 'fr') {
+    return (
+      <div className="space-y-8">
         <section className="space-y-4">
-          <h3 className="text-h4">Apprentissages</h3>
+          <h3 className="text-h4">Stratégie Go-To-Market</h3>
+          <p className="text-sm">
+            Approche B2G (Business-to-Government) centrée sur la validation du besoin auprès des 
+            collectivités territoriales et institutions publiques.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className="text-h4">Segmentation & Ciblage</h3>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="p-4 rounded-lg bg-card">
+              <h4 className="font-semibold mb-2">Cible Primaire</h4>
+              <ul className="list-disc pl-5 space-y-1 text-sm">
+                <li>Collectivités moyennes (50-200k habitants)</li>
+                <li>Forte appétence data & open data</li>
+                <li>Élus sensibles environnement</li>
+              </ul>
+            </div>
+            <div className="p-4 rounded-lg bg-card">
+              <h4 className="font-semibold mb-2">Cible Secondaire</h4>
+              <ul className="list-disc pl-5 space-y-1 text-sm">
+                <li>Grandes métropoles ({'>'}200k habitants)</li>
+                <li>Ministères & établissements publics</li>
+                <li>Bailleurs sociaux & promoteurs</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className="text-h4">Canaux d'Acquisition</h3>
           <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <b>Cycles B2G longs (6 mois)</b> : Sans MVP fonctionnel, difficile de convaincre 
-              avant épuisement ressources
-            </li>
-            <li>
-              <b>Importance du prototype codé</b> : L'user doit pouvoir "jouer" avec le prototype
-            </li>
-            <li>
-              <b>Segmentation par appétence data</b> : Plus efficace que segmentation par taille de collectivité
-            </li>
-            <li>
-              <b>Accompagnement BdT/Matrice</b> : Décisif pour crédibilité et accès au réseau
-            </li>
+            <li><b>Partenariat BdT/Matrice</b> : Accès au réseau collectivités, crédibilité institutionnelle</li>
+            <li><b>Salons & événements</b> : Présence sur Smart Cities, Pollutec, assises territoires</li>
+            <li><b>Démo & POC</b> : Prototypes codés permettant tests terrain avec collectivités pilotes</li>
+            <li><b>Content marketing</b> : Articles techniques sur open data, cartographie, réglementation PPBE</li>
+          </ul>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className="text-h4">Modèle Économique</h3>
+          <p className="text-sm">
+            <b>SaaS B2G</b> avec tarification par collectivité (licence annuelle basée sur nombre d'habitants) + 
+            services d'accompagnement (formation, support, personnalisation).
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className="text-h4">Apprentissages GTM</h3>
+          <ul className="list-disc pl-5 space-y-2">
+            <li><b>Cycles de vente B2G longs (6+ mois)</b> : Budget, validation politique, conformité RGPD</li>
+            <li><b>Importance du prototype fonctionnel</b> : Démo codée {'>'}  Figma pour conviction décideurs</li>
+            <li><b>Partenariats institutionnels décisifs</b> : BdT/Matrice = accélérateur crédibilité + réseau</li>
+            <li><b>Segmentation par appétence data</b> : Plus efficace que segmentation par taille de collectivité</li>
           </ul>
         </section>
       </div>
     );
   }
-            </div>
+
+  // English version
+  return (
+    <div className="space-y-8">
+      <section className="space-y-4">
+        <h3 className="text-h4">Go-To-Market Strategy</h3>
+        <p className="text-sm">
+          B2G (Business-to-Government) approach focused on validating needs with 
+          local authorities and public institutions.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h3 className="text-h4">Segmentation & Targeting</h3>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="p-4 rounded-lg bg-card">
+            <h4 className="font-semibold mb-2">Primary Target</h4>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>Medium-sized municipalities (50-200k inhabitants)</li>
+              <li>Strong data & open data appetite</li>
+              <li>Environment-conscious elected officials</li>
+            </ul>
           </div>
-          <div className="flex items-center gap-4">
-            <div className="w-32 text-right font-bold text-2xl text-destructive">0</div>
-            <div className="flex-1 h-8 bg-destructive/20 rounded-lg flex items-center px-4">
-              Signatures (timing + technical complexity)
-            </div>
+          <div className="p-4 rounded-lg bg-card">
+            <h4 className="font-semibold mb-2">Secondary Target</h4>
+            <ul className="list-disc pl-5 space-y-1 text-sm">
+              <li>Large metropolitan areas ({'>'}200k inhabitants)</li>
+              <li>Ministries & public institutions</li>
+              <li>Social housing & real estate developers</li>
+            </ul>
           </div>
         </div>
+      </section>
+
+      <section className="space-y-4">
+        <h3 className="text-h4">Acquisition Channels</h3>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><b>BdT/Matrice Partnership</b>: Access to municipality network, institutional credibility</li>
+          <li><b>Trade shows & events</b>: Presence at Smart Cities, Pollutec, territorial conferences</li>
+          <li><b>Demos & POC</b>: Coded prototypes enabling field tests with pilot municipalities</li>
+          <li><b>Content marketing</b>: Technical articles on open data, mapping, PPBE regulations</li>
+        </ul>
+      </section>
+
+      <section className="space-y-4">
+        <h3 className="text-h4">Business Model</h3>
+        <p className="text-sm">
+          <b>B2G SaaS</b> with per-municipality pricing (annual license based on population) + 
+          support services (training, support, customization).
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h3 className="text-h4">GTM Learnings</h3>
+        <ul className="list-disc pl-5 space-y-2">
+          <li><b>Long B2G sales cycles (6+ months)</b>: Budget, political validation, GDPR compliance</li>
+          <li><b>Importance of functional prototype</b>: Coded demo {'>'} Figma for decision-maker conviction</li>
+          <li><b>Institutional partnerships crucial</b>: BdT/Matrice = credibility + network accelerator</li>
+          <li><b>Segmentation by data appetite</b>: More effective than segmentation by municipality size</li>
+        </ul>
       </section>
     </div>
   );
