@@ -257,66 +257,151 @@ export const ContentFR = () => {
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Moments clés</h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* Moment 1 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
-              <h3 className="text-h4 mb-3">Pivot stratégique : Acteurs privés → Collectivités</h3>
-              <p className="text-sm mb-3">
-                <b>Contexte :</b> Après 3 mois d'exploration d'acteurs privés, présentation du 1er jalon.
-              </p>
-              <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
-                "Les collectivités ont les compétences et les moyens d'agir durablement sur cette problématique. 
-                Et nous avons le réseau pour vous accompagner."
-                <footer className="text-xs mt-2">— Conseil Banque des Territoires / Matrice</footer>
-              </blockquote>
-              <p className="text-sm">
-                <b>Décision :</b> Pivoter vers le marché public (villes, métropoles). 
-                Débat interne : moins "sexy", processus longs, mais consensus : soutien BdT décisif.
-              </p>
-            </div>
+            <div className="grid md:grid-cols-2 gap-6">
+              {/* Moment 1 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                className="group relative overflow-hidden rounded-2xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative p-8 backdrop-blur-sm bg-card/80 border-l-4 border-accent">
+                  <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Lightbulb className="w-8 h-8 text-accent" />
+                  </div>
+                  
+                  <h3 className="text-h4 mb-4">Pivot stratégique : Acteurs privés → Collectivités</h3>
+                  
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold uppercase tracking-wider mb-2">
+                      Contexte
+                    </span>
+                    <p className="text-sm">Après 3 mois d'exploration d'acteurs privés, présentation du 1er jalon.</p>
+                  </div>
+                  
+                  <div className="relative my-6 pl-6">
+                    <Quote className="absolute left-0 top-0 w-5 h-5 text-accent/30" />
+                    <blockquote className="italic text-base leading-relaxed">
+                      "Les collectivités ont les compétences et les moyens d'agir durablement sur cette problématique. 
+                      Et nous avons le réseau pour vous accompagner."
+                    </blockquote>
+                    <footer className="text-xs text-muted-foreground mt-2">— Conseil Banque des Territoires / Matrice</footer>
+                  </div>
+                  
+                  <div>
+                    <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider mb-2">
+                      Learning
+                    </span>
+                    <p className="text-sm">
+                      Pivoter vers le marché public (villes, métropoles). 
+                      Débat interne : moins "sexy", processus longs, mais consensus : soutien BdT décisif.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
 
-            {/* Moment 2 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
-              <h3 className="text-h4 mb-3">L'insight qui a dilué le focus</h3>
-              <p className="text-sm mb-3">
-                <b>Contexte :</b> Discovery, entretiens élus et chargés de mission.
-              </p>
-              <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
-                "On aimerait surtout de l'accompagnement humain : communication sur nos actions, 
-                sensibilisation des citoyens, identification des solutions terrain."
-                <footer className="text-xs mt-2">— Collectivité</footer>
-              </blockquote>
-              <p className="text-sm">
-                <b>Erreur :</b> Tentative de répondre aux 2 besoins (plateforme + accompagnement humain). 
-                Résultat : Offre 360° floue, MVP jamais finalisé. 
-                <br /><b>Learning :</b> Chasser un seul lièvre à la fois.
-              </p>
-            </div>
+              {/* Moment 2 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="group relative overflow-hidden rounded-2xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 via-destructive/5 to-destructive/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative p-8 backdrop-blur-sm bg-card/80 border-l-4 border-destructive">
+                  <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center">
+                    <Lightbulb className="w-8 h-8 text-destructive" />
+                  </div>
+                  
+                  <h3 className="text-h4 mb-4">L'insight qui a dilué le focus</h3>
+                  
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold uppercase tracking-wider mb-2">
+                      Contexte
+                    </span>
+                    <p className="text-sm">Discovery, entretiens élus et chargés de mission.</p>
+                  </div>
+                  
+                  <div className="relative my-6 pl-6">
+                    <Quote className="absolute left-0 top-0 w-5 h-5 text-destructive/30" />
+                    <blockquote className="italic text-base leading-relaxed">
+                      "On aimerait surtout de l'accompagnement humain : communication sur nos actions, 
+                      sensibilisation des citoyens, identification des solutions terrain."
+                    </blockquote>
+                    <footer className="text-xs text-muted-foreground mt-2">— Collectivité</footer>
+                  </div>
+                  
+                  <div>
+                    <span className="inline-block px-3 py-1 rounded-full bg-destructive/20 text-destructive text-xs font-semibold uppercase tracking-wider mb-2">
+                      Learning
+                    </span>
+                    <p className="text-sm">
+                      Tentative de répondre aux 2 besoins (plateforme + accompagnement humain). 
+                      Résultat : Offre 360° floue, MVP jamais finalisé. 
+                      <br /><b>Leçon :</b> Chasser un seul lièvre à la fois.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
 
-            {/* Moment 3 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
-              <h3 className="text-h4 mb-3">De plateforme standalone à composant intégrable</h3>
-              <p className="text-sm mb-3">
-                <b>Contexte :</b> Présentation du prototype (branding Sonor) à une collectivité.
-              </p>
-              <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
-                "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer nos citoyens vers un site externe. 
-                Il faudrait que ce soit intégrable à notre portail open-data."
-                <footer className="text-xs mt-2"> </footer>
-              </blockquote>
-              <p className="text-sm">
-                <b>Décision :</b> Pivot vers composant en marque blanche (reprise direction artistique collectivité). 
-                Enjeu clé : <b>Souveraineté des données</b>.
-              </p>
+              {/* Moment 3 */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group relative overflow-hidden rounded-2xl md:col-span-2"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative p-8 backdrop-blur-sm bg-card/80 border-l-4 border-accent">
+                  <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
+                    <Lightbulb className="w-8 h-8 text-accent" />
+                  </div>
+                  
+                  <h3 className="text-h4 mb-4">De plateforme standalone à composant intégrable</h3>
+                  
+                  <div className="mb-4">
+                    <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold uppercase tracking-wider mb-2">
+                      Contexte
+                    </span>
+                    <p className="text-sm">Présentation du prototype (branding Sonor) à une collectivité.</p>
+                  </div>
+                  
+                  <div className="relative my-6 pl-6">
+                    <Quote className="absolute left-0 top-0 w-5 h-5 text-accent/30" />
+                    <blockquote className="italic text-base leading-relaxed">
+                      "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer nos citoyens vers un site externe. 
+                      Il faudrait que ce soit intégrable à notre portail open-data."
+                    </blockquote>
+                    <footer className="text-xs text-muted-foreground mt-2">— Collectivité</footer>
+                  </div>
+                  
+                  <div>
+                    <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider mb-2">
+                      Décision
+                    </span>
+                    <p className="text-sm">
+                      Pivot vers composant en marque blanche (reprise direction artistique collectivité). 
+                      Enjeu clé : <b>Souveraineté des données</b>.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
-      </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 4: RÉSULTATS & IMPACT ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Résultats & Impact</h2>
+      <ScrollRevealSection variant="fade-in-up" delay={0.4}>
+        <div id="resultats" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Résultats & Impact</h2>
 
           {/* Chiffres clés */}
           <div className="grid md:grid-cols-4 gap-6">
@@ -338,52 +423,86 @@ export const ContentFR = () => {
             </div>
           </div>
 
-          {/* Galerie prototype */}
-          <section className="space-y-4">
-            <h3 className="text-h4">Galerie prototype</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <CaseImage
-                alt="Dashboard cartographie Sonor"
-                desktopSrc="/img/sonor_cartographie_dashboard.png"
-                caption="Dashboard cartographie — Points noirs & indicateurs temps réel"
-              />
-              <CaseImage
-                alt="Recommandations actions"
-                desktopSrc="/img/sonor_recommandations.png"
-                caption="Recommandations actionnables — Tâches priorisées par zone"
-              />
-              <CaseImage
-                alt="Marque blanche Issy"
-                desktopSrc="/img/sonor_issy_marque_blanche.png"
-                caption="Intégration marque blanche — Issy-les-Moulineaux"
-              />
-              <CaseImage
-                alt="Engagement citoyen"
-                desktopSrc="/img/sonor_engagement_citoyen.png"
-                caption="Engagement citoyen — Dépôt d'alerte qualifiée"
-              />
+          {/* Galerie prototype en carousel immersif */}
+          <section className="space-y-6">
+            <div className="flex items-center justify-between">
+              <h3 className="text-h4">Galerie prototype</h3>
+              <p className="text-sm text-muted-foreground">Glissez pour explorer →</p>
             </div>
+            
+            <Carousel className="w-full">
+              <CarouselContent className="-ml-4">
+                {[
+                  {
+                    src: "/img/sonor_cartographie_dashboard.png",
+                    alt: "Dashboard cartographie Sonor",
+                    caption: "Dashboard cartographie — Points noirs & indicateurs temps réel"
+                  },
+                  {
+                    src: "/img/sonor_recommandations.png",
+                    alt: "Recommandations actions",
+                    caption: "Recommandations actionnables — Tâches priorisées par zone"
+                  },
+                  {
+                    src: "/img/sonor_issy_marque_blanche.png",
+                    alt: "Marque blanche Issy",
+                    caption: "Intégration marque blanche — Issy-les-Moulineaux"
+                  },
+                  {
+                    src: "/img/sonor_engagement_citoyen.png",
+                    alt: "Engagement citoyen",
+                    caption: "Engagement citoyen — Dépôt d'alerte qualifiée"
+                  }
+                ].map((img, i) => (
+                  <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/2">
+                    <motion.div
+                      whileHover={{ scale: 1.05, zIndex: 10 }}
+                      className="group cursor-pointer"
+                    >
+                      <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-muted to-card">
+                        <img
+                          src={img.src}
+                          alt={img.alt}
+                          className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
+                        
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                          <div className="absolute bottom-0 left-0 right-0 p-4">
+                            <p className="text-white text-sm font-medium">{img.caption}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           </section>
 
-          {/* Lien démo */}
-          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
-            <div className="flex items-center justify-between flex-wrap gap-4">
+          {/* Lien démo avec CTA visuel */}
+          <motion.a
+            href="https://byronbark.github.io/sonor-web-component/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="block p-6 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover:border-accent/50 transition-all"
+          >
+            <div className="flex items-center justify-between">
               <div>
-                <h4 className="font-semibold mb-2">Prototype fonctionnel</h4>
+                <h4 className="font-semibold mb-2 flex items-center gap-2">
+                  <Play className="w-5 h-5" />
+                  Prototype fonctionnel
+                </h4>
                 <p className="text-sm text-muted-foreground">
-                  Explorez le prototype marque-blanche développé pour La Banque des Territoires
+                  Explorez le web component marque-blanche
                 </p>
               </div>
-              <a
-                href="https://byronbark.github.io/sonor-web-component/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
-              >
-                Ouvrir la démo <ExternalLink className="w-4 h-4" />
-              </a>
+              <ExternalLink className="w-6 h-6 text-accent" />
             </div>
-          </div>
+          </motion.a>
 
           {/* Acteurs rencontrés */}
           <ExpandSection id="acteurs" title="Acteurs rencontrés">
@@ -394,62 +513,63 @@ export const ContentFR = () => {
               <b>Experts/partenaires :</b> BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministère de l'Écologie
             </p>
           </ExpandSection>
+          </div>
         </div>
-      </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 5: "VOUS VOULEZ APPROFONDIR ?" ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <div className="text-center space-y-4">
-            <h2 className="text-h3">Vous voulez approfondir ?</h2>
-            <p className="text-muted-foreground">
-              Découvrez les détails du process produit et du design
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6">
-            <button
-              onClick={scrollToTabs}
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-            >
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Process PM</h3>
-              <p className="text-sm text-muted-foreground">
-                Discovery, JTBD, priorisation MoSCoW, sprints et obstacles
+      <ExpandSection id="approfondir" title="📖 Vous voulez approfondir ? (Process PM, Design, Go-to-Market)" defaultOpen={false}>
+        <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <div className="text-center space-y-4">
+              <p className="text-muted-foreground">
+                Découvrez les détails du process produit et du design
               </p>
-            </button>
+            </div>
 
-            <button
-              onClick={scrollToTabs}
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-            >
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Design & Prototype</h3>
-              <p className="text-sm text-muted-foreground">
-                5 versions, marque blanche, cartographie et design system
-              </p>
-            </button>
+            <div className="grid md:grid-cols-3 gap-6">
+              <button
+                onClick={scrollToTabs}
+                className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
+              >
+                <h3 className="text-h4 mb-2 group-hover:text-accent">Process PM</h3>
+                <p className="text-sm text-muted-foreground">
+                  Discovery, JTBD, priorisation MoSCoW, sprints et obstacles
+                </p>
+              </button>
 
-            <button
-              onClick={scrollToTabs}
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-            >
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Go-to-market B2G</h3>
-              <p className="text-sm text-muted-foreground">
-                3 stratégies, process vente, obstacles et taux conversion
-              </p>
-            </button>
+              <button
+                onClick={scrollToTabs}
+                className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
+              >
+                <h3 className="text-h4 mb-2 group-hover:text-accent">Design & Prototype</h3>
+                <p className="text-sm text-muted-foreground">
+                  5 versions, marque blanche, cartographie et design system
+                </p>
+              </button>
+
+              <button
+                onClick={scrollToTabs}
+                className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
+              >
+                <h3 className="text-h4 mb-2 group-hover:text-accent">Go-to-market B2G</h3>
+                <p className="text-sm text-muted-foreground">
+                  3 stratégies, process vente, obstacles et taux conversion
+                </p>
+              </button>
+            </div>
+
+            {/* TABS APPROFONDIES */}
+            <div ref={tabsRef} className="pt-6">
+              <TabsApprofondir language="fr" />
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* ========== SECTION 6: TABS APPROFONDIES (REF) ========== */}
-      <div ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto">
-          <TabsApprofondir language="fr" />
-        </div>
-      </div>
+      </ExpandSection>
 
       {/* ========== SECTION 7: ÉPILOGUE ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
+      <ScrollRevealSection variant="fade-in-up" delay={0.5}>
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Épilogue & Apprentissages</h2>
 
@@ -524,10 +644,11 @@ export const ContentFR = () => {
             </p>
           </section>
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 8: FAQ ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
+      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Questions fréquentes</h2>
 
@@ -575,7 +696,7 @@ export const ContentFR = () => {
       </div>
 
       {/* ========== SECTION 9: "POUR ALLER PLUS LOIN" ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
+      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Pour aller plus loin</h2>
 
@@ -626,7 +747,7 @@ export const ContentFR = () => {
       </div>
 
       {/* ========== SECTION 10: REMERCIEMENTS ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
+      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="text-center space-y-6">
             <h2 className="text-h3">Remerciements</h2>
@@ -658,7 +779,7 @@ export const ContentFR = () => {
       </div>
 
       {/* ========== SECTION 11: CTA FINAL ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
+      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto">
           <CTABanner
             title="Intéressé par mon approche produit ?"
