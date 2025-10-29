@@ -7,7 +7,14 @@ import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Euro, Users, Layers, Clock, Lightbulb, Quote, Play } from "lucide-react";
+import { motion } from "framer-motion";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { StatCard } from "@/components/case/StatCard";
+import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
+import { TimelineItem } from "@/components/case/TimelineItem";
+import { CaseStudyNavigation } from "@/components/case/CaseStudyNavigation";
+import { GradientBorderSection } from "@/components/GradientBorderSection";
 import { 
   TermExplain, 
   ExpandSection, 
@@ -15,53 +22,67 @@ import {
   TabsApprofondir 
 } from "./Sonor_Composants";
 
-// ============= TL;DR BLOCK FR =============
+// ============= TL;DR BLOCK FR (CONDENSÉ) =============
 export const TLDRBlockFR = () => (
-  <CaseTldr
-    tone="wttj"
-    title="TL;DR — En bref"
-    items={[
-      <>
-        <b>Contexte :</b> Hackathon Recoder l'Habitat #2 (gagnant) → incubation Matrice & Banque des Territoires (2020-2022)
-      </>,
-      <>
-        <b>Problème :</b> Pollution sonore (2e nuisance urbaine), invisible, impacts sanitaires réels
-      </>,
-      <>
-        <b>Solution :</b> Offre 360° de plateforme SaaS <TermExplain term="open data">données publiques librement accessibles et réutilisables</TermExplain> avec cartographie, recommandations d'action publique, engagement citoyen (sensibilisation, communication)
-      </>,
-      <>
-        <b>Équipe :</b> 4 co-fondateurs (Émilie, Majda, Benjamin, Ivan) dont 1 dev/data-scientist à mi-temps
-      </>,
-      <>
-        <b>Mon rôle :</b> Product framing, <TermExplain term="discovery">phase de recherche utilisateur et marché approfondie</TermExplain> (20+ entretiens), 
-        Prototypage (UX/UI Figma), Go-to-Market <TermExplain term="B2G">Business-to-Government, ventes aux collectivités publiques</TermExplain>, 
-        Sales, Pilotage d'un développeur data-scientist
-      </>,
-      <>
-        <b>Durée & méthode :</b> 2 ans / Agile Lean, sprints Kanban 2-3 semaines, 6+ jalons mensuels (restitutions partenaires)
-      </>,
-      <>
-        <b>Résultats :</b><br />
-        • 20 000€ financements (2 bourses)<br />
-        • 20+ entretiens qualitatifs<br />
-        • 3 versions prototype Figma + 1 version codée<br />
-        • Négociations avec métropoles régionales, villes moyennes, collectivités territoriales, acteurs publics locaux
-      </>,
-      <>
-        <b>Pivot clé :</b> Promoteurs/acheteurs → Collectivités (après 3 mois discovery acteurs privés)
-      </>,
-      <>
-        <b>Go-to-market :</b> 20+ villes contactées → 4-5 échanges constructifs → 2 propales commerciales → 0 signature (timing + complexité technique)
-      </>,
-      <>
-        <b>Fin du projet :</b> Complexité technique sous-estimée + cycles de vente B2G longs (12-18 mois) → épuisement financements avant 1ère signature
-      </>,
-      <>
-        <b>Apprentissages :</b> Focus produit (1 <TermExplain term="MVP">Minimum Viable Product, version minimale testable du produit</TermExplain> &gt; offre 360°), importance prototype fonctionnel pour convaincre, communiquer avant d'être "prêt"
-      </>,
-    ]}
-  />
+  <div className="space-y-8">
+    {/* Stats cards immersives */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <StatCard 
+        value="20 000€" 
+        label="Financements obtenus"
+        icon={Euro}
+        color="accent"
+        delay={0}
+      />
+      <StatCard 
+        value="20+" 
+        label="Entretiens qualitatifs"
+        icon={Users}
+        color="primary"
+        delay={0.1}
+      />
+      <StatCard 
+        value="3+1" 
+        label="Versions prototype"
+        icon={Layers}
+        color="success"
+        delay={0.2}
+      />
+      <StatCard 
+        value="2 ans" 
+        label="Durée du projet"
+        icon={Clock}
+        color="info"
+        delay={0.3}
+      />
+    </div>
+
+    {/* TL;DR condensé à 6 bullets */}
+    <CaseTldr
+      tone="wttj"
+      title="TL;DR — L'essentiel"
+      items={[
+        <>
+          <b>Défi :</b> Transformer l'open data en outil d'action publique pour réduire la pollution sonore
+        </>,
+        <>
+          <b>Mon rôle :</b> Product framing, discovery (20+ entretiens), prototypage UX/UI, go-to-market B2G
+        </>,
+        <>
+          <b>Pivot clé :</b> Acteurs privés → Collectivités (insight conseil BdT/Matrice)
+        </>,
+        <>
+          <b>Innovation produit :</b> Plateforme 360° (cartographie + actions + communication) → composant marque blanche
+        </>,
+        <>
+          <b>Impact :</b> Prototype fonctionnel validé, négociations avec 8+ villes, apprentissages entrepreneuriaux décisifs
+        </>,
+        <>
+          <b>Fin de parcours :</b> Complexité technique + cycles B2G longs → épuisement financements avant signature
+        </>,
+      ]}
+    />
+  </div>
 );
 
 // ============= CONTENT FR =============
@@ -73,136 +94,168 @@ export const ContentFR = () => {
     tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
+  // Navigation sections
+  const navigationSections = [
+    { id: "overview", label: "Vue d'ensemble" },
+    { id: "contexte", label: "Contexte" },
+    { id: "timeline", label: "Timeline" },
+    { id: "moments-cles", label: "Moments clés" },
+    { id: "resultats", label: "Résultats" },
+    { id: "approfondir", label: "Approfondissement" },
+    { id: "epilogue", label: "Épilogue" },
+  ];
+
   return (
-    <div>
+    <div className="relative">
+      {/* Navigation sticky */}
+      <CaseStudyNavigation sections={navigationSections} />
+
       {/* TL;DR */}
-      <div className="mb-10">
+      <div id="overview" className="mb-10 lg:ml-72">
         <TLDRBlockFR />
       </div>
 
       {/* BANDEAU AUDIO */}
-      <div className="mb-10">
+      <div className="mb-10 lg:ml-72">
         <BandeauAudio language="fr" />
       </div>
 
       {/* ========== SECTION 1: CONTEXTUALISATION ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Contextualisation : La pollution sonore</h2>
+      <ScrollRevealSection variant="fade-in-up" delay={0}>
+        <GradientBorderSection 
+          borderPosition="bottom" 
+          glassEffect={true}
+          className="py-16 px-4 md:px-8 lg:ml-72"
+        >
+          <div id="contexte" className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Contextualisation : La pollution sonore</h2>
 
-          {/* Chiffres clés */}
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">2e</div>
-              <div className="text-muted-foreground">Source de nuisances urbaines en Europe (après pollution de l'air)</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">25M</div>
-              <div className="text-muted-foreground">Français exposés à des niveaux de bruit excessifs (ANSES 2021)</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">156 Mds€/an</div>
-              <div className="text-muted-foreground">Coût social du bruit en France (ADEME 2021)</div>
-            </div>
-          </div>
-
-          {/* Article Nightingale */}
-          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
-                <ExternalLink className="w-6 h-6 text-accent" />
-              </div>
-              <div className="flex-1">
-                <h4 className="font-semibold mb-2">Noisy Cities : Behind the scenes avec Karim Douieb</h4>
-                <p className="text-sm text-muted-foreground mb-3">
-                  Découvrez la méthodologie de cartographie de la pollution sonore urbaine 
-                  par Karim Douieb (Nightingale DVS), inspirante pour notre approche data-driven.
-                </p>
-                <a 
-                  href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-accent hover:underline"
+            {/* Chiffres clés avec animations décalées */}
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { value: "2e", label: "Source de nuisances urbaines en Europe (après pollution de l'air)" },
+                { value: "25M", label: "Français exposés à des niveaux de bruit excessifs (ANSES 2021)" },
+                { value: "156 Mds€/an", label: "Coût social du bruit en France (ADEME 2021)" }
+              ].map((stat, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors"
                 >
-                  Lire l'article <ExternalLink className="w-4 h-4" />
-                </a>
+                  <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-muted-foreground text-sm">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+
+            {/* Article Nightingale avec hover effect */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="p-6 rounded-lg bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/30 transition-all"
+            >
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
+                  <ExternalLink className="w-6 h-6 text-accent" />
+                </div>
+                <div className="flex-1">
+                  <h4 className="font-semibold mb-2">Noisy Cities : Behind the scenes avec Karim Douieb</h4>
+                  <p className="text-sm text-muted-foreground mb-3">
+                    Découvrez la méthodologie de cartographie de la pollution sonore urbaine 
+                    par Karim Douieb (Nightingale DVS), inspirante pour notre approche data-driven.
+                  </p>
+                  <a 
+                    href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-accent hover:underline"
+                  >
+                    Lire l'article <ExternalLink className="w-4 h-4" />
+                  </a>
+                </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
 
-          {/* Noisy Cities Interactive */}
-          <ExpandSection id="noisy-cities" title="Carte interactive : Noisy Cities Paris">
-            <p className="mb-3">
-              Explorez la carte interactive de la pollution sonore à Paris réalisée par Karim Douieb.
-            </p>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <p className="text-sm text-muted-foreground">
-                [Iframe carte interactive Noisy Cities Paris à intégrer]
+            {/* Carte interactive en ExpandSection */}
+            <ExpandSection id="noisy-cities" title="🗺️ Carte interactive : Noisy Cities Paris">
+              <p className="mb-3">
+                Explorez la carte interactive de la pollution sonore à Paris réalisée par Karim Douieb.
               </p>
+              <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
+                <p className="text-sm text-muted-foreground">
+                  [Iframe carte interactive Noisy Cities Paris à intégrer]
+                </p>
+              </div>
+            </ExpandSection>
+
+            {/* Texte explicatif */}
+            <section className="space-y-4">
+              <p>
+                <b>20% de la population européenne</b> est exposée à des niveaux de bruit nocturnes dangereux 
+                pour la santé (Agence Européenne de l'Environnement, 2024).
+              </p>
+              <p>
+                Les impacts sanitaires sont multiples : troubles du sommeil, stress chronique, 
+                maladies cardiovasculaires, impacts cognitifs chez l'enfant.
+              </p>
+              <p>
+                Contrairement à la pollution de l'air, le bruit reste <b>invisible</b> et <b>sous-adressé</b> 
+                par les politiques publiques, malgré son coût social considérable.
+              </p>
+            </section>
+
+            {/* Sources */}
+            <div className="text-sm text-muted-foreground space-y-1">
+              <p><b>Sources :</b></p>
+              <ul className="list-disc pl-5 space-y-1">
+                <li>OMS Europe (2018) : Lignes directrices sur le bruit</li>
+                <li>ANSES (2021) : 25M Français exposés</li>
+                <li>ADEME (2021) : 156 Mds€/an coût social bruit</li>
+                <li>Agence Européenne de l'Environnement (2024) : 20% population exposée</li>
+              </ul>
             </div>
-          </ExpandSection>
-
-          {/* Texte explicatif */}
-          <section className="space-y-4">
-            <p>
-              <b>20% de la population européenne</b> est exposée à des niveaux de bruit nocturnes dangereux 
-              pour la santé (Agence Européenne de l'Environnement, 2024).
-            </p>
-            <p>
-              Les impacts sanitaires sont multiples : troubles du sommeil, stress chronique, 
-              maladies cardiovasculaires, impacts cognitifs chez l'enfant.
-            </p>
-            <p>
-              Contrairement à la pollution de l'air, le bruit reste <b>invisible</b> et <b>sous-adressé</b> 
-              par les politiques publiques, malgré son coût social considérable.
-            </p>
-          </section>
-
-          {/* Sources */}
-          <div className="text-sm text-muted-foreground space-y-1">
-            <p><b>Sources :</b></p>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>OMS Europe (2018) : Lignes directrices sur le bruit</li>
-              <li>ANSES (2021) : 25M Français exposés</li>
-              <li>ADEME (2021) : 156 Mds€/an coût social bruit</li>
-              <li>Agence Européenne de l'Environnement (2024) : 20% population exposée</li>
-            </ul>
           </div>
-        </div>
-      </div>
+        </GradientBorderSection>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 2: TIMELINE ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Timeline du projet</h2>
-          
-          <div className="space-y-6">
-            {[
-              { date: "Oct. 2020", title: "Hackathon", desc: "Victoire Recoder l'Habitat #2 → incubation Matrice/BdT" },
-              { date: "Oct. 2020 - Janv. 2021", title: "Discovery", desc: "20+ entretiens, exploration acteurs privés" },
-              { date: "Janv. 2021", title: "Pivot", desc: "Décision stratégique → focus collectivités" },
-              { date: "Janv. - Avril 2021", title: "Prototype", desc: "3 versions Figma + évolution marque blanche" },
-              { date: "Mai 2021 - Mars 2022", title: "Go-to-market", desc: "20+ villes, 2 propales, cycles longs" },
-              { date: "Mars 2022", title: "Fin", desc: "Épuisement financements, 0 signature" },
-            ].map((step, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-32 text-right font-semibold text-accent">
-                  {step.date}
-                </div>
-                <div className="flex-1 p-4 rounded-lg bg-card">
-                  <h4 className="font-semibold mb-1">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground">{step.desc}</p>
-                </div>
-              </div>
-            ))}
+      <ScrollRevealSection variant="fade-in-up" delay={0.2}>
+        <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Timeline du projet</h2>
+            
+            <div className="space-y-8">
+              {[
+                { date: "Oct. 2020", title: "Hackathon", desc: "Victoire Recoder l'Habitat #2 → incubation Matrice/BdT" },
+                { date: "Oct. 2020 - Janv. 2021", title: "Discovery", desc: "20+ entretiens, exploration acteurs privés" },
+                { date: "Janv. 2021", title: "Pivot", desc: "Décision stratégique → focus collectivités" },
+                { date: "Janv. - Avril 2021", title: "Prototype", desc: "3 versions Figma + évolution marque blanche" },
+                { date: "Mai 2021 - Mars 2022", title: "Go-to-market", desc: "20+ villes, 2 propales, cycles longs" },
+                { date: "Mars 2022", title: "Fin", desc: "Épuisement financements, 0 signature" },
+              ].map((step, i, arr) => (
+                <TimelineItem
+                  key={i}
+                  date={step.date}
+                  title={step.title}
+                  description={step.desc}
+                  index={i}
+                  isLast={i === arr.length - 1}
+                />
+              ))}
+            </div>
           </div>
         </div>
-      </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 3: MOMENTS CLÉS ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Moments clés</h2>
+      <ScrollRevealSection variant="fade-in-up" delay={0.3}>
+        <div id="moments-cles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Moments clés</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Moment 1 */}

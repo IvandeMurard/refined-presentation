@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { ChevronDown, Volume2 } from "lucide-react";
 
 import { ContentFR } from "./Sonor_ContentFR";
 import { ContentEN } from "./Sonor_ContentEN";
@@ -40,6 +42,8 @@ import sonorHero from "/img/image-banniere-sonor.jpg";
 export default function SonorPage() {
   const navigate = useNavigate();
   const { language } = useLanguage();
+  const { scrollY } = useScroll();
+  const parallaxY = useTransform(scrollY, [0, 500], [0, 150]);
 
   const title = language === 'fr'
     ? "SONOR — Réduire la pollution sonore grâce à l'open data"
@@ -49,23 +53,72 @@ export default function SonorPage() {
     ? "Deux ans d'entrepreneuriat : du hackathon au prototype, avec Matrice & la Banque des Territoires"
     : "Two-year journey: from hackathon to prototype, with Matrice & Banque des Territoires";
 
+  const scrollToAudio = () => {
+    const audioSection = document.getElementById("audio-section");
+    if (audioSection) {
+      audioSection.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div>
       {/* Navigation */}
       <Navigation />
 
-      {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
-        <img
+      {/* Hero Section with Parallax */}
+      <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+        {/* Parallax background */}
+        <motion.img
           src={sonorHero}
           alt="SONOR hero"
-          className="absolute inset-0 w-full h-full object-cover"
+          style={{ y: parallaxY }}
+          className="absolute inset-0 w-full h-[120%] object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/30 to-black/70" />
-        <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 text-white">
-          <h1 className="text-3xl md:text-5xl font-bold mb-3">{title}</h1>
-          <p className="text-lg md:text-xl text-white/90">{subtitle}</p>
+        
+        {/* Enhanced gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+        
+        {/* Centered content with CTA */}
+        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="max-w-4xl"
+          >
+            <p className="text-sm uppercase tracking-widest text-white/80 mb-4">
+              CASE STUDY — SONOR
+            </p>
+            <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+              {title}
+            </h1>
+            <p className="text-lg md:text-2xl text-white/90 mb-8">
+              {subtitle}
+            </p>
+            
+            {/* CTA Audio */}
+            <button
+              onClick={scrollToAudio}
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-105"
+            >
+              <Volume2 className="w-5 h-5" />
+              <span>
+                {language === 'fr' 
+                  ? "Écouter le résumé (4 min)" 
+                  : "Listen to summary (4 min)"}
+              </span>
+            </button>
+          </motion.div>
         </div>
+        
+        {/* Scroll indicator */}
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{ repeat: Infinity, duration: 1.5 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2"
+        >
+          <ChevronDown className="w-8 h-8 text-white/60" />
+        </motion.div>
       </section>
 
       {/* Content (switch FR/EN) */}

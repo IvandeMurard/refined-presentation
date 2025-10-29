@@ -13,21 +13,45 @@ export const TermExplain = ({ term, children }: { term: string; children: React.
   const id = `term-${term.replace(/\s+/g, "-").toLowerCase()}`;
 
   return (
-    <span className="inline">
+    <span className="inline-block relative">
       <button
         onClick={() => setOpen(v => !v)}
         aria-expanded={open}
         aria-controls={`${id}-panel`}
-        className="underline decoration-dotted underline-offset-4 text-foreground/90 hover:text-foreground cursor-help transition-all"
+        className="
+          relative inline-flex items-center gap-1
+          text-foreground font-medium
+          underline decoration-dotted decoration-accent/50 underline-offset-4
+          hover:decoration-accent hover:text-accent
+          transition-all duration-200
+          cursor-help
+        "
       >
         {term}
+        <Plus className="w-3.5 h-3.5 opacity-60" />
       </button>
+      
       <InlineExpand open={open} ariaId={id}>
         <div 
-          id={`${id}-panel`} 
-          className="mt-2 p-3 rounded-lg border-l-4 border-accent bg-muted/60 text-sm italic"
+          id={`${id}-panel`}
+          className="
+            absolute z-50 left-0 top-full mt-2
+            min-w-[280px] max-w-[400px]
+            p-4 rounded-xl
+            bg-card/95 backdrop-blur-md
+            border border-accent/30
+            shadow-2xl
+          "
         >
-          <strong className="not-italic text-accent">{term} :</strong> {children}
+          <div className="flex items-start gap-3">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-accent/20 flex items-center justify-center">
+              <Plus className="w-4 h-4 text-accent" />
+            </div>
+            <div className="flex-1">
+              <strong className="block text-sm font-semibold text-accent mb-1">{term}</strong>
+              <p className="text-sm text-muted-foreground leading-relaxed">{children}</p>
+            </div>
+          </div>
         </div>
       </InlineExpand>
     </span>
@@ -75,12 +99,60 @@ export const ExpandSection = ({
 
 // ============= COMPOSANT BANDEAU AUDIO =============
 export const BandeauAudio = ({ language }: { language: string }) => {
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [isSticky, setIsSticky] = useState(false);
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+
+  React.useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const handlePlay = () => {
+      setIsPlaying(true);
+      setIsSticky(true);
+    };
+
+    const handlePause = () => {
+      setIsPlaying(false);
+      setTimeout(() => setIsSticky(false), 2000);
+    };
+
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setTimeout(() => setIsSticky(false), 2000);
+    };
+
+    audio.addEventListener('play', handlePlay);
+    audio.addEventListener('pause', handlePause);
+    audio.addEventListener('ended', handleEnded);
+
+    return () => {
+      audio.removeEventListener('play', handlePlay);
+      audio.removeEventListener('pause', handlePause);
+      audio.removeEventListener('ended', handleEnded);
+    };
+  }, []);
+
   return (
-    <div className="bg-accent/10 border border-accent/20 rounded-lg p-4 md:p-6">
+    <div
+      id="audio-section"
+      className={`
+        rounded-lg p-4 md:p-6 transition-all duration-300
+        ${isSticky 
+          ? 'fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96 z-50 shadow-2xl' 
+          : 'relative'
+        }
+      `}
+      style={{
+        background: 'linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)',
+        backdropFilter: 'blur(20px) saturate(180%)',
+        border: '1px solid hsl(var(--accent)/0.2)',
+      }}
+    >
       <div className="flex items-center gap-4">
         <div className="flex-shrink-0">
           <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-            <Volume2 className="w-6 h-6 text-accent" />
+            <Volume2 className={`w-6 h-6 text-accent ${isPlaying ? 'animate-pulse' : ''}`} />
           </div>
         </div>
         <div className="flex-1">
@@ -89,7 +161,7 @@ export const BandeauAudio = ({ language }: { language: string }) => {
               ? "Pas le temps de lire ? Écoutez le résumé (4 min)" 
               : "No time to read? Listen to the summary (4 min)"}
           </p>
-          <audio controls className="w-full">
+          <audio ref={audioRef} controls className="w-full">
             <source src="/audio/sonor-resume.mp3" type="audio/mpeg" />
             {language === 'fr' 
               ? "Votre navigateur ne supporte pas l'élément audio." 
