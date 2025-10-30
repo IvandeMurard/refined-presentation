@@ -513,16 +513,18 @@ export const ContentEN = () => {
 
           <div className="grid md:grid-cols-4 gap-6">
             {/* Content 1 - Nightingale Article */}
-            <a 
-              href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/" 
-              target="_blank" 
+            <a
+              href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/"
+              target="_blank"
               rel="noopener noreferrer"
               className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
             >
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">📰</span>
               </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Noisy Cities: Behind the Scenes with Karim Douïeb</h3>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">
+                Noisy Cities: Behind the Scenes with Karim Douïeb
+              </h3>
               <p className="text-sm text-muted-foreground mb-3">
                 Discover how noise pollution open data maps of Paris, Brussels, and New-York were made.
               </p>
@@ -536,7 +538,7 @@ export const ContentEN = () => {
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">🎧</span>
               </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">From natural silence to urban noise</h3>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">Jura: A Forest Under Surveillance</h3>
               <p className="text-sm text-muted-foreground mb-3">
                 Discover how data is used to preserve one of Jura's most important forests.
               </p>
@@ -550,7 +552,7 @@ export const ContentEN = () => {
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">🎤</span>
               </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">TEDx on the benefits of the sound of silence</h3>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">TEDx: The benefits of the sound of silence</h3>
               <p className="text-sm text-muted-foreground mb-3">
                 TEDx by Mathias Basner telling the dangers of noise pollution and the benefits of silence.
               </p>
