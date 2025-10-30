@@ -15,7 +15,7 @@ export const TermExplain = ({ term, children }: { term: string; children: React.
   return (
     <span className="inline-block relative">
       <button
-        onClick={() => setOpen(v => !v)}
+        onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={`${id}-panel`}
         className="
@@ -30,9 +30,9 @@ export const TermExplain = ({ term, children }: { term: string; children: React.
         {term}
         <Plus className="w-3.5 h-3.5 opacity-60" />
       </button>
-      
+
       <InlineExpand open={open} ariaId={id}>
-        <div 
+        <div
           id={`${id}-panel`}
           className="
             absolute z-50 left-0 top-full mt-2
@@ -59,14 +59,14 @@ export const TermExplain = ({ term, children }: { term: string; children: React.
 };
 
 // ============= COMPOSANT SECTION EXPANDABLE =============
-export const ExpandSection = ({ 
-  id, 
-  title, 
+export const ExpandSection = ({
+  id,
+  title,
   children,
-  defaultOpen = false 
-}: { 
-  id: string; 
-  title: string; 
+  defaultOpen = false,
+}: {
+  id: string;
+  title: string;
   children: React.ReactNode;
   defaultOpen?: boolean;
 }) => {
@@ -80,13 +80,8 @@ export const ExpandSection = ({
         aria-controls={`${id}-panel`}
         className="flex items-center justify-between w-full group cursor-pointer"
       >
-        <h4 className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4">
-          {title}
-        </h4>
-        <Plus 
-          className={`w-5 h-5 transition-transform duration-300 ${open ? 'rotate-45' : ''}`}
-          aria-hidden="true"
-        />
+        <h4 className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4">{title}</h4>
+        <Plus className={`w-5 h-5 transition-transform duration-300 ${open ? "rotate-45" : ""}`} aria-hidden="true" />
       </button>
       <InlineExpand open={open} ariaId={id}>
         <div id={`${id}-panel`} className="pt-2 space-y-3 text-sm text-muted-foreground">
@@ -122,14 +117,14 @@ export const BandeauAudio = ({ language }: { language: string }) => {
       setTimeout(() => setIsSticky(false), 2000);
     };
 
-    audio.addEventListener('play', handlePlay);
-    audio.addEventListener('pause', handlePause);
-    audio.addEventListener('ended', handleEnded);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
+    audio.addEventListener("ended", handleEnded);
 
     return () => {
-      audio.removeEventListener('play', handlePlay);
-      audio.removeEventListener('pause', handlePause);
-      audio.removeEventListener('ended', handleEnded);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
+      audio.removeEventListener("ended", handleEnded);
     };
   }, []);
 
@@ -138,33 +133,30 @@ export const BandeauAudio = ({ language }: { language: string }) => {
       id="audio-section"
       className={`
         rounded-lg p-4 md:p-6 transition-all duration-300
-        ${isSticky 
-          ? 'fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96 z-50 shadow-2xl' 
-          : 'relative'
-        }
+        ${isSticky ? "fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96 z-50 shadow-2xl" : "relative"}
       `}
       style={{
-        background: 'linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)',
-        backdropFilter: 'blur(20px) saturate(180%)',
-        border: '1px solid hsl(var(--accent)/0.2)',
+        background: "linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)",
+        backdropFilter: "blur(20px) saturate(180%)",
+        border: "1px solid hsl(var(--accent)/0.2)",
       }}
     >
       <div className="flex items-center gap-4">
         <div className="flex-shrink-0">
           <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-            <Volume2 className={`w-6 h-6 text-accent ${isPlaying ? 'animate-pulse' : ''}`} />
+            <Volume2 className={`w-6 h-6 text-accent ${isPlaying ? "animate-pulse" : ""}`} />
           </div>
         </div>
         <div className="flex-1">
           <p className="font-semibold text-base mb-2">
-            {language === 'fr' 
-              ? "Pas le temps de lire ? Écoutez le résumé (4 min)" 
+            {language === "fr"
+              ? "Pas le temps de lire ? Écoutez le résumé (4 min)"
               : "No time to read? Listen to the summary (4 min)"}
           </p>
           <audio ref={audioRef} controls className="w-full">
             <source src="/audio/sonor-resume.mp3" type="audio/mpeg" />
-            {language === 'fr' 
-              ? "Votre navigateur ne supporte pas l'élément audio." 
+            {language === "fr"
+              ? "Votre navigateur ne supporte pas l'élément audio."
               : "Your browser does not support the audio element."}
           </audio>
         </div>
@@ -175,12 +167,12 @@ export const BandeauAudio = ({ language }: { language: string }) => {
 
 // ============= COMPOSANT TABS APPROFONDIES =============
 export const TabsApprofondir = ({ language }: { language: string }) => {
-  const [activeTab, setActiveTab] = useState<'pm' | 'design' | 'gtm'>('pm');
-  
+  const [activeTab, setActiveTab] = useState<"pm" | "design" | "gtm">("pm");
+
   const tabs = {
-    pm: language === 'fr' ? 'Process PM' : 'PM Process',
-    design: language === 'fr' ? 'Design & Prototype' : 'Design & Prototype',
-    gtm: language === 'fr' ? 'Go-to-market B2G' : 'B2G Go-to-market'
+    pm: language === "fr" ? "Process PM" : "PM Process",
+    design: language === "fr" ? "Design & Prototype" : "Design & Prototype",
+    gtm: language === "fr" ? "Go-to-market B2G" : "B2G Go-to-market",
   };
 
   return (
@@ -190,11 +182,9 @@ export const TabsApprofondir = ({ language }: { language: string }) => {
         {Object.entries(tabs).map(([key, label]) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as 'pm' | 'design' | 'gtm')}
+            onClick={() => setActiveTab(key as "pm" | "design" | "gtm")}
             className={`px-6 py-3 font-semibold whitespace-nowrap transition-colors ${
-              activeTab === key
-                ? 'border-b-2 border-accent text-accent'
-                : 'text-muted-foreground hover:text-foreground'
+              activeTab === key ? "border-b-2 border-accent text-accent" : "text-muted-foreground hover:text-foreground"
             }`}
           >
             {label}
@@ -204,9 +194,9 @@ export const TabsApprofondir = ({ language }: { language: string }) => {
 
       {/* Tabs content */}
       <div className="min-h-[400px]">
-        {activeTab === 'pm' && <TabProcessPM language={language} />}
-        {activeTab === 'design' && <TabDesign language={language} />}
-        {activeTab === 'gtm' && <TabGTM language={language} />}
+        {activeTab === "pm" && <TabProcessPM language={language} />}
+        {activeTab === "design" && <TabDesign language={language} />}
+        {activeTab === "gtm" && <TabGTM language={language} />}
       </div>
     </div>
   );
@@ -214,7 +204,7 @@ export const TabsApprofondir = ({ language }: { language: string }) => {
 
 // ============= TAB PROCESS PM =============
 const TabProcessPM = ({ language }: { language: string }) => {
-  if (language === 'fr') {
+  if (language === "fr") {
     return (
       <div className="space-y-8">
         <section className="space-y-4">
@@ -223,10 +213,18 @@ const TabProcessPM = ({ language }: { language: string }) => {
             Phase cruciale de 3 mois (Oct. 2020 - Dec. 2021) avec <b>20+ entretiens qualitatifs</b> auprès de :
           </p>
           <ul className="list-disc pl-5 space-y-2">
-            <li><b>Collectivités territoriales</b> : élus, chargés de mission environnement, responsables open data</li>
-            <li><b>Acteurs privés</b> : promoteurs immobiliers, bailleurs sociaux (CDC Habitat, Icade, OGIC)</li>
-            <li><b>Ministères et institutions</b> : Ministère de l'Écologie, Banque des Territoires</li>
-            <li><b>Experts techniques</b> : BruitParif, CSTB, CNRS, Qualitel</li>
+            <li>
+              <b>Collectivités territoriales</b> : élus, chargés de mission environnement, responsables open data
+            </li>
+            <li>
+              <b>Acteurs privés</b> : promoteurs immobiliers, bailleurs sociaux (CDC Habitat, Icade, OGIC)
+            </li>
+            <li>
+              <b>Ministères et institutions</b> : Ministère de l'Écologie, Banque des Territoires
+            </li>
+            <li>
+              <b>Experts techniques</b> : BruitParif, CSTB, CNRS, Qualitel
+            </li>
           </ul>
         </section>
 
@@ -285,10 +283,12 @@ const TabProcessPM = ({ language }: { language: string }) => {
           <ExpandSection id="wont-have" title="Won't Have (Écartés)">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <b>Capteurs IoT propriétaires</b> : Impact technologique + temps de développement trop important. 
+                <b>Capteurs IoT propriétaires</b> : Impact technologique + temps de développement trop important.
                 Volonté de bypasser l'usage de capteurs en valorisant l'information citoyenne via l'open data.
               </li>
-              <li><b>Module prédiction météo sonore</b> : Complexité technique excessive pour MVP</li>
+              <li>
+                <b>Module prédiction météo sonore</b> : Complexité technique excessive pour MVP
+              </li>
             </ul>
           </ExpandSection>
         </section>
@@ -314,14 +314,14 @@ const TabProcessPM = ({ language }: { language: string }) => {
             <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
               <h4 className="font-semibold mb-2">Disponibilité données open data</h4>
               <p className="text-sm">
-                Manque de données ouvertes fiables et standardisées sur la pollution sonore. 
-                Nécessité de normaliser les sources hétérogènes.
+                Manque de données ouvertes fiables et standardisées sur la pollution sonore. Nécessité de normaliser les
+                sources hétérogènes.
               </p>
             </div>
             <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
               <h4 className="font-semibold mb-2">Complexité technique sous-estimée</h4>
               <p className="text-sm">
-                Difficulté d'accès et de traitement des données de qualité en une cartographie exploitable. 
+                Difficulté d'accès et de traitement des données de qualité en une cartographie exploitable.
                 Ralentissement développement prototype.
               </p>
             </div>
@@ -340,16 +340,26 @@ const TabProcessPM = ({ language }: { language: string }) => {
           Critical 3-month phase (Oct. 2020 - Dec. 2021) with <b>20+ qualitative interviews</b> with:
         </p>
         <ul className="list-disc pl-5 space-y-2">
-          <li><b>Local authorities</b>: elected officials, environmental officers, open data managers</li>
-          <li><b>Private sector</b>: real estate developers, social housing bodies (CDC Habitat, Icade, OGIC)</li>
-          <li><b>Ministries and institutions</b>: Ministry of Ecology, Banque des Territoires</li>
-          <li><b>Technical experts</b>: BruitParif, CSTB, CNRS, Qualitel</li>
+          <li>
+            <b>Local authorities</b>: elected officials, environmental officers, open data managers
+          </li>
+          <li>
+            <b>Private sector</b>: real estate developers, social housing bodies (CDC Habitat, Icade, OGIC)
+          </li>
+          <li>
+            <b>Ministries and institutions</b>: Ministry of Ecology, Banque des Territoires
+          </li>
+          <li>
+            <b>Technical experts</b>: BruitParif, CSTB, CNRS, Qualitel
+          </li>
         </ul>
       </section>
 
       <section className="space-y-4">
         <h3 className="text-h4">JTBD Methodology (Jobs-to-be-Done)</h3>
-        <p>Analysis of public decision-makers' tasks to identify <i>functional jobs</i>:</p>
+        <p>
+          Analysis of public decision-makers' tasks to identify <i>functional jobs</i>:
+        </p>
         <div className="grid md:grid-cols-2 gap-4">
           <div className="p-4 rounded-lg bg-card">
             <h4 className="font-semibold mb-2">Job 1: Map</h4>
@@ -395,7 +405,7 @@ const TabProcessPM = ({ language }: { language: string }) => {
 
 // ============= TAB DESIGN & PROTOTYPE =============
 const TabDesign = ({ language }: { language: string }) => {
-  if (language === 'fr') {
+  if (language === "fr") {
     return (
       <div className="space-y-8">
         <section className="space-y-4">
@@ -427,10 +437,18 @@ const TabDesign = ({ language }: { language: string }) => {
         <section className="space-y-4">
           <h3 className="text-h4">Design System</h3>
           <ul className="list-disc pl-5 space-y-2">
-            <li><b>Couleurs</b> : Palette graphique sobre (bleus, gris, vert éco)</li>
-            <li><b>Typographie</b> : Open Sans (lisibilité cartes + UI technique)</li>
-            <li><b>Icônes</b> : Material Design (universalité B2G)</li>
-            <li><b>Grille</b> : 12 colonnes responsive (mobile, tablet, desktop)</li>
+            <li>
+              <b>Couleurs</b> : Palette graphique sobre (bleus, gris, vert éco)
+            </li>
+            <li>
+              <b>Typographie</b> : Open Sans (lisibilité cartes + UI technique)
+            </li>
+            <li>
+              <b>Icônes</b> : Material Design (universalité B2G)
+            </li>
+            <li>
+              <b>Grille</b> : 12 colonnes responsive (mobile, tablet, desktop)
+            </li>
           </ul>
         </section>
       </div>
@@ -464,136 +482,6 @@ const TabDesign = ({ language }: { language: string }) => {
             <p className="text-sm">Functional web component developed for Banque des Territoires</p>
           </div>
         </div>
-      </section>
-    </div>
-  );
-};
-
-// ============= TAB GTM (Go-To-Market) =============
-const TabGTM = ({ language }: { language: string }) => {
-  if (language === 'fr') {
-    return (
-      <div className="space-y-8">
-        <section className="space-y-4">
-          <h3 className="text-h4">Stratégie Go-To-Market</h3>
-          <p className="text-sm">
-            Approche B2G (Business-to-Government) centrée sur la validation du besoin auprès des 
-            collectivités territoriales et institutions publiques.
-          </p>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Segmentation & Ciblage</h3>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Cible Primaire</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>Collectivités moyennes (50-200k habitants)</li>
-                <li>Forte appétence data & open data</li>
-                <li>Élus sensibles environnement</li>
-              </ul>
-            </div>
-            <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Cible Secondaire</h4>
-              <ul className="list-disc pl-5 space-y-1 text-sm">
-                <li>Grandes métropoles ({'>'}200k habitants)</li>
-                <li>Ministères & établissements publics</li>
-                <li>Bailleurs sociaux & promoteurs</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Canaux d'Acquisition</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><b>Partenariat BdT/Matrice</b> : Accès au réseau collectivités, crédibilité institutionnelle</li>
-            <li><b>Salons & événements</b> : Présence sur Smart Cities, Pollutec, assises territoires</li>
-            <li><b>Démo & POC</b> : Prototypes codés permettant tests terrain avec collectivités pilotes</li>
-            <li><b>Content marketing</b> : Articles techniques sur open data, cartographie, réglementation PPBE</li>
-          </ul>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Modèle Économique</h3>
-          <p className="text-sm">
-            <b>SaaS B2G</b> avec tarification par collectivité (licence annuelle basée sur nombre d'habitants) + 
-            services d'accompagnement (formation, support, personnalisation).
-          </p>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Apprentissages GTM</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            <li><b>Cycles de vente B2G longs (6+ mois)</b> : Budget, validation politique, conformité RGPD</li>
-            <li><b>Importance du prototype fonctionnel</b> : Démo codée {'>'}  Figma pour conviction décideurs</li>
-            <li><b>Partenariats institutionnels décisifs</b> : BdT/Matrice = accélérateur crédibilité + réseau</li>
-            <li><b>Segmentation par appétence data</b> : Plus efficace que segmentation par taille de collectivité</li>
-          </ul>
-        </section>
-      </div>
-    );
-  }
-
-  // English version
-  return (
-    <div className="space-y-8">
-      <section className="space-y-4">
-        <h3 className="text-h4">Go-To-Market Strategy</h3>
-        <p className="text-sm">
-          B2G (Business-to-Government) approach focused on validating needs with 
-          local authorities and public institutions.
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-h4">Segmentation & Targeting</h3>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Primary Target</h4>
-            <ul className="list-disc pl-5 space-y-1 text-sm">
-              <li>Medium-sized municipalities (50-200k inhabitants)</li>
-              <li>Strong data & open data appetite</li>
-              <li>Environment-conscious elected officials</li>
-            </ul>
-          </div>
-          <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Secondary Target</h4>
-            <ul className="list-disc pl-5 space-y-1 text-sm">
-              <li>Large metropolitan areas ({'>'}200k inhabitants)</li>
-              <li>Ministries & public institutions</li>
-              <li>Social housing & real estate developers</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-h4">Acquisition Channels</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><b>BdT/Matrice Partnership</b>: Access to municipality network, institutional credibility</li>
-          <li><b>Trade shows & events</b>: Presence at Smart Cities, Pollutec, territorial conferences</li>
-          <li><b>Demos & POC</b>: Coded prototypes enabling field tests with pilot municipalities</li>
-          <li><b>Content marketing</b>: Technical articles on open data, mapping, PPBE regulations</li>
-        </ul>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-h4">Business Model</h3>
-        <p className="text-sm">
-          <b>B2G SaaS</b> with per-municipality pricing (annual license based on population) + 
-          support services (training, support, customization).
-        </p>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-h4">GTM Learnings</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li><b>Long B2G sales cycles (6+ months)</b>: Budget, political validation, GDPR compliance</li>
-          <li><b>Importance of functional prototype</b>: Coded demo {'>'} Figma for decision-maker conviction</li>
-          <li><b>Institutional partnerships crucial</b>: BdT/Matrice = credibility + network accelerator</li>
-          <li><b>Segmentation by data appetite</b>: More effective than segmentation by municipality size</li>
-        </ul>
       </section>
     </div>
   );
