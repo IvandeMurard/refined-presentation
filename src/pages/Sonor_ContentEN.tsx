@@ -260,7 +260,7 @@ export const ContentEN = () => {
               <CaseImage
                 alt="Issy white label"
                 desktopSrc="/img/sonor_issy_marque_blanche.png"
-                caption="White-label integration — Issy-les-Moulineaux"
+                caption="White-label integration"
               />
               <CaseImage
                 alt="Citizen engagement"
@@ -274,13 +274,13 @@ export const ContentEN = () => {
           <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
             <div className="flex items-center justify-between flex-wrap gap-4">
               <div>
-                <h4 className="font-semibold mb-2">First Prototype</h4>
+                <h4 className="font-semibold mb-2">Functional Prototype</h4>
                 <p className="text-sm text-muted-foreground">
-                  Explore our first prototype
+                  Explore the prototype developed for Banque des Territoires
                 </p>
               </div>
               <a
-                href="<iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="800" height="450" src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&embed-host=share" allowfullscreen></iframe>"
+                href="https://byronbark.github.io/sonor-web-component/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
@@ -289,6 +289,18 @@ export const ContentEN = () => {
               </a>
             </div>
           </div>
+
+          {/* Stakeholders met */}
+          <ExpandSection id="stakeholders" title="Stakeholders Met">
+            <p className="mb-2">
+              <b>Municipalities:</b> Regional metropolises, medium-sized cities, local authorities
+            </p>
+            <p>
+              <b>Experts/partners:</b> BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministry of Ecology
+            </p>
+          </ExpandSection>
+        </div>
+      </div>
 
       {/* ========== SECTION 5: "WANT TO DIVE DEEPER?" ========== */}
       <div className="py-16 px-4 md:px-8 bg-background">
