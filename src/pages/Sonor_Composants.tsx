@@ -3,9 +3,9 @@
 // Version conforme aux spécifications validées
 // Chiffres corrigés : 20+ entretiens, 4 co-fondateurs (dont 1 dev/data-scientist à mi-temps)
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { InlineExpand } from "@/components/InlineExpand";
-import { Plus, Volume2 } from "lucide-react";
+import { Plus, Volume2, Play, Pause, X } from "lucide-react";
 
 // ============= COMPOSANT TERM EXPLAIN =============
 export const TermExplain = ({ term, children }: { term: string; children: React.ReactNode }) => {
@@ -94,123 +94,278 @@ export const ExpandSection = ({
 
 // ============= COMPOSANT BANDEAU AUDIO =============
 export const BandeauAudio = ({ language }: { language: string }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isFixed, setIsFixed] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const audioRef = React.useRef<HTMLAudioElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(240);
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const [isDark, setIsDark] = useState(
+    document.documentElement.classList.contains("dark")
+  );
 
-  const handleButtonClick = () => {
-    if (!isExpanded) {
-      setIsExpanded(true);
-      setTimeout(() => {
-        audioRef.current?.play();
-      }, 300);
-    } else {
-      if (isPlaying) {
-        audioRef.current?.pause();
-      } else {
-        audioRef.current?.play();
-      }
-    }
-  };
+  // Detect theme changes
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+    return () => observer.disconnect();
+  }, []);
 
-  const handleClose = () => {
-    audioRef.current?.pause();
-    setIsExpanded(false);
-  };
-
-  React.useEffect(() => {
+  // Audio event listeners
+  useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
+    const handleTimeUpdate = () => setCurrentTime(audio.currentTime);
+    const handleLoadedMetadata = () => setDuration(audio.duration);
     const handlePlay = () => setIsPlaying(true);
     const handlePause = () => setIsPlaying(false);
-    const handleEnded = () => setIsPlaying(false);
+    const handleEnded = () => {
+      setIsPlaying(false);
+      setCurrentTime(0);
+    };
 
+    audio.addEventListener("timeupdate", handleTimeUpdate);
+    audio.addEventListener("loadedmetadata", handleLoadedMetadata);
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handlePause);
     audio.addEventListener("ended", handleEnded);
 
     return () => {
+      audio.removeEventListener("timeupdate", handleTimeUpdate);
+      audio.removeEventListener("loadedmetadata", handleLoadedMetadata);
       audio.removeEventListener("play", handlePlay);
       audio.removeEventListener("pause", handlePause);
       audio.removeEventListener("ended", handleEnded);
     };
   }, []);
 
-  if (!isExpanded) {
-    // Initial button state
-    return (
-      <div id="audio-section" className="flex justify-center my-8">
-        <button
-          onClick={handleButtonClick}
-          aria-label={language === "fr" ? "Écouter le résumé audio" : "Listen to audio summary"}
-          className="
-            inline-flex items-center gap-3 px-6 py-3
-            bg-white/10 backdrop-blur-md border border-white/20
-            rounded-full
-            hover:bg-white/20 hover:scale-105
-            transition-all duration-300
-            text-foreground
-          "
-        >
-          <Volume2 className="w-5 h-5" />
-          <span className="font-medium">
-            {language === "fr" 
-              ? "Écouter le résumé (4 min)" 
-              : "Listen to summary (4 min)"}
-          </span>
-        </button>
-      </div>
-    );
-  }
+  const formatTime = (seconds: number) => {
+    const mins = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${mins}:${secs.toString().padStart(2, "0")}`;
+  };
 
-  // Sticky player state
+  const handleInitialClick = async () => {
+    if (audioRef.current) {
+      try {
+        await audioRef.current.play();
+        setIsFixed(true);
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+      }
+    }
+  };
+
+  const togglePlayPause = async () => {
+    if (!audioRef.current) return;
+    
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      try {
+        await audioRef.current.play();
+      } catch (error) {
+        console.error("Audio playback failed:", error);
+      }
+    }
+  };
+
+  const handleClose = () => {
+    if (audioRef.current) {
+      audioRef.current.pause();
+      audioRef.current.currentTime = 0;
+    }
+    setIsFixed(false);
+    setIsPlaying(false);
+    setCurrentTime(0);
+  };
+
+  const progressPercent = duration > 0 ? (currentTime / duration) * 100 : 0;
+  const circumference = 2 * Math.PI * 23;
+  const strokeDashoffset = circumference * (1 - currentTime / duration);
+
   return (
     <>
-      <audio ref={audioRef} className="hidden">
-        <source src="/medianesrineexcerpt.mp3" type="audio/mpeg" />
-      </audio>
-      
-      <div
-        className="
-          fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96
-          z-50
-          rounded-2xl p-4
-          bg-card/95 backdrop-blur-md
-          border border-accent/30
-          shadow-2xl
-          animate-slide-in-right
-        "
-      >
-        <div className="flex items-center gap-3">
+      <audio ref={audioRef} src="/medianesrineexcerpt.mp3" preload="metadata" />
+
+      {!isFixed ? (
+        // État 1 : Bouton initial (inline) - Enhanced visibility
+        <button
+          onClick={handleInitialClick}
+          className="inline-flex items-center gap-3 px-8 py-4
+            bg-gradient-to-r from-accent/20 to-accent/10
+            backdrop-blur-md 
+            border-2 border-accent/40
+            rounded-full
+            shadow-lg shadow-accent/20
+            hover:shadow-xl hover:shadow-accent/30
+            hover:scale-105 hover:border-accent/60
+            transition-all duration-300
+            text-foreground font-semibold text-base
+            cursor-pointer"
+          aria-label={language === "fr" ? "Lancer la lecture audio" : "Start audio playback"}
+        >
+          <Volume2 className="w-6 h-6 text-accent" />
+          <span>
+            {language === "fr" ? "🎧 Écouter le résumé (4 min)" : "🎧 Listen to summary (4 min)"}
+          </span>
+        </button>
+      ) : (
+        // État 2 : Bouton fixe rond + Mini player
+        <>
           <button
-            onClick={handleButtonClick}
-            aria-label={isPlaying ? "Pause" : "Play"}
-            className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 hover:bg-accent/30 flex items-center justify-center transition-colors"
+            onClick={togglePlayPause}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            className="fixed right-4 bottom-[152px] z-40 w-[52px] h-[52px] md:w-[52px] md:h-[52px] 
+              rounded-full transition-all duration-300 cursor-pointer
+              hover:scale-105"
+            style={{
+              background: isDark 
+                ? "rgba(15, 23, 42, 0.6)" 
+                : "rgba(255, 255, 255, 0.85)",
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+              border: isDark 
+                ? "1px solid rgba(255, 255, 255, 0.2)" 
+                : "1px solid rgba(0, 0, 0, 0.15)",
+              boxShadow: isDark
+                ? "0 4px 16px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)"
+                : "0 6px 20px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255, 255, 255, 1)"
+            }}
+            role="button"
+            aria-label={
+              isPlaying 
+                ? `${language === "fr" ? "Pause" : "Pause"} - ${formatTime(currentTime)} / ${formatTime(duration)}`
+                : `${language === "fr" ? "Lecture" : "Play"} - ${formatTime(currentTime)} / ${formatTime(duration)}`
+            }
+            aria-pressed={isPlaying}
+            aria-live="polite"
+            tabIndex={0}
           >
-            <Volume2 className={`w-5 h-5 text-accent ${isPlaying ? "animate-pulse" : ""}`} />
+            {/* Progress ring SVG */}
+            <svg className="absolute inset-0 w-full h-full -rotate-90">
+              <circle
+                cx="26"
+                cy="26"
+                r="23"
+                stroke={isDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.1)"}
+                strokeWidth="2"
+                fill="none"
+              />
+              <circle
+                cx="26"
+                cy="26"
+                r="23"
+                stroke="hsl(var(--accent))"
+                strokeWidth="2"
+                fill="none"
+                strokeDasharray={circumference}
+                strokeDashoffset={strokeDashoffset}
+                strokeLinecap="round"
+                className="transition-all duration-300"
+              />
+            </svg>
+
+            {/* Icône Volume */}
+            <Volume2 
+              className={`w-5 h-5 relative z-10 transition-all ${
+                isPlaying ? "animate-pulse text-accent" : "text-foreground"
+              }`} 
+            />
           </button>
-          
-          <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold truncate">
-              {language === "fr" ? "Résumé audio" : "Audio summary"}
-            </p>
-            <div className="flex items-center gap-2 text-xs text-muted-foreground">
-              <span>{isPlaying ? "En cours..." : "En pause"}</span>
-              <span>•</span>
-              <span>4 min</span>
+
+          {/* Mini Player Slide-Out (Desktop only) */}
+          {isHovered && (
+            <div
+              className="hidden md:block fixed right-[72px] bottom-[152px] z-40 
+                w-80 rounded-2xl p-4
+                transition-all duration-300"
+              style={{
+                background: isDark 
+                  ? "rgba(15, 23, 42, 0.95)" 
+                  : "rgba(255, 255, 255, 0.95)",
+                backdropFilter: "blur(20px) saturate(180%)",
+                WebkitBackdropFilter: "blur(20px) saturate(180%)",
+                border: isDark 
+                  ? "1px solid rgba(255, 255, 255, 0.2)" 
+                  : "1px solid rgba(0, 0, 0, 0.15)",
+                boxShadow: isDark
+                  ? "0 8px 32px rgba(0, 0, 0, 0.5)"
+                  : "0 8px 32px rgba(0, 0, 0, 0.15)",
+                animation: "slideInFromRight 0.3s ease-out"
+              }}
+            >
+              <div className="flex items-center gap-3">
+                {/* Play/Pause button */}
+                <button
+                  onClick={togglePlayPause}
+                  className="flex-shrink-0 w-10 h-10 rounded-full 
+                    bg-accent/20 hover:bg-accent/30 
+                    flex items-center justify-center transition-colors"
+                  aria-label={isPlaying ? (language === "fr" ? "Pause" : "Pause") : (language === "fr" ? "Lecture" : "Play")}
+                >
+                  {isPlaying ? (
+                    <Pause className="w-5 h-5 text-accent" />
+                  ) : (
+                    <Play className="w-5 h-5 text-accent ml-0.5" />
+                  )}
+                </button>
+
+                {/* Info & Progress bar */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-semibold truncate text-foreground">
+                    {language === "fr" ? "Résumé audio" : "Audio summary"}
+                  </p>
+
+                  {/* Progress bar */}
+                  <div className="mt-2 h-1 bg-accent/20 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-accent transition-all duration-300"
+                      style={{ width: `${progressPercent}%` }}
+                    />
+                  </div>
+
+                  {/* Time display */}
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>{formatTime(currentTime)}</span>
+                    <span>{formatTime(duration)}</span>
+                  </div>
+                </div>
+
+                {/* Close button */}
+                <button
+                  onClick={handleClose}
+                  className="flex-shrink-0 w-8 h-8 rounded-full 
+                    hover:bg-accent/20 flex items-center justify-center transition-colors"
+                  aria-label={language === "fr" ? "Fermer" : "Close"}
+                >
+                  <X className="w-4 h-4 text-foreground" />
+                </button>
+              </div>
             </div>
-          </div>
-          
-          <button
-            onClick={handleClose}
-            aria-label={language === "fr" ? "Fermer" : "Close"}
-            className="flex-shrink-0 w-8 h-8 rounded-full hover:bg-accent/20 flex items-center justify-center transition-colors"
-          >
-            <Plus className="w-4 h-4 rotate-45" />
-          </button>
-        </div>
-      </div>
+          )}
+        </>
+      )}
+
+      <style>{`
+        @keyframes slideInFromRight {
+          from {
+            opacity: 0;
+            transform: translateX(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      `}</style>
     </>
   );
 };
