@@ -605,3 +605,59 @@ const TabProcessPM = ({ language }: { language: string }) => {
     </div>
   );
 };
+
+// ============= TAB DESIGN =============
+const TabDesign = ({ language }: { language: string }) => {
+  if (language === "fr") {
+    return (
+      <div className="space-y-8">
+        <section className="space-y-4">
+          <h3 className="text-h4">Design System & Prototypage</h3>
+          <p>
+            Création d'une identité visuelle et d'un prototype interactif pour valider les concepts avec les utilisateurs.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className="text-h4">Wireframes & Maquettes</h3>
+          <p>
+            Itérations multiples sur les interfaces pour optimiser l'expérience utilisateur des décideurs publics.
+          </p>
+        </section>
+
+        <section className="space-y-4">
+          <h3 className="text-h4">Tests Utilisateurs</h3>
+          <p>
+            Sessions de tests avec collectivités pour valider l'ergonomie et l'utilité des fonctionnalités proposées.
+          </p>
+        </section>
+      </div>
+    );
+  }
+
+  // English version
+  return (
+    <div className="space-y-8">
+      <section className="space-y-4">
+        <h3 className="text-h4">Design System & Prototyping</h3>
+        <p>
+          Creation of a visual identity and interactive prototype to validate concepts with users.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h3 className="text-h4">Wireframes & Mockups</h3>
+        <p>
+          Multiple iterations on interfaces to optimize user experience for public decision-makers.
+        </p>
+      </section>
+
+      <section className="space-y-4">
+        <h3 className="text-h4">User Testing</h3>
+        <p>
+          Testing sessions with local authorities to validate ergonomics and usefulness of proposed features.
+        </p>
+      </section>
+    </div>
+  );
+};
