@@ -307,30 +307,8 @@ export const ContentEN = () => {
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="text-center space-y-4">
             <h2 className="text-h3">Want to dive deeper?</h2>
-            <p className="text-muted-foreground">Discover the details of the process, design and commercial strategy</p>
+            <p className="text-muted-foreground">Discover the details of the product and design process</p>
           </div>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <button
-              onClick={scrollToTabs}
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-            >
-              <h3 className="text-h4 mb-2 group-hover:text-accent">PM Process</h3>
-              <p className="text-sm text-muted-foreground">
-                Discovery, JTBD, MoSCoW prioritization, sprints and obstacles
-              </p>
-            </button>
-
-            <button
-              onClick={scrollToTabs}
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-            >
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Design & Prototype</h3>
-              <p className="text-sm text-muted-foreground">5 versions, white label, mapping and design system</p>
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* ========== SECTION 6: DEEP-DIVE TABS (REF) ========== */}
       <div ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary">
