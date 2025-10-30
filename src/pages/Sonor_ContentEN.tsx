@@ -511,8 +511,27 @@ export const ContentEN = () => {
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Go Further</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Content 1 */}
+          <div className="grid md:grid-cols-4 gap-6">
+            {/* Content 1 - Nightingale Article */}
+            <a 
+              href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
+            >
+              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
+                <span className="text-2xl">📰</span>
+              </div>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">Noisy Cities: Behind the Scenes with Karim Douïeb</h3>
+              <p className="text-sm text-muted-foreground mb-3">
+                Discover how noise pollution open data maps of Paris, Brussels, and New-York were made.
+              </p>
+              <div className="flex items-center gap-2 text-accent text-sm">
+                Read <ExternalLink className="w-4 h-4" />
+              </div>
+            </a>
+
+            {/* Content 2 */}
             <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">🎧</span>
@@ -526,7 +545,7 @@ export const ContentEN = () => {
               </div>
             </div>
 
-            {/* Content 2 */}
+            {/* Content 3 */}
             <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">🎤</span>
@@ -540,7 +559,7 @@ export const ContentEN = () => {
               </div>
             </div>
 
-            {/* Content 3 */}
+            {/* Content 4 */}
             <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">📄</span>
