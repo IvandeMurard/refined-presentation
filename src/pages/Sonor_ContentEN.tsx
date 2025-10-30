@@ -21,22 +21,17 @@ export const TLDRBlockEN = () => (
         (2020-2022)
       </>,
       <>
-        <b>Problem:</b> Noise pollution (2nd urban nuisance), invisible, real health impacts
+        <b>Problem:</b> Noise pollution is the 2nd urban nuisance; it is invisible and has real health impacts
       </>,
       <>
-        <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen
-        engagement (awareness, communication)
+        <b>Solution:</b> A 360° SaaS platform with open data mapping, public action recommendations, citizen engagement
+        (awareness, communication)
       </>,
       <>
-        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) including 1 part-time dev/data-scientist
+        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) and 1 part-time dev/data-scientist
       </>,
       <>
-        <b>My role:</b> Product framing, discovery (20+ interviews), Prototyping (UX/UI Figma), Sales, Data-scientist
-        leadership
-      </>,
-      <>
-        <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner
-        presentations)
+        <b>My role:</b> Product framing, discovery, Prototyping, Sales, Data-scientist leadership
       </>,
       <>
         <b>Results:</b>
@@ -44,16 +39,10 @@ export const TLDRBlockEN = () => (
         • €20k funding (2 grants)
         <br />
         • 20+ qualitative interviews
-        <br />
-        • 3 Figma prototype versions + 1 coded version
-        <br />• Negotiations with regional metropolises, medium-sized cities, local authorities
+        <br />• 4 prototype versions
       </>,
       <>
         <b>Key pivot:</b> Developers/buyers → Municipalities (after 3 months discovery private sector)
-      </>,
-      <>
-        <b>Sales:</b> 20+ cities contacted → 4-5 constructive exchanges → 2 commercial proposals → 0 signature (timing +
-        technical complexity)
       </>,
       <>
         <b>Project end:</b> Underestimated technical complexity + long B2G sales cycles (12-18 months) → funding
@@ -109,30 +98,6 @@ export const ContentEN = () => {
             </div>
           </div>
 
-          {/* Nightingale Article */}
-          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
-                <ExternalLink className="w-6 h-6 text-accent" />
-              </div>
-              <div className="flex-1">
-                <h4 className="font-semibold mb-2">Noisy Cities: Behind the scenes with Karim Douieb</h4>
-                <p className="text-sm text-muted-foreground mb-3">
-                  Discover the urban noise pollution mapping methodology by Karim Douieb (Nightingale DVS), inspiring
-                  for our data-driven approach.
-                </p>
-                <a
-                  href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-accent hover:underline"
-                >
-                  Read article <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-          </div>
-
           {/* Noisy Cities Interactive */}
           <ExpandSection id="noisy-cities-en" title="Interactive map: Noisy Cities Paris">
             <p className="mb-3">
@@ -140,7 +105,17 @@ export const ContentEN = () => {
               approach for Sonor.
             </p>
             <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <p className="text-sm text-muted-foreground">[Noisy Cities Paris interactive map iframe to integrate]</p>
+              <p className="text-sm text-muted-foreground">
+                [
+                <iframe
+                  src="https://interactive.wearepossible.org/noisycities/"
+                  width="100%"
+                  height="600"
+                  frameborder="0"
+                  allowfullscreen
+                ></iframe>
+                ]
+              </p>
             </div>
           </ExpandSection>
 
@@ -259,7 +234,6 @@ export const ContentEN = () => {
                 <b>Data sovereignty</b>.
               </p>
             </div>
-
           </div>
         </div>
       </div>
