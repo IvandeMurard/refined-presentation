@@ -379,7 +379,7 @@ export const ContentEN = () => {
                     <b>Prioritization & saying no</b>: Importance of staying focused on 1 MVP rather than 360° offering
                   </li>
                   <li>
-                    <b>B2G go-to-market</b>: Long cycles (12-18 months), importance of functional prototype
+                    <b>B2G go-to-market</b>: Long cycles, importance of functional prototype
                   </li>
                   <li>
                     <b>Communicate before being "ready"</b>: Functional prototype necessary to convince
@@ -393,7 +393,7 @@ export const ContentEN = () => {
                 <ul className="list-disc pl-5 space-y-2 text-sm">
                   <li>
                     <b>Appetite for exploration and analysis</b>: Confirmed my taste for in-depth study of complex
-                    issues, searching for concrete solutions, and ability to transform technical learnings and data into
+                    issues, searching for concrete solutions, and the ability to transform technical learnings and data into
                     answers adapted to field needs
                   </li>
                   <li>
