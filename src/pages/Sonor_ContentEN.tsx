@@ -308,7 +308,15 @@ export const ContentEN = () => {
           <div className="text-center space-y-4">
             <h2 className="text-h3">Want to dive deeper?</h2>
             <p className="text-muted-foreground">Discover the details of the product and design process</p>
+            <button
+              onClick={scrollToTabs}
+              className="mt-6 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
+            >
+              Explore the process
+            </button>
           </div>
+        </div>
+      </div>
 
       {/* ========== SECTION 6: DEEP-DIVE TABS (REF) ========== */}
       <div ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary">
