@@ -376,7 +376,7 @@ export const ContentEN = () => {
             <p className="text-muted-foreground">Discover the details of the process, design and commercial strategy</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 gap-6">
             <button
               onClick={scrollToTabs}
               className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
@@ -393,16 +393,6 @@ export const ContentEN = () => {
             >
               <h3 className="text-h4 mb-2 group-hover:text-accent">Design & Prototype</h3>
               <p className="text-sm text-muted-foreground">5 versions, white label, mapping and design system</p>
-            </button>
-
-            <button
-              onClick={scrollToTabs}
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-            >
-              <h3 className="text-h4 mb-2 group-hover:text-accent">B2G Go-to-market</h3>
-              <p className="text-sm text-muted-foreground">
-                3 strategies, sales process, obstacles and conversion rates
-              </p>
             </button>
           </div>
         </div>
