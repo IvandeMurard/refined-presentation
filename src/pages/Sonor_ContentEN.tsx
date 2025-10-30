@@ -34,8 +34,7 @@ export const TLDRBlockEN = () => (
         <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) including 1 part-time dev/data-scientist
       </>,
       <>
-        <b>My role:</b> Product framing, discovery (20+ interviews), Prototyping (UX/UI Figma), 
-        B2G go-to-market, Sales, Data-scientist leadership
+        <b>My role:</b> Product framing, discovery (20+ interviews), Prototyping (UX/UI Figma), Sales, Data-scientist leadership
       </>,
       <>
         <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner presentations)
@@ -51,7 +50,7 @@ export const TLDRBlockEN = () => (
         <b>Key pivot:</b> Developers/buyers → Municipalities (after 3 months discovery private sector)
       </>,
       <>
-        <b>Go-to-market:</b> 20+ cities contacted → 4-5 constructive exchanges → 2 commercial proposals → 0 signature (timing + technical complexity)
+        <b>Sales:</b> 20+ cities contacted → 4-5 constructive exchanges → 2 commercial proposals → 0 signature (timing + technical complexity)
       </>,
       <>
         <b>Project end:</b> Underestimated technical complexity + long B2G sales cycles (12-18 months) → funding exhaustion before 1st signature

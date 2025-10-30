@@ -167,12 +167,11 @@ export const BandeauAudio = ({ language }: { language: string }) => {
 
 // ============= COMPOSANT TABS APPROFONDIES =============
 export const TabsApprofondir = ({ language }: { language: string }) => {
-  const [activeTab, setActiveTab] = useState<"pm" | "design" | "gtm">("pm");
+  const [activeTab, setActiveTab] = useState<"pm" | "design">("pm");
 
   const tabs = {
     pm: language === "fr" ? "Process PM" : "PM Process",
     design: language === "fr" ? "Design & Prototype" : "Design & Prototype",
-    gtm: language === "fr" ? "Go-to-market B2G" : "B2G Go-to-market",
   };
 
   return (
@@ -182,7 +181,7 @@ export const TabsApprofondir = ({ language }: { language: string }) => {
         {Object.entries(tabs).map(([key, label]) => (
           <button
             key={key}
-            onClick={() => setActiveTab(key as "pm" | "design" | "gtm")}
+            onClick={() => setActiveTab(key as "pm" | "design")}
             className={`px-6 py-3 font-semibold whitespace-nowrap transition-colors ${
               activeTab === key ? "border-b-2 border-accent text-accent" : "text-muted-foreground hover:text-foreground"
             }`}
@@ -196,7 +195,6 @@ export const TabsApprofondir = ({ language }: { language: string }) => {
       <div className="min-h-[400px]">
         {activeTab === "pm" && <TabProcessPM language={language} />}
         {activeTab === "design" && <TabDesign language={language} />}
-        {activeTab === "gtm" && <TabGTM language={language} />}
       </div>
     </div>
   );

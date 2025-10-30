@@ -66,7 +66,7 @@ export const TLDRBlockFR = () => (
           <b>Défi :</b> Transformer l'open data en outil d'action publique pour réduire la pollution sonore
         </>,
         <>
-          <b>Mon rôle :</b> Product framing, discovery (20+ entretiens), prototypage UX/UI, go-to-market B2G
+          <b>Mon rôle :</b> Product framing, discovery (20+ entretiens), prototypage UX/UI
         </>,
         <>
           <b>Pivot clé :</b> Acteurs privés → Collectivités (insight conseil BdT/Matrice)
