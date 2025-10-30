@@ -94,28 +94,37 @@ export const ExpandSection = ({
 
 // ============= COMPOSANT BANDEAU AUDIO =============
 export const BandeauAudio = ({ language }: { language: string }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
   const audioRef = React.useRef<HTMLAudioElement>(null);
+
+  const handleButtonClick = () => {
+    if (!isExpanded) {
+      setIsExpanded(true);
+      setTimeout(() => {
+        audioRef.current?.play();
+      }, 300);
+    } else {
+      if (isPlaying) {
+        audioRef.current?.pause();
+      } else {
+        audioRef.current?.play();
+      }
+    }
+  };
+
+  const handleClose = () => {
+    audioRef.current?.pause();
+    setIsExpanded(false);
+  };
 
   React.useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
 
-    const handlePlay = () => {
-      setIsPlaying(true);
-      setIsSticky(true);
-    };
-
-    const handlePause = () => {
-      setIsPlaying(false);
-      setTimeout(() => setIsSticky(false), 2000);
-    };
-
-    const handleEnded = () => {
-      setIsPlaying(false);
-      setTimeout(() => setIsSticky(false), 2000);
-    };
+    const handlePlay = () => setIsPlaying(true);
+    const handlePause = () => setIsPlaying(false);
+    const handleEnded = () => setIsPlaying(false);
 
     audio.addEventListener("play", handlePlay);
     audio.addEventListener("pause", handlePause);
@@ -128,40 +137,81 @@ export const BandeauAudio = ({ language }: { language: string }) => {
     };
   }, []);
 
+  if (!isExpanded) {
+    // Initial button state
+    return (
+      <div id="audio-section" className="flex justify-center my-8">
+        <button
+          onClick={handleButtonClick}
+          aria-label={language === "fr" ? "Écouter le résumé audio" : "Listen to audio summary"}
+          className="
+            inline-flex items-center gap-3 px-6 py-3
+            bg-white/10 backdrop-blur-md border border-white/20
+            rounded-full
+            hover:bg-white/20 hover:scale-105
+            transition-all duration-300
+            text-foreground
+          "
+        >
+          <Volume2 className="w-5 h-5" />
+          <span className="font-medium">
+            {language === "fr" 
+              ? "Écouter le résumé (4 min)" 
+              : "Listen to summary (4 min)"}
+          </span>
+        </button>
+      </div>
+    );
+  }
+
+  // Sticky player state
   return (
-    <div
-      id="audio-section"
-      className={`
-        rounded-lg p-4 md:p-6 transition-all duration-300
-        ${isSticky ? "fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96 z-50 shadow-2xl" : "relative"}
-      `}
-      style={{
-        background: "linear-gradient(135deg, hsl(var(--accent)/0.15) 0%, hsl(var(--accent)/0.05) 100%)",
-        backdropFilter: "blur(20px) saturate(180%)",
-        border: "1px solid hsl(var(--accent)/0.2)",
-      }}
-    >
-      <div className="flex items-center gap-4">
-        <div className="flex-shrink-0">
-          <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center">
-            <Volume2 className={`w-6 h-6 text-accent ${isPlaying ? "animate-pulse" : ""}`} />
+    <>
+      <audio ref={audioRef} className="hidden">
+        <source src="/medianesrineexcerpt.mp3" type="audio/mpeg" />
+      </audio>
+      
+      <div
+        className="
+          fixed bottom-4 left-4 right-4 md:left-auto md:right-8 md:w-96
+          z-50
+          rounded-2xl p-4
+          bg-card/95 backdrop-blur-md
+          border border-accent/30
+          shadow-2xl
+          animate-slide-in-right
+        "
+      >
+        <div className="flex items-center gap-3">
+          <button
+            onClick={handleButtonClick}
+            aria-label={isPlaying ? "Pause" : "Play"}
+            className="flex-shrink-0 w-10 h-10 rounded-full bg-accent/20 hover:bg-accent/30 flex items-center justify-center transition-colors"
+          >
+            <Volume2 className={`w-5 h-5 text-accent ${isPlaying ? "animate-pulse" : ""}`} />
+          </button>
+          
+          <div className="flex-1 min-w-0">
+            <p className="text-sm font-semibold truncate">
+              {language === "fr" ? "Résumé audio" : "Audio summary"}
+            </p>
+            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+              <span>{isPlaying ? "En cours..." : "En pause"}</span>
+              <span>•</span>
+              <span>4 min</span>
+            </div>
           </div>
-        </div>
-        <div className="flex-1">
-          <p className="font-semibold text-base mb-2">
-            {language === "fr"
-              ? "Pas le temps de lire ? Écoutez le résumé (4 min)"
-              : "No time to read? Listen to the summary (4 min)"}
-          </p>
-          <audio ref={audioRef} controls className="w-full">
-            <source src="/audio/sonor-resume.mp3" type="audio/mpeg" />
-            {language === "fr"
-              ? "Votre navigateur ne supporte pas l'élément audio."
-              : "Your browser does not support the audio element."}
-          </audio>
+          
+          <button
+            onClick={handleClose}
+            aria-label={language === "fr" ? "Fermer" : "Close"}
+            className="flex-shrink-0 w-8 h-8 rounded-full hover:bg-accent/20 flex items-center justify-center transition-colors"
+          >
+            <Plus className="w-4 h-4 rotate-45" />
+          </button>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

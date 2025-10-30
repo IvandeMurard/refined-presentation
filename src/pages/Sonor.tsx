@@ -8,7 +8,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ChevronDown, Volume2 } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { ContentFR } from "./Sonor_ContentFR";
 import { ContentEN } from "./Sonor_ContentEN";
@@ -53,12 +53,6 @@ export default function SonorPage() {
     ? "Deux ans d'entrepreneuriat : du hackathon au prototype, avec Matrice & la Banque des Territoires"
     : "Two-year journey: from hackathon to prototype, with Matrice & Banque des Territoires";
 
-  const scrollToAudio = () => {
-    const audioSection = document.getElementById("audio-section");
-    if (audioSection) {
-      audioSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
 
   return (
     <div>
@@ -92,22 +86,9 @@ export default function SonorPage() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white">
               {title}
             </h1>
-            <p className="text-lg md:text-2xl text-white/90 mb-8">
+            <p className="text-lg md:text-2xl text-white/90">
               {subtitle}
             </p>
-            
-            {/* CTA Audio */}
-            <button
-              onClick={scrollToAudio}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-white/20 transition-all duration-300 hover:scale-105"
-            >
-              <Volume2 className="w-5 h-5" />
-              <span>
-                {language === 'fr' 
-                  ? "Écouter le résumé (4 min)" 
-                  : "Listen to summary (4 min)"}
-              </span>
-            </button>
           </motion.div>
         </div>
         
