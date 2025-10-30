@@ -342,33 +342,7 @@ export const ContentEN = () => {
             </p>
           </section>
 
-          {/* 3 causes project end */}
-          <section className="space-y-4">
-            <h3 className="text-h4">3 Causes of Project End</h3>
-
-            <ExpandSection id="cause-1-en" title="1. Underestimated technical complexity" defaultOpen={true}>
-              <p>
-                We underestimated the difficulty of accessing and processing exploitable quality open data on noise
-                pollution. The lack of raw material (reliable and standardized open data) slowed prototype development.
-              </p>
-            </ExpandSection>
-
-            <ExpandSection id="cause-2-en" title="2. Long B2G sales cycles">
-              <p>
-                Sales cycles with municipalities are very long (12-18 months minimum), but we lacked time to finalize
-                signatures before funding exhaustion.
-              </p>
-            </ExpandSection>
-
-            <ExpandSection id="cause-3-en" title="3. Blurred positioning">
-              <p>
-                Our positioning between SaaS platform and consulting support was not clear enough. We needed to choose a
-                more precise angle of attack to facilitate value proposition understanding.
-              </p>
-            </ExpandSection>
-          </section>
-
-          {/* 8 learnings */}
+         {/* 8 learnings */}
           <section className="space-y-6">
             <h3 className="text-h4">Learnings</h3>
 
