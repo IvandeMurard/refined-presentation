@@ -538,7 +538,7 @@ export const ContentEN = () => {
               </div>
               <h3 className="text-h4 mb-2 group-hover:text-accent">From natural silence to urban noise</h3>
               <p className="text-sm text-muted-foreground mb-3">
-                Sound recording from Risoux forest to contrast natural and urban spaces
+                Discover how data is used to preserve one of Jura's most important forests.
               </p>
               <div className="flex items-center gap-2 text-accent text-sm">
                 Listen <ExternalLink className="w-4 h-4" />
@@ -550,27 +550,14 @@ export const ContentEN = () => {
               <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
                 <span className="text-2xl">🎤</span>
               </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Visualizing noisy cities</h3>
+              <h3 className="text-h4 mb-2 group-hover:text-accent">TEDx on the benefits of the sound of silence</h3>
               <p className="text-sm text-muted-foreground mb-3">
-                TEDx Brussels by Karim Douieb on noise pollution dataviz methodology
+                TEDx by Mathias Basner telling the dangers of noise pollution and the benefits of silence.
               </p>
               <div className="flex items-center gap-2 text-accent text-sm">
                 Watch <ExternalLink className="w-4 h-4" />
               </div>
             </div>
-
-            {/* Content 4 */}
-            <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
-                <span className="text-2xl">📄</span>
-              </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">European noise report</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                European Environment Agency (2024): Updated European data
-              </p>
-              <div className="flex items-center gap-2 text-accent text-sm">
-                Read <ExternalLink className="w-4 h-4" />
-              </div>
             </div>
           </div>
         </div>
