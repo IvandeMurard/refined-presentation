@@ -604,7 +604,7 @@ export const ContentFR = () => {
       </ScrollRevealSection>
 
       {/* ========== SECTION 8: FAQ ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Questions fréquentes</h2>
 

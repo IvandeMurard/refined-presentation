@@ -218,8 +218,58 @@ export const ContentEN = () => {
         </div>
       </div>
 
-      {/* ========== SECTION 4: RESULTS & IMPACT ========== */}
+      {/* ========== SECTION 4: PROTOTYPE GALLERY ========== */}
       <div className="py-16 px-4 md:px-8 bg-secondary">
+        <div className="max-w-6xl mx-auto space-y-10">
+          <h2 className="text-h3">Prototype Gallery</h2>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            <CaseImage
+              alt="Sonor mapping dashboard"
+              desktopSrc="/img/sonor_cartographie_dashboard.png"
+              caption="Mapping dashboard — Hotspots & real-time indicators"
+            />
+            <CaseImage
+              alt="Action recommendations"
+              desktopSrc="/img/sonor_recommandations.png"
+              caption="Actionable recommendations — Prioritized tasks by zone"
+            />
+            <CaseImage
+              alt="Issy white label"
+              desktopSrc="/img/sonor_issy_marque_blanche.png"
+              caption="White-label integration"
+            />
+            <CaseImage
+              alt="Citizen engagement"
+              desktopSrc="/img/sonor_engagement_citoyen.png"
+              caption="Citizen engagement — Qualified alert submission"
+            />
+          </div>
+
+          {/* Demo link */}
+          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
+            <div className="flex items-center justify-between flex-wrap gap-4">
+              <div>
+                <h4 className="font-semibold mb-2">Functional Prototype</h4>
+                <p className="text-sm text-muted-foreground">
+                  Explore the prototype developed for Banque des Territoires
+                </p>
+              </div>
+              <a
+                href="https://byronbark.github.io/sonor-web-component/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
+              >
+                Open demo <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ========== SECTION 5: RESULTS & IMPACT ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Results & Impact</h2>
 
@@ -242,81 +292,9 @@ export const ContentEN = () => {
               <div className="text-muted-foreground text-sm">Metropolises and cities met</div>
             </div>
           </div>
-
-          {/* Prototype gallery */}
-          <section className="space-y-4">
-            <h3 className="text-h4">Prototype Gallery</h3>
-            <div className="grid md:grid-cols-2 gap-6">
-              <CaseImage
-                alt="Sonor mapping dashboard"
-                desktopSrc="/img/sonor_cartographie_dashboard.png"
-                caption="Mapping dashboard — Hotspots & real-time indicators"
-              />
-              <CaseImage
-                alt="Action recommendations"
-                desktopSrc="/img/sonor_recommandations.png"
-                caption="Actionable recommendations — Prioritized tasks by zone"
-              />
-              <CaseImage
-                alt="Issy white label"
-                desktopSrc="/img/sonor_issy_marque_blanche.png"
-                caption="White-label integration"
-              />
-              <CaseImage
-                alt="Citizen engagement"
-                desktopSrc="/img/sonor_engagement_citoyen.png"
-                caption="Citizen engagement — Qualified alert submission"
-              />
-            </div>
-          </section>
-
-          {/* Demo link */}
-          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
-            <div className="flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <h4 className="font-semibold mb-2">Functional Prototype</h4>
-                <p className="text-sm text-muted-foreground">
-                  Explore the prototype developed for Banque des Territoires
-                </p>
-              </div>
-              <a
-                href="https://byronbark.github.io/sonor-web-component/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
-              >
-                Open demo <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          </div>
-
-          {/* Stakeholders met */}
-          <ExpandSection id="stakeholders" title="Stakeholders Met">
-            <p className="mb-2">
-              <b>Municipalities:</b> Regional metropolises, medium-sized cities, local authorities
-            </p>
-            <p>
-              <b>Experts/partners:</b> BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministry of Ecology
-            </p>
-          </ExpandSection>
         </div>
       </div>
 
-      {/* ========== SECTION 5: "WANT TO DIVE DEEPER?" ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <div className="text-center space-y-4">
-            <h2 className="text-h3">Want to dive deeper?</h2>
-            <p className="text-muted-foreground">Discover the details of the product and design process</p>
-            <button
-              onClick={scrollToTabs}
-              className="mt-6 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
-            >
-              Explore the process
-            </button>
-          </div>
-        </div>
-      </div>
 
       {/* ========== SECTION 6: DEEP-DIVE TABS (REF) ========== */}
       <div ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary">
