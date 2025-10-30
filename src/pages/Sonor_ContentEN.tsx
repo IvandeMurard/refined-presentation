@@ -21,17 +21,22 @@ export const TLDRBlockEN = () => (
         (2020-2022)
       </>,
       <>
-        <b>Problem:</b> Noise pollution is the 2nd urban nuisance; it is invisible and has real health impacts
+        <b>Problem:</b> Noise pollution (2nd urban nuisance), invisible, real health impacts
       </>,
       <>
-        <b>Solution:</b> A 360° SaaS platform with open data mapping, public action recommendations, citizen engagement
-        (awareness, communication)
+        <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen
+        engagement (awareness, communication)
       </>,
       <>
-        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) and 1 part-time dev/data-scientist
+        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan) including 1 part-time dev/data-scientist
       </>,
       <>
-        <b>My role:</b> Product framing, discovery, Prototyping, Sales, Data-scientist leadership
+        <b>My role:</b> Product framing, discovery (20+ interviews), Prototyping (UX/UI Figma), Sales, Data-scientist
+        leadership
+      </>,
+      <>
+        <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner
+        presentations)
       </>,
       <>
         <b>Results:</b>
@@ -39,10 +44,16 @@ export const TLDRBlockEN = () => (
         • €20k funding (2 grants)
         <br />
         • 20+ qualitative interviews
-        <br />• 4 prototype versions
+        <br />
+        • 3 Figma prototype versions + 1 coded version
+        <br />• Negotiations with regional metropolises, medium-sized cities, local authorities
       </>,
       <>
         <b>Key pivot:</b> Developers/buyers → Municipalities (after 3 months discovery private sector)
+      </>,
+      <>
+        <b>Sales:</b> 20+ cities contacted → 4-5 constructive exchanges → 2 commercial proposals → 0 signature (timing +
+        technical complexity)
       </>,
       <>
         <b>Project end:</b> Underestimated technical complexity + long B2G sales cycles (12-18 months) → funding
@@ -97,27 +108,6 @@ export const ContentEN = () => {
               <div className="text-muted-foreground">Social cost of noise in France (ADEME 2021)</div>
             </div>
           </div>
-
-          {/* Noisy Cities Interactive */}
-          <ExpandSection id="noisy-cities-en" title="Interactive map: Noisy Cities Paris">
-            <p className="mb-3">
-              Explore the interactive noise pollution map of Paris by Karim Douieb, which inspired our cartographic
-              approach for Sonor.
-            </p>
-            <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-              <p className="text-sm text-muted-foreground">
-                [
-                <iframe
-                  src="https://interactive.wearepossible.org/noisycities/"
-                  width="100%"
-                  height="600"
-                  frameborder="0"
-                  allowfullscreen
-                ></iframe>
-                ]
-              </p>
-            </div>
-          </ExpandSection>
 
           {/* Explanatory text */}
           <section className="space-y-4">
