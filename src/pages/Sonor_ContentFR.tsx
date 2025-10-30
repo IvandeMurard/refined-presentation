@@ -100,6 +100,7 @@ export const ContentFR = () => {
     { id: "contexte", label: "Contexte" },
     { id: "timeline", label: "Timeline" },
     { id: "moments-cles", label: "Moments clés" },
+    { id: "galerie-prototype", label: "Galerie prototype" },
     { id: "resultats", label: "Résultats" },
     { id: "approfondir", label: "Approfondissement" },
     { id: "epilogue", label: "Épilogue" },
@@ -399,9 +400,24 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 4: GALERIE PROTOTYPE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.4}>
-        <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="galerie-prototype" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
           <div className="max-w-6xl mx-auto space-y-10">
-            <h2 className="text-h3">Galerie prototype</h2>
+            <div className="space-y-6">
+              <h2 className="text-h3">Voir notre premier prototype</h2>
+              
+              {/* Iframe Figma dépliable */}
+              <ExpandSection id="figma-prototype" title="🎨 Prototype interactif Figma">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                  <iframe 
+                    style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                    width="100%" 
+                    height="450" 
+                    src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&embed-host=share" 
+                    allowFullScreen
+                  />
+                </div>
+              </ExpandSection>
+            </div>
             
             {/* Galerie prototype en carousel immersif */}
             <section className="space-y-6">

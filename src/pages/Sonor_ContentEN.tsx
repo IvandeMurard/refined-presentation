@@ -10,6 +10,8 @@ import { CTABanner } from "@/components/work/CTABanner";
 import { ExternalLink, Euro, Users, Layers, Clock } from "lucide-react";
 import { StatCard } from "@/components/case/StatCard";
 import { TermExplain, ExpandSection, BandeauAudio, TabsApprofondir } from "./Sonor_Composants";
+import { CaseStudyNavigation } from "@/components/case/CaseStudyNavigation";
+import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 
 // ============= TL;DR BLOCK EN =============
 export const TLDRBlockEN = () => (
@@ -83,20 +85,35 @@ export const ContentEN = () => {
     tabsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
+  // Navigation sections
+  const navigationSections = [
+    { id: "overview", label: "Overview" },
+    { id: "context", label: "Context" },
+    { id: "timeline", label: "Timeline" },
+    { id: "key-moments", label: "Key Moments" },
+    { id: "prototype-gallery", label: "Prototype Gallery" },
+    { id: "results", label: "Results & Impact" },
+    { id: "deep-dive", label: "Deep Dive" },
+    { id: "epilogue", label: "Epilogue & Learnings" },
+  ];
+
   return (
-    <div>
+    <div className="relative">
+      {/* Navigation sticky */}
+      <CaseStudyNavigation sections={navigationSections} />
+
       {/* TL;DR */}
-      <div className="mb-10">
+      <div id="overview" className="mb-10 lg:ml-72">
         <TLDRBlockEN />
       </div>
 
       {/* AUDIO BANNER */}
-      <div className="mb-10">
+      <div className="mb-10 lg:ml-72">
         <BandeauAudio language="en" />
       </div>
 
       {/* ========== SECTION 1: CONTEXT ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
+      <div id="context" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Context: Noise Pollution</h2>
 
@@ -150,7 +167,8 @@ export const ContentEN = () => {
       </div>
 
       {/* ========== SECTION 2: TIMELINE ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
+      <ScrollRevealSection variant="fade-in-up" delay={0.1}>
+        <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Project Timeline</h2>
 
@@ -173,11 +191,13 @@ export const ContentEN = () => {
             ))}
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 3: KEY MOMENTS ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
+      <ScrollRevealSection variant="fade-in-up" delay={0.2}>
+        <div id="key-moments" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Key Moments</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
@@ -235,14 +255,31 @@ export const ContentEN = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 4: PROTOTYPE GALLERY ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Prototype Gallery</h2>
+      <ScrollRevealSection variant="fade-in-up" delay={0.3}>
+        <div id="prototype-gallery" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <div className="space-y-6">
+              <h2 className="text-h3">See our first prototype</h2>
+              
+              {/* Figma iframe collapsible */}
+              <ExpandSection id="figma-prototype-en" title="🎨 Interactive Figma Prototype">
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+                  <iframe 
+                    style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                    width="100%" 
+                    height="450" 
+                    src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&embed-host=share" 
+                    allowFullScreen
+                  />
+                </div>
+              </ExpandSection>
+            </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
             <CaseImage
               alt="Sonor mapping dashboard"
               desktopSrc="/img/sonor_cartographie_dashboard.png"
@@ -285,11 +322,13 @@ export const ContentEN = () => {
             </div>
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 5: RESULTS & IMPACT ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
+      <ScrollRevealSection variant="fade-in-up" delay={0.4}>
+        <div id="results" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Results & Impact</h2>
 
           {/* Key figures */}
@@ -310,21 +349,25 @@ export const ContentEN = () => {
               <div className="text-4xl font-extrabold mb-2">8+</div>
               <div className="text-muted-foreground text-sm">Metropolises and cities met</div>
             </div>
+            </div>
           </div>
         </div>
-      </div>
+      </ScrollRevealSection>
 
 
       {/* ========== SECTION 6: DEEP-DIVE TABS (REF) ========== */}
-      <div ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto">
+      <ScrollRevealSection variant="fade-in-up" delay={0.5}>
+        <div id="deep-dive" ref={tabsRef} className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+          <div className="max-w-6xl mx-auto">
           <TabsApprofondir language="en" />
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 7: EPILOGUE ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
+      <ScrollRevealSection variant="fade-in-up" delay={0.6}>
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Epilogue & Learnings</h2>
 
           <section className="rounded-xl p-6 bg-card">
@@ -545,10 +588,11 @@ export const ContentEN = () => {
             </a>
           </div>
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 10: ACKNOWLEDGMENTS ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
+      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="text-center space-y-6">
             <h2 className="text-h3">Acknowledgments</h2>
