@@ -20,22 +20,22 @@ export const TLDRBlockEN = () => (
     title="TL;DR — At a glance"
     items={[
       <>
-        <b>Context:</b> In 2021, 2nd prize at the government-organized "Hack The Crisis" Hackathon. The project secured €20,000 in funding (Banque des Territoires, calls for projects, Matrice).
+        <b>Context:</b> Recoder l'Habitat #2 Hackathon (winner) → incubation Matrice & Banque des Territoires (2020-2022)
       </>,
       <>
-        <b>Noise Pollution:</b> In France, 9 million people are exposed daily to sound levels exceeding recommended thresholds, with social costs estimated at €147 billion annually (source: ADEME report).
+        <b>Problem:</b> Noise pollution (2nd urban nuisance), invisible, real health impacts
       </>,
       <>
-        <b>Solution:</b> White-label platform for visualization, analysis, and education on urban noise for local authorities. Real-time measurement via sensors (250 operational units, May 2022), cross-referenced with mobility & quality of life data.
+        <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen engagement (awareness, communication)
       </>,
       <>
-        <b>Team:</b> 4 co-founders including 1 part-time developer/data-scientist, <b>20+ qualitative interviews</b>, 4 iterative prototypes.
+        <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan), 1 part-time dev/data-scientist
       </>,
       <>
-        <b>Role:</b> Co-founder and Product Manager. Responsible for strategy, user research, UX design, and feature prioritization.
+        <b>My role:</b> Product framing, discovery, prototyping, sales, data-scientist leadership
       </>,
       <>
-        <b>Methodology:</b> Lean Product Development (discovery, definition, prototype, user testing), JTBD, Value Proposition Canvas, Kano.
+        <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner presentations)
       </>,
     ]}
   />

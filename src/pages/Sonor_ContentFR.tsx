@@ -28,22 +28,22 @@ export const TLDRBlockFR = () => (
     title="TL;DR — L'essentiel"
     items={[
       <>
-        <b>Contexte :</b> En 2021, 2e prix du Hackathon "Hack The Crisis" organisé par le gouvernement. Le projet obtient 20 000 € de financements (Banque des Territoires, appels à projets, Matrice).
+        <b>Contexte :</b> Hackathon Recoder l'Habitat #2 (gagnant) → incubation Matrice & Banque des Territoires (2020-2022)
       </>,
       <>
-        <b>Pollution sonore :</b> En France, 9 millions de personnes sont exposées quotidiennement à des niveaux sonores dépassant les seuils recommandés, avec des coûts sociaux estimés à 147 milliards d'euros annuels (source : rapport ADEME).
+        <b>Problème :</b> Pollution sonore (2e nuisance urbaine), invisible, impacts sanitaires réels
       </>,
       <>
-        <b>Solution :</b> Plateforme en marque blanche de visualisation, analyse et pédagogie sur le bruit urbain pour les collectivités. Mesure temps réel via capteurs (250 unités opérationnelles, mai 2022), croisement avec données mobilités & cadre de vie.
+        <b>Solution :</b> Plateforme SaaS 360° avec cartographie open data, recommandations d'actions publiques, engagement citoyen (sensibilisation, communication)
       </>,
       <>
-        <b>Équipe :</b> 4 co-fondateurs dont 1 développeur/data-scientist à mi-temps, <b>20+ entretiens</b> qualificatifs, 4 prototypes itératifs.
+        <b>Équipe :</b> 4 co-fondateurs (Émilie, Majda, Benjamin, Ivan), 1 dev/data-scientist à mi-temps
       </>,
       <>
-        <b>Rôle :</b> Co-fondateur et Product Manager. Responsable de la stratégie, de la recherche utilisateur, de la conception de l'expérience utilisateur et de la priorisation fonctionnelle.
+        <b>Mon rôle :</b> Cadrage produit, discovery, prototypage, commercial, encadrement data-scientist
       </>,
       <>
-        <b>Méthodologie :</b> Lean Product Development (discovery, définition, prototype, tests utilisateurs), JTBD, Value Proposition Canvas, Kano.
+        <b>Durée & méthode :</b> 2 ans / Agile Lean, sprints Kanban 2-3 semaines, 6+ jalons mensuels (présentations partenaires)
       </>,
     ]}
   />
