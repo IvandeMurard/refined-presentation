@@ -509,7 +509,7 @@ export const ContentEN = () => {
               rel="noopener noreferrer"
               className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
             >
-              <div className="w-12 h-12 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
+              <div className="w-20 h-20 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
                 <img src="/img/nightingale.PNG" alt="Nightingale" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-h4 mb-2 group-hover:text-accent">
@@ -530,7 +530,7 @@ export const ContentEN = () => {
               rel="noopener noreferrer"
               className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
             >
-              <div className="w-12 h-12 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
+              <div className="w-20 h-20 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
                 <img src="/img/philosophie-magazine.svg" alt="Philosophie Magazine" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-h4 mb-2 group-hover:text-accent">Jura: A Forest Under Surveillance</h3>
@@ -577,10 +577,10 @@ export const ContentEN = () => {
             {/* Logos */}
             <div className="flex items-center justify-center gap-12 flex-wrap pt-6">
               <div>
-                <img src="/img/banque-des-territoires-logo.png" alt="Banque des Territoires" className="h-16 object-contain" />
+                <img src="/img/banque-des-territoires-logo.png" alt="Banque des Territoires" className="h-24 object-contain" />
               </div>
               <div>
-                <img src="/img/logo-matrice.png" alt="Association Matrice" className="h-16 object-contain" />
+                <img src="/img/logo-matrice.png" alt="Association Matrice" className="h-24 object-contain" />
               </div>
             </div>
           </div>
