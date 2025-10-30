@@ -577,7 +577,7 @@ export const ContentEN = () => {
             {/* Logos */}
             <div className="flex items-center justify-center gap-12 flex-wrap pt-6">
               <div className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
-                <img src="/img/logo-bdt.png" alt="Banque des Territoires" className="h-16 object-contain" />
+                <img src="/img/banque-des-territoires-logo.png" alt="Banque des Territoires" className="h-16 object-contain" />
               </div>
               <div className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
                 <img src="/img/logo-matrice.png" alt="Association Matrice" className="h-16 object-contain" />

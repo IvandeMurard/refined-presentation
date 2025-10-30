@@ -780,7 +780,7 @@ export const ContentFR = () => {
             <div className="flex items-center justify-center gap-12 flex-wrap pt-6">
               <div className="grayscale hover:grayscale-0 transition-all opacity-60 hover:opacity-100">
                 <img 
-                  src="/img/logo-bdt.png" 
+                  src="/img/banque-des-territoires-logo.png" 
                   alt="Banque des Territoires" 
                   className="h-16 object-contain"
                 />
