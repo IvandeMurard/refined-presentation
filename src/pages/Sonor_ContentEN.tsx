@@ -92,8 +92,10 @@ export const ContentEN = () => {
               <div className="text-muted-foreground">French exposed to excessive noise levels (ANSES 2021)</div>
             </div>
             <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">€156B/year</div>
-              <div className="text-muted-foreground">Social cost of noise in France (ADEME 2021)</div>
+              <div className="text-4xl font-extrabold mb-2">48K/year</div>
+              <div className="text-muted-foreground">
+                New cases of heart disease due to excessive noise levels (EEA 2025)
+              </div>
             </div>
           </div>
 
@@ -121,7 +123,7 @@ export const ContentEN = () => {
             <ul className="list-disc pl-5 space-y-1">
               <li>WHO Europe (2018): Guidelines on noise</li>
               <li>ANSES (2021): 25M French exposed</li>
-              <li>ADEME (2021): €156B/year social cost noise</li>
+              <li>European Environment Agency (2025): 48,000 new cases of heart disease</li>
               <li>European Environment Agency (2024): 20% population exposed</li>
             </ul>
           </div>
