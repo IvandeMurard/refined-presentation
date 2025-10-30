@@ -57,28 +57,28 @@ export const TLDRBlockFR = () => (
       />
     </div>
 
-    {/* TL;DR condensé à 6 bullets */}
+    {/* TL;DR structure du PDF */}
     <CaseTldr
-      tone="wttj"
+      tone="neutral"
       title="TL;DR — L'essentiel"
       items={[
         <>
-          <b>Défi :</b> Transformer l'open data en outil d'action publique pour réduire la pollution sonore
+          <b>Contexte :</b> Hackathon Recoder l'Habitat #2 (lauréat) → incubation Matrice & Banque des Territoires (2020-2022)
         </>,
         <>
-          <b>Mon rôle :</b> Product framing, discovery (20+ entretiens), prototypage UX/UI
+          <b>Problème :</b> Pollution sonore (2e nuisance urbaine), invisible, impacts réels sur la santé
         </>,
         <>
-          <b>Pivot clé :</b> Acteurs privés → Collectivités (insight conseil BdT/Matrice)
+          <b>Solution :</b> Plateforme SaaS 360° avec cartographie open data, recommandations d'actions publiques, engagement citoyen (sensibilisation, communication)
         </>,
         <>
-          <b>Innovation produit :</b> Plateforme 360° (cartographie + actions + communication) → composant marque blanche
+          <b>Équipe :</b> 4 cofondateurs (Émilie, Majda, Benjamin, Ivan), 1 dev/data-scientist temps partiel
         </>,
         <>
-          <b>Impact :</b> Prototype fonctionnel validé, négociations avec 8+ villes, apprentissages entrepreneuriaux décisifs
+          <b>Mon rôle :</b> Cadrage produit, discovery, prototypage, vente, pilotage data-scientist
         </>,
         <>
-          <b>Fin de parcours :</b> Complexité technique + cycles B2G longs → épuisement financements avant signature
+          <b>Durée & méthode :</b> 2 ans / Agile Lean, sprints Kanban 2-3 semaines, 6+ jalons mensuels (présentations partenaires)
         </>,
       ]}
     />
