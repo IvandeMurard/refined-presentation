@@ -260,26 +260,6 @@ export const ContentEN = () => {
               </p>
             </div>
 
-            {/* Moment 4 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
-              <h3 className="text-h4 mb-3">The B2G sales cycle wall</h3>
-              <p className="text-sm mb-3">
-                <b>Context:</b> After 6 months outreach, 2 commercial proposals in progress.
-              </p>
-              <div className="space-y-2 text-sm mb-3">
-                <p>
-                  <b>Paris 15th district obstacle:</b> Internal proposal validation (City of Paris competence, not
-                  district) + experimentation budget → funding exhausted before decision. <b>Fatal timing.</b>
-                </p>
-                <p>
-                  <b>Arras obstacle:</b> Interested city, but too early: no functional platform, lacking dev resources.
-                </p>
-              </div>
-              <p className="text-sm">
-                <b>Learning:</b> B2G cycles 12-18 months. Without functional MVP, difficult to convince before resource
-                exhaustion.
-              </p>
-            </div>
           </div>
         </div>
       </div>
