@@ -361,17 +361,6 @@ export const Home: React.FC = () => {
                   </Button>
                 </div>
 
-                {/* Pills */}
-                <ul className="mt-4 flex flex-wrap gap-2 text-sm">
-                  {["Discovery", "MVP", "AI", "Go-to-Market"].map((tag) => (
-                    <li
-                      key={tag}
-                      className="px-3 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20"
-                    >
-                      {tag}
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               {/* Right: photo */}
