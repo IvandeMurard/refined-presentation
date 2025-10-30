@@ -60,7 +60,7 @@ export default function SonorPage() {
       <Navigation />
 
       {/* Hero Section with Parallax */}
-      <section className="relative h-[70vh] md:h-[80vh] overflow-hidden">
+      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
         {/* Parallax background */}
         <motion.img
           src={sonorHero}
@@ -70,10 +70,10 @@ export default function SonorPage() {
         />
         
         {/* Enhanced gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/50 to-black/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/40 to-black/90" />
         
         {/* Centered content with CTA */}
-        <div className="absolute inset-0 flex flex-col justify-center items-center text-center px-4">
+        <div className="absolute inset-0 flex flex-col justify-end items-center pb-16 text-center px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}

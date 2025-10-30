@@ -72,14 +72,11 @@ export function CaseStudyNavigation({ sections }: CaseStudyNavigationProps) {
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
             className="fixed top-32 left-4 z-40 w-64 max-h-[calc(100vh-10rem)] overflow-y-auto
-                     bg-card/95 backdrop-blur-md border border-border/50 rounded-2xl
+                     bg-transparent border border-border/50 rounded-2xl
                      shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4
                      lg:block"
           >
             <div className="space-y-1">
-              <p className="text-xs uppercase tracking-wider text-muted-foreground mb-3 px-3">
-                Sommaire
-              </p>
               {sections.map((section) => (
                 <button
                   key={section.id}

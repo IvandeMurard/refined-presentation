@@ -7,73 +7,38 @@ import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
-import { ExternalLink, Euro, Users, Layers, Clock } from "lucide-react";
-import { StatCard } from "@/components/case/StatCard";
+import { ExternalLink } from "lucide-react";
 import { TermExplain, ExpandSection, BandeauAudio, TabsApprofondir } from "./Sonor_Composants";
 import { CaseStudyNavigation } from "@/components/case/CaseStudyNavigation";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
+import { TimelineItem } from "@/components/case/TimelineItem";
 
 // ============= TL;DR BLOCK EN =============
 export const TLDRBlockEN = () => (
-  <div className="space-y-8">
-    {/* Stats cards immersives */}
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <StatCard 
-        value="€20k" 
-        label="Funding obtained"
-        icon={Euro}
-        color="accent"
-        delay={0}
-      />
-      <StatCard 
-        value="20+" 
-        label="Qualitative interviews"
-        icon={Users}
-        color="primary"
-        delay={0.1}
-      />
-      <StatCard 
-        value="3+1" 
-        label="Prototype versions"
-        icon={Layers}
-        color="success"
-        delay={0.2}
-      />
-      <StatCard 
-        value="2 years" 
-        label="Project duration"
-        icon={Clock}
-        color="info"
-        delay={0.3}
-      />
-    </div>
-
-    {/* TL;DR structure from PDF */}
-    <CaseTldr
-      tone="neutral"
-      title="TL;DR — At a glance"
-      items={[
-        <>
-          <b>Context:</b> Recoder l'Habitat #2 Hackathon (winner) → incubation Matrice & Banque des Territoires (2020-2022)
-        </>,
-        <>
-          <b>Problem:</b> Noise pollution (2nd urban nuisance), invisible, real health impacts
-        </>,
-        <>
-          <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen engagement (awareness, communication)
-        </>,
-        <>
-          <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan), 1 part-time dev/data-scientist
-        </>,
-        <>
-          <b>My role:</b> Product framing, discovery, prototyping, sales, data-scientist leadership
-        </>,
-        <>
-          <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner presentations)
-        </>,
-      ]}
-    />
-  </div>
+  <CaseTldr
+    tone="neutral"
+    title="TL;DR — At a glance"
+    items={[
+      <>
+        <b>Context:</b> In 2021, 2nd prize at the government-organized "Hack The Crisis" Hackathon. The project secured €20,000 in funding (Banque des Territoires, calls for projects, Matrice).
+      </>,
+      <>
+        <b>Noise Pollution:</b> In France, 9 million people are exposed daily to sound levels exceeding recommended thresholds, with social costs estimated at €147 billion annually (source: ADEME report).
+      </>,
+      <>
+        <b>Solution:</b> White-label platform for visualization, analysis, and education on urban noise for local authorities. Real-time measurement via sensors (250 operational units, May 2022), cross-referenced with mobility & quality of life data.
+      </>,
+      <>
+        <b>Team:</b> 4 co-founders including 1 part-time developer/data-scientist, <b>20+ qualitative interviews</b>, 4 iterative prototypes.
+      </>,
+      <>
+        <b>Role:</b> Co-founder and Product Manager. Responsible for strategy, user research, UX design, and feature prioritization.
+      </>,
+      <>
+        <b>Methodology:</b> Lean Product Development (discovery, definition, prototype, user testing), JTBD, Value Proposition Canvas, Kano.
+      </>,
+    ]}
+  />
 );
 
 // ============= CONTENT EN =============
