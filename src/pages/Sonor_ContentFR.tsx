@@ -698,8 +698,8 @@ export const ContentFR = () => {
               rel="noopener noreferrer"
               className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
             >
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
-                <span className="text-2xl">📰</span>
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
+                <img src="/img/nightingale.PNG" alt="Nightingale" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-h4 mb-2 group-hover:text-accent">Noisy Cities: Behind the Scenes with Karim Douïeb</h3>
               <p className="text-sm text-muted-foreground mb-3">
@@ -710,24 +710,34 @@ export const ContentFR = () => {
               </div>
             </a>
 
-            {/* Contenu 2 */}
-            <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
-                <span className="text-2xl">🎧</span>
+            {/* Contenu 2 - Philosophie Magazine */}
+            <a
+              href="https://www.philomag.com/articles/une-foret-sur-ecoute"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
+            >
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
+                <img src="/img/philosophie-magazine.svg" alt="Philosophie Magazine" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-h4 mb-2 group-hover:text-accent">Des silences naturels aux bruits urbains</h3>
               <p className="text-sm text-muted-foreground mb-3">
                 Enregistrement sonore de la forêt du Risoux pour contraster espace naturel et ville
               </p>
               <div className="flex items-center gap-2 text-accent text-sm">
-                Écouter <ExternalLink className="w-4 h-4" />
+                Lire <ExternalLink className="w-4 h-4" />
               </div>
-            </div>
+            </a>
 
-            {/* Contenu 3 */}
-            <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
-              <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30">
-                <span className="text-2xl">🎤</span>
+            {/* Contenu 3 - TEDx */}
+            <a
+              href="https://www.youtube.com/watch?v=ewNTwBbLUhM"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
+            >
+              <div className="w-12 h-12 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
+                <img src="/img/ted-logo.svg" alt="TED" className="w-full h-full object-contain" />
               </div>
               <h3 className="text-h4 mb-2 group-hover:text-accent">Visualiser les villes bruyantes</h3>
               <p className="text-sm text-muted-foreground mb-3">
@@ -736,7 +746,7 @@ export const ContentFR = () => {
               <div className="flex items-center gap-2 text-accent text-sm">
                 Regarder <ExternalLink className="w-4 h-4" />
               </div>
-            </div>
+            </a>
 
             {/* Contenu 4 */}
             <div className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group">
