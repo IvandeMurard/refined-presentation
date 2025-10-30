@@ -397,168 +397,134 @@ export const ContentFR = () => {
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 4: RÉSULTATS & IMPACT ========== */}
+      {/* ========== SECTION 4: GALERIE PROTOTYPE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.4}>
-        <div id="resultats" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
           <div className="max-w-6xl mx-auto space-y-10">
-            <h2 className="text-h3">Résultats & Impact</h2>
-
-          {/* Chiffres clés */}
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">20 000 €</div>
-              <div className="text-muted-foreground text-sm">Financements obtenus (3 bourses)</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">20+</div>
-              <div className="text-muted-foreground text-sm">Entretiens qualitatifs</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">3+1</div>
-              <div className="text-muted-foreground text-sm">Versions prototype (Figma + codé)</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">8+</div>
-              <div className="text-muted-foreground text-sm">Métropoles et villes rencontrées</div>
-            </div>
-          </div>
-
-          {/* Galerie prototype en carousel immersif */}
-          <section className="space-y-6">
-            <div className="flex items-center justify-between">
-              <h3 className="text-h4">Galerie prototype</h3>
-              <p className="text-sm text-muted-foreground">Glissez pour explorer →</p>
-            </div>
+            <h2 className="text-h3">Galerie prototype</h2>
             
-            <Carousel className="w-full">
-              <CarouselContent className="-ml-4">
-                {[
-                  {
-                    src: "/img/sonor_cartographie_dashboard.png",
-                    alt: "Dashboard cartographie Sonor",
-                    caption: "Dashboard cartographie — Points noirs & indicateurs temps réel"
-                  },
-                  {
-                    src: "/img/sonor_recommandations.png",
-                    alt: "Recommandations actions",
-                    caption: "Recommandations actionnables — Tâches priorisées par zone"
-                  },
-                  {
-                    src: "/img/sonor_issy_marque_blanche.png",
-                    alt: "Marque blanche Issy",
-                    caption: "Intégration marque blanche — Issy-les-Moulineaux"
-                  },
-                  {
-                    src: "/img/sonor_engagement_citoyen.png",
-                    alt: "Engagement citoyen",
-                    caption: "Engagement citoyen — Dépôt d'alerte qualifiée"
-                  }
-                ].map((img, i) => (
-                  <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/2">
-                    <motion.div
-                      whileHover={{ scale: 1.05, zIndex: 10 }}
-                      className="group cursor-pointer"
-                    >
-                      <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-muted to-card">
-                        <img
-                          src={img.src}
-                          alt={img.alt}
-                          className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                          <div className="absolute bottom-0 left-0 right-0 p-4">
-                            <p className="text-white text-sm font-medium">{img.caption}</p>
+            {/* Galerie prototype en carousel immersif */}
+            <section className="space-y-6">
+              <div className="flex items-center justify-between">
+                <p className="text-sm text-muted-foreground">Glissez pour explorer →</p>
+              </div>
+              
+              <Carousel className="w-full">
+                <CarouselContent className="-ml-4">
+                  {[
+                    {
+                      src: "/img/sonor_cartographie_dashboard.png",
+                      alt: "Dashboard cartographie Sonor",
+                      caption: "Dashboard cartographie — Points noirs & indicateurs temps réel"
+                    },
+                    {
+                      src: "/img/sonor_recommandations.png",
+                      alt: "Recommandations actions",
+                      caption: "Recommandations actionnables — Tâches priorisées par zone"
+                    },
+                    {
+                      src: "/img/sonor_issy_marque_blanche.png",
+                      alt: "Marque blanche Issy",
+                      caption: "Intégration marque blanche — Issy-les-Moulineaux"
+                    },
+                    {
+                      src: "/img/sonor_engagement_citoyen.png",
+                      alt: "Engagement citoyen",
+                      caption: "Engagement citoyen — Dépôt d'alerte qualifiée"
+                    }
+                  ].map((img, i) => (
+                    <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/2">
+                      <motion.div
+                        whileHover={{ scale: 1.05, zIndex: 10 }}
+                        className="group cursor-pointer"
+                      >
+                        <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-muted to-card">
+                          <img
+                            src={img.src}
+                            alt={img.alt}
+                            className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                          
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <div className="absolute bottom-0 left-0 right-0 p-4">
+                              <p className="text-white text-sm font-medium">{img.caption}</p>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
-          </section>
+                      </motion.div>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselPrevious />
+                <CarouselNext />
+              </Carousel>
+            </section>
 
-          {/* Lien démo avec CTA visuel */}
-          <motion.a
-            href="https://byronbark.github.io/sonor-web-component/"
-            target="_blank"
-            rel="noopener noreferrer"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            className="block p-6 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover:border-accent/50 transition-all"
-          >
-            <div className="flex items-center justify-between">
-              <div>
-                <h4 className="font-semibold mb-2 flex items-center gap-2">
-                  <Play className="w-5 h-5" />
-                  Prototype fonctionnel
-                </h4>
-                <p className="text-sm text-muted-foreground">
-                  Explorez le web component marque-blanche
-                </p>
+            {/* Lien démo avec CTA visuel */}
+            <motion.a
+              href="https://byronbark.github.io/sonor-web-component/"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              className="block p-6 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover:border-accent/50 transition-all"
+            >
+              <div className="flex items-center justify-between">
+                <div>
+                  <h4 className="font-semibold mb-2 flex items-center gap-2">
+                    <Play className="w-5 h-5" />
+                    Prototype fonctionnel
+                  </h4>
+                  <p className="text-sm text-muted-foreground">
+                    Explorez le web component marque-blanche
+                  </p>
+                </div>
+                <ExternalLink className="w-6 h-6 text-accent" />
               </div>
-              <ExternalLink className="w-6 h-6 text-accent" />
-            </div>
-          </motion.a>
-
-          {/* Acteurs rencontrés */}
-          <ExpandSection id="acteurs" title="Acteurs rencontrés">
-            <p className="mb-2">
-              <b>Collectivités :</b> Métropoles régionales, villes moyennes, collectivités territoriales, acteurs publics locaux
-            </p>
-            <p>
-              <b>Experts/partenaires :</b> BruitParif, CSTB, CNRS, Qualitel, CDC Habitat, Icade, OGIC, Ministère de l'Écologie
-            </p>
-          </ExpandSection>
+            </motion.a>
           </div>
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 5: "VOUS VOULEZ APPROFONDIR ?" ========== */}
-      <ExpandSection id="approfondir" title="📖 Vous voulez approfondir ? (Process PM, Design, Go-to-Market)" defaultOpen={false}>
-        <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+      {/* ========== SECTION 5: RÉSULTATS & IMPACT ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.5}>
+        <div id="resultats" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
           <div className="max-w-6xl mx-auto space-y-10">
-            <div className="text-center space-y-4">
-              <p className="text-muted-foreground">
-                Découvrez les détails du process produit et du design
-              </p>
-            </div>
+            <h2 className="text-h3">Résultats & Impact</h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
-              <button
-                onClick={scrollToTabs}
-                className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-              >
-                <h3 className="text-h4 mb-2 group-hover:text-accent">Process PM</h3>
-                <p className="text-sm text-muted-foreground">
-                  Discovery, JTBD, priorisation MoSCoW, sprints et obstacles
-                </p>
-              </button>
-
-              <button
-                onClick={scrollToTabs}
-                className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all cursor-pointer group"
-              >
-                <h3 className="text-h4 mb-2 group-hover:text-accent">Design & Prototype</h3>
-                <p className="text-sm text-muted-foreground">
-                  5 versions, marque blanche, cartographie et design system
-                </p>
-              </button>
-            </div>
-
-            {/* TABS APPROFONDIES */}
-            <div ref={tabsRef} className="pt-6">
-              <TabsApprofondir language="fr" />
+            {/* Chiffres clés */}
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">20 000 €</div>
+                <div className="text-muted-foreground text-sm">Financements obtenus (3 bourses)</div>
+              </div>
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">20+</div>
+                <div className="text-muted-foreground text-sm">Entretiens qualitatifs</div>
+              </div>
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">3+1</div>
+                <div className="text-muted-foreground text-sm">Versions prototype (Figma + codé)</div>
+              </div>
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">8+</div>
+                <div className="text-muted-foreground text-sm">Métropoles et villes rencontrées</div>
+              </div>
             </div>
           </div>
         </div>
-      </ExpandSection>
+      </ScrollRevealSection>
 
-      {/* ========== SECTION 7: ÉPILOGUE ========== */}
-      <ScrollRevealSection variant="fade-in-up" delay={0.5}>
+      {/* ========== SECTION 6: APPROFONDISSEMENT ========== */}
+      <div ref={tabsRef} id="approfondir" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-h3 mb-10">Approfondissement</h2>
+          <TabsApprofondir language="fr" />
+        </div>
+      </div>
+
+      {/* ========== SECTION 7: ÉPILOGUE & APPRENTISSAGES ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.6}>
         <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Épilogue & Apprentissages</h2>
@@ -638,7 +604,7 @@ export const ContentFR = () => {
       </ScrollRevealSection>
 
       {/* ========== SECTION 8: FAQ ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Questions fréquentes</h2>
 
@@ -685,8 +651,8 @@ export const ContentFR = () => {
         </div>
       </div>
 
-      {/* ========== SECTION 9: "POUR ALLER PLUS LOIN" ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+      {/* ========== SECTION 9: POUR ALLER PLUS LOIN ========== */}
+      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Pour aller plus loin</h2>
 
@@ -766,7 +732,7 @@ export const ContentFR = () => {
       </div>
 
       {/* ========== SECTION 10: REMERCIEMENTS ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="text-center space-y-6">
             <h2 className="text-h3">Remerciements</h2>
@@ -798,7 +764,7 @@ export const ContentFR = () => {
       </div>
 
       {/* ========== SECTION 11: CTA FINAL ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto">
           <CTABanner
             title="Intéressé par mon approche produit ?"
