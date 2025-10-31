@@ -330,7 +330,7 @@ export const Home: React.FC = () => {
 
                 <div className="mt-4 text-base md:text-lg space-y-3">
                   <p className="font-semibold text-foreground/90 leading-normal transition-opacity">
-                    A passion for food and hospitality developed my taste for customer experience design and building products.
+                    A passion for food and hospitality developed my taste for customer experience design.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">
                     My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and collaborative mindset.
@@ -339,7 +339,7 @@ export const Home: React.FC = () => {
                     Welcome to my portfolio.
                   </p>
                   <p className="text-sm italic text-muted-foreground/70 leading-normal transition-opacity">
-                    Enjoy the tour! (It's a work-in-progress)
+                    (It's a work-in-progress)
                   </p>
                 </div>
 
