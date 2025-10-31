@@ -682,7 +682,7 @@ export const Home: React.FC = () => {
       {/* Contact Section - Centered */}
       <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <h2 className="text-h2">Ready to shape tomorrow?</h2>
+          <h2 className="text-h2">Ready to build tomorrow?</h2>
 
           <p className="text-lg max-w-2xl mx-auto opacity-90">Let's explore opportunities together.</p>
 
