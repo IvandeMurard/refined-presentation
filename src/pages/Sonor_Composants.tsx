@@ -385,92 +385,6 @@ const TabProcessPM = ({ language }: { language: string }) => {
     return (
       <div className="space-y-8">
         <section className="space-y-4">
-          <h3 className="text-h4">Discovery approfondie</h3>
-          <p>
-            Phase cruciale de 3 mois (Oct. 2020 - Dec. 2021) avec <b>20+ entretiens qualitatifs</b> auprès de :
-          </p>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <b>Collectivités territoriales</b> : élus, chargés de mission environnement, responsables open data
-            </li>
-            <li>
-              <b>Acteurs privés</b> : promoteurs immobiliers, bailleurs sociaux (CDC Habitat, Icade, OGIC)
-            </li>
-            <li>
-              <b>Ministères et institutions</b> : Ministère de l'Écologie, Banque des Territoires
-            </li>
-            <li>
-              <b>Experts techniques</b> : BruitParif, CSTB, CNRS, Qualitel
-            </li>
-          </ul>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Méthodologie JTBD (Jobs-to-be-Done)</h3>
-          <p>
-            Analyse des tâches des décideurs publics pour identifier les <i>jobs fonctionnels</i> :
-          </p>
-          <div className="grid md:grid-cols-2 gap-4">
-            <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Job 1 : Cartographier</h4>
-              <p className="text-sm">Identifier les zones à risque pour prioriser les interventions</p>
-            </div>
-            <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Job 2 : Agir</h4>
-              <p className="text-sm">Recommandations actions publiques concrètes et chiffrées</p>
-            </div>
-            <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Job 3 : Communiquer</h4>
-              <p className="text-sm">Sensibiliser citoyens et rendre compte actions menées</p>
-            </div>
-            <div className="p-4 rounded-lg bg-card">
-              <h4 className="font-semibold mb-2">Job 4 : Se conformer</h4>
-              <p className="text-sm">Respecter obligations réglementaires (PPBE, cartographie)</p>
-            </div>
-          </div>
-        </section>
-
-        <section className="space-y-4">
-          <h3 className="text-h4">Priorisation MoSCoW</h3>
-          <ExpandSection id="must-have" title="Must Have (MVP)" defaultOpen={true}>
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Cartographie pollution sonore (heatmap)</li>
-              <li>Indicateurs dB jour/nuit</li>
-              <li>Identification points noirs</li>
-              <li>Export données (CSV, PDF)</li>
-            </ul>
-          </ExpandSection>
-
-          <ExpandSection id="should-have" title="Should Have (Phase 2)">
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Recommandations actions publiques automatisées</li>
-              <li>Suivi réglementaire (conformité PPBE)</li>
-              <li>Dashboard décideur personnalisable</li>
-            </ul>
-          </ExpandSection>
-
-          <ExpandSection id="could-have" title="Could Have (Priorisation future)">
-            <ul className="list-disc pl-5 space-y-1">
-              <li>Module communication citoyenne automatisée</li>
-              <li>Dashboard analytics avancé pour élus</li>
-              <li>Intégration systèmes SIG existants</li>
-            </ul>
-          </ExpandSection>
-
-          <ExpandSection id="wont-have" title="Won't Have (Écartés)">
-            <ul className="list-disc pl-5 space-y-2">
-              <li>
-                <b>Capteurs IoT propriétaires</b> : Impact technologique + temps de développement trop important.
-                Volonté de bypasser l'usage de capteurs en valorisant l'information citoyenne via l'open data.
-              </li>
-              <li>
-                <b>Module prédiction météo sonore</b> : Complexité technique excessive pour MVP
-              </li>
-            </ul>
-          </ExpandSection>
-        </section>
-
-        <section className="space-y-4">
           <h3 className="text-h4">Sprints & cadences</h3>
           <ul className="list-disc pl-5 space-y-2">
             <li>
@@ -512,69 +426,36 @@ const TabProcessPM = ({ language }: { language: string }) => {
   return (
     <div className="space-y-8">
       <section className="space-y-4">
-        <h3 className="text-h4">In-depth Discovery</h3>
-        <p>
-          Critical 3-month phase (Oct. 2020 - Dec. 2021) with <b>20+ qualitative interviews</b> with:
-        </p>
+        <h3 className="text-h4">Sprints & Cadences</h3>
         <ul className="list-disc pl-5 space-y-2">
           <li>
-            <b>Local authorities</b>: elected officials, environmental officers, open data managers
+            <b>2-3 week sprints</b>: Short cycles to rapidly iterate on prototype and business hypotheses
           </li>
           <li>
-            <b>Private sector</b>: real estate developers, social housing bodies (CDC Habitat, Icade, OGIC)
+            <b>6+ monthly milestones</b>: Reviews with mentors (Banque des Territoires, Matrice)
           </li>
           <li>
-            <b>Ministries and institutions</b>: Ministry of Ecology, Banque des Territoires
-          </li>
-          <li>
-            <b>Technical experts</b>: BruitParif, CSTB, CNRS, Qualitel
+            <b>Financial reporting</b>: Expense tracking and funding milestones
           </li>
         </ul>
       </section>
 
       <section className="space-y-4">
-        <h3 className="text-h4">JTBD Methodology (Jobs-to-be-Done)</h3>
-        <p>
-          Analysis of public decision-makers' tasks to identify <i>functional jobs</i>:
-        </p>
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Job 1: Map</h4>
-            <p className="text-sm">Identify risk zones to prioritize interventions</p>
+        <h3 className="text-h4">Obstacles Encountered</h3>
+        <div className="space-y-3">
+          <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+            <h4 className="font-semibold mb-2">Open data availability</h4>
+            <p className="text-sm">
+              Lack of reliable and standardized open data on noise pollution. Need to normalize heterogeneous sources.
+            </p>
           </div>
-          <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Job 2: Act</h4>
-            <p className="text-sm">Concrete and quantified public action recommendations</p>
-          </div>
-          <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Job 3: Communicate</h4>
-            <p className="text-sm">Raise citizen awareness and report on actions taken</p>
-          </div>
-          <div className="p-4 rounded-lg bg-card">
-            <h4 className="font-semibold mb-2">Job 4: Comply</h4>
-            <p className="text-sm">Meet regulatory obligations (PPBE, mapping)</p>
+          <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+            <h4 className="font-semibold mb-2">Underestimated technical complexity</h4>
+            <p className="text-sm">
+              Difficulty accessing and processing quality data into an exploitable map. Slowed prototype development.
+            </p>
           </div>
         </div>
-      </section>
-
-      <section className="space-y-4">
-        <h3 className="text-h4">MoSCoW Prioritization</h3>
-        <ExpandSection id="must-have-en" title="Must Have (MVP)" defaultOpen={true}>
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Noise pollution mapping (heatmap)</li>
-            <li>Day/night dB indicators</li>
-            <li>Hotspot identification</li>
-            <li>Data export (CSV, PDF)</li>
-          </ul>
-        </ExpandSection>
-
-        <ExpandSection id="should-have-en" title="Should Have (Phase 2)">
-          <ul className="list-disc pl-5 space-y-1">
-            <li>Automated public action recommendations</li>
-            <li>Regulatory monitoring (PPBE compliance)</li>
-            <li>Customizable decision-maker dashboard</li>
-          </ul>
-        </ExpandSection>
       </section>
     </div>
   );

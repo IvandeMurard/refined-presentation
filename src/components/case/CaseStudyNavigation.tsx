@@ -57,7 +57,7 @@ export function CaseStudyNavigation({ sections }: CaseStudyNavigationProps) {
       {/* Mobile toggle button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-24 left-4 z-50 lg:hidden p-3 rounded-full bg-card/95 backdrop-blur-md border border-border/50 shadow-lg hover:bg-accent/10 transition-colors"
+        className="fixed top-28 left-4 z-50 lg:hidden p-3 rounded-full bg-card/95 backdrop-blur-md border border-border/50 shadow-lg hover:bg-accent/10 transition-colors"
         aria-label="Toggle navigation"
       >
         {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -71,7 +71,7 @@ export function CaseStudyNavigation({ sections }: CaseStudyNavigationProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-32 left-4 z-40 w-64 max-h-[calc(100vh-10rem)] overflow-y-auto
+            className="fixed top-36 left-4 z-40 w-56 max-h-[calc(100vh-11rem)] overflow-y-auto
                      bg-transparent border border-border/50 rounded-2xl
                      shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4
                      lg:block"

@@ -342,7 +342,7 @@ export const ContentEN = () => {
             </p>
           </section>
 
-         {/* 8 learnings */}
+          {/* Learnings */}
           <section className="space-y-6">
             <h3 className="text-h4">Learnings</h3>
 
@@ -388,23 +388,35 @@ export const ContentEN = () => {
               </div>
             </div>
           </section>
-
-          <section className="rounded-xl p-6 bg-card">
-            <p className="text-lg">
-              <b>Conclusion.</b> SONOR confirmed my taste for transforming issues into data-driven solutions and allowed
-              me to acquire valuable experience in 0→1 product management, from discovery to commercialization.
-            </p>
-          </section>
         </div>
-      </div>
+        </div>
+      </ScrollRevealSection>
 
-      {/* ========== SECTION 8: FAQ ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Frequently Asked Questions</h2>
+      {/* ========== SECTION 8: CONCLUSION ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.7}>
+        <div className="py-16 px-4 md:px-8 bg-secondary">
+          <div className="max-w-6xl mx-auto">
+            <section className="rounded-xl p-6 bg-card">
+              <h3 className="text-h4 mb-4">Conclusion</h3>
+              <p className="text-lg">
+                SONOR confirmed my taste for transforming issues into data-driven solutions and allowed
+                me to acquire valuable experience in 0→1 product management, from discovery to commercialization.
+              </p>
+            </section>
+          </div>
+        </div>
+      </ScrollRevealSection>
 
-          <div className="space-y-4">
-            <ExpandSection id="faq-1-en" title="Why did you stop the project?">
+      {/* ========== SECTION 9: FAQ ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.8}>
+        <div className="py-16 px-4 md:px-8 bg-background">
+          <div className="max-w-6xl mx-auto space-y-10 text-center">
+            <div>
+              <h2 className="text-h3 mb-4">Frequently Asked Questions</h2>
+            </div>
+            
+            <div className="space-y-4 text-left max-w-4xl mx-auto">
+              <ExpandSection id="faq-1-en" title="Why did you stop the project?">
               <p>Three main reasons:</p>
               <ul className="list-disc pl-5 space-y-1 mt-2">
                 <li>
@@ -451,87 +463,85 @@ export const ContentEN = () => {
                 environment services were more receptive, regardless of size.
               </p>
             </ExpandSection>
-
-            <ExpandSection id="faq-5-en" title="Why no precise list of contacted cities?">
-              <p>
-                Out of respect for <b>confidentiality</b> of commercial exchanges.
-              </p>
-            </ExpandSection>
           </div>
         </div>
       </div>
+    </ScrollRevealSection>
 
-      {/* ========== SECTION 9: "GO FURTHER" ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Go Further</h2>
+      {/* ========== SECTION 10: "GO FURTHER" ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.9}>
+        <div className="py-16 px-4 md:px-8 bg-secondary">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <div className="text-center">
+              <h2 className="text-h3 mb-4">Go Further</h2>
+            </div>
 
-          <div className="grid md:grid-cols-4 gap-6">
-            {/* Content 1 - Nightingale Article */}
-            <a
-              href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
-            >
-              <div className="w-20 h-20 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
-                <img src="/img/nightingale.PNG" alt="Nightingale" className="w-full h-full object-contain" />
-              </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">
-                Noisy Cities: Behind the Scenes with Karim Douïeb
-              </h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Discover how noise pollution open data maps of Paris, Brussels, and New-York were made.
-              </p>
-              <div className="flex items-center gap-2 text-accent text-sm">
-                Read <ExternalLink className="w-4 h-4" />
-              </div>
-            </a>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Content 1 - Nightingale Article */}
+              <a
+                href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col p-6 rounded-lg bg-card border-2 border-transparent transition-all group"
+              >
+                <div className="h-20 flex items-center justify-center mb-4">
+                  <img src="/img/nightingale.PNG" alt="Nightingale" className="h-full object-contain" />
+                </div>
+                <h3 className="text-h4 mb-2 flex-grow">
+                  Noisy Cities: Behind the Scenes with Karim Douïeb
+                </h3>
+                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                  Discover how noise pollution open data maps of Paris, Brussels, and New-York were made.
+                </p>
+                <div className="flex items-center gap-2 text-accent text-sm hover:underline underline-offset-4 transition-all">
+                  Read <ExternalLink className="w-4 h-4" />
+                </div>
+              </a>
 
-            {/* Content 2 - Philosophie Magazine */}
-            <a
-              href="https://www.philomag.com/articles/une-foret-sur-ecoute"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
-            >
-              <div className="w-20 h-20 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
-                <img src="/img/philosophie-magazine.svg" alt="Philosophie Magazine" className="w-full h-full object-contain" />
-              </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">Jura: A Forest Under Surveillance</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                Discover how data is used to preserve one of Jura's most important forests.
-              </p>
-              <div className="flex items-center gap-2 text-accent text-sm">
-                Read <ExternalLink className="w-4 h-4" />
-              </div>
-            </a>
+              {/* Content 2 - Philosophie Magazine */}
+              <a
+                href="https://www.philomag.com/articles/une-foret-sur-ecoute"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col p-6 rounded-lg bg-card border-2 border-transparent transition-all group"
+              >
+                <div className="h-20 flex items-center justify-center mb-4">
+                  <img src="/img/philosophie-magazine.svg" alt="Philosophie Magazine" className="h-full object-contain" />
+                </div>
+                <h3 className="text-h4 mb-2 flex-grow">Jura: A Forest Under Surveillance</h3>
+                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                  Discover how data is used to preserve one of Jura's most important forests.
+                </p>
+                <div className="flex items-center gap-2 text-accent text-sm hover:underline underline-offset-4 transition-all">
+                  Read <ExternalLink className="w-4 h-4" />
+                </div>
+              </a>
 
-            {/* Content 3 - TEDx */}
-            <a
-              href="https://www.youtube.com/watch?v=ewNTwBbLUhM"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 rounded-lg bg-card hover:bg-accent/10 border-2 border-transparent hover:border-accent transition-all group"
-            >
-              <div className="w-12 h-12 rounded-lg bg-white dark:bg-accent/20 flex items-center justify-center mb-4 group-hover:bg-accent/30 p-2">
-                <img src="/img/ted-logo.svg" alt="TED" className="w-full h-full object-contain" />
-              </div>
-              <h3 className="text-h4 mb-2 group-hover:text-accent">TEDx: The benefits of the sound of silence</h3>
-              <p className="text-sm text-muted-foreground mb-3">
-                TEDx by Mathias Basner telling the dangers of noise pollution and the benefits of silence.
-              </p>
-              <div className="flex items-center gap-2 text-accent text-sm">
-                Watch <ExternalLink className="w-4 h-4" />
-              </div>
-            </a>
+              {/* Content 3 - TEDx */}
+              <a
+                href="https://www.youtube.com/watch?v=ewNTwBbLUhM"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col p-6 rounded-lg bg-card border-2 border-transparent transition-all group"
+              >
+                <div className="h-20 flex items-center justify-center mb-4">
+                  <img src="/img/ted-logo.svg" alt="TED" className="h-full object-contain" />
+                </div>
+                <h3 className="text-h4 mb-2 flex-grow">TEDx: The benefits of the sound of silence</h3>
+                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                  TEDx by Mathias Basner telling the dangers of noise pollution and the benefits of silence.
+                </p>
+                <div className="flex items-center gap-2 text-accent text-sm hover:underline underline-offset-4 transition-all">
+                  Watch <ExternalLink className="w-4 h-4" />
+                </div>
+              </a>
+            </div>
           </div>
-        </div>
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 10: ACKNOWLEDGMENTS ========== */}
-      <div className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+      {/* ========== SECTION 11: ACKNOWLEDGMENTS ========== */}
+      <div className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
           <div className="text-center space-y-6">
             <h2 className="text-h3">Acknowledgments</h2>
@@ -553,8 +563,8 @@ export const ContentEN = () => {
         </div>
       </div>
 
-      {/* ========== SECTION 11: FINAL CTA ========== */}
-      <div className="py-16 px-4 md:px-8 bg-background">
+      {/* ========== SECTION 12: FINAL CTA ========== */}
+      <div className="py-16 px-4 md:px-8 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <CTABanner
             title="Interested in my product approach?"
