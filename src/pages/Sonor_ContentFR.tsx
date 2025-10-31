@@ -67,8 +67,9 @@ export const ContentFR = () => {
     { id: "galerie-prototype", label: "Galerie prototype" },
     { id: "obstacles", label: "Obstacles" },
     { id: "resultats", label: "Résultats" },
-    { id: "approfondir", label: "Approfondissement" },
     { id: "epilogue", label: "Épilogue" },
+    { id: "si-cetait-a-refaire", label: "Si c'était à refaire" },
+    { id: "conclusion", label: "Conclusion" },
   ];
 
   return (
@@ -370,9 +371,10 @@ export const ContentFR = () => {
             <div className="space-y-6">
               <h2 className="text-h3">Voir notre premier prototype</h2>
               
-              {/* Iframe Figma dépliable */}
-              <ExpandSection id="figma-prototype" title="🎨 Prototype interactif Figma">
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden">
+              {/* Iframe Figma - visible par défaut */}
+              <div className="space-y-4">
+                <h3 className="text-h4">Prototype interactif Figma</h3>
+                <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border/50">
                   <iframe 
                     style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
                     width="100%" 
@@ -381,7 +383,7 @@ export const ContentFR = () => {
                     allowFullScreen
                   />
                 </div>
-              </ExpandSection>
+              </div>
             </div>
             
             {/* Galerie prototype en carousel immersif */}
@@ -467,9 +469,34 @@ export const ContentFR = () => {
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 5: RÉSULTATS & IMPACT ========== */}
+      {/* ========== SECTION 5: OBSTACLES RENCONTRÉS ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.45}>
+        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Obstacles rencontrés</h2>
+            <div className="space-y-3">
+              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+                <h4 className="font-semibold mb-2">Disponibilité données open data</h4>
+                <p className="text-sm">
+                  Manque de données ouvertes fiables et standardisées sur la pollution sonore. Nécessité de normaliser les
+                  sources hétérogènes.
+                </p>
+              </div>
+              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+                <h4 className="font-semibold mb-2">Complexité technique sous-estimée</h4>
+                <p className="text-sm">
+                  Difficulté d'accès et de traitement des données de qualité en une cartographie exploitable.
+                  Ralentissement développement prototype.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
+      {/* ========== SECTION 6: RÉSULTATS & IMPACT ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.5}>
-        <div id="resultats" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="resultats" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Résultats & Impact</h2>
 
@@ -496,50 +523,14 @@ export const ContentFR = () => {
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 6: APPROFONDISSEMENT ========== */}
-      <div ref={tabsRef} id="approfondir" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="text-h3 mb-10">Approfondissement</h2>
-          <TabsApprofondir language="fr" />
-        </div>
-      </div>
-
-      {/* ========== SECTION 6.5: OBSTACLES RENCONTRÉS ========== */}
-      <ScrollRevealSection variant="fade-in-up" delay={0.55}>
-        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
-          <div className="max-w-6xl mx-auto space-y-10">
-            <h2 className="text-h3">Obstacles rencontrés</h2>
-            <div className="space-y-3">
-              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
-                <h4 className="font-semibold mb-2">Disponibilité données open data</h4>
-                <p className="text-sm">
-                  Manque de données ouvertes fiables et standardisées sur la pollution sonore. Nécessité de normaliser les
-                  sources hétérogènes.
-                </p>
-              </div>
-              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
-                <h4 className="font-semibold mb-2">Complexité technique sous-estimée</h4>
-                <p className="text-sm">
-                  Difficulté d'accès et de traitement des données de qualité en une cartographie exploitable.
-                  Ralentissement développement prototype.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </ScrollRevealSection>
-
       {/* ========== SECTION 7: ÉPILOGUE & APPRENTISSAGES ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.6}>
-        <div id="epilogue" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Épilogue & Apprentissages</h2>
 
           <section className="space-y-6">
-            <h3 className="text-h4">Le projet SONOR n'est pas devenu une start-up à proprement parler</h3>
-            <p className="text-lg">
-              mais l'expérience, passionnante, a été formatrice à plusieurs niveaux, tant sur le plan professionnel que personnel.
-            </p>
+            <h3 className="text-h4">Le projet SONOR n'est pas devenu une start-up à proprement parler, mais l'expérience, passionnante, a été formatrice à plusieurs niveaux, tant sur le plan professionnel que personnel.</h3>
           </section>
 
           {/* 3 causes fin du projet */}
@@ -602,7 +593,56 @@ export const ContentFR = () => {
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 8: CONCLUSION ========== */}
+      {/* ========== SECTION 8: SI C'ÉTAIT À REFAIRE ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.65}>
+        <div id="si-cetait-a-refaire" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Si c'était à refaire</h2>
+            
+            <div className="space-y-6">
+              <p className="text-lg">
+                Avec le recul, voici les décisions que j'aurais prises différemment pour maximiser nos chances de succès :
+              </p>
+
+              <div className="grid md:grid-cols-2 gap-4">
+                <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
+                  <h4 className="font-semibold mb-2">Choisir 1 MVP dès le départ</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Plutôt qu'une offre 360°, se concentrer sur un segment précis (ex: cartographie seule) 
+                    pour valider la proposition de valeur rapidement.
+                  </p>
+                </div>
+
+                <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
+                  <h4 className="font-semibold mb-2">Valider la complexité technique avant de promettre</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Réaliser un prototype fonctionnel minimal avant d'engager des discussions commerciales 
+                    pour éviter les promesses non tenables.
+                  </p>
+                </div>
+
+                <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
+                  <h4 className="font-semibold mb-2">Construire un prototype fonctionnel plus tôt</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Passer du Figma au code dès les premiers retours terrain pour accélérer 
+                    la confrontation avec la réalité technique et utilisateur.
+                  </p>
+                </div>
+
+                <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
+                  <h4 className="font-semibold mb-2">Se focaliser sur un segment client précis</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Cibler un type de collectivité spécifique (ex: villes moyennes de 50-100k habitants) 
+                    pour adapter le discours et la solution à leurs contraintes réelles.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
+      {/* ========== SECTION 9: CONCLUSION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.7}>
         <div className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">

@@ -71,22 +71,39 @@ export const ExpandSection = ({
   defaultOpen?: boolean;
 }) => {
   const [open, setOpen] = useState(defaultOpen);
-  const [isHovered, setIsHovered] = useState(false);
+
+  // Split title at "?" to insert chevron immediately after
+  const renderTitle = () => {
+    const questionIndex = title.indexOf('?');
+    if (questionIndex === -1) {
+      return <span className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4">{title}</span>;
+    }
+    
+    const beforeQuestion = title.slice(0, questionIndex + 1);
+    const afterQuestion = title.slice(questionIndex + 1);
+    
+    return (
+      <span className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4 inline-flex items-center gap-1">
+        <span>{beforeQuestion}</span>
+        <ChevronDown
+          className={`w-4 h-4 transition-transform duration-200 inline-block ${
+            open ? "rotate-180" : ""
+          }`}
+        />
+        <span>{afterQuestion}</span>
+      </span>
+    );
+  };
 
   return (
     <div className="space-y-3">
       <button
         onClick={() => setOpen(!open)}
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
         aria-expanded={open}
         aria-controls={`${id}-panel`}
-        className="flex items-center justify-between w-full group cursor-pointer"
+        className="flex items-start w-full group cursor-pointer"
       >
-        <h4 className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4">{title}</h4>
-        {isHovered && (
-          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} aria-hidden="true" />
-        )}
+        {renderTitle()}
       </button>
       <InlineExpand open={open} ariaId={id}>
         <div id={`${id}-panel`} className="pt-2 space-y-3 text-sm text-muted-foreground">
