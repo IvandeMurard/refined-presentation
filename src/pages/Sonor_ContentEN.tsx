@@ -9,7 +9,6 @@ import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
 import { ExternalLink } from "lucide-react";
 import { TermExplain, ExpandSection, BandeauAudio, TabsApprofondir } from "./Sonor_Composants";
-import { CaseStudyNavigation } from "@/components/case/CaseStudyNavigation";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 import { TimelineItem } from "@/components/case/TimelineItem";
 
@@ -50,37 +49,20 @@ export const ContentEN = () => {
     tabsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  // Navigation sections
-  const navigationSections = [
-    { id: "overview", label: "Overview" },
-    { id: "context", label: "Context" },
-    { id: "timeline", label: "Timeline" },
-    { id: "key-moments", label: "Key Moments" },
-    { id: "prototype-gallery", label: "Prototype Gallery" },
-    { id: "obstacles", label: "Obstacles" },
-    { id: "results", label: "Results & Impact" },
-    { id: "epilogue", label: "Epilogue & Learnings" },
-    { id: "if-i-had-to-do-it-again", label: "If I Had to Do It Again" },
-    { id: "conclusion", label: "Conclusion" },
-  ];
-
   return (
-    <div className="relative">
-      {/* Navigation sticky */}
-      <CaseStudyNavigation sections={navigationSections} />
-
+    <>
       {/* TL;DR */}
-      <div id="overview" className="mb-10 lg:ml-72">
+      <div id="overview" className="mb-10 max-w-6xl mx-auto">
         <TLDRBlockEN />
       </div>
 
       {/* AUDIO BANNER */}
-      <div className="mb-10 lg:ml-72">
+      <div className="mb-10 max-w-6xl mx-auto">
         <BandeauAudio language="en" />
       </div>
 
       {/* ========== SECTION 1: CONTEXT ========== */}
-      <div id="context" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+      <div id="context" className="py-16 px-4 md:px-8 bg-background">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Context: Noise Pollution</h2>
 
@@ -135,7 +117,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 2: TIMELINE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.1}>
-        <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Project Timeline</h2>
 
@@ -163,11 +145,11 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 3: KEY MOMENTS ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.2}>
-        <div id="key-moments" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="key-moments" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Key Moments</h2>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-3 gap-6">
             {/* Moment 1 */}
             <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
               <h3 className="text-h4 mb-3">Strategic pivot: Private sector → Municipalities</h3>
@@ -227,7 +209,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 4: PROTOTYPE GALLERY ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.3}>
-        <div id="prototype-gallery" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="prototype-gallery" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="space-y-6">
               <h2 className="text-h3">See our first prototype</h2>
@@ -295,7 +277,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 5: OBSTACLES ENCOUNTERED ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.45}>
-        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Obstacles Encountered</h2>
             <div className="space-y-3">
@@ -318,7 +300,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 6: RESULTS & IMPACT ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.5}>
-        <div id="results" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="results" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Results & Impact</h2>
 
@@ -347,7 +329,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 7: EPILOGUE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.6}>
-        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Epilogue & Learnings</h2>
 
@@ -407,7 +389,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 8: IF I HAD TO DO IT AGAIN ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.65}>
-        <div id="if-i-had-to-do-it-again" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="if-i-had-to-do-it-again" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">If I Had to Do It Again</h2>
             
@@ -456,7 +438,7 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 9: CONCLUSION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.7}>
-        <div className="py-16 px-4 md:px-8 bg-background">
+        <div id="conclusion" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center">
               <h2 className="text-h3 mb-4">Conclusion</h2>
@@ -471,9 +453,9 @@ export const ContentEN = () => {
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 9: FAQ ========== */}
+      {/* ========== SECTION 10: FAQ ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.8}>
-        <div className="py-16 px-4 md:px-8 bg-background">
+        <div id="faq" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10 text-center">
             <div>
               <h2 className="text-h3 mb-4">Frequently Asked Questions</h2>
@@ -638,6 +620,6 @@ export const ContentEN = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };

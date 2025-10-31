@@ -7,13 +7,10 @@ import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
-import { ExternalLink, Lightbulb, Quote, Play } from "lucide-react";
-import { motion } from "framer-motion";
+import { ExternalLink, Play } from "lucide-react";
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 import { TimelineItem } from "@/components/case/TimelineItem";
-import { CaseStudyNavigation } from "@/components/case/CaseStudyNavigation";
-import { GradientBorderSection } from "@/components/GradientBorderSection";
 import { 
   TermExplain, 
   ExpandSection, 
@@ -58,106 +55,42 @@ export const ContentFR = () => {
     tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   };
 
-  // Navigation sections
-  const navigationSections = [
-    { id: "overview", label: "Vue d'ensemble" },
-    { id: "contexte", label: "Contexte" },
-    { id: "timeline", label: "Timeline" },
-    { id: "moments-cles", label: "Moments clés" },
-    { id: "galerie-prototype", label: "Galerie prototype" },
-    { id: "obstacles", label: "Obstacles" },
-    { id: "resultats", label: "Résultats" },
-    { id: "epilogue", label: "Épilogue" },
-    { id: "si-cetait-a-refaire", label: "Si c'était à refaire" },
-    { id: "conclusion", label: "Conclusion" },
-  ];
-
   return (
-    <div className="relative">
-      {/* Navigation sticky */}
-      <CaseStudyNavigation sections={navigationSections} />
-
+    <>
       {/* TL;DR */}
-      <div id="overview" className="mb-10 lg:ml-72">
+      <div id="overview" className="mb-10 max-w-6xl mx-auto">
         <TLDRBlockFR />
       </div>
 
       {/* BANDEAU AUDIO */}
-      <div className="mb-10 lg:ml-72">
+      <div className="mb-10 max-w-6xl mx-auto">
         <BandeauAudio language="fr" />
       </div>
 
       {/* ========== SECTION 1: CONTEXTUALISATION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0}>
-        <GradientBorderSection 
-          borderPosition="bottom" 
-          glassEffect={true}
-          className="py-16 px-4 md:px-8 lg:ml-72"
-        >
+        <div className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
           <div id="contexte" className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Contextualisation : La pollution sonore</h2>
 
-            {/* Chiffres clés avec animations décalées */}
+            {/* Chiffres clés */}
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 { value: "2e", label: "Source de nuisances urbaines en Europe (après pollution de l'air)" },
                 { value: "25M", label: "Français exposés à des niveaux de bruit excessifs (ANSES 2021)" },
                 { value: "156 Mds€/an", label: "Coût social du bruit en France (ADEME 2021)" }
               ].map((stat, i) => (
-                <motion.div
+                <div
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
                   className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors"
                 >
                   <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                     {stat.value}
                   </div>
                   <div className="text-muted-foreground text-sm">{stat.label}</div>
-                </motion.div>
+                </div>
               ))}
             </div>
-
-            {/* Article Nightingale avec hover effect */}
-            <motion.div 
-              whileHover={{ scale: 1.02 }}
-              className="p-6 rounded-lg bg-gradient-to-br from-accent/10 to-accent/5 border border-accent/20 hover:border-accent/30 transition-all"
-            >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center">
-                  <ExternalLink className="w-6 h-6 text-accent" />
-                </div>
-                <div className="flex-1">
-                  <h4 className="font-semibold mb-2">Noisy Cities : Behind the scenes avec Karim Douieb</h4>
-                  <p className="text-sm text-muted-foreground mb-3">
-                    Découvrez la méthodologie de cartographie de la pollution sonore urbaine 
-                    par Karim Douieb (Nightingale DVS), inspirante pour notre approche data-driven.
-                  </p>
-                  <a 
-                    href="https://nightingaledvs.com/noisy-cities-behind-the-scenes-with-karim-douieb/" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-accent hover:underline"
-                  >
-                    Lire l'article <ExternalLink className="w-4 h-4" />
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Carte interactive en ExpandSection */}
-            <ExpandSection id="noisy-cities" title="🗺️ Carte interactive : Noisy Cities Paris">
-              <p className="mb-3">
-                Explorez la carte interactive de la pollution sonore à Paris réalisée par Karim Douieb.
-              </p>
-              <div className="aspect-video bg-muted rounded-lg flex items-center justify-center">
-                <p className="text-sm text-muted-foreground">
-                  [Iframe carte interactive Noisy Cities Paris à intégrer]
-                </p>
-              </div>
-            </ExpandSection>
 
             {/* Texte explicatif */}
             <section className="space-y-4">
@@ -186,12 +119,12 @@ export const ContentFR = () => {
               </ul>
             </div>
           </div>
-        </GradientBorderSection>
+        </div>
       </ScrollRevealSection>
 
       {/* ========== SECTION 2: TIMELINE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.2}>
-        <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Timeline du projet</h2>
             
@@ -220,145 +153,63 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 3: MOMENTS CLÉS ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.3}>
-        <div id="moments-cles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="moments-cles" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Moments clés</h2>
 
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {/* Moment 1 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                className="group relative overflow-hidden rounded-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative p-8 backdrop-blur-sm bg-card/80 border-l-4 border-accent">
-                  <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Lightbulb className="w-8 h-8 text-accent" />
-                  </div>
-                  
-                  <h3 className="text-h4 mb-4">Pivot stratégique : Acteurs privés → Collectivités</h3>
-                  
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold uppercase tracking-wider mb-2">
-                      Contexte
-                    </span>
-                    <p className="text-sm">Après 3 mois d'exploration d'acteurs privés, présentation du 1er jalon.</p>
-                  </div>
-                  
-                  <div className="relative my-6 pl-6">
-                    <Quote className="absolute left-0 top-0 w-5 h-5 text-accent/30" />
-                    <blockquote className="italic text-base leading-relaxed">
-                      "Les collectivités ont les compétences et les moyens d'agir durablement sur cette problématique. 
-                      Et nous avons le réseau pour vous accompagner."
-                    </blockquote>
-                    <footer className="text-xs text-muted-foreground mt-2">— Conseil Banque des Territoires / Matrice</footer>
-                  </div>
-                  
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider mb-2">
-                      Learning
-                    </span>
-                    <p className="text-sm">
-                      Pivoter vers le marché public (villes, métropoles). 
-                      Débat interne : moins "sexy", processus longs, mais consensus : soutien BdT décisif.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+              <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
+                <h3 className="text-h4 mb-3">Pivot stratégique : Acteurs privés → Collectivités</h3>
+                <p className="text-sm mb-3">
+                  <b>Contexte :</b> Après 3 mois d'exploration d'acteurs privés, présentation du 1er jalon.
+                </p>
+                <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                  "Les collectivités ont les compétences et les moyens d'agir durablement sur cette problématique. 
+                  Et nous avons le réseau pour vous accompagner."
+                  <footer className="text-xs mt-2">— Conseil Banque des Territoires / Matrice</footer>
+                </blockquote>
+                <p className="text-sm">
+                  <b>Décision :</b> Pivoter vers le marché public (villes, métropoles). 
+                  Débat interne : moins "sexy", processus longs, mais consensus : soutien BdT décisif.
+                </p>
+              </div>
 
               {/* Moment 2 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="group relative overflow-hidden rounded-2xl"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-destructive/10 via-destructive/5 to-destructive/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative p-8 backdrop-blur-sm bg-card/80 border-l-4 border-destructive">
-                  <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-destructive/10 flex items-center justify-center">
-                    <Lightbulb className="w-8 h-8 text-destructive" />
-                  </div>
-                  
-                  <h3 className="text-h4 mb-4">L'insight qui a dilué le focus</h3>
-                  
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold uppercase tracking-wider mb-2">
-                      Contexte
-                    </span>
-                    <p className="text-sm">Discovery, entretiens élus et chargés de mission.</p>
-                  </div>
-                  
-                  <div className="relative my-6 pl-6">
-                    <Quote className="absolute left-0 top-0 w-5 h-5 text-destructive/30" />
-                    <blockquote className="italic text-base leading-relaxed">
-                      "On aimerait surtout de l'accompagnement humain : communication sur nos actions, 
-                      sensibilisation des citoyens, identification des solutions terrain."
-                    </blockquote>
-                    <footer className="text-xs text-muted-foreground mt-2">— Collectivité</footer>
-                  </div>
-                  
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-destructive/20 text-destructive text-xs font-semibold uppercase tracking-wider mb-2">
-                      Learning
-                    </span>
-                    <p className="text-sm">
-                      Tentative de répondre aux 2 besoins (plateforme + accompagnement humain). 
-                      Résultat : Offre 360° floue, MVP jamais finalisé. 
-                      <br /><b>Leçon :</b> Chasser un seul lièvre à la fois.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+              <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
+                <h3 className="text-h4 mb-3">L'insight qui a dilué le focus</h3>
+                <p className="text-sm mb-3">
+                  <b>Contexte :</b> Discovery, entretiens élus et chargés de mission.
+                </p>
+                <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
+                  "On aimerait surtout de l'accompagnement humain : communication sur nos actions, 
+                  sensibilisation des citoyens, identification des solutions terrain."
+                  <footer className="text-xs mt-2">— Collectivité</footer>
+                </blockquote>
+                <p className="text-sm">
+                  <b>Erreur :</b> Tentative de répondre aux 2 besoins (plateforme + accompagnement humain). 
+                  Résultat : Offre 360° floue, MVP jamais finalisé.
+                  <br />
+                  <b>Leçon :</b> Chasser un seul lièvre à la fois.
+                </p>
+              </div>
 
               {/* Moment 3 */}
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="group relative overflow-hidden rounded-2xl md:col-span-2"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/10 via-primary/5 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                
-                <div className="relative p-8 backdrop-blur-sm bg-card/80 border-l-4 border-accent">
-                  <div className="absolute top-4 right-4 w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center">
-                    <Lightbulb className="w-8 h-8 text-accent" />
-                  </div>
-                  
-                  <h3 className="text-h4 mb-4">De plateforme standalone à composant intégrable</h3>
-                  
-                  <div className="mb-4">
-                    <span className="inline-block px-3 py-1 rounded-full bg-muted text-xs font-semibold uppercase tracking-wider mb-2">
-                      Contexte
-                    </span>
-                    <p className="text-sm">Présentation du prototype (branding Sonor) à une collectivité.</p>
-                  </div>
-                  
-                  <div className="relative my-6 pl-6">
-                    <Quote className="absolute left-0 top-0 w-5 h-5 text-accent/30" />
-                    <blockquote className="italic text-base leading-relaxed">
-                      "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer nos citoyens vers un site externe. 
-                      Il faudrait que ce soit intégrable à notre portail open-data."
-                    </blockquote>
-                    <footer className="text-xs text-muted-foreground mt-2">— Collectivité</footer>
-                  </div>
-                  
-                  <div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-xs font-semibold uppercase tracking-wider mb-2">
-                      Décision
-                    </span>
-                    <p className="text-sm">
-                      Pivot vers composant en marque blanche (reprise direction artistique collectivité). 
-                      Enjeu clé : <b>Souveraineté des données</b>.
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
+              <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
+                <h3 className="text-h4 mb-3">De plateforme standalone à composant intégrable</h3>
+                <p className="text-sm mb-3">
+                  <b>Contexte :</b> Présentation du prototype (branding Sonor) à une collectivité.
+                </p>
+                <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                  "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer nos citoyens vers un site externe. 
+                  Il faudrait que ce soit intégrable à notre portail open-data."
+                  <footer className="text-xs mt-2">— Collectivité</footer>
+                </blockquote>
+                <p className="text-sm">
+                  <b>Décision :</b> Pivot vers composant en marque blanche (reprise direction artistique collectivité). 
+                  Enjeu clé : <b>Souveraineté des données</b>.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -366,7 +217,7 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 4: GALERIE PROTOTYPE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.4}>
-        <div id="galerie-prototype" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="galerie-prototype" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="space-y-6">
               <h2 className="text-h3">Voir notre premier prototype</h2>
@@ -417,10 +268,7 @@ export const ContentFR = () => {
                     }
                   ].map((img, i) => (
                     <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/2">
-                      <motion.div
-                        whileHover={{ scale: 1.05, zIndex: 10 }}
-                        className="group cursor-pointer"
-                      >
+                      <div className="group cursor-pointer">
                         <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-muted to-card">
                           <img
                             src={img.src}
@@ -434,7 +282,7 @@ export const ContentFR = () => {
                             </div>
                           </div>
                         </div>
-                      </motion.div>
+                      </div>
                     </CarouselItem>
                   ))}
                 </CarouselContent>
@@ -444,13 +292,11 @@ export const ContentFR = () => {
             </section>
 
             {/* Lien démo avec CTA visuel */}
-            <motion.a
+            <a
               href="https://byronbark.github.io/sonor-web-component/"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              className="block p-6 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover:border-accent/50 transition-all"
+              className="block p-6 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover:border-accent/50 transition-all hover:scale-[1.02]"
             >
               <div className="flex items-center justify-between">
                 <div>
@@ -464,14 +310,14 @@ export const ContentFR = () => {
                 </div>
                 <ExternalLink className="w-6 h-6 text-accent" />
               </div>
-            </motion.a>
+            </a>
           </div>
         </div>
       </ScrollRevealSection>
 
       {/* ========== SECTION 5: OBSTACLES RENCONTRÉS ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.45}>
-        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Obstacles rencontrés</h2>
             <div className="space-y-3">
@@ -496,7 +342,7 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 6: RÉSULTATS & IMPACT ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.5}>
-        <div id="resultats" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="resultats" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Résultats & Impact</h2>
 
@@ -595,7 +441,7 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 8: SI C'ÉTAIT À REFAIRE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.65}>
-        <div id="si-cetait-a-refaire" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
+        <div id="si-cetait-a-refaire" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Si c'était à refaire</h2>
             
@@ -644,7 +490,7 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 9: CONCLUSION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.7}>
-        <div className="py-16 px-4 md:px-8 bg-background">
+        <div id="conclusion" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center">
               <h2 className="text-h3 mb-4">Conclusion</h2>
@@ -659,9 +505,9 @@ export const ContentFR = () => {
         </div>
       </ScrollRevealSection>
 
-      {/* ========== SECTION 9: FAQ ========== */}
+      {/* ========== SECTION 10: FAQ ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.8}>
-        <div className="py-16 px-4 md:px-8 bg-background">
+        <div id="faq" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10 text-center">
             <div>
               <h2 className="text-h3 mb-4">Questions fréquentes</h2>
@@ -823,6 +669,6 @@ export const ContentFR = () => {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 };
