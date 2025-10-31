@@ -65,6 +65,7 @@ export const ContentFR = () => {
     { id: "timeline", label: "Timeline" },
     { id: "moments-cles", label: "Moments clés" },
     { id: "galerie-prototype", label: "Galerie prototype" },
+    { id: "obstacles", label: "Obstacles" },
     { id: "resultats", label: "Résultats" },
     { id: "approfondir", label: "Approfondissement" },
     { id: "epilogue", label: "Épilogue" },
@@ -503,16 +504,41 @@ export const ContentFR = () => {
         </div>
       </div>
 
+      {/* ========== SECTION 6.5: OBSTACLES RENCONTRÉS ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.55}>
+        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Obstacles rencontrés</h2>
+            <div className="space-y-3">
+              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+                <h4 className="font-semibold mb-2">Disponibilité données open data</h4>
+                <p className="text-sm">
+                  Manque de données ouvertes fiables et standardisées sur la pollution sonore. Nécessité de normaliser les
+                  sources hétérogènes.
+                </p>
+              </div>
+              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+                <h4 className="font-semibold mb-2">Complexité technique sous-estimée</h4>
+                <p className="text-sm">
+                  Difficulté d'accès et de traitement des données de qualité en une cartographie exploitable.
+                  Ralentissement développement prototype.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
       {/* ========== SECTION 7: ÉPILOGUE & APPRENTISSAGES ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.6}>
-        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
         <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Épilogue & Apprentissages</h2>
 
-          <section className="rounded-xl p-6 bg-card">
+          <section className="space-y-6">
+            <h3 className="text-h4">Le projet SONOR n'est pas devenu une start-up à proprement parler</h3>
             <p className="text-lg">
-              Le projet SONOR n'est pas devenu une start-up à proprement parler, mais l'expérience, passionnante, a été formatrice 
-              à plusieurs niveaux, tant sur le plan professionnel que personnel.
+              mais l'expérience, passionnante, a été formatrice à plusieurs niveaux, tant sur le plan professionnel que personnel.
             </p>
           </section>
 
@@ -543,7 +569,7 @@ export const ContentFR = () => {
             </ExpandSection>
           </section>
 
-          {/* 8 learnings */}
+          {/* Learnings */}
           <section className="space-y-6">
             <h3 className="text-h4">Apprentissages</h3>
 
@@ -578,10 +604,12 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 8: CONCLUSION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.7}>
-        <div className="py-16 px-4 md:px-8 bg-secondary">
-          <div className="max-w-6xl mx-auto">
-            <section className="rounded-xl p-6 bg-card">
-              <h3 className="text-h4 mb-4">Conclusion</h3>
+        <div className="py-16 px-4 md:px-8 bg-background">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <div className="text-center">
+              <h2 className="text-h3 mb-4">Conclusion</h2>
+            </div>
+            <section className="max-w-4xl mx-auto text-center">
               <p className="text-lg">
                 SONOR a confirmé mon goût pour la transformation de problématiques en solutions data-driven 
                 et m'a permis d'acquérir une expérience précieuse en product management 0→1, de la discovery à la commercialisation.

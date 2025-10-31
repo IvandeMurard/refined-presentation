@@ -57,6 +57,7 @@ export const ContentEN = () => {
     { id: "timeline", label: "Timeline" },
     { id: "key-moments", label: "Key Moments" },
     { id: "prototype-gallery", label: "Prototype Gallery" },
+    { id: "obstacles", label: "Obstacles" },
     { id: "results", label: "Results & Impact" },
     { id: "deep-dive", label: "Deep Dive" },
     { id: "epilogue", label: "Epilogue & Learnings" },
@@ -329,16 +330,39 @@ export const ContentEN = () => {
         </div>
       </ScrollRevealSection>
 
+      {/* ========== SECTION 6.5: OBSTACLES ENCOUNTERED ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.55}>
+        <div id="obstacles" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Obstacles Encountered</h2>
+            <div className="space-y-3">
+              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+                <h4 className="font-semibold mb-2">Open data availability</h4>
+                <p className="text-sm">
+                  Lack of reliable and standardized open data on noise pollution. Need to normalize heterogeneous sources.
+                </p>
+              </div>
+              <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
+                <h4 className="font-semibold mb-2">Underestimated technical complexity</h4>
+                <p className="text-sm">
+                  Difficulty accessing and processing quality data into an exploitable map. Slowed prototype development.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
       {/* ========== SECTION 7: EPILOGUE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.6}>
-        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-secondary lg:ml-72">
           <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Epilogue & Learnings</h2>
 
-          <section className="rounded-xl p-6 bg-card">
+          <section className="space-y-6">
+            <h3 className="text-h4">The SONOR project did not become a startup per se</h3>
             <p className="text-lg">
-              The SONOR project did not become a startup per se, but the experience was formative on several levels,
-              both professionally and personally.
+              but the experience was formative on several levels, both professionally and personally.
             </p>
           </section>
 
@@ -394,10 +418,12 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 8: CONCLUSION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.7}>
-        <div className="py-16 px-4 md:px-8 bg-secondary">
-          <div className="max-w-6xl mx-auto">
-            <section className="rounded-xl p-6 bg-card">
-              <h3 className="text-h4 mb-4">Conclusion</h3>
+        <div className="py-16 px-4 md:px-8 bg-background">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <div className="text-center">
+              <h2 className="text-h3 mb-4">Conclusion</h2>
+            </div>
+            <section className="max-w-4xl mx-auto text-center">
               <p className="text-lg">
                 SONOR confirmed my taste for transforming issues into data-driven solutions and allowed
                 me to acquire valuable experience in 0→1 product management, from discovery to commercialization.

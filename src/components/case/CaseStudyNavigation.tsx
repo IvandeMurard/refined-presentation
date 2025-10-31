@@ -71,10 +71,7 @@ export function CaseStudyNavigation({ sections }: CaseStudyNavigationProps) {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -20 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-36 left-4 z-40 w-56 max-h-[calc(100vh-11rem)] overflow-y-auto
-                     bg-transparent border border-border/50 rounded-2xl
-                     shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4
-                     lg:block"
+            className="fixed top-[28rem] left-4 z-40 w-48 max-h-[calc(100vh-11rem)] overflow-y-auto p-4 lg:block"
           >
             <div className="space-y-1">
               {sections.map((section) => (

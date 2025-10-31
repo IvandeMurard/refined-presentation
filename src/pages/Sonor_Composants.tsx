@@ -5,7 +5,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import { InlineExpand } from "@/components/InlineExpand";
-import { Plus, Volume2, Play, Pause, X } from "lucide-react";
+import { Plus, Volume2, Play, Pause, X, ChevronDown } from "lucide-react";
 
 // ============= COMPOSANT TERM EXPLAIN =============
 export const TermExplain = ({ term, children }: { term: string; children: React.ReactNode }) => {
@@ -71,17 +71,22 @@ export const ExpandSection = ({
   defaultOpen?: boolean;
 }) => {
   const [open, setOpen] = useState(defaultOpen);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div className="space-y-3">
       <button
         onClick={() => setOpen(!open)}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
         aria-expanded={open}
         aria-controls={`${id}-panel`}
         className="flex items-center justify-between w-full group cursor-pointer"
       >
         <h4 className="font-semibold text-base md:text-lg group-hover:underline underline-offset-4">{title}</h4>
-        <Plus className={`w-5 h-5 transition-transform duration-300 ${open ? "rotate-45" : ""}`} aria-hidden="true" />
+        {isHovered && (
+          <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${open ? "rotate-180" : ""}`} aria-hidden="true" />
+        )}
       </button>
       <InlineExpand open={open} ariaId={id}>
         <div id={`${id}-panel`} className="pt-2 space-y-3 text-sm text-muted-foreground">
@@ -385,21 +390,6 @@ const TabProcessPM = ({ language }: { language: string }) => {
     return (
       <div className="space-y-8">
         <section className="space-y-4">
-          <h3 className="text-h4">Sprints & cadences</h3>
-          <ul className="list-disc pl-5 space-y-2">
-            <li>
-              <b>Sprints 2–3 semaines</b> : Cycles courts pour itérer rapidement sur prototype et hypothèses business
-            </li>
-            <li>
-              <b>6+ jalons mensuels</b> : Restitutions avec mentors (Banque des Territoires, Matrice)
-            </li>
-            <li>
-              <b>Reporting financier</b> : Suivi dépenses et jalons de financement
-            </li>
-          </ul>
-        </section>
-
-        <section className="space-y-4">
           <h3 className="text-h4">Obstacles rencontrés</h3>
           <div className="space-y-3">
             <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
@@ -425,21 +415,6 @@ const TabProcessPM = ({ language }: { language: string }) => {
   // English version
   return (
     <div className="space-y-8">
-      <section className="space-y-4">
-        <h3 className="text-h4">Sprints & Cadences</h3>
-        <ul className="list-disc pl-5 space-y-2">
-          <li>
-            <b>2-3 week sprints</b>: Short cycles to rapidly iterate on prototype and business hypotheses
-          </li>
-          <li>
-            <b>6+ monthly milestones</b>: Reviews with mentors (Banque des Territoires, Matrice)
-          </li>
-          <li>
-            <b>Financial reporting</b>: Expense tracking and funding milestones
-          </li>
-        </ul>
-      </section>
-
       <section className="space-y-4">
         <h3 className="text-h4">Obstacles Encountered</h3>
         <div className="space-y-3">
