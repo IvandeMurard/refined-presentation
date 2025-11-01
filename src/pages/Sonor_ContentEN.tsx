@@ -115,6 +115,43 @@ export const ContentEN = () => {
         </div>
       </div>
 
+      {/* ========== SECTION 1.5: OUR APPROACH ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.05}>
+        <div id="our-approach" className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Our Approach</h2>
+            
+            <h3 className="text-xl md:text-2xl text-muted-foreground">
+              Anticipate and act on noise to guarantee the health of residents 
+              and the attractiveness of your territories.
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/img/Sonor-notre-approche.webp" 
+                  alt="Our approach to anticipate and act on noise"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              
+              <div className="flex items-center">
+                <div className="text-lg md:text-xl leading-relaxed space-y-4">
+                  <p>
+                    By your side, let's facilitate the attractiveness of your territories 
+                    and the health of your residents
+                  </p>
+                  <p>
+                    With citizens, let's promote your commitment and 
+                    co-build tomorrow's public policies
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
       {/* ========== SECTION 2: TIMELINE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.1}>
         <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary">

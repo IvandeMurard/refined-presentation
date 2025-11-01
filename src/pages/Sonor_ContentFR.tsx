@@ -122,6 +122,43 @@ export const ContentFR = () => {
         </div>
       </ScrollRevealSection>
 
+      {/* ========== SECTION 1.5: NOTRE APPROCHE ========== */}
+      <ScrollRevealSection variant="fade-in-up" delay={0.15}>
+        <div id="notre-approche" className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Notre Approche</h2>
+            
+            <h3 className="text-xl md:text-2xl text-muted-foreground">
+              Anticiper et agir sur le bruit pour garantir la santé des habitants 
+              et l'attractivité de vos territoires.
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div className="rounded-2xl overflow-hidden shadow-lg">
+                <img 
+                  src="/img/Sonor-notre-approche.webp" 
+                  alt="Notre approche pour anticiper et agir sur le bruit"
+                  className="w-full h-auto object-cover"
+                />
+              </div>
+              
+              <div className="flex items-center">
+                <div className="text-lg md:text-xl leading-relaxed space-y-4">
+                  <p>
+                    A vos côtés, facilitons l'attractivité de vos territoires 
+                    et la santé de vos habitants
+                  </p>
+                  <p>
+                    Avec les citoyens, valorisons votre engagement et 
+                    coconstruisons les politiques publiques de demain
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ScrollRevealSection>
+
       {/* ========== SECTION 2: TIMELINE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.2}>
         <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary">
