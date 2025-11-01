@@ -118,33 +118,39 @@ export const ContentEN = () => {
         </div>
       </div>
 
-      {/* ========== SECTION 1.5: OUR APPROACH ========== */}
+      {/* ========== SECTION 1.5: OUR PRODUCT VISION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.05}>
-        <div id="our-approach" className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
+        <div id="our-approach" className="py-16 px-4 md:px-8 bg-secondary border-b border-border/50">
           <div className="max-w-6xl mx-auto space-y-10">
-            <h2 className="text-h3">Our Approach</h2>
+            <h2 className="text-h3">Our Product Vision</h2>
 
-            <h3 className="text-xl md:text-2xl text-muted-foreground">
-              Anticipate and act on noise pollution to guarantee the health of residents and the attractiveness of your
-              territories.
-            </h3>
+            <p className="text-base md:text-lg text-muted-foreground">
+              Faced with this observation, we imagined Sonor as a tool enabling 
+              municipalities to anticipate and act on noise pollution.
+            </p>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="rounded-2xl overflow-hidden shadow-lg">
+            <div className="grid md:grid-cols-2 gap-10 items-start">
+              <div className="order-2 md:order-1 rounded-xl overflow-hidden shadow-md">
                 <img
                   src="/img/Sonor-notre-approche.webp"
-                  alt="Our approach to anticipate and act on noise"
+                  alt="Our product vision to anticipate and act on noise"
                   className="w-full h-auto object-cover"
                 />
               </div>
 
-              <div className="flex items-center">
-                <div className="text-lg md:text-xl leading-relaxed space-y-4">
+              <div className="order-1 md:order-2 space-y-4">
+                <div className="text-base leading-relaxed space-y-4">
                   <p>
-                    By your side, let's facilitate the attractiveness of your territories and the health of your
-                    residents
+                    <b>Our initial value proposition:</b>
                   </p>
-                  <p>With citizens, let's promote your commitment and co-build tomorrow's public policies</p>
+                  <ul className="list-disc pl-5 space-y-2">
+                    <li>Support municipalities in their anti-noise public policies</li>
+                    <li>Co-build with citizens to maximize engagement</li>
+                    <li>Provide actionable mapping data</li>
+                  </ul>
+                  <p className="text-sm text-muted-foreground italic pt-4">
+                    → This vision evolved through the strategic pivots detailed below...
+                  </p>
                 </div>
               </div>
             </div>
@@ -180,6 +186,9 @@ export const ContentEN = () => {
                 </div>
               ))}
             </div>
+            <p className="text-sm text-muted-foreground italic text-center mt-8">
+              → Three key moments marked this trajectory...
+            </p>
           </div>
         </div>
       </ScrollRevealSection>
@@ -194,7 +203,7 @@ export const ContentEN = () => {
               {/* Moment 1 */}
               <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
                 <h3 className="text-h4 mb-3">Strategic pivot: Private sector → Municipalities</h3>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-3">
                   <b>Context:</b> After 3 months private sector exploration, 1st milestone presentation.
                 </p>
                 <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
@@ -202,7 +211,7 @@ export const ContentEN = () => {
                   network to support you."
                   <footer className="text-xs mt-2">— Banque des Territoires / Matrice Advisor</footer>
                 </blockquote>
-                <p className="text-sm">
+                <p className="text-base">
                   <b>Decision:</b> Pivot to public market (cities, metropolises). Internal debate: less "sexy", long
                   processes, but consensus: BdT support decisive.
                 </p>
@@ -211,7 +220,7 @@ export const ContentEN = () => {
               {/* Moment 2 */}
               <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
                 <h3 className="text-h4 mb-3">The insight that diluted focus</h3>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-3">
                   <b>Context:</b> Discovery, interviews with elected officials.
                 </p>
                 <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
@@ -219,7 +228,7 @@ export const ContentEN = () => {
                   identification of field solutions."
                   <footer className="text-xs mt-2">— Municipality</footer>
                 </blockquote>
-                <p className="text-sm">
+                <p className="text-base">
                   <b>Error:</b> Attempt to meet both needs (platform + human support). Result: Blurred 360° offering,
                   MVP never finalized.
                   <br />
@@ -230,7 +239,7 @@ export const ContentEN = () => {
               {/* Moment 3 */}
               <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
                 <h3 className="text-h4 mb-3">From standalone platform to integrable component</h3>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-3">
                   <b>Context:</b> Prototype presentation (Sonor branding) to Issy-les-Moulineaux.
                 </p>
                 <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
@@ -238,12 +247,15 @@ export const ContentEN = () => {
                   be integrable into our open-data portal."
                   <footer className="text-xs mt-2">— Issy-les-Moulineaux</footer>
                 </blockquote>
-                <p className="text-sm">
+                <p className="text-base">
                   <b>Decision:</b> Pivot to white-label component (full municipality branding adoption). Key issue:{" "}
                   <b>Data sovereignty</b>.
                 </p>
               </div>
             </div>
+            <p className="text-sm text-muted-foreground italic text-center mt-8">
+              → Discover how we materialized this vision into a prototype...
+            </p>
           </div>
         </div>
       </ScrollRevealSection>
@@ -324,14 +336,14 @@ export const ContentEN = () => {
             <div className="space-y-3">
               <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
                 <h4 className="font-semibold mb-2">Open data availability</h4>
-                <p className="text-sm">
+                <p className="text-base">
                   Lack of reliable and standardized open data on noise pollution. Need to normalize heterogeneous
                   sources.
                 </p>
               </div>
               <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
                 <h4 className="font-semibold mb-2">Underestimated technical complexity</h4>
-                <p className="text-sm">
+                <p className="text-base">
                   Difficulty accessing and processing quality data into an exploitable map. Slowed prototype
                   development.
                 </p>
