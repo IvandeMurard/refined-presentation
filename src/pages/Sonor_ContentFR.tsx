@@ -296,6 +296,27 @@ export const ContentFR = () => {
             <div className="space-y-6">
               <h2 className="text-h3">Voir notre premier prototype</h2>
               
+              {/* Bloc d'introduction Landing Page */}
+              <div className="space-y-4 mb-8">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">
+                  <span>2020-2021</span>
+                </div>
+                <p className="text-base text-muted-foreground leading-relaxed">
+                  Pour valider le positionnement de Sonor et communiquer l'offre aux premiers partenaires, 
+                  nous avons créé une landing page publique résumant la vision, la promesse produit et les premiers cas d'usage. 
+                  Cette page a servi à la fois d'outil de storytelling et de première étape dans la stratégie de go-to-market de Sonor.
+                </p>
+                <a 
+                  href="https://sonor.dorik.io/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent/80 transition-colors group"
+                >
+                  <span>Voir la landing page</span>
+                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
+              </div>
+
               {/* Iframe Figma - visible par défaut */}
               <div className="space-y-4">
                 <h3 className="text-h4">Prototype interactif Figma</h3>
