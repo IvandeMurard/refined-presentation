@@ -133,30 +133,18 @@ export const ContentFR = () => {
               aux collectivités d'anticiper et d'agir sur le bruit.
             </p>
             
-            <div className="grid md:grid-cols-2 gap-10 items-start">
-              <div className="order-2 md:order-1 rounded-xl overflow-hidden shadow-md">
-                <img 
-                  src="/img/Sonor-notre-approche.webp" 
-                  alt="Notre vision produit pour anticiper et agir sur le bruit"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-              
-              <div className="order-1 md:order-2 space-y-4">
-                <div className="text-base leading-relaxed space-y-4">
-                  <p>
-                    <b>Notre proposition de valeur initiale :</b>
-                  </p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>Accompagner les collectivités dans leurs politiques publiques anti-bruit</li>
-                    <li>Co-construire avec les citoyens pour maximiser l'engagement</li>
-                    <li>Fournir des données cartographiques actionnables</li>
-                  </ul>
-                  <p className="text-sm text-muted-foreground italic pt-4">
-                    → Cette vision a évolué au fil des pivots stratégiques détaillés ci-dessous...
-                  </p>
-                </div>
-              </div>
+            <div className="max-w-3xl space-y-4">
+              <p>
+                <b>Notre proposition de valeur initiale :</b>
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Accompagner les collectivités dans leurs politiques publiques anti-bruit</li>
+                <li>Co-construire avec les citoyens pour maximiser l'engagement</li>
+                <li>Fournir des données cartographiques actionnables</li>
+              </ul>
+              <p className="text-sm text-muted-foreground italic pt-4">
+                → Cette vision a évolué au fil des pivots stratégiques détaillés ci-dessous...
+              </p>
             </div>
           </div>
         </div>
@@ -293,9 +281,9 @@ export const ContentFR = () => {
                 <CarouselContent className="-ml-4">
                   {[
                     {
-                      src: "/img/sonor_cartographie_dashboard.png",
-                      alt: "Dashboard cartographie Sonor",
-                      caption: "Dashboard cartographie — Points noirs & indicateurs temps réel"
+                      src: "/img/Sonor-notre-approche.webp",
+                      alt: "Mapping dashboard — Hotspots & real-time indicators",
+                      caption: "Mapping dashboard — Hotspots & real-time indicators"
                     },
                     {
                       src: "/img/sonor_recommandations.png",

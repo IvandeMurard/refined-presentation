@@ -129,30 +129,18 @@ export const ContentEN = () => {
               municipalities to anticipate and act on noise pollution.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-10 items-start">
-              <div className="order-2 md:order-1 rounded-xl overflow-hidden shadow-md">
-                <img
-                  src="/img/Sonor-notre-approche.webp"
-                  alt="Our product vision to anticipate and act on noise"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              <div className="order-1 md:order-2 space-y-4">
-                <div className="text-base leading-relaxed space-y-4">
-                  <p>
-                    <b>Our initial value proposition:</b>
-                  </p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>Support municipalities in their anti-noise public policies</li>
-                    <li>Co-build with citizens to maximize engagement</li>
-                    <li>Provide actionable mapping data</li>
-                  </ul>
-                  <p className="text-sm text-muted-foreground italic pt-4">
-                    → This vision evolved through the strategic pivots detailed below...
-                  </p>
-                </div>
-              </div>
+            <div className="max-w-3xl space-y-4">
+              <p>
+                <b>Our initial value proposition:</b>
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Support municipalities in their anti-noise public policies</li>
+                <li>Co-build with citizens to maximize engagement</li>
+                <li>Provide actionable mapping data</li>
+              </ul>
+              <p className="text-sm text-muted-foreground italic pt-4">
+                → This vision evolved through the strategic pivots detailed below...
+              </p>
             </div>
           </div>
         </div>
@@ -284,8 +272,8 @@ export const ContentEN = () => {
 
             <div className="grid md:grid-cols-2 gap-6">
               <CaseImage
-                alt="Sonor mapping dashboard"
-                desktopSrc="/img/sonor_cartographie_dashboard.png"
+                alt="Mapping dashboard — Hotspots & real-time indicators"
+                desktopSrc="/img/Sonor-notre-approche.webp"
                 caption="Mapping dashboard — Hotspots & real-time indicators"
               />
               <CaseImage
