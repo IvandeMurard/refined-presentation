@@ -19,13 +19,15 @@ export const TLDRBlockEN = () => (
     title="TL;DR — At a glance"
     items={[
       <>
-        <b>Context:</b> Recoder l'Habitat #2 Hackathon (winner) → incubation Matrice & Banque des Territoires (2020-2022)
+        <b>Context:</b> Recoder l'Habitat #2 Hackathon (winner) → incubation Matrice & Banque des Territoires
+        (2020-2022)
       </>,
       <>
         <b>Problem:</b> Noise pollution (2nd urban nuisance), invisible, real health impacts
       </>,
       <>
-        <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen engagement (awareness, communication)
+        <b>Solution:</b> 360° SaaS platform offering with open data mapping, public action recommendations, citizen
+        engagement (awareness, communication)
       </>,
       <>
         <b>Team:</b> 4 co-founders (Émilie, Majda, Benjamin, Ivan), 1 part-time dev/data-scientist
@@ -34,7 +36,8 @@ export const TLDRBlockEN = () => (
         <b>My role:</b> Product framing, discovery, prototyping, sales, data-scientist leadership
       </>,
       <>
-        <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner presentations)
+        <b>Duration & method:</b> 2 years / Agile Lean, 2-3 week Kanban sprints, 6+ monthly milestones (partner
+        presentations)
       </>,
     ]}
   />
@@ -120,31 +123,28 @@ export const ContentEN = () => {
         <div id="our-approach" className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Our Approach</h2>
-            
+
             <h3 className="text-xl md:text-2xl text-muted-foreground">
-              Anticipate and act on noise to guarantee the health of residents 
-              and the attractiveness of your territories.
+              Anticipate and act on noise pollution to guarantee the health of residents and the attractiveness of your
+              territories.
             </h3>
-            
+
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img 
-                  src="/img/Sonor-notre-approche.webp" 
+                <img
+                  src="/img/Sonor-notre-approche.webp"
                   alt="Our approach to anticipate and act on noise"
                   className="w-full h-auto object-cover"
                 />
               </div>
-              
+
               <div className="flex items-center">
                 <div className="text-lg md:text-xl leading-relaxed space-y-4">
                   <p>
-                    By your side, let's facilitate the attractiveness of your territories 
-                    and the health of your residents
+                    By your side, let's facilitate the attractiveness of your territories and the health of your
+                    residents
                   </p>
-                  <p>
-                    With citizens, let's promote your commitment and 
-                    co-build tomorrow's public policies
-                  </p>
+                  <p>With citizens, let's promote your commitment and co-build tomorrow's public policies</p>
                 </div>
               </div>
             </div>
@@ -155,28 +155,32 @@ export const ContentEN = () => {
       {/* ========== SECTION 2: TIMELINE ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.1}>
         <div id="timeline" className="py-16 px-4 md:px-8 bg-secondary">
-        <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Project Timeline</h2>
+          <div className="max-w-6xl mx-auto space-y-10">
+            <h2 className="text-h3">Project Timeline</h2>
 
-          <div className="space-y-6">
-            {[
-              { date: "Oct. 2020", title: "Hackathon", desc: "Recoder l'Habitat #2 win → Matrice/BdT incubation" },
-              { date: "Oct. 2020 - Jan. 2021", title: "Discovery", desc: "20+ interviews, private sector exploration" },
-              { date: "Jan. 2021", title: "Pivot", desc: "Strategic decision → focus municipalities" },
-              { date: "Jan. - April 2021", title: "Prototype", desc: "3 Figma versions + white-label evolution" },
-              { date: "May 2021 - March 2022", title: "Go-to-market", desc: "20+ cities, 2 proposals, long cycles" },
-              { date: "March 2022", title: "End", desc: "Funding exhaustion, 0 signature" },
-            ].map((step, i) => (
-              <div key={i} className="flex gap-4">
-                <div className="flex-shrink-0 w-32 text-right font-semibold text-accent">{step.date}</div>
-                <div className="flex-1 p-4 rounded-lg bg-card">
-                  <h4 className="font-semibold mb-1">{step.title}</h4>
-                  <p className="text-sm text-muted-foreground">{step.desc}</p>
+            <div className="space-y-6">
+              {[
+                { date: "Oct. 2020", title: "Hackathon", desc: "Recoder l'Habitat #2 win → Matrice/BdT incubation" },
+                {
+                  date: "Oct. 2020 - Jan. 2021",
+                  title: "Discovery",
+                  desc: "20+ interviews, private sector exploration",
+                },
+                { date: "Jan. 2021", title: "Pivot", desc: "Strategic decision → focus municipalities" },
+                { date: "Jan. - April 2021", title: "Prototype", desc: "3 Figma versions + white-label evolution" },
+                { date: "May 2021 - March 2022", title: "Go-to-market", desc: "20+ cities, 2 proposals, long cycles" },
+                { date: "March 2022", title: "End", desc: "Funding exhaustion, 0 signature" },
+              ].map((step, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="flex-shrink-0 w-32 text-right font-semibold text-accent">{step.date}</div>
+                  <div className="flex-1 p-4 rounded-lg bg-card">
+                    <h4 className="font-semibold mb-1">{step.title}</h4>
+                    <p className="text-sm text-muted-foreground">{step.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
         </div>
       </ScrollRevealSection>
 
@@ -184,63 +188,63 @@ export const ContentEN = () => {
       <ScrollRevealSection variant="fade-in-up" delay={0.2}>
         <div id="key-moments" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Key Moments</h2>
+            <h2 className="text-h3">Key Moments</h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Moment 1 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
-              <h3 className="text-h4 mb-3">Strategic pivot: Private sector → Municipalities</h3>
-              <p className="text-sm mb-3">
-                <b>Context:</b> After 3 months private sector exploration, 1st milestone presentation.
-              </p>
-              <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
-                "Municipalities have the skills and resources to act sustainably on this issue. And we have the network
-                to support you."
-                <footer className="text-xs mt-2">— Banque des Territoires / Matrice Advisor</footer>
-              </blockquote>
-              <p className="text-sm">
-                <b>Decision:</b> Pivot to public market (cities, metropolises). Internal debate: less "sexy", long
-                processes, but consensus: BdT support decisive.
-              </p>
-            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Moment 1 */}
+              <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
+                <h3 className="text-h4 mb-3">Strategic pivot: Private sector → Municipalities</h3>
+                <p className="text-sm mb-3">
+                  <b>Context:</b> After 3 months private sector exploration, 1st milestone presentation.
+                </p>
+                <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                  "Municipalities have the skills and resources to act sustainably on this issue. And we have the
+                  network to support you."
+                  <footer className="text-xs mt-2">— Banque des Territoires / Matrice Advisor</footer>
+                </blockquote>
+                <p className="text-sm">
+                  <b>Decision:</b> Pivot to public market (cities, metropolises). Internal debate: less "sexy", long
+                  processes, but consensus: BdT support decisive.
+                </p>
+              </div>
 
-            {/* Moment 2 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
-              <h3 className="text-h4 mb-3">The insight that diluted focus</h3>
-              <p className="text-sm mb-3">
-                <b>Context:</b> Discovery, interviews with elected officials.
-              </p>
-              <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
-                "We'd especially like human support: communication about our actions, citizen awareness, identification
-                of field solutions."
-                <footer className="text-xs mt-2">— Municipality</footer>
-              </blockquote>
-              <p className="text-sm">
-                <b>Error:</b> Attempt to meet both needs (platform + human support). Result: Blurred 360° offering, MVP
-                never finalized.
-                <br />
-                <b>Learning:</b> Chase only one rabbit at a time.
-              </p>
-            </div>
+              {/* Moment 2 */}
+              <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
+                <h3 className="text-h4 mb-3">The insight that diluted focus</h3>
+                <p className="text-sm mb-3">
+                  <b>Context:</b> Discovery, interviews with elected officials.
+                </p>
+                <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
+                  "We'd especially like human support: communication about our actions, citizen awareness,
+                  identification of field solutions."
+                  <footer className="text-xs mt-2">— Municipality</footer>
+                </blockquote>
+                <p className="text-sm">
+                  <b>Error:</b> Attempt to meet both needs (platform + human support). Result: Blurred 360° offering,
+                  MVP never finalized.
+                  <br />
+                  <b>Learning:</b> Chase only one rabbit at a time.
+                </p>
+              </div>
 
-            {/* Moment 3 */}
-            <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
-              <h3 className="text-h4 mb-3">From standalone platform to integrable component</h3>
-              <p className="text-sm mb-3">
-                <b>Context:</b> Prototype presentation (Sonor branding) to Issy-les-Moulineaux.
-              </p>
-              <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
-                "Your solution interests us, but we cannot redirect our citizens to an external site. It would need to
-                be integrable into our open-data portal."
-                <footer className="text-xs mt-2">— Issy-les-Moulineaux</footer>
-              </blockquote>
-              <p className="text-sm">
-                <b>Decision:</b> Pivot to white-label component (full municipality branding adoption). Key issue:{" "}
-                <b>Data sovereignty</b>.
-              </p>
+              {/* Moment 3 */}
+              <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
+                <h3 className="text-h4 mb-3">From standalone platform to integrable component</h3>
+                <p className="text-sm mb-3">
+                  <b>Context:</b> Prototype presentation (Sonor branding) to Issy-les-Moulineaux.
+                </p>
+                <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                  "Your solution interests us, but we cannot redirect our citizens to an external site. It would need to
+                  be integrable into our open-data portal."
+                  <footer className="text-xs mt-2">— Issy-les-Moulineaux</footer>
+                </blockquote>
+                <p className="text-sm">
+                  <b>Decision:</b> Pivot to white-label component (full municipality branding adoption). Key issue:{" "}
+                  <b>Data sovereignty</b>.
+                </p>
+              </div>
             </div>
           </div>
-        </div>
         </div>
       </ScrollRevealSection>
 
@@ -250,16 +254,16 @@ export const ContentEN = () => {
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="space-y-6">
               <h2 className="text-h3">See our first prototype</h2>
-              
+
               {/* Figma iframe - visible by default */}
               <div className="space-y-4">
                 <h3 className="text-h4">Interactive Figma Prototype</h3>
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border/50">
-                  <iframe 
+                  <iframe
                     style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                    width="100%" 
-                    height="450" 
-                    src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&embed-host=share" 
+                    width="100%"
+                    height="450"
+                    src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&embed-host=share"
                     allowFullScreen
                   />
                 </div>
@@ -267,48 +271,48 @@ export const ContentEN = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-            <CaseImage
-              alt="Sonor mapping dashboard"
-              desktopSrc="/img/sonor_cartographie_dashboard.png"
-              caption="Mapping dashboard — Hotspots & real-time indicators"
-            />
-            <CaseImage
-              alt="Action recommendations"
-              desktopSrc="/img/sonor_recommandations.png"
-              caption="Actionable recommendations — Prioritized tasks by zone"
-            />
-            <CaseImage
-              alt="Issy white label"
-              desktopSrc="/img/sonor_issy_marque_blanche.png"
-              caption="White-label integration"
-            />
-            <CaseImage
-              alt="Citizen engagement"
-              desktopSrc="/img/sonor_engagement_citoyen.png"
-              caption="Citizen engagement — Qualified alert submission"
-            />
-          </div>
+              <CaseImage
+                alt="Sonor mapping dashboard"
+                desktopSrc="/img/sonor_cartographie_dashboard.png"
+                caption="Mapping dashboard — Hotspots & real-time indicators"
+              />
+              <CaseImage
+                alt="Action recommendations"
+                desktopSrc="/img/sonor_recommandations.png"
+                caption="Actionable recommendations — Prioritized tasks by zone"
+              />
+              <CaseImage
+                alt="Issy white label"
+                desktopSrc="/img/sonor_issy_marque_blanche.png"
+                caption="White-label integration"
+              />
+              <CaseImage
+                alt="Citizen engagement"
+                desktopSrc="/img/sonor_engagement_citoyen.png"
+                caption="Citizen engagement — Qualified alert submission"
+              />
+            </div>
 
-          {/* Demo link */}
-          <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
-            <div className="flex items-center justify-between flex-wrap gap-4">
-              <div>
-                <h4 className="font-semibold mb-2">Functional Prototype</h4>
-                <p className="text-sm text-muted-foreground">
-                  Explore the prototype developed for Banque des Territoires
-                </p>
+            {/* Demo link */}
+            <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div>
+                  <h4 className="font-semibold mb-2">Functional Prototype</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Explore the prototype developed for Banque des Territoires
+                  </p>
+                </div>
+                <a
+                  href="https://byronbark.github.io/sonor-web-component/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
+                >
+                  Open demo <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
-              <a
-                href="https://byronbark.github.io/sonor-web-component/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
-              >
-                Open demo <ExternalLink className="w-4 h-4" />
-              </a>
             </div>
           </div>
-        </div>
         </div>
       </ScrollRevealSection>
 
@@ -321,13 +325,15 @@ export const ContentEN = () => {
               <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
                 <h4 className="font-semibold mb-2">Open data availability</h4>
                 <p className="text-sm">
-                  Lack of reliable and standardized open data on noise pollution. Need to normalize heterogeneous sources.
+                  Lack of reliable and standardized open data on noise pollution. Need to normalize heterogeneous
+                  sources.
                 </p>
               </div>
               <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
                 <h4 className="font-semibold mb-2">Underestimated technical complexity</h4>
                 <p className="text-sm">
-                  Difficulty accessing and processing quality data into an exploitable map. Slowed prototype development.
+                  Difficulty accessing and processing quality data into an exploitable map. Slowed prototype
+                  development.
                 </p>
               </div>
             </div>
@@ -339,26 +345,26 @@ export const ContentEN = () => {
       <ScrollRevealSection variant="fade-in-up" delay={0.5}>
         <div id="results" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Results & Impact</h2>
+            <h2 className="text-h3">Results & Impact</h2>
 
-          {/* Key figures */}
-          <div className="grid md:grid-cols-4 gap-6">
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">€20k</div>
-              <div className="text-muted-foreground text-sm">Funding obtained (2 grants)</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">20+</div>
-              <div className="text-muted-foreground text-sm">Qualitative interviews</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">3+1</div>
-              <div className="text-muted-foreground text-sm">Prototype versions (Figma + coded)</div>
-            </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">8+</div>
-              <div className="text-muted-foreground text-sm">Metropolises and cities met</div>
-            </div>
+            {/* Key figures */}
+            <div className="grid md:grid-cols-4 gap-6">
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">€20k</div>
+                <div className="text-muted-foreground text-sm">Funding obtained (2 grants)</div>
+              </div>
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">20+</div>
+                <div className="text-muted-foreground text-sm">Qualitative interviews</div>
+              </div>
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">3+1</div>
+                <div className="text-muted-foreground text-sm">Prototype versions (Figma + coded)</div>
+              </div>
+              <div className="bg-card p-6 rounded-2xl">
+                <div className="text-4xl font-extrabold mb-2">8+</div>
+                <div className="text-muted-foreground text-sm">Metropolises and cities met</div>
+              </div>
             </div>
           </div>
         </div>
@@ -368,59 +374,64 @@ export const ContentEN = () => {
       <ScrollRevealSection variant="fade-in-up" delay={0.6}>
         <div id="epilogue" className="py-16 px-4 md:px-8 bg-background">
           <div className="max-w-6xl mx-auto space-y-10">
-          <h2 className="text-h3">Epilogue & Learnings</h2>
+            <h2 className="text-h3">Epilogue & Learnings</h2>
 
-          <section className="space-y-6">
-            <h3 className="text-h4">The SONOR project did not become a startup per se, but the experience was formative on several levels, both professionally and personally.</h3>
-          </section>
+            <section className="space-y-6">
+              <h3 className="text-h4">
+                The SONOR project did not become a startup per se, but the experience was formative on several levels,
+                both professionally and personally.
+              </h3>
+            </section>
 
-          {/* Learnings */}
-          <section className="space-y-6">
-            <h3 className="text-h4">Learnings</h3>
+            {/* Learnings */}
+            <section className="space-y-6">
+              <h3 className="text-h4">Learnings</h3>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              {/* Practical */}
-              <div className="rounded-xl p-5 bg-card">
-                <h4 className="font-semibold mb-3">Practical</h4>
-                <ul className="list-disc pl-5 space-y-2 text-sm">
-                  <li>
-                    <b>End-to-end 0→1</b>: Complete discovery → prototyping → go-to-market → commercialization
-                  </li>
-                  <li>
-                    <b>Prioritization & saying no</b>: Importance of staying focused on 1 MVP rather than 360° offering
-                  </li>
-                  <li>
-                    <b>B2G go-to-market</b>: Long cycles, importance of functional prototype
-                  </li>
-                  <li>
-                    <b>Communicate before being "ready"</b>: Functional prototype necessary to convince
-                  </li>
-                </ul>
+              <div className="grid md:grid-cols-2 gap-4">
+                {/* Practical */}
+                <div className="rounded-xl p-5 bg-card">
+                  <h4 className="font-semibold mb-3">Practical</h4>
+                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                    <li>
+                      <b>End-to-end 0→1</b>: Complete discovery → prototyping → go-to-market → commercialization
+                    </li>
+                    <li>
+                      <b>Prioritization & saying no</b>: Importance of staying focused on 1 MVP rather than 360°
+                      offering
+                    </li>
+                    <li>
+                      <b>B2G go-to-market</b>: Long cycles, importance of functional prototype
+                    </li>
+                    <li>
+                      <b>Communicate before being "ready"</b>: Functional prototype necessary to convince
+                    </li>
+                  </ul>
+                </div>
+
+                {/* Personal */}
+                <div className="rounded-xl p-5 bg-card">
+                  <h4 className="font-semibold mb-3">Personal</h4>
+                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                    <li>
+                      <b>Appetite for exploration and analysis</b>: Confirmed my taste for in-depth study of complex
+                      issues, searching for concrete solutions, and the ability to transform technical learnings and
+                      data into answers adapted to field needs
+                    </li>
+                    <li>
+                      <b>Impact products</b>: Confirmed interest in products with strong societal and environmental
+                      impact
+                    </li>
+                    <li>
+                      <b>Field ↔ design back-and-forth</b>: Importance of regular confrontation with field
+                    </li>
+                    <li>
+                      <b>Cross-functional teamwork</b>: Clear communication and synthesis of complex issues
+                    </li>
+                  </ul>
+                </div>
               </div>
-
-              {/* Personal */}
-              <div className="rounded-xl p-5 bg-card">
-                <h4 className="font-semibold mb-3">Personal</h4>
-                <ul className="list-disc pl-5 space-y-2 text-sm">
-                  <li>
-                    <b>Appetite for exploration and analysis</b>: Confirmed my taste for in-depth study of complex
-                    issues, searching for concrete solutions, and the ability to transform technical learnings and data into
-                    answers adapted to field needs
-                  </li>
-                  <li>
-                    <b>Impact products</b>: Confirmed interest in products with strong societal and environmental impact
-                  </li>
-                  <li>
-                    <b>Field ↔ design back-and-forth</b>: Importance of regular confrontation with field
-                  </li>
-                  <li>
-                    <b>Cross-functional teamwork</b>: Clear communication and synthesis of complex issues
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-        </div>
+            </section>
+          </div>
         </div>
       </ScrollRevealSection>
 
@@ -429,7 +440,7 @@ export const ContentEN = () => {
         <div id="if-i-had-to-do-it-again" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">If I Had to Do It Again</h2>
-            
+
             <div className="space-y-6">
               <p className="text-lg">
                 In hindsight, here are the decisions I would make differently to maximize our chances of success:
@@ -439,32 +450,32 @@ export const ContentEN = () => {
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Choose 1 MVP from the start</h4>
                   <p className="text-sm text-muted-foreground">
-                    Rather than a 360° offering, focus on a specific segment (e.g., mapping only) 
-                    to validate the value proposition quickly.
+                    Rather than a 360° offering, focus on a specific segment (e.g., mapping only) to validate the value
+                    proposition quickly.
                   </p>
                 </div>
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Validate technical complexity before promising</h4>
                   <p className="text-sm text-muted-foreground">
-                    Build a minimal functional prototype before engaging in commercial discussions 
-                    to avoid unsustainable promises.
+                    Build a minimal functional prototype before engaging in commercial discussions to avoid
+                    unsustainable promises.
                   </p>
                 </div>
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Build a functional prototype earlier</h4>
                   <p className="text-sm text-muted-foreground">
-                    Move from Figma to code as soon as we get initial field feedback to accelerate 
-                    confrontation with technical and user reality.
+                    Move from Figma to code as soon as we get initial field feedback to accelerate confrontation with
+                    technical and user reality.
                   </p>
                 </div>
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Focus on a specific customer segment</h4>
                   <p className="text-sm text-muted-foreground">
-                    Target a specific type of municipality (e.g., mid-sized cities of 50-100k inhabitants) 
-                    to adapt the pitch and solution to their real constraints.
+                    Target a specific type of municipality (e.g., mid-sized cities of 50-100k inhabitants) to adapt the
+                    pitch and solution to their real constraints.
                   </p>
                 </div>
               </div>
@@ -482,8 +493,8 @@ export const ContentEN = () => {
             </div>
             <section className="max-w-4xl mx-auto text-center">
               <p className="text-lg">
-                SONOR confirmed my taste for transforming issues into data-driven solutions and allowed
-                me to acquire valuable experience in 0→1 product management, from discovery to commercialization.
+                SONOR confirmed my taste for transforming issues into data-driven solutions and allowed me to acquire
+                valuable experience in 0→1 product management, from discovery to commercialization.
               </p>
             </section>
           </div>
@@ -497,59 +508,59 @@ export const ContentEN = () => {
             <div>
               <h2 className="text-h3 mb-4">Frequently Asked Questions</h2>
             </div>
-            
+
             <div className="space-y-4 text-left max-w-4xl mx-auto">
               <ExpandSection id="faq-1-en" title="Why did you stop the project?">
-              <p>Three main reasons:</p>
-              <ul className="list-disc pl-5 space-y-1 mt-2">
-                <li>
-                  <b>Underestimated technical complexity</b>: Difficulty accessing and processing exploitable quality
-                  open data
-                </li>
-                <li>
-                  <b>Long B2G sales cycles</b>: 12-18 months minimum, funding exhaustion before 1st signature
-                </li>
-                <li>
-                  <b>Blurred positioning</b>: Between SaaS platform and consulting support, not clear enough
-                </li>
-              </ul>
-            </ExpandSection>
+                <p>Three main reasons:</p>
+                <ul className="list-disc pl-5 space-y-1 mt-2">
+                  <li>
+                    <b>Underestimated technical complexity</b>: Difficulty accessing and processing exploitable quality
+                    open data
+                  </li>
+                  <li>
+                    <b>Long B2G sales cycles</b>: 12-18 months minimum, funding exhaustion before 1st signature
+                  </li>
+                  <li>
+                    <b>Blurred positioning</b>: Between SaaS platform and consulting support, not clear enough
+                  </li>
+                </ul>
+              </ExpandSection>
 
-            <ExpandSection id="faq-2-en" title="How did you fund the project?">
-              <p>
-                <b>€20k</b> total via 2 grants:
-              </p>
-              <ul className="list-disc pl-5 space-y-1 mt-2">
-                <li>1st grant: Hackathon win Recoder l'Habitat #2</li>
-                <li>2nd grant: Matrice + Banque des Territoires support program</li>
-              </ul>
-            </ExpandSection>
+              <ExpandSection id="faq-2-en" title="How did you fund the project?">
+                <p>
+                  <b>€20k</b> total via 2 grants:
+                </p>
+                <ul className="list-disc pl-5 space-y-1 mt-2">
+                  <li>1st grant: Hackathon win Recoder l'Habitat #2</li>
+                  <li>2nd grant: Matrice + Banque des Territoires support program</li>
+                </ul>
+              </ExpandSection>
 
-            <ExpandSection id="faq-3-en" title="What was your commercial strategy?">
-              <p>3 progressive phases over 2 years:</p>
-              <ul className="list-disc pl-5 space-y-1 mt-2">
-                <li>
-                  <b>Phase 1</b>: Broad exploration (developers, housing, municipalities)
-                </li>
-                <li>
-                  <b>Phase 2</b>: Focus on data-aware municipalities
-                </li>
-                <li>
-                  <b>Phase 3</b>: Refined targeting (data appetite + innovation culture, via LinkedIn)
-                </li>
-              </ul>
-            </ExpandSection>
+              <ExpandSection id="faq-3-en" title="What was your commercial strategy?">
+                <p>3 progressive phases over 2 years:</p>
+                <ul className="list-disc pl-5 space-y-1 mt-2">
+                  <li>
+                    <b>Phase 1</b>: Broad exploration (developers, housing, municipalities)
+                  </li>
+                  <li>
+                    <b>Phase 2</b>: Focus on data-aware municipalities
+                  </li>
+                  <li>
+                    <b>Phase 3</b>: Refined targeting (data appetite + innovation culture, via LinkedIn)
+                  </li>
+                </ul>
+              </ExpandSection>
 
-            <ExpandSection id="faq-4-en" title="How did you segment municipalities?">
-              <p>
-                By sensitivity to open data rather than size. Cities with established open data culture and structured
-                environment services were more receptive, regardless of size.
-              </p>
-            </ExpandSection>
+              <ExpandSection id="faq-4-en" title="How did you segment municipalities?">
+                <p>
+                  By sensitivity to open data rather than size. Cities with established open data culture and structured
+                  environment services were more receptive, regardless of size.
+                </p>
+              </ExpandSection>
+            </div>
           </div>
         </div>
-      </div>
-    </ScrollRevealSection>
+      </ScrollRevealSection>
 
       {/* ========== SECTION 10: "GO FURTHER" ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.9}>
@@ -570,9 +581,7 @@ export const ContentEN = () => {
                 <div className="h-20 flex items-center justify-center mb-4">
                   <img src="/img/nightingale.PNG" alt="Nightingale" className="h-full object-contain" />
                 </div>
-                <h3 className="text-h4 mb-2 flex-grow">
-                  Noisy Cities: Behind the Scenes with Karim Douïeb
-                </h3>
+                <h3 className="text-h4 mb-2 flex-grow">Noisy Cities: Behind the Scenes with Karim Douïeb</h3>
                 <p className="text-sm text-muted-foreground mb-4 flex-grow">
                   Discover how noise pollution open data maps of Paris, Brussels, and New-York were made.
                 </p>
@@ -589,7 +598,11 @@ export const ContentEN = () => {
                 className="flex flex-col p-6 rounded-lg bg-card border-2 border-transparent transition-all group"
               >
                 <div className="h-20 flex items-center justify-center mb-4">
-                  <img src="/img/philosophie-magazine.svg" alt="Philosophie Magazine" className="h-full object-contain" />
+                  <img
+                    src="/img/philosophie-magazine.svg"
+                    alt="Philosophie Magazine"
+                    className="h-full object-contain"
+                  />
                 </div>
                 <h3 className="text-h4 mb-2 flex-grow">Jura: A Forest Under Surveillance</h3>
                 <p className="text-sm text-muted-foreground mb-4 flex-grow">
@@ -636,7 +649,11 @@ export const ContentEN = () => {
             {/* Logos */}
             <div className="flex items-center justify-center gap-12 flex-wrap pt-6">
               <div>
-                <img src="/img/banque-des-territoires-logo.png" alt="Banque des Territoires" className="h-24 object-contain" />
+                <img
+                  src="/img/banque-des-territoires-logo.png"
+                  alt="Banque des Territoires"
+                  className="h-24 object-contain"
+                />
               </div>
               <div>
                 <img src="/img/logo-matrice.png" alt="Association Matrice" className="h-24 object-contain" />
