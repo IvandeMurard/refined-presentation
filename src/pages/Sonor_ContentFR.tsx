@@ -2,15 +2,15 @@
 // FICHIER 2/4 : Contenu français complet pour le case study SONOR
 // Version conforme aux spécifications validées - Chiffres corrigés
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
 import { ExternalLink, Play } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 import { TimelineItem } from "@/components/case/TimelineItem";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { 
   TermExplain, 
   ExpandSection, 
@@ -50,6 +50,46 @@ export const TLDRBlockFR = () => (
 export const ContentFR = () => {
   const navigate = useNavigate();
   const tabsRef = useRef<HTMLDivElement>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const galleryImages = [
+    {
+      src: "/img/Sonor-notre-approche.webp",
+      alt: "Mapping dashboard — Hotspots & real-time indicators",
+      caption: "Mapping dashboard — Hotspots & real-time indicators"
+    },
+    {
+      src: "/img/sonor_recommandations.png",
+      alt: "Recommandations actions",
+      caption: "Recommandations actionnables — Tâches priorisées par zone"
+    },
+    {
+      src: "/img/sonor_issy_marque_blanche.png",
+      alt: "Marque blanche Issy",
+      caption: "Intégration marque blanche — Issy-les-Moulineaux"
+    },
+    {
+      src: "/img/sonor_engagement_citoyen.png",
+      alt: "Engagement citoyen",
+      caption: "Engagement citoyen — Dépôt d'alerte qualifiée"
+    }
+  ];
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleNavigate = (direction: 'prev' | 'next') => {
+    setCurrentImageIndex((prev) => {
+      if (direction === 'prev') {
+        return prev > 0 ? prev - 1 : galleryImages.length - 1;
+      } else {
+        return prev < galleryImages.length - 1 ? prev + 1 : 0;
+      }
+    });
+  };
 
   const scrollToTabs = () => {
     tabsRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -271,58 +311,19 @@ export const ContentFR = () => {
               </div>
             </div>
             
-            {/* Galerie prototype en carousel immersif */}
+            {/* Galerie prototype en grid */}
             <section className="space-y-6">
-              <div className="flex items-center justify-between">
-                <p className="text-sm text-muted-foreground">Glissez pour explorer →</p>
+              <div className="grid md:grid-cols-2 gap-6">
+                {galleryImages.map((img, i) => (
+                  <CaseImage
+                    key={i}
+                    onClick={() => openLightbox(i)}
+                    desktopSrc={img.src}
+                    alt={img.alt}
+                    caption={img.caption}
+                  />
+                ))}
               </div>
-              
-              <Carousel className="w-full">
-                <CarouselContent className="-ml-4">
-                  {[
-                    {
-                      src: "/img/Sonor-notre-approche.webp",
-                      alt: "Mapping dashboard — Hotspots & real-time indicators",
-                      caption: "Mapping dashboard — Hotspots & real-time indicators"
-                    },
-                    {
-                      src: "/img/sonor_recommandations.png",
-                      alt: "Recommandations actions",
-                      caption: "Recommandations actionnables — Tâches priorisées par zone"
-                    },
-                    {
-                      src: "/img/sonor_issy_marque_blanche.png",
-                      alt: "Marque blanche Issy",
-                      caption: "Intégration marque blanche — Issy-les-Moulineaux"
-                    },
-                    {
-                      src: "/img/sonor_engagement_citoyen.png",
-                      alt: "Engagement citoyen",
-                      caption: "Engagement citoyen — Dépôt d'alerte qualifiée"
-                    }
-                  ].map((img, i) => (
-                    <CarouselItem key={i} className="pl-4 md:basis-1/2 lg:basis-1/2">
-                      <div className="group cursor-pointer">
-                        <div className="relative overflow-hidden rounded-xl border border-border/50 bg-gradient-to-br from-muted to-card">
-                          <img
-                            src={img.src}
-                            alt={img.alt}
-                            className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-110"
-                          />
-                          
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                            <div className="absolute bottom-0 left-0 right-0 p-4">
-                              <p className="text-white text-sm font-medium">{img.caption}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </CarouselItem>
-                  ))}
-                </CarouselContent>
-                <CarouselPrevious />
-                <CarouselNext />
-              </Carousel>
             </section>
 
             {/* Lien démo avec CTA visuel */}
@@ -703,6 +704,15 @@ export const ContentFR = () => {
           />
         </div>
       </div>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={galleryImages}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={handleNavigate}
+      />
     </>
   );
 };

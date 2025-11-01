@@ -5,13 +5,17 @@ type Props = {
   mobileSrc?: string;
   caption: string;
   className?: string;
+  onClick?: () => void;
 };
 
-export function CaseImage({ alt, desktopSrc, mobileSrc, caption, className }: Props) {
+export function CaseImage({ alt, desktopSrc, mobileSrc, caption, className, onClick }: Props) {
   const mobile = mobileSrc || desktopSrc; // fallback simple
 
   return (
-    <figure className={className ?? "group"}>
+    <figure 
+      className={`${className ?? "group"} ${onClick ? "cursor-pointer hover:opacity-90 transition-opacity" : ""}`}
+      onClick={onClick}
+    >
       <picture>
         {mobile && <source srcSet={mobile} media="(max-width: 768px)" />}
         <img

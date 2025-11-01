@@ -2,12 +2,13 @@
 // FICHIER 3/4 : Contenu anglais complet pour le case study SONOR
 // Version conforme aux spécifications validées - English version
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
 import { ExternalLink } from "lucide-react";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { TermExplain, ExpandSection, BandeauAudio, TabsApprofondir } from "./Sonor_Composants";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 import { TimelineItem } from "@/components/case/TimelineItem";
@@ -47,6 +48,46 @@ export const TLDRBlockEN = () => (
 export const ContentEN = () => {
   const navigate = useNavigate();
   const tabsRef = useRef<HTMLDivElement>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const galleryImages = [
+    {
+      src: "/img/Sonor-notre-approche.webp",
+      alt: "Mapping dashboard — Hotspots & real-time indicators",
+      caption: "Mapping dashboard — Hotspots & real-time indicators"
+    },
+    {
+      src: "/img/sonor_recommandations.png",
+      alt: "Action recommendations",
+      caption: "Actionable recommendations — Prioritized tasks by zone"
+    },
+    {
+      src: "/img/sonor_issy_marque_blanche.png",
+      alt: "Issy white label",
+      caption: "White-label integration"
+    },
+    {
+      src: "/img/sonor_engagement_citoyen.png",
+      alt: "Citizen engagement",
+      caption: "Citizen engagement — Qualified alert submission"
+    }
+  ];
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleNavigate = (direction: 'prev' | 'next') => {
+    setCurrentImageIndex((prev) => {
+      if (direction === 'prev') {
+        return prev > 0 ? prev - 1 : galleryImages.length - 1;
+      } else {
+        return prev < galleryImages.length - 1 ? prev + 1 : 0;
+      }
+    });
+  };
 
   const scrollToTabs = () => {
     tabsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -271,26 +312,15 @@ export const ContentEN = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <CaseImage
-                alt="Mapping dashboard — Hotspots & real-time indicators"
-                desktopSrc="/img/Sonor-notre-approche.webp"
-                caption="Mapping dashboard — Hotspots & real-time indicators"
-              />
-              <CaseImage
-                alt="Action recommendations"
-                desktopSrc="/img/sonor_recommandations.png"
-                caption="Actionable recommendations — Prioritized tasks by zone"
-              />
-              <CaseImage
-                alt="Issy white label"
-                desktopSrc="/img/sonor_issy_marque_blanche.png"
-                caption="White-label integration"
-              />
-              <CaseImage
-                alt="Citizen engagement"
-                desktopSrc="/img/sonor_engagement_citoyen.png"
-                caption="Citizen engagement — Qualified alert submission"
-              />
+              {galleryImages.map((img, i) => (
+                <CaseImage
+                  key={i}
+                  onClick={() => openLightbox(i)}
+                  desktopSrc={img.src}
+                  alt={img.alt}
+                  caption={img.caption}
+                />
+              ))}
             </div>
 
             {/* Demo link */}
@@ -674,6 +704,15 @@ export const ContentEN = () => {
           />
         </div>
       </div>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={galleryImages}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={handleNavigate}
+      />
     </>
   );
 };
