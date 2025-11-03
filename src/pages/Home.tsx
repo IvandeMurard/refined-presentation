@@ -330,7 +330,7 @@ export const Home: React.FC = () => {
 
                 <div className="mt-4 text-base md:text-lg space-y-3">
                   <p className="font-semibold text-foreground/90 leading-normal transition-opacity">
-                    A passion for food and hospitality developed my taste for designing customer experiences.
+                    A passion for hospitality developed my taste for designing customer experiences.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">
                     My data-driven product and entrepreneurial journey shaped my analytical and technical skills.
