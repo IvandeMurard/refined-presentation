@@ -109,8 +109,8 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 1: CONTEXTUALISATION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0}>
-        <div className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
-          <div id="contexte" className="max-w-6xl mx-auto space-y-10">
+        <div id="contexte" className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
+          <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Contextualisation : La pollution sonore</h2>
 
             {/* Chiffres clés */}
@@ -327,15 +327,13 @@ export const ContentFR = () => {
             </section>
 
             {/* Lien démo avec CTA visuel */}
-            <a
-              href="https://byronbark.github.io/sonor-web-component/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="block p-6 rounded-xl bg-gradient-to-r from-accent/10 to-primary/10 border border-accent/30 hover:border-accent/50 transition-all hover:scale-[1.02]"
-            >
-              <div className="flex items-center justify-between">
-                <div>
-                  <h4 className="font-semibold mb-2 flex items-center gap-2">
+            <div className="relative p-8 rounded-xl overflow-hidden bg-gradient-to-br from-accent/20 via-primary/10 to-accent/5 border border-accent/30 hover:border-accent/50 transition-all group">
+              {/* Background gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              <div className="relative z-10 flex items-center justify-between flex-wrap gap-6">
+                <div className="space-y-2">
+                  <h4 className="text-xl font-semibold flex items-center gap-2">
                     <Play className="w-5 h-5" />
                     Prototype fonctionnel
                   </h4>
@@ -343,9 +341,18 @@ export const ContentFR = () => {
                     Explorez le web component marque-blanche
                   </p>
                 </div>
-                <ExternalLink className="w-6 h-6 text-accent" />
+                <a
+                  href="https://byronbark.github.io/sonor-web-component/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-xl hover:scale-105 hover:shadow-xl transition-all duration-300 font-semibold"
+                >
+                  <Play className="w-5 h-5 fill-current" />
+                  Ouvrir la démo
+                  <ExternalLink className="w-4 h-4" />
+                </a>
               </div>
-            </a>
+            </div>
           </div>
         </div>
       </ScrollRevealSection>
@@ -383,20 +390,28 @@ export const ContentFR = () => {
 
             {/* Chiffres clés */}
             <div className="grid md:grid-cols-4 gap-6">
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">20 000 €</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  20 000 €
+                </div>
                 <div className="text-muted-foreground text-sm">Financements obtenus (3 bourses)</div>
               </div>
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">20+</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  20+
+                </div>
                 <div className="text-muted-foreground text-sm">Entretiens qualitatifs</div>
               </div>
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">3+1</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  3+1
+                </div>
                 <div className="text-muted-foreground text-sm">Versions prototype (Figma + codé)</div>
               </div>
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">8+</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  8+
+                </div>
                 <div className="text-muted-foreground text-sm">Métropoles et villes rencontrées</div>
               </div>
             </div>
@@ -406,8 +421,8 @@ export const ContentFR = () => {
 
       {/* ========== SECTION 7: ÉPILOGUE & APPRENTISSAGES ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.6}>
-        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background lg:ml-72">
-        <div className="max-w-6xl mx-auto space-y-10">
+        <div id="epilogue" className="py-16 px-4 md:px-8 bg-background">
+          <div className="max-w-6xl mx-auto space-y-10">
           <h2 className="text-h3">Épilogue & Apprentissages</h2>
 
           <section className="space-y-6">
@@ -470,7 +485,7 @@ export const ContentFR = () => {
               </div>
             </div>
           </section>
-        </div>
+          </div>
         </div>
       </ScrollRevealSection>
 
