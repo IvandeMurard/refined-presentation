@@ -455,9 +455,9 @@ export const ContentEN = () => {
 
               <div className="grid md:grid-cols-2 gap-4">
                 {/* Practical */}
-                <div className="rounded-xl p-5 bg-card">
-                  <h4 className="font-semibold mb-3">Practical</h4>
-                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                <div className="rounded-xl p-6 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all group hover:shadow-lg hover:scale-[1.01] duration-300">
+                  <h4 className="text-lg font-semibold mb-4">Practical</h4>
+                  <ul className="list-disc pl-5 space-y-3 text-base leading-relaxed">
                     <li>
                       <b>End-to-end 0→1</b>: Complete discovery → prototyping → go-to-market → commercialization
                     </li>
@@ -475,9 +475,9 @@ export const ContentEN = () => {
                 </div>
 
                 {/* Personal */}
-                <div className="rounded-xl p-5 bg-card">
-                  <h4 className="font-semibold mb-3">Personal</h4>
-                  <ul className="list-disc pl-5 space-y-2 text-sm">
+                <div className="rounded-xl p-6 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all group hover:shadow-lg hover:scale-[1.01] duration-300">
+                  <h4 className="text-lg font-semibold mb-4">Personal</h4>
+                  <ul className="list-disc pl-5 space-y-3 text-base leading-relaxed">
                     <li>
                       <b>Appetite for exploration and analysis</b>: Confirmed my taste for in-depth study of complex
                       issues, searching for concrete solutions, and the ability to transform technical learnings and
@@ -515,7 +515,7 @@ export const ContentEN = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Choose 1 MVP from the start</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Rather than a 360° offering, focus on a specific segment (e.g., mapping only) to validate the value
                     proposition quickly.
                   </p>
@@ -523,7 +523,7 @@ export const ContentEN = () => {
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Validate technical complexity before promising</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Build a minimal functional prototype before engaging in commercial discussions to avoid
                     unsustainable promises.
                   </p>
@@ -531,7 +531,7 @@ export const ContentEN = () => {
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Build a functional prototype earlier</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Move from Figma to code as soon as we get initial field feedback to accelerate confrontation with
                     technical and user reality.
                   </p>
@@ -539,7 +539,7 @@ export const ContentEN = () => {
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Focus on a specific customer segment</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Target a specific type of municipality (e.g., mid-sized cities of 50-100k inhabitants) to adapt the
                     pitch and solution to their real constraints.
                   </p>

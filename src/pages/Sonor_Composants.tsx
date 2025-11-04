@@ -106,7 +106,7 @@ export const ExpandSection = ({
         {renderTitle()}
       </button>
       <InlineExpand open={open} ariaId={id}>
-        <div id={`${id}-panel`} className="pt-2 space-y-3 text-sm text-muted-foreground">
+        <div id={`${id}-panel`} className="pt-2 space-y-3 text-base text-foreground/80 leading-relaxed">
           {children}
         </div>
       </InlineExpand>

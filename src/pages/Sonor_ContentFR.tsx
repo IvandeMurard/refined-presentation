@@ -462,9 +462,9 @@ export const ContentFR = () => {
 
             <div className="grid md:grid-cols-2 gap-4">
               {/* Pratiques */}
-              <div className="rounded-xl p-5 bg-card">
-                <h4 className="font-semibold mb-3">Pratiques</h4>
-                <ul className="list-disc pl-5 space-y-2 text-sm">
+              <div className="rounded-xl p-6 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all group hover:shadow-lg hover:scale-[1.01] duration-300">
+                <h4 className="text-lg font-semibold mb-4">Pratiques</h4>
+                <ul className="list-disc pl-5 space-y-3 text-base leading-relaxed">
                   <li><b>End-to-end 0→1</b> : Discovery complète → prototypage → go-to-market → commercialisation</li>
                   <li><b>Priorisation & dire non</b> : Importance de rester focus sur 1 MVP plutôt qu'offre 360°</li>
                   <li><b>B2G go-to-market</b> : Cycles longs, importance d'un prototype fonctionnel à mettre entre les mains du lead</li>
@@ -473,9 +473,9 @@ export const ContentFR = () => {
               </div>
 
               {/* Personnels */}
-              <div className="rounded-xl p-5 bg-card">
-                <h4 className="font-semibold mb-3">Personnels</h4>
-                <ul className="list-disc pl-5 space-y-2 text-sm">
+              <div className="rounded-xl p-6 bg-card/80 backdrop-blur-sm border border-border/50 hover:border-accent/30 transition-all group hover:shadow-lg hover:scale-[1.01] duration-300">
+                <h4 className="text-lg font-semibold mb-4">Personnels</h4>
+                <ul className="list-disc pl-5 space-y-3 text-base leading-relaxed">
                   <li><b>Appétence pour l'exploration et l'analyse</b> : Confirmé mon goût pour l'étude approfondie de problématiques complexes, 
                   la recherche de solutions concrètes, et la capacité à transformer apprentissages techniques et données en réponses adaptées aux besoins terrain</li>
                   <li><b>Produits à impact</b> : Intérêt confirmé pour produits à fort impact sociétal et environnemental</li>
@@ -503,7 +503,7 @@ export const ContentFR = () => {
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Choisir 1 MVP dès le départ</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Plutôt qu'une offre 360°, se concentrer sur un segment précis (ex: cartographie seule) 
                     pour valider la proposition de valeur rapidement.
                   </p>
@@ -511,7 +511,7 @@ export const ContentFR = () => {
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Valider la complexité technique avant de promettre</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Réaliser un prototype fonctionnel minimal avant d'engager des discussions commerciales 
                     pour éviter les promesses non tenables.
                   </p>
@@ -519,7 +519,7 @@ export const ContentFR = () => {
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Construire un prototype fonctionnel plus tôt</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Passer du Figma au code dès les premiers retours terrain pour accélérer 
                     la confrontation avec la réalité technique et utilisateur.
                   </p>
@@ -527,7 +527,7 @@ export const ContentFR = () => {
 
                 <div className="rounded-xl p-5 bg-card border-l-4 border-accent">
                   <h4 className="font-semibold mb-2">Se focaliser sur un segment client précis</h4>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-base text-foreground/80">
                     Cibler un type de collectivité spécifique (ex: villes moyennes de 50-100k habitants) 
                     pour adapter le discours et la solution à leurs contraintes réelles.
                   </p>
