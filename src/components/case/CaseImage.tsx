@@ -13,7 +13,7 @@ export function CaseImage({ alt, desktopSrc, mobileSrc, caption, className, onCl
 
   return (
     <figure 
-      className={`${className ?? "group"} ${onClick ? "cursor-pointer hover:opacity-90 transition-opacity" : ""}`}
+      className={`${className ?? "group"} ${onClick ? "cursor-pointer" : ""}`}
       onClick={onClick}
     >
       <picture>
@@ -22,14 +22,14 @@ export function CaseImage({ alt, desktopSrc, mobileSrc, caption, className, onCl
           src={desktopSrc}
           alt={alt}
           loading="lazy"
-          className="w-full max-h-[500px] object-contain rounded-xl border border-zinc-200 dark:border-zinc-800 shadow-sm bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900"
+          className="w-full max-h-[500px] object-contain rounded-xl border border-border/50 hover:border-accent/40 shadow-sm hover:shadow-lg bg-gradient-to-br from-card/80 to-card transition-all duration-300 hover:scale-[1.02]"
           onError={(e) => {
             (e.currentTarget as HTMLImageElement).src =
               "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='675'><defs><linearGradient id='g' x1='0' x2='1' y1='0' y2='1'><stop offset='0%' stop-color='%23e5e7eb'/><stop offset='100%' stop-color='%23d1d5db'/></linearGradient></defs><rect width='100%' height='100%' fill='url(%23g)'/></svg>";
           }}
         />
       </picture>
-      <figcaption className="mt-3 text-sm text-zinc-600 dark:text-zinc-400 italic">{caption}</figcaption>
+      <figcaption className="mt-3 text-sm text-muted-foreground italic transition-colors group-hover:text-foreground">{caption}</figcaption>
     </figure>
   );
 }
