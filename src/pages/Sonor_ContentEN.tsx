@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Play } from "lucide-react";
 import { ImageLightbox } from "@/components/ImageLightbox";
 import { TermExplain, ExpandSection, BandeauAudio, TabsApprofondir } from "./Sonor_Composants";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
@@ -112,17 +112,23 @@ export const ContentEN = () => {
 
           {/* Key figures */}
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">2nd</div>
-              <div className="text-muted-foreground">Source of urban nuisances in Europe (after air pollution)</div>
+            <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+              <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                2nd
+              </div>
+              <div className="text-muted-foreground text-sm">Source of urban nuisances in Europe (after air pollution)</div>
             </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">25M</div>
-              <div className="text-muted-foreground">French exposed to excessive noise levels (ANSES 2021)</div>
+            <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+              <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                25M
+              </div>
+              <div className="text-muted-foreground text-sm">French exposed to excessive noise levels (ANSES 2021)</div>
             </div>
-            <div className="bg-card p-6 rounded-2xl">
-              <div className="text-4xl font-extrabold mb-2">48K/year</div>
-              <div className="text-muted-foreground">
+            <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+              <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                48K/year
+              </div>
+              <div className="text-muted-foreground text-sm">
                 New cases of heart disease due to excessive noise levels (EEA 2025)
               </div>
             </div>
@@ -193,27 +199,44 @@ export const ContentEN = () => {
           <div className="max-w-6xl mx-auto space-y-10">
             <h2 className="text-h3">Project Timeline</h2>
 
-            <div className="space-y-6">
-              {[
-                { date: "Oct. 2020", title: "Hackathon", desc: "Recoder l'Habitat #2 win → Matrice/BdT incubation" },
-                {
-                  date: "Oct. 2020 - Jan. 2021",
-                  title: "Discovery",
-                  desc: "20+ interviews, private sector exploration",
-                },
-                { date: "Jan. 2021", title: "Pivot", desc: "Strategic decision → focus municipalities" },
-                { date: "Jan. - April 2021", title: "Prototype", desc: "3 Figma versions + white-label evolution" },
-                { date: "May 2021 - March 2022", title: "Go-to-market", desc: "20+ cities, 2 proposals, long cycles" },
-                { date: "March 2022", title: "End", desc: "Funding exhaustion, 0 signature" },
-              ].map((step, i) => (
-                <div key={i} className="flex gap-4">
-                  <div className="flex-shrink-0 w-32 text-right font-semibold text-accent">{step.date}</div>
-                  <div className="flex-1 p-4 rounded-lg bg-card">
-                    <h4 className="font-semibold mb-1">{step.title}</h4>
-                    <p className="text-sm text-muted-foreground">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
+            <div className="space-y-8">
+              <TimelineItem
+                date="Oct. 2020"
+                title="Hackathon"
+                description="Recoder l'Habitat #2 win → Matrice/BdT incubation"
+                index={0}
+              />
+              <TimelineItem
+                date="Oct. 2020 - Jan. 2021"
+                title="Discovery"
+                description="20+ interviews, private sector exploration"
+                index={1}
+              />
+              <TimelineItem
+                date="Jan. 2021"
+                title="Pivot"
+                description="Strategic decision → focus municipalities"
+                index={2}
+              />
+              <TimelineItem
+                date="Jan. - April 2021"
+                title="Prototype"
+                description="3 Figma versions + white-label evolution"
+                index={3}
+              />
+              <TimelineItem
+                date="May 2021 - March 2022"
+                title="Go-to-market"
+                description="20+ cities, 2 proposals, long cycles"
+                index={4}
+              />
+              <TimelineItem
+                date="March 2022"
+                title="End"
+                description="Funding exhaustion, 0 signature"
+                index={5}
+                isLast={true}
+              />
             </div>
             <p className="text-sm text-muted-foreground italic text-center mt-8">
               → Three key moments marked this trajectory...
@@ -324,10 +347,13 @@ export const ContentEN = () => {
             </div>
 
             {/* Demo link */}
-            <div className="p-6 rounded-lg bg-accent/10 border border-accent/20">
-              <div className="flex items-center justify-between flex-wrap gap-4">
-                <div>
-                  <h4 className="font-semibold mb-2">Functional Prototype</h4>
+            <div className="relative p-8 rounded-xl overflow-hidden bg-gradient-to-br from-accent/20 via-primary/10 to-accent/5 border border-accent/30 hover:border-accent/50 transition-all group">
+              {/* Background gradient overlay on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              <div className="relative z-10 flex items-center justify-between flex-wrap gap-6">
+                <div className="space-y-2">
+                  <h4 className="text-xl font-semibold">Functional Prototype</h4>
                   <p className="text-sm text-muted-foreground">
                     Explore the prototype developed for Banque des Territoires
                   </p>
@@ -336,9 +362,11 @@ export const ContentEN = () => {
                   href="https://byronbark.github.io/sonor-web-component/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg hover:bg-accent/90 transition-colors"
+                  className="inline-flex items-center gap-3 px-8 py-4 bg-accent text-accent-foreground rounded-xl hover:scale-105 hover:shadow-xl transition-all duration-300 font-semibold"
                 >
-                  Open demo <ExternalLink className="w-4 h-4" />
+                  <Play className="w-5 h-5 fill-current" />
+                  Open demo
+                  <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
             </div>
@@ -379,20 +407,28 @@ export const ContentEN = () => {
 
             {/* Key figures */}
             <div className="grid md:grid-cols-4 gap-6">
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">€20k</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  €20k
+                </div>
                 <div className="text-muted-foreground text-sm">Funding obtained (2 grants)</div>
               </div>
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">20+</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  20+
+                </div>
                 <div className="text-muted-foreground text-sm">Qualitative interviews</div>
               </div>
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">3+1</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  3+1
+                </div>
                 <div className="text-muted-foreground text-sm">Prototype versions (Figma + coded)</div>
               </div>
-              <div className="bg-card p-6 rounded-2xl">
-                <div className="text-4xl font-extrabold mb-2">8+</div>
+              <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
+                <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
+                  8+
+                </div>
                 <div className="text-muted-foreground text-sm">Metropolises and cities met</div>
               </div>
             </div>
