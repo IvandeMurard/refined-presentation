@@ -2,12 +2,13 @@
 // FICHIER 3/4 : Contenu anglais complet pour le case study SONOR
 // Version conforme aux spécifications validées - English version
 
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
 import { ExternalLink } from "lucide-react";
+import { ImageLightbox } from "@/components/ImageLightbox";
 import { TermExplain, ExpandSection, BandeauAudio, TabsApprofondir } from "./Sonor_Composants";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 import { TimelineItem } from "@/components/case/TimelineItem";
@@ -47,6 +48,46 @@ export const TLDRBlockEN = () => (
 export const ContentEN = () => {
   const navigate = useNavigate();
   const tabsRef = useRef<HTMLDivElement>(null);
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const galleryImages = [
+    {
+      src: "/img/Sonor-notre-approche.webp",
+      alt: "Mapping dashboard — Hotspots & real-time indicators",
+      caption: "Mapping dashboard — Hotspots & real-time indicators"
+    },
+    {
+      src: "/img/sonor_recommandations.png",
+      alt: "Action recommendations",
+      caption: "Actionable recommendations — Prioritized tasks by zone"
+    },
+    {
+      src: "/img/sonor_issy_marque_blanche.png",
+      alt: "Issy white label",
+      caption: "White-label integration"
+    },
+    {
+      src: "/img/sonor_engagement_citoyen.png",
+      alt: "Citizen engagement",
+      caption: "Citizen engagement — Qualified alert submission"
+    }
+  ];
+
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+  };
+
+  const handleNavigate = (direction: 'prev' | 'next') => {
+    setCurrentImageIndex((prev) => {
+      if (direction === 'prev') {
+        return prev > 0 ? prev - 1 : galleryImages.length - 1;
+      } else {
+        return prev < galleryImages.length - 1 ? prev + 1 : 0;
+      }
+    });
+  };
 
   const scrollToTabs = () => {
     tabsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -118,35 +159,29 @@ export const ContentEN = () => {
         </div>
       </div>
 
-      {/* ========== SECTION 1.5: OUR APPROACH ========== */}
+      {/* ========== SECTION 1.5: OUR PRODUCT VISION ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.05}>
-        <div id="our-approach" className="py-16 px-4 md:px-8 bg-card border-b border-border/50">
+        <div id="our-approach" className="py-16 px-4 md:px-8 bg-secondary border-b border-border/50">
           <div className="max-w-6xl mx-auto space-y-10">
-            <h2 className="text-h3">Our Approach</h2>
+            <h2 className="text-h3">Our Product Vision</h2>
 
-            <h3 className="text-xl md:text-2xl text-muted-foreground">
-              Anticipate and act on noise pollution to guarantee the health of residents and the attractiveness of your
-              territories.
-            </h3>
+            <p className="text-base md:text-lg text-muted-foreground">
+              Faced with this observation, we imagined Sonor as a tool enabling 
+              municipalities to anticipate and act on noise pollution.
+            </p>
 
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="rounded-2xl overflow-hidden shadow-lg">
-                <img
-                  src="/img/Sonor-notre-approche.webp"
-                  alt="Our approach to anticipate and act on noise"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-
-              <div className="flex items-center">
-                <div className="text-lg md:text-xl leading-relaxed space-y-4">
-                  <p>
-                    By your side, let's facilitate the attractiveness of your territories and the health of your
-                    residents
-                  </p>
-                  <p>With citizens, let's promote your commitment and co-build tomorrow's public policies</p>
-                </div>
-              </div>
+            <div className="max-w-3xl space-y-4">
+              <p>
+                <b>Our initial value proposition:</b>
+              </p>
+              <ul className="list-disc pl-5 space-y-2">
+                <li>Support municipalities in their anti-noise public policies</li>
+                <li>Co-build with citizens to maximize engagement</li>
+                <li>Provide actionable mapping data</li>
+              </ul>
+              <p className="text-sm text-muted-foreground italic pt-4">
+                → This vision evolved through the strategic pivots detailed below...
+              </p>
             </div>
           </div>
         </div>
@@ -180,6 +215,9 @@ export const ContentEN = () => {
                 </div>
               ))}
             </div>
+            <p className="text-sm text-muted-foreground italic text-center mt-8">
+              → Three key moments marked this trajectory...
+            </p>
           </div>
         </div>
       </ScrollRevealSection>
@@ -194,7 +232,7 @@ export const ContentEN = () => {
               {/* Moment 1 */}
               <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
                 <h3 className="text-h4 mb-3">Strategic pivot: Private sector → Municipalities</h3>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-3">
                   <b>Context:</b> After 3 months private sector exploration, 1st milestone presentation.
                 </p>
                 <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
@@ -202,7 +240,7 @@ export const ContentEN = () => {
                   network to support you."
                   <footer className="text-xs mt-2">— Banque des Territoires / Matrice Advisor</footer>
                 </blockquote>
-                <p className="text-sm">
+                <p className="text-base">
                   <b>Decision:</b> Pivot to public market (cities, metropolises). Internal debate: less "sexy", long
                   processes, but consensus: BdT support decisive.
                 </p>
@@ -211,7 +249,7 @@ export const ContentEN = () => {
               {/* Moment 2 */}
               <div className="p-6 rounded-lg bg-card border-l-4 border-destructive">
                 <h3 className="text-h4 mb-3">The insight that diluted focus</h3>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-3">
                   <b>Context:</b> Discovery, interviews with elected officials.
                 </p>
                 <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
@@ -219,7 +257,7 @@ export const ContentEN = () => {
                   identification of field solutions."
                   <footer className="text-xs mt-2">— Municipality</footer>
                 </blockquote>
-                <p className="text-sm">
+                <p className="text-base">
                   <b>Error:</b> Attempt to meet both needs (platform + human support). Result: Blurred 360° offering,
                   MVP never finalized.
                   <br />
@@ -230,7 +268,7 @@ export const ContentEN = () => {
               {/* Moment 3 */}
               <div className="p-6 rounded-lg bg-card border-l-4 border-accent">
                 <h3 className="text-h4 mb-3">From standalone platform to integrable component</h3>
-                <p className="text-sm mb-3">
+                <p className="text-base mb-3">
                   <b>Context:</b> Prototype presentation (Sonor branding) to Issy-les-Moulineaux.
                 </p>
                 <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
@@ -238,12 +276,15 @@ export const ContentEN = () => {
                   be integrable into our open-data portal."
                   <footer className="text-xs mt-2">— Issy-les-Moulineaux</footer>
                 </blockquote>
-                <p className="text-sm">
+                <p className="text-base">
                   <b>Decision:</b> Pivot to white-label component (full municipality branding adoption). Key issue:{" "}
                   <b>Data sovereignty</b>.
                 </p>
               </div>
             </div>
+            <p className="text-sm text-muted-foreground italic text-center mt-8">
+              → Discover how we materialized this vision into a prototype...
+            </p>
           </div>
         </div>
       </ScrollRevealSection>
@@ -253,32 +294,11 @@ export const ContentEN = () => {
         <div id="prototype-gallery" className="py-16 px-4 md:px-8 bg-secondary">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="space-y-6">
-              <h2 className="text-h3">PROTOTYPE GALLERY</h2>
-
-              {/* Landing Page Introduction Block */}
-              <div className="space-y-4 mb-8">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 text-accent text-xs font-medium">
-                  <span>2020-2021</span>
-                </div>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  To validate Sonor's positioning and communicate the offer to early stakeholders, 
-                  we built a public landing page summarizing the vision, product promise, and early use cases. 
-                  This page acted as both a storytelling tool and a first step in Sonor's go-to-market strategy.
-                </p>
-                <a 
-                  href="https://sonor.dorik.io/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm text-accent hover:text-accent/80 transition-colors group"
-                >
-                  <span>View landing page</span>
-                  <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                </a>
-              </div>
+              <h2 className="text-h3">See our first prototype</h2>
 
               {/* Figma iframe - visible by default */}
               <div className="space-y-4">
-                <h3 className="text-h4">Our Hackathon Prototype</h3>
+                <h3 className="text-h4">Interactive Figma Prototype</h3>
                 <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border/50">
                   <iframe
                     style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
@@ -292,26 +312,15 @@ export const ContentEN = () => {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6">
-              <CaseImage
-                alt="Sonor mapping dashboard"
-                desktopSrc="/img/sonor_cartographie_dashboard.png"
-                caption="Mapping dashboard — Hotspots & real-time indicators"
-              />
-              <CaseImage
-                alt="Action recommendations"
-                desktopSrc="/img/sonor_recommandations.png"
-                caption="Actionable recommendations — Prioritized tasks by zone"
-              />
-              <CaseImage
-                alt="White label"
-                desktopSrc="/img/sonor_issy_marque_blanche.png"
-                caption="White-label integration"
-              />
-              <CaseImage
-                alt="Citizen engagement"
-                desktopSrc="/img/sonor_engagement_citoyen.png"
-                caption="Citizen engagement — Qualified alert submission"
-              />
+              {galleryImages.map((img, i) => (
+                <CaseImage
+                  key={i}
+                  onClick={() => openLightbox(i)}
+                  desktopSrc={img.src}
+                  alt={img.alt}
+                  caption={img.caption}
+                />
+              ))}
             </div>
 
             {/* Demo link */}
@@ -345,14 +354,14 @@ export const ContentEN = () => {
             <div className="space-y-3">
               <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
                 <h4 className="font-semibold mb-2">Open data availability</h4>
-                <p className="text-sm">
+                <p className="text-base">
                   Lack of reliable and standardized open data on noise pollution. Need to normalize heterogeneous
                   sources.
                 </p>
               </div>
               <div className="p-4 rounded-lg bg-card border-l-4 border-destructive">
                 <h4 className="font-semibold mb-2">Underestimated technical complexity</h4>
-                <p className="text-sm">
+                <p className="text-base">
                   Difficulty accessing and processing quality data into an exploitable map. Slowed prototype
                   development.
                 </p>
@@ -695,6 +704,15 @@ export const ContentEN = () => {
           />
         </div>
       </div>
+
+      {/* Lightbox */}
+      <ImageLightbox
+        images={galleryImages}
+        currentIndex={currentImageIndex}
+        isOpen={lightboxOpen}
+        onClose={() => setLightboxOpen(false)}
+        onNavigate={handleNavigate}
+      />
     </>
   );
 };

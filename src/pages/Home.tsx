@@ -85,7 +85,7 @@ const projects: Project[] = [
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",
     bullets: [
       "Simple lifecycle and dashboard to see what matters",
-      'Automatic scoring with LLM-as-a-Judge guardrails for "go/no-go"',
+      "Automatic scoring with LLM-as-a-Judge guardrails for \"go/no-go\"",
       "Issues & recommendations captured for fast iteration",
       "Ready to specialize per domain (UX, data quality, robustness)",
     ],
@@ -251,7 +251,7 @@ export const Home: React.FC = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-80px 0px 0px 0px",
+      rootMargin: '-80px 0px 0px 0px',
       threshold: 0,
     };
 
@@ -330,12 +330,14 @@ export const Home: React.FC = () => {
 
                 <div className="mt-4 text-base md:text-lg space-y-3">
                   <p className="font-semibold text-foreground/90 leading-normal transition-opacity">
-                    A passion for hospitality developed my taste for designing customer experiences.
+                    A passion for food and hospitality developed my taste for customer experience design.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">
-                    My data-driven product and entrepreneurial journey shaped my analytical and technical skills.
+                    My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and collaborative mindset.
                   </p>
-                  <p className="text-muted-foreground leading-normal transition-opacity">Welcome to my portfolio.</p>
+                  <p className="text-muted-foreground leading-normal transition-opacity">
+                    Welcome to my portfolio.
+                  </p>
                   <p className="text-sm italic text-muted-foreground/70 leading-normal transition-opacity">
                     (It's a work-in-progress)
                   </p>
@@ -358,6 +360,7 @@ export const Home: React.FC = () => {
                     Let's meet!
                   </Button>
                 </div>
+
               </div>
 
               {/* Right: photo */}
@@ -384,7 +387,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <GradientBorderSection
+      <GradientBorderSection 
         className="py-8 my-6 shadow-[0_4px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
         borderPosition="both"
         glassEffect={true}
@@ -413,13 +416,7 @@ export const Home: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">Work</h2>
           </div>
 
-          <FilterChips
-            chips={filterChips}
-            activeChip={activeFilter}
-            onChipChange={setActiveFilter}
-            className="mb-12"
-            disableSticky={isStickyDisabled}
-          />
+          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-12" disableSticky={isStickyDisabled} />
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
