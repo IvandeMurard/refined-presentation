@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import CaseTldr from "@/components/case/CaseTldr";
 import { CaseImage } from "@/components/case/CaseImage";
 import { CTABanner } from "@/components/work/CTABanner";
-import { ExternalLink, Play } from "lucide-react";
+import { ExternalLink, Play, Info } from "lucide-react";
 import { ScrollRevealSection } from "@/components/case/ScrollRevealSection";
 import { TimelineItem } from "@/components/case/TimelineItem";
 import { ImageLightbox } from "@/components/ImageLightbox";
@@ -298,15 +298,38 @@ export const ContentFR = () => {
               
               {/* Iframe Figma - visible par défaut */}
               <div className="space-y-4">
-                <h3 className="text-h4">Prototype interactif Figma</h3>
-                <div className="aspect-video bg-muted rounded-lg overflow-hidden border border-border/50">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-h4">Prototype interactif Figma</h3>
+                  <a
+                    href="https://www.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-accent/10 hover:bg-accent/20 text-accent rounded-lg border border-accent/30 hover:border-accent/50 transition-all group"
+                  >
+                    <ExternalLink className="w-4 h-4 group-hover:scale-110 transition-transform" />
+                    <span className="text-sm font-medium">Ouvrir dans Figma</span>
+                  </a>
+                </div>
+                
+                <div className="relative bg-muted rounded-xl overflow-hidden border border-border/50 shadow-lg hover:shadow-xl transition-shadow">
                   <iframe 
                     style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                    width="100%" 
-                    height="450" 
-                    src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&embed-host=share" 
+                    className="w-full h-[600px] md:h-[750px] lg:h-[850px]"
+                    src="https://embed.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=25%3A0&embed-host=share" 
                     allowFullScreen
+                    title="Prototype Figma interactif Sonor"
                   />
+                </div>
+
+                <div className="mt-4 p-4 bg-card/50 rounded-lg border border-border/30">
+                  <p className="text-sm text-foreground/70 flex items-start gap-2">
+                    <Info className="w-4 h-4 mt-0.5 text-accent flex-shrink-0" />
+                    <span>
+                      💡 <b>Astuce :</b> Cliquez sur le prototype pour interagir avec lui. 
+                      Utilisez les contrôles de navigation pour explorer les différents écrans. 
+                      Pour une meilleure expérience, ouvrez-le en plein écran avec le bouton ci-dessus.
+                    </span>
+                  </p>
                 </div>
               </div>
             </div>
