@@ -149,9 +149,9 @@ export const ContentFR = () => {
             </section>
 
             {/* Sources */}
-            <div className="text-sm text-muted-foreground space-y-1">
+            <div className="text-base text-foreground/80 space-y-2">
               <p><b>Sources :</b></p>
-              <ul className="list-disc pl-5 space-y-1">
+              <ul className="list-disc pl-5 space-y-2 leading-relaxed">
                 <li>OMS Europe (2018) : Lignes directrices sur le bruit</li>
                 <li>ANSES (2021) : 25M Français exposés</li>
                 <li>ADEME (2021) : 156 Mds€/an coût social bruit</li>
@@ -168,7 +168,7 @@ export const ContentFR = () => {
           <div className="max-w-6xl mx-auto space-y-8">
             <h2 className="text-h3">Notre vision produit</h2>
             
-            <p className="text-base md:text-lg text-muted-foreground">
+            <p className="text-lg text-foreground/80 leading-relaxed">
               Face à ce constat, nous avons imaginé Sonor comme un outil permettant 
               aux collectivités d'anticiper et d'agir sur le bruit.
             </p>
@@ -177,12 +177,12 @@ export const ContentFR = () => {
               <p>
                 <b>Notre proposition de valeur initiale :</b>
               </p>
-              <ul className="list-disc pl-5 space-y-2">
+              <ul className="list-disc pl-5 space-y-3 text-base leading-relaxed">
                 <li>Accompagner les collectivités dans leurs politiques publiques anti-bruit</li>
                 <li>Co-construire avec les citoyens pour maximiser l'engagement</li>
                 <li>Fournir des données cartographiques actionnables</li>
               </ul>
-              <p className="text-sm text-muted-foreground italic pt-4">
+              <p className="text-base text-foreground/80 italic pt-4">
                 → Cette vision a évolué au fil des pivots stratégiques détaillés ci-dessous...
               </p>
             </div>
@@ -215,7 +215,7 @@ export const ContentFR = () => {
                 />
               ))}
             </div>
-            <p className="text-sm text-muted-foreground italic text-center mt-8">
+            <p className="text-base text-foreground/80 italic text-center mt-8">
               → Trois moments ont marqué cette trajectoire...
             </p>
           </div>
@@ -235,10 +235,10 @@ export const ContentFR = () => {
                 <p className="text-base mb-3">
                   <b>Contexte :</b> Après 3 mois d'exploration d'acteurs privés, présentation du 1er jalon.
                 </p>
-                <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                <blockquote className="italic text-base leading-relaxed border-l-4 border-accent/30 pl-4 mb-3">
                   "Les collectivités ont les compétences et les moyens d'agir durablement sur cette problématique. 
                   Et nous avons le réseau pour vous accompagner."
-                  <footer className="text-xs mt-2">— Conseil Banque des Territoires / Matrice</footer>
+                  <footer className="text-sm mt-2 text-muted-foreground">— Conseil Banque des Territoires / Matrice</footer>
                 </blockquote>
                 <p className="text-base">
                   <b>Décision :</b> Pivoter vers le marché public (villes, métropoles). 
@@ -252,10 +252,10 @@ export const ContentFR = () => {
                 <p className="text-base mb-3">
                   <b>Contexte :</b> Discovery, entretiens élus et chargés de mission.
                 </p>
-                <blockquote className="italic text-sm border-l-4 border-destructive/30 pl-4 mb-3">
+                <blockquote className="italic text-base leading-relaxed border-l-4 border-destructive/30 pl-4 mb-3">
                   "On aimerait surtout de l'accompagnement humain : communication sur nos actions, 
                   sensibilisation des citoyens, identification des solutions terrain."
-                  <footer className="text-xs mt-2">— Collectivité</footer>
+                  <footer className="text-sm mt-2 text-muted-foreground">— Collectivité</footer>
                 </blockquote>
                 <p className="text-base">
                   <b>Erreur :</b> Tentative de répondre aux 2 besoins (plateforme + accompagnement humain). 
@@ -271,10 +271,10 @@ export const ContentFR = () => {
                 <p className="text-base mb-3">
                   <b>Contexte :</b> Présentation du prototype (branding Sonor) à une collectivité.
                 </p>
-                <blockquote className="italic text-sm border-l-4 border-accent/30 pl-4 mb-3">
+                <blockquote className="italic text-base leading-relaxed border-l-4 border-accent/30 pl-4 mb-3">
                   "Votre solution nous intéresse, mais nous ne pouvons pas renvoyer nos citoyens vers un site externe. 
                   Il faudrait que ce soit intégrable à notre portail open-data."
-                  <footer className="text-xs mt-2">— Collectivité</footer>
+                  <footer className="text-sm mt-2 text-muted-foreground">— Collectivité</footer>
                 </blockquote>
                 <p className="text-base">
                   <b>Décision :</b> Pivot vers composant en marque blanche (reprise direction artistique collectivité). 
@@ -282,7 +282,7 @@ export const ContentFR = () => {
                 </p>
               </div>
             </div>
-            <p className="text-sm text-muted-foreground italic text-center mt-8">
+            <p className="text-base text-foreground/80 italic text-center mt-8">
               → Découvrez comment nous avons concrétisé cette vision en prototype...
             </p>
           </div>
@@ -626,7 +626,7 @@ export const ContentFR = () => {
                   <img src="/img/nightingale.PNG" alt="Nightingale" className="h-full object-contain" />
                 </div>
                 <h3 className="text-h4 mb-2 flex-grow">Noisy Cities: Behind the Scenes with Karim Douïeb</h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                <p className="text-base text-foreground/80 leading-relaxed mb-4 flex-grow">
                   Discover how noise pollution open data maps of Paris, Brussels, and New-York were made.
                 </p>
                 <div className="flex items-center gap-2 text-accent text-sm hover:underline underline-offset-4 transition-all">
@@ -645,7 +645,7 @@ export const ContentFR = () => {
                   <img src="/img/philosophie-magazine.svg" alt="Philosophie Magazine" className="h-full object-contain" />
                 </div>
                 <h3 className="text-h4 mb-2 flex-grow">Des silences naturels aux bruits urbains</h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                <p className="text-base text-foreground/80 leading-relaxed mb-4 flex-grow">
                   Enregistrement sonore de la forêt du Risoux pour contraster espace naturel et ville
                 </p>
                 <div className="flex items-center gap-2 text-accent text-sm hover:underline underline-offset-4 transition-all">
@@ -664,7 +664,7 @@ export const ContentFR = () => {
                   <img src="/img/ted-logo.svg" alt="TED" className="h-full object-contain" />
                 </div>
                 <h3 className="text-h4 mb-2 flex-grow">Visualiser les villes bruyantes</h3>
-                <p className="text-sm text-muted-foreground mb-4 flex-grow">
+                <p className="text-base text-foreground/80 leading-relaxed mb-4 flex-grow">
                   TEDx Brussels par Karim Douieb sur la méthodologie dataviz pollution sonore
                 </p>
                 <div className="flex items-center gap-2 text-accent text-sm hover:underline underline-offset-4 transition-all">
