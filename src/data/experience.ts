@@ -2,9 +2,10 @@
 export type ExperienceItem = {
   title: string;
   company: string;
+  companyUrl?: string;
   year?: string;
   description: string;
-  details?: string[];   // pour l’expand inline
+  details?: string[];   // pour l'expand inline
   links?: { label: string; href: string }[];
 };
 
@@ -12,6 +13,7 @@ export const experiences: ExperienceItem[] = [
   {
     title: "Consultant IT Project Manager",
     company: "DOMUSVI",
+    companyUrl: "https://www.domusvi.com/",
     year: "2024",
     description:
       "Delivered a SaaS business tool solution, leading 0→1 conception with various stakeholders",
@@ -25,6 +27,7 @@ export const experiences: ExperienceItem[] = [
   {
     title: "Consultant Data Project Manager",
     company: "BOUYGUES TELECOM",
+    companyUrl: "https://www.corporate.bouyguestelecom.fr/",
     year: "2023",
     description:
       "Led invoice recovery from data aggregation to +40% recovered",
@@ -36,7 +39,8 @@ export const experiences: ExperienceItem[] = [
   },
   {
     title: "Data Project Manager",
-    company: "OPENDATASOFT",
+    company: "HUWISE",
+    companyUrl: "https://www.data.gouv.fr/organizations/huwise/",
     year: "2022",
     description:
       "Accompanied and led 20 cities and metropolises in building their open data portals",
@@ -49,6 +53,7 @@ export const experiences: ExperienceItem[] = [
   {
     title: "Co-founder",
     company: "SONOR",
+    companyUrl: "https://sonor.dorik.io/",
     year: "2020",
     description:
       "Open-data SaaS to help cities reduce noise pollution",

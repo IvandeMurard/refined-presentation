@@ -587,7 +587,19 @@ export const Home: React.FC = () => {
                             <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
                             <div>
                               <h4 className="font-semibold text-foreground">{exp.title}</h4>
-                              <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+                  {exp.companyUrl ? (
+                    <a 
+                      href={exp.companyUrl} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-sm text-accent font-medium uppercase tracking-wider hover:underline hover:text-accent/80 transition-colors inline-block"
+                    >
+                      {exp.company}
+                    </a>
+                  ) : (
+                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
+                  )}
                               <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
                             </div>
                           </div>
