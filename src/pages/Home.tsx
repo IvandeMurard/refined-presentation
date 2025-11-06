@@ -12,7 +12,7 @@ import { CTABanner } from "../components/work/CTABanner";
 import { BuiltWithBanner } from "../components/BuiltWithBanner";
 import { Button } from "../components/ui/button";
 import { Separator } from "../components/ui/separator";
-import { Mail, Linkedin, MessageCircle, ArrowDown } from "lucide-react";
+import { Mail, Linkedin, Calendar, ArrowDown } from "lucide-react";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
@@ -690,7 +690,7 @@ export const Home: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button 
               size="lg" 
-              className="bg-card hover:bg-card/90 text-contact dark:text-white"
+              className="bg-card hover:bg-card/90 text-contact dark:text-white hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300"
               asChild
             >
               <a href={SOCIAL_LINKS.mail.href}>
@@ -700,22 +700,22 @@ export const Home: React.FC = () => {
             </Button>
             <Button 
               size="lg" 
-              className="bg-card text-contact dark:text-white hover:bg-[#0077B5] hover:text-white transition-all duration-300 group"
+              className="bg-card hover:bg-card/90 text-contact dark:text-white hover:text-[#0077B5] hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300 group"
               asChild
             >
               <a href={SOCIAL_LINKS.linkedin.href} target="_blank" rel="noopener noreferrer">
-                <Linkedin className="mr-2 h-5 w-5 group-hover:text-white transition-colors" />
+                <Linkedin className="mr-2 h-5 w-5 group-hover:text-[#0077B5] transition-colors" />
                 LinkedIn
               </a>
             </Button>
             <Button 
               size="lg" 
-              className="bg-card hover:bg-card/90 text-contact dark:text-white"
+              className="bg-card hover:bg-card/90 text-contact dark:text-white hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300"
               asChild
             >
-              <a href={SOCIAL_LINKS.whatsapp.href} target="_blank" rel="noopener noreferrer">
-                <MessageCircle className="mr-2 h-5 w-5" />
-                WhatsApp
+              <a href={SOCIAL_LINKS.calendar.href} target="_blank" rel="noopener noreferrer">
+                <Calendar className="mr-2 h-5 w-5" />
+                Calendar
               </a>
             </Button>
           </div>
