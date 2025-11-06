@@ -9,6 +9,7 @@ type NudgeOpts = {
   enabled?: boolean;
   delayMs?: number;      // par défaut 25000
   scrollPct?: number;    // par défaut 0.8
+  exitIntent?: boolean;  // détection d'exit-intent
 };
 
 type FeedbackWidgetProps = {
@@ -21,6 +22,7 @@ type FeedbackWidgetProps = {
   storageKeys?: {
     shown?: string;      // localStorage key pour nudge
     submitted?: string;  // localStorage key pour submit
+    exitShown?: string;  // localStorage key pour exit-intent
   };
   includeMeta?: boolean; // ajoute page/lang/theme dans la payload
   className?: string;    // hook styling facultatif
@@ -32,8 +34,8 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
   modalTitle,
   submitLabel,
   cancelLabel,
-  nudge = { enabled: true, delayMs: 25000, scrollPct: 0.8 },
-  storageKeys = { shown: "fb_nudge_shown", submitted: "fb_submitted" },
+  nudge = { enabled: true, delayMs: 25000, scrollPct: 0.8, exitIntent: true },
+  storageKeys = { shown: "fb_nudge_shown", submitted: "fb_submitted", exitShown: "fb_exit_shown" },
   includeMeta = true,
   className
 }) => {
@@ -114,6 +116,33 @@ export const FeedbackWidget: React.FC<FeedbackWidgetProps> = ({
       window.removeEventListener("scroll", onScroll);
     };
   }, [nudge, storageKeys]);
+
+  // --- Exit-intent detection
+  useEffect(() => {
+    if (!nudge?.exitIntent) return;
+    if (localStorage.getItem(storageKeys.exitShown!) || localStorage.getItem(storageKeys.submitted!)) return;
+    
+    let hasTriggered = false;
+    
+    const handleMouseLeave = (e: MouseEvent) => {
+      if (e.clientY <= 0 && !hasTriggered) {
+        setTimeout(() => {
+          if (!hasTriggered && !open) {
+            hasTriggered = true;
+            setOpen(true);
+            setNudgeVisible(false);
+            localStorage.setItem(storageKeys.exitShown!, "1");
+          }
+        }, 300);
+      }
+    };
+    
+    document.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, [nudge, storageKeys, open]);
 
   // --- Focus management
   useEffect(() => {
