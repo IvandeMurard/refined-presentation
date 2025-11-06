@@ -55,23 +55,23 @@ export const ContentEN = () => {
     {
       src: "/img/Sonor-notre-approche.webp",
       alt: "Mapping dashboard — Hotspots & real-time indicators",
-      caption: "Mapping dashboard — Hotspots & real-time indicators"
+      caption: "Mapping dashboard — Hotspots & real-time indicators",
     },
     {
       src: "/img/sonor_recommandations.png",
       alt: "Action recommendations",
-      caption: "Actionable recommendations — Prioritized tasks by zone"
+      caption: "Actionable recommendations — Prioritized tasks by zone",
     },
     {
       src: "/img/sonor_issy_marque_blanche.png",
       alt: "Issy white label",
-      caption: "White-label integration"
+      caption: "White-label integration",
     },
     {
       src: "/img/sonor_engagement_citoyen.png",
       alt: "Citizen engagement",
-      caption: "Citizen engagement — Qualified alert submission"
-    }
+      caption: "Citizen engagement — Qualified alert submission",
+    },
   ];
 
   const openLightbox = (index: number) => {
@@ -79,9 +79,9 @@ export const ContentEN = () => {
     setLightboxOpen(true);
   };
 
-  const handleNavigate = (direction: 'prev' | 'next') => {
+  const handleNavigate = (direction: "prev" | "next") => {
     setCurrentImageIndex((prev) => {
-      if (direction === 'prev') {
+      if (direction === "prev") {
         return prev > 0 ? prev - 1 : galleryImages.length - 1;
       } else {
         return prev < galleryImages.length - 1 ? prev + 1 : 0;
@@ -116,7 +116,9 @@ export const ContentEN = () => {
               <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                 2nd
               </div>
-              <div className="text-muted-foreground text-sm">Source of urban nuisances in Europe (after air pollution)</div>
+              <div className="text-muted-foreground text-sm">
+                Source of urban nuisances in Europe (after air pollution)
+              </div>
             </div>
             <div className="bg-card/80 backdrop-blur-sm p-6 rounded-2xl border border-border/50 hover:border-accent/30 transition-colors">
               <div className="text-4xl font-extrabold mb-2 bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
@@ -172,8 +174,8 @@ export const ContentEN = () => {
             <h2 className="text-h3">Our Product Vision</h2>
 
             <p className="text-lg text-foreground/80 leading-relaxed">
-              Faced with this observation, we imagined Sonor as a tool enabling 
-              municipalities to anticipate and act on noise pollution.
+              Faced with this observation, we imagined Sonor as a tool enabling municipalities to anticipate and act on
+              noise pollution.
             </p>
 
             <div className="max-w-3xl space-y-6">
@@ -261,7 +263,9 @@ export const ContentEN = () => {
                 <blockquote className="italic text-base leading-relaxed border-l-4 border-accent/30 pl-4 mb-3">
                   "Municipalities have the skills and resources to act sustainably on this issue. And we have the
                   network to support you."
-                  <footer className="text-sm mt-2 text-muted-foreground">— Banque des Territoires / Matrice Advisor</footer>
+                  <footer className="text-sm mt-2 text-muted-foreground">
+                    — Banque des Territoires / Matrice Advisor
+                  </footer>
                 </blockquote>
                 <p className="text-base">
                   <b>Decision:</b> Pivot to public market (cities, metropolises). Internal debate: less "sexy", long
@@ -322,7 +326,7 @@ export const ContentEN = () => {
               {/* Figma iframe - visible by default */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-h4">Interactive Figma Prototype</h3>
+                  <h3 className="text-h4">Interactive Figma Prototype - 2020</h3>
                   <a
                     href="https://www.figma.com/proto/OcBu81qdpjpPdjHQPA6oae/Sonor-Site-Mairie?node-id=25-0"
                     target="_blank"
@@ -333,7 +337,7 @@ export const ContentEN = () => {
                     <span className="text-sm font-medium">Open in Figma</span>
                   </a>
                 </div>
-                
+
                 <div className="relative bg-muted rounded-xl overflow-hidden border border-border/50 shadow-lg hover:shadow-xl transition-shadow">
                   <iframe
                     style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
@@ -348,9 +352,8 @@ export const ContentEN = () => {
                   <p className="text-sm text-foreground/70 flex items-start gap-2">
                     <Info className="w-4 h-4 mt-0.5 text-accent flex-shrink-0" />
                     <span>
-                      💡 <b>Tip:</b> Click on the prototype to interact with it. 
-                      Use the navigation controls to explore different screens. 
-                      For the best experience, open it in full screen using the button above.
+                      💡 <b>Tip:</b> Click on the prototype to interact with it. Use the navigation controls to explore
+                      different screens. For the best experience, open it in full screen using the button above.
                     </span>
                   </p>
                 </div>
@@ -373,7 +376,7 @@ export const ContentEN = () => {
             <div className="relative p-8 rounded-xl overflow-hidden bg-gradient-to-br from-accent/20 via-primary/10 to-accent/5 border border-accent/30 hover:border-accent/50 transition-all group">
               {/* Background gradient overlay on hover */}
               <div className="absolute inset-0 bg-gradient-to-br from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              
+
               <div className="relative z-10 flex items-center justify-between flex-wrap gap-6">
                 <div className="space-y-2">
                   <h4 className="text-xl font-semibold">Functional Prototype</h4>
@@ -526,7 +529,10 @@ export const ContentEN = () => {
 
       {/* ========== SECTION 8: IF I HAD TO DO IT AGAIN ========== */}
       <ScrollRevealSection variant="fade-in-up" delay={0.8}>
-        <div id="if-i-had-to-do-it-again" className="py-16 px-4 md:px-8 lg:px-12 bg-background border-b border-border/50">
+        <div
+          id="if-i-had-to-do-it-again"
+          className="py-16 px-4 md:px-8 lg:px-12 bg-background border-b border-border/50"
+        >
           <div className="max-w-6xl mx-auto space-y-8">
             <h2 className="text-h3">If I Had to Do It Again</h2>
 
