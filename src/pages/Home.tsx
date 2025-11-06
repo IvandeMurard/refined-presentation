@@ -12,7 +12,7 @@ import { CTABanner } from "../components/work/CTABanner";
 import { BuiltWithBanner } from "../components/BuiltWithBanner";
 import { Button } from "../components/ui/button";
 import { Separator } from "../components/ui/separator";
-import { Mail, Linkedin, Calendar, ArrowDown } from "lucide-react";
+import { Mail, Linkedin, Calendar, ArrowDown, ChevronDown } from "lucide-react";
 import { sonorCase } from "../data/cases/sonor.case";
 import wttjHero from "@/assets/wttj-hero.png";
 import wttjLogo from "@/assets/wttj-logo.svg";
@@ -578,14 +578,14 @@ export const Home: React.FC = () => {
                       </div>
                       <div className="flex-1 space-y-2">
                         <button
-                          className="w-full text-left"
+                          className="w-full text-left p-3 -m-3 rounded-lg hover:bg-card/50 hover:shadow-sm transition-all duration-300 cursor-pointer"
                           onClick={() => expExpand.toggle(id)}
                           aria-expanded={isOpen}
                           aria-controls={`${id}-panel`}
                         >
                           <div className="flex items-start gap-2">
                             <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                            <div>
+                            <div className="flex-1">
                               <h4 className="font-semibold text-foreground">{exp.title}</h4>
                   {exp.companyUrl ? (
                     <a 
@@ -602,6 +602,11 @@ export const Home: React.FC = () => {
                   )}
                               <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
                             </div>
+                            <ChevronDown 
+                              className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 mt-1 ${
+                                isOpen ? 'rotate-180' : ''
+                              }`}
+                            />
                           </div>
                         </button>
 
