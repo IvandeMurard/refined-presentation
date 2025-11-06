@@ -22,6 +22,7 @@ import { CommunitiesInspoResourcesTools } from "@/components/sections/Communitie
 import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
 import { experiences } from "@/data/experience";
+import { SOCIAL_LINKS } from "@/site.config";
 
 interface Project {
   id: string;
@@ -687,17 +688,35 @@ export const Home: React.FC = () => {
           <p className="text-lg max-w-2xl mx-auto opacity-90">Let's explore opportunities together.</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="bg-card hover:bg-card/90 text-contact dark:text-white">
-              <Mail className="mr-2 h-5 w-5" />
-              Email
+            <Button 
+              size="lg" 
+              className="bg-card hover:bg-card/90 text-contact dark:text-white"
+              asChild
+            >
+              <a href={SOCIAL_LINKS.mail.href}>
+                <Mail className="mr-2 h-5 w-5" />
+                Email
+              </a>
             </Button>
-            <Button size="lg" className="bg-card hover:bg-card/90 text-contact dark:text-white">
-              <Linkedin className="mr-2 h-5 w-5" />
-              LinkedIn
+            <Button 
+              size="lg" 
+              className="bg-card text-contact dark:text-white hover:bg-[#0077B5] hover:text-white transition-all duration-300 group"
+              asChild
+            >
+              <a href={SOCIAL_LINKS.linkedin.href} target="_blank" rel="noopener noreferrer">
+                <Linkedin className="mr-2 h-5 w-5 group-hover:text-white transition-colors" />
+                LinkedIn
+              </a>
             </Button>
-            <Button size="lg" className="bg-card hover:bg-card/90 text-contact dark:text-white">
-              <MessageCircle className="mr-2 h-5 w-5" />
-              WhatsApp
+            <Button 
+              size="lg" 
+              className="bg-card hover:bg-card/90 text-contact dark:text-white"
+              asChild
+            >
+              <a href={SOCIAL_LINKS.whatsapp.href} target="_blank" rel="noopener noreferrer">
+                <MessageCircle className="mr-2 h-5 w-5" />
+                WhatsApp
+              </a>
             </Button>
           </div>
         </div>
