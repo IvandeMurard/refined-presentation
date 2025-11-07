@@ -16,8 +16,8 @@ export function ProgressIndicator({ sections }: ProgressIndicatorProps) {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-50% 0px -50% 0px",
-      threshold: 0,
+      rootMargin: "-20% 0px -70% 0px",
+      threshold: 0.15,
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
