@@ -67,8 +67,8 @@ export function ProgressIndicator({ sections }: ProgressIndicatorProps) {
               >
                 {/* Dot */}
                 <motion.div
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                    isActive ? "bg-primary" : "bg-muted-foreground/30"
+                  className={`w-2 h-2 rounded-full transition-colors duration-300 ring-2 ring-white/90 shadow-[0_0_8px_rgba(255,255,255,0.3)] ${
+                    isActive ? "bg-primary" : "bg-muted-foreground/40"
                   }`}
                   animate={{
                     scale: isActive ? 1.5 : 1,
