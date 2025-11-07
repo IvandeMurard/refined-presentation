@@ -330,17 +330,7 @@ export const Home: React.FC = () => {
             <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
               {/* Left: titles + subtitle + buttons + pills */}
               <div className="text-left">
-                {/* Badge social proof */}
-                <motion.div
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.15, duration: 0.4 }}
-                >
-                  <span className="text-sm font-medium text-primary">5+ years • 0→1 products</span>
-                </motion.div>
-
-                <motion.h1 
+                <motion.h1
                   className="text-4xl md:text-5xl font-bold text-foreground leading-tight"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -357,6 +347,16 @@ export const Home: React.FC = () => {
                   Zero-to-One Product Manager
                 </motion.p>
 
+                {/* Badge social proof */}
+                <motion.div
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mt-3"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.25, duration: 0.4 }}
+                >
+                  <span className="text-sm font-medium text-primary">5+ years • 0→1 products</span>
+                </motion.div>
+
                 <div className="mt-4 text-base md:text-lg space-y-3">
                   <p className="text-foreground/80 leading-normal transition-opacity">
                     Hospitality and retail taught me one lesson: great products feel effortless.
@@ -371,7 +371,12 @@ export const Home: React.FC = () => {
                 </div>
 
                 {/* Desktop buttons */}
-                <div className="mt-5 flex gap-3">
+                <motion.div 
+                  className="mt-5 flex gap-3"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.4, duration: 0.5 }}
+                >
                   <Button
                     size="default"
                     className="bg-primary hover:bg-primary/90 text-primary-foreground"
@@ -386,24 +391,8 @@ export const Home: React.FC = () => {
                   >
                     Let's meet!
                   </Button>
-                </div>
-
-                {/* Scroll hint */}
-                <motion.div
-                  className="mt-6 flex justify-center md:justify-start"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.8, duration: 0.5 }}
-                >
-                  <motion.div
-                    animate={{ y: [0, 8, 0] }}
-                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
-                    className="cursor-pointer"
-                    onClick={() => scrollToSection("work")}
-                  >
-                    <ArrowDown className="w-6 h-6 text-muted-foreground/60" />
-                  </motion.div>
                 </motion.div>
+
               </div>
 
               {/* Right: photo */}
@@ -429,6 +418,23 @@ export const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+          </motion.div>
+
+          {/* Scroll hint - hors carte */}
+          <motion.div
+            className="mt-8 mb-4 flex justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1, duration: 0.5 }}
+          >
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="cursor-pointer"
+              onClick={() => scrollToSection("work")}
+            >
+              <ArrowDown className="w-6 h-6 text-muted-foreground/60" />
+            </motion.div>
           </motion.div>
         </div>
       </section>
