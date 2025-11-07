@@ -371,10 +371,11 @@ export const Home: React.FC = () => {
 
                 <div className="mt-4 text-base md:text-lg space-y-3">
                   <p className="text-foreground/80 leading-normal transition-opacity">
-                    Hospitality and retail taught me one lesson: great products feel effortless.
+                    Hospitality and retail taught me the importance of a great experience.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">
-                    My data-driven product and entrepreneurial journey shaped my analytical and collaborative mindset.
+                    While my product data-driven and entrepreneurial journey shaped my analytical and collaborative
+                    mindset.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">Welcome to my portfolio.</p>
                   <p className="text-sm italic text-muted-foreground/70 leading-normal transition-opacity">
