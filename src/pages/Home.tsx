@@ -86,7 +86,7 @@ const projects: Project[] = [
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",
     bullets: [
       "Simple lifecycle and dashboard to see what matters",
-      "Automatic scoring with LLM-as-a-Judge guardrails for \"go/no-go\"",
+      'Automatic scoring with LLM-as-a-Judge guardrails for "go/no-go"',
       "Issues & recommendations captured for fast iteration",
       "Ready to specialize per domain (UX, data quality, robustness)",
     ],
@@ -252,7 +252,7 @@ export const Home: React.FC = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: '-80px 0px 0px 0px',
+      rootMargin: "-80px 0px 0px 0px",
       threshold: 0,
     };
 
@@ -334,11 +334,9 @@ export const Home: React.FC = () => {
                     A passion for food and hospitality developed my taste for customer experience design.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">
-                    My data-driven product and entrepreneurial journey shaped my analytical, exploratory, and collaborative mindset.
+                    My data-driven product and entrepreneurial journey shaped my analytical and collaborative mindset.
                   </p>
-                  <p className="text-muted-foreground leading-normal transition-opacity">
-                    Welcome to my portfolio.
-                  </p>
+                  <p className="text-muted-foreground leading-normal transition-opacity">Welcome to my portfolio.</p>
                   <p className="text-sm italic text-muted-foreground/70 leading-normal transition-opacity">
                     (It's a work-in-progress)
                   </p>
@@ -361,7 +359,6 @@ export const Home: React.FC = () => {
                     Let's meet!
                   </Button>
                 </div>
-
               </div>
 
               {/* Right: photo */}
@@ -388,7 +385,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <GradientBorderSection 
+      <GradientBorderSection
         className="py-8 my-6 shadow-[0_4px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
         borderPosition="both"
         glassEffect={true}
@@ -417,7 +414,13 @@ export const Home: React.FC = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-foreground">Work</h2>
           </div>
 
-          <FilterChips chips={filterChips} activeChip={activeFilter} onChipChange={setActiveFilter} className="mb-12" disableSticky={isStickyDisabled} />
+          <FilterChips
+            chips={filterChips}
+            activeChip={activeFilter}
+            onChipChange={setActiveFilter}
+            className="mb-12"
+            disableSticky={isStickyDisabled}
+          />
 
           {/* Mobile/Tablet: Grid Layout */}
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
@@ -588,25 +591,27 @@ export const Home: React.FC = () => {
                             <div className="flex-1">
                               <div className="flex items-center gap-2">
                                 <h4 className="font-semibold text-foreground">{exp.title}</h4>
-                                <ChevronDown 
+                                <ChevronDown
                                   className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
-                                    isOpen ? 'rotate-180' : ''
+                                    isOpen ? "rotate-180" : ""
                                   }`}
                                 />
                               </div>
-                  {exp.companyUrl ? (
-                    <a 
-                      href={exp.companyUrl} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="text-sm text-accent font-medium uppercase tracking-wider hover:underline hover:text-accent/80 transition-colors inline-block"
-                    >
-                      {exp.company}
-                    </a>
-                  ) : (
-                    <p className="text-sm text-accent font-medium uppercase tracking-wider">{exp.company}</p>
-                  )}
+                              {exp.companyUrl ? (
+                                <a
+                                  href={exp.companyUrl}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="text-sm text-accent font-medium uppercase tracking-wider hover:underline hover:text-accent/80 transition-colors inline-block"
+                                >
+                                  {exp.company}
+                                </a>
+                              ) : (
+                                <p className="text-sm text-accent font-medium uppercase tracking-wider">
+                                  {exp.company}
+                                </p>
+                              )}
                               <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
                             </div>
                           </div>
@@ -707,8 +712,8 @@ export const Home: React.FC = () => {
           <p className="text-lg max-w-2xl mx-auto opacity-90">Let's explore opportunities together.</p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-card hover:bg-card/90 text-contact dark:text-white hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300"
               asChild
             >
@@ -717,8 +722,8 @@ export const Home: React.FC = () => {
                 Email
               </a>
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-card hover:bg-card/90 text-contact dark:text-white hover:text-[#0077B5] hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300 group"
               asChild
             >
@@ -727,8 +732,8 @@ export const Home: React.FC = () => {
                 LinkedIn
               </a>
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="bg-card hover:bg-card/90 text-contact dark:text-white hover:scale-105 hover:shadow-xl active:scale-95 transition-all duration-300"
               asChild
             >
