@@ -585,8 +585,15 @@ export const Home: React.FC = () => {
                         >
                           <div className="flex items-start gap-2">
                             <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                            <div>
-                              <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                            <div className="flex-1">
+                              <div className="flex items-center gap-2">
+                                <h4 className="font-semibold text-foreground">{exp.title}</h4>
+                                <ChevronDown 
+                                  className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 ${
+                                    isOpen ? 'rotate-180' : ''
+                                  }`}
+                                />
+                              </div>
                   {exp.companyUrl ? (
                     <a 
                       href={exp.companyUrl} 
@@ -602,11 +609,6 @@ export const Home: React.FC = () => {
                   )}
                               <p className="text-sm text-muted-foreground mt-1">{exp.description}</p>
                             </div>
-                            <ChevronDown 
-                              className={`w-5 h-5 text-muted-foreground transition-transform duration-300 flex-shrink-0 mt-1 ${
-                                isOpen ? 'rotate-180' : ''
-                              }`}
-                            />
                           </div>
                         </button>
 
