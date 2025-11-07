@@ -560,7 +560,7 @@ export const Home: React.FC = () => {
           {/* Inter-section teaser */}
           <div className="text-center mt-12 mb-6">
             <p className="text-sm text-muted-foreground">
-              💡 <span className="font-medium">Speed thrills you?</span> See how I build products in 48 hours below.
+              💡 <span className="font-medium">Speed thrills you?</span>
             </p>
           </div>
 
@@ -571,7 +571,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("hackathons")}
             >
-              See how I won 2 hackathons
+              See how I build products in 48 hours
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -606,7 +606,7 @@ export const Home: React.FC = () => {
           {/* Inter-section teaser */}
           <div className="text-center mt-12 mb-6">
             <p className="text-sm text-muted-foreground">
-              🚀 <span className="font-medium">Want the full story?</span> Discover my 5-year PM journey.
+              🚀 <span className="font-medium">Want the full story?</span>
             </p>
           </div>
 
@@ -766,7 +766,7 @@ export const Home: React.FC = () => {
           {/* Inter-section teaser */}
           <div className="text-center mt-12 mb-6">
             <p className="text-sm text-muted-foreground">
-              🔧 <span className="font-medium">Curious about my stack?</span> Explore my toolkit below.
+              🔧 <span className="font-medium">Curious about my stack?</span>
             </p>
           </div>
 
