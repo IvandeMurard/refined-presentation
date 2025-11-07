@@ -317,7 +317,7 @@ export const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
-      
+
       <ProgressIndicator
         sections={[
           { id: "hero", label: "Hero" },
@@ -333,7 +333,7 @@ export const Home: React.FC = () => {
       <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
         <div className="mx-auto max-w-[900px] w-full">
           {/* Glass Card */}
-          <motion.div 
+          <motion.div
             className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -350,7 +350,7 @@ export const Home: React.FC = () => {
                 >
                   Ivan de Murard
                 </motion.h1>
-                <motion.p 
+                <motion.p
                   className="mt-2 text-xl md:text-2xl font-bold text-foreground"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -383,7 +383,7 @@ export const Home: React.FC = () => {
                 </div>
 
                 {/* Desktop buttons */}
-                <motion.div 
+                <motion.div
                   className="mt-5 flex gap-3"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -404,7 +404,6 @@ export const Home: React.FC = () => {
                     Let's meet!
                   </Button>
                 </motion.div>
-
               </div>
 
               {/* Right: photo */}
@@ -572,7 +571,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("hackathons")}
             >
-              See how I won 2 hackathons in 48h
+              See how I won 2 hackathons
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
