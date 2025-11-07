@@ -10,6 +10,7 @@ export interface Tool {
   url: string | null;
   logo_url: string | null;
   referral_link: string | null;
+  feedback: string | null;
 }
 
 export interface Resource {

@@ -196,6 +196,7 @@ export type Database = {
           category: string
           created_at: string
           description: string
+          feedback: string | null
           id: string
           logo_url: string | null
           name: string
@@ -207,6 +208,7 @@ export type Database = {
           category: string
           created_at?: string
           description: string
+          feedback?: string | null
           id?: string
           logo_url?: string | null
           name: string
@@ -218,6 +220,7 @@ export type Database = {
           category?: string
           created_at?: string
           description?: string
+          feedback?: string | null
           id?: string
           logo_url?: string | null
           name?: string

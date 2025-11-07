@@ -12,6 +12,7 @@ import {
   resources,
   tools,
 } from "@/data/inspirationsToolsMerged";
+import { ToolsTable } from "./ToolsTable";
 
 const TABS = [
   { id: "communities", label: "Communities" },
@@ -69,24 +70,53 @@ export function CommunitiesInspoResourcesTools() {
           className="mb-8"
         />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.map((item) => (
-            <ZoomContextCard
-              key={item.id}
-              id={item.id}
-              title={item.title}
-              subtitle={item.subtitle}
-              logo={item.logo}
-              excerpt={item.excerpt}
-              comment={item.comment}
-              link={item.link as string}
-              media={item.media}
-              tags={item.tags}
-              open={openId === item.id}
-              onToggle={toggle}
-            />
-          ))}
-        </div>
+        {active === "tools" ? (
+          <>
+            {/* Desktop: Table view */}
+            <div className="hidden lg:block">
+              <ToolsTable />
+            </div>
+            
+            {/* Mobile: Fallback to cards */}
+            <div className="block lg:hidden grid md:grid-cols-2 gap-6">
+              {data.map((item) => (
+                <ZoomContextCard
+                  key={item.id}
+                  id={item.id}
+                  title={item.title}
+                  subtitle={item.subtitle}
+                  logo={item.logo}
+                  excerpt={item.excerpt}
+                  comment={item.comment}
+                  link={item.link as string}
+                  media={item.media}
+                  tags={item.tags}
+                  open={openId === item.id}
+                  onToggle={toggle}
+                />
+              ))}
+            </div>
+          </>
+        ) : (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {data.map((item) => (
+              <ZoomContextCard
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                subtitle={item.subtitle}
+                logo={item.logo}
+                excerpt={item.excerpt}
+                comment={item.comment}
+                link={item.link as string}
+                media={item.media}
+                tags={item.tags}
+                open={openId === item.id}
+                onToggle={toggle}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="flex justify-center mt-12">
           <Button
