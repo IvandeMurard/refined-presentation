@@ -51,7 +51,7 @@ export function ProgressIndicator({ sections }: ProgressIndicatorProps) {
 
   return (
     <nav
-      className="fixed left-8 top-1/2 -translate-y-1/2 z-40 hidden xl:block"
+      className="fixed right-8 top-1/2 -translate-y-1/2 z-40 hidden xl:block"
       aria-label="Page navigation"
     >
       <ul className="space-y-4">
@@ -81,10 +81,10 @@ export function ProgressIndicator({ sections }: ProgressIndicatorProps) {
 
                 {/* Label (visible on hover, focus or when active) */}
                 <span
-                  className={`absolute left-6 whitespace-nowrap text-sm px-2 py-1 rounded-md transition-all duration-300 ${
+                  className={`absolute right-6 whitespace-nowrap text-sm px-2 py-1 rounded-md transition-all duration-300 ${
                     isActive
-                      ? "opacity-100 translate-x-0 bg-primary/20 text-primary font-bold underline decoration-2 underline-offset-2"
-                      : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-focus-within:opacity-100 group-focus-within:translate-x-0 bg-background/95 text-foreground/80 font-medium"
+                      ? "opacity-100 translate-x-0 bg-primary/20 text-primary font-bold"
+                      : "opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-focus-within:opacity-100 group-focus-within:translate-x-0 bg-background/95 text-foreground/80 font-medium"
                   }`}
                 >
                   {section.label}
