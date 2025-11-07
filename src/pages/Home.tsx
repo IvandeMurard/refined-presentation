@@ -24,6 +24,7 @@ import { useInlineExpand } from "@/hooks/useInlineExpand";
 import { InlineExpand } from "@/components/InlineExpand";
 import { experiences } from "@/data/experience";
 import { SOCIAL_LINKS } from "@/site.config";
+import { ProgressIndicator } from "@/components/ProgressIndicator";
 
 interface Project {
   id: string;
@@ -316,6 +317,17 @@ export const Home: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
+      
+      <ProgressIndicator
+        sections={[
+          { id: "hero", label: "Hero" },
+          { id: "work", label: "Work" },
+          { id: "hackathons", label: "Hackathons" },
+          { id: "experience", label: "Experience" },
+          { id: "resources", label: "Resources" },
+          { id: "contact", label: "Contact" },
+        ]}
+      />
 
       {/* Hero Section */}
       <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
@@ -546,6 +558,13 @@ export const Home: React.FC = () => {
             </CarouselRow>
           </div>
 
+          {/* Inter-section teaser */}
+          <div className="text-center mt-12 mb-6">
+            <p className="text-sm text-muted-foreground">
+              💡 <span className="font-medium">Speed thrills you?</span> See how I build products in 48 hours below.
+            </p>
+          </div>
+
           <div className="flex justify-center">
             <Button
               variant="outline"
@@ -553,7 +572,7 @@ export const Home: React.FC = () => {
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("hackathons")}
             >
-              EXPLORE HACKATHONS
+              See how I won 2 hackathons in 48h
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -585,14 +604,21 @@ export const Home: React.FC = () => {
             ))}
           </div>
 
-          <div className="flex justify-center mt-12">
+          {/* Inter-section teaser */}
+          <div className="text-center mt-12 mb-6">
+            <p className="text-sm text-muted-foreground">
+              🚀 <span className="font-medium">Want the full story?</span> Discover my 5-year PM journey.
+            </p>
+          </div>
+
+          <div className="flex justify-center">
             <Button
               variant="outline"
               size="lg"
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => scrollToSection("experience")}
             >
-              VIEW EXPERIENCE
+              Discover my 5-year PM journey
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -738,15 +764,22 @@ export const Home: React.FC = () => {
             )}
           </div>
 
+          {/* Inter-section teaser */}
+          <div className="text-center mt-12 mb-6">
+            <p className="text-sm text-muted-foreground">
+              🔧 <span className="font-medium">Curious about my stack?</span> Explore my toolkit below.
+            </p>
+          </div>
+
           {/* CTA vers la section Resources/Communautés (dans la page) */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center">
             <Button
               variant="outline"
               size="lg"
               className="group hover:bg-primary hover:text-primary-foreground hover:border-primary transition-all duration-300"
               onClick={() => document.getElementById("resources")?.scrollIntoView({ behavior: "smooth" })}
             >
-              EXPLORE RESOURCES
+              Check my toolkit & inspiration sources
               <ArrowDown className="ml-2 h-4 w-4 group-hover:animate-bounce" />
             </Button>
           </div>
@@ -795,6 +828,18 @@ export const Home: React.FC = () => {
                 <Calendar className="mr-2 h-5 w-5" />
                 Calendar
               </a>
+            </Button>
+          </div>
+
+          {/* Action A: Fix Dead End - Back to top CTA */}
+          <div className="mt-12 pt-8 border-t border-contact-foreground/20">
+            <Button
+              variant="ghost"
+              size="lg"
+              className="text-contact-foreground/80 hover:text-contact-foreground hover:bg-contact-foreground/10 transition-all duration-300"
+              onClick={() => scrollToSection("hero")}
+            >
+              ↑ Back to top
             </Button>
           </div>
         </div>
