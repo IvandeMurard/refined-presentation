@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { Navigation } from "../components/Navigation";
 import { Footer } from "@/components/footer";
@@ -320,18 +321,45 @@ export const Home: React.FC = () => {
       <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
         <div className="mx-auto max-w-[900px] w-full">
           {/* Glass Card */}
-          <div className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10">
+          <motion.div 
+            className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+          >
             <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
               {/* Left: titles + subtitle + buttons + pills */}
               <div className="text-left">
-                <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
-                <p className="mt-2 text-xl md:text-2xl font-medium text-muted-foreground">
+                {/* Badge social proof */}
+                <motion.div
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-4"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.15, duration: 0.4 }}
+                >
+                  <span className="text-sm font-medium text-primary">5+ years • 0→1 products</span>
+                </motion.div>
+
+                <motion.h1 
+                  className="text-4xl md:text-5xl font-bold text-foreground leading-tight"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1, duration: 0.5 }}
+                >
+                  Ivan de Murard
+                </motion.h1>
+                <motion.p 
+                  className="mt-2 text-xl md:text-2xl font-bold text-foreground"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2, duration: 0.5 }}
+                >
                   Zero-to-One Product Manager
-                </p>
+                </motion.p>
 
                 <div className="mt-4 text-base md:text-lg space-y-3">
-                  <p className="font-semibold text-foreground/90 leading-normal transition-opacity">
-                    A passion for food and hospitality developed my taste for customer experience design.
+                  <p className="text-foreground/80 leading-normal transition-opacity">
+                    Hospitality and retail taught me one lesson: great products feel effortless.
                   </p>
                   <p className="text-muted-foreground leading-normal transition-opacity">
                     My data-driven product and entrepreneurial journey shaped my analytical and collaborative mindset.
@@ -359,15 +387,35 @@ export const Home: React.FC = () => {
                     Let's meet!
                   </Button>
                 </div>
+
+                {/* Scroll hint */}
+                <motion.div
+                  className="mt-6 flex justify-center md:justify-start"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.8, duration: 0.5 }}
+                >
+                  <motion.div
+                    animate={{ y: [0, 8, 0] }}
+                    transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+                    className="cursor-pointer"
+                    onClick={() => scrollToSection("work")}
+                  >
+                    <ArrowDown className="w-6 h-6 text-muted-foreground/60" />
+                  </motion.div>
+                </motion.div>
               </div>
 
               {/* Right: photo */}
               <div className="flex justify-center md:justify-end">
                 <div className="w-full max-w-[220px]">
-                  <figure
+                  <motion.figure
                     aria-label="Portrait Ivan de Murard"
-                    className="relative aspect-square w-full rounded-2xl overflow-hidden
-                       shadow-xl"
+                    className="relative aspect-square w-full rounded-2xl overflow-hidden shadow-xl"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.3, duration: 0.6 }}
+                    whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
                   >
                     <img
                       src="/img/profile_picture.jpg"
@@ -376,12 +424,12 @@ export const Home: React.FC = () => {
                       loading="eager"
                       decoding="async"
                     />
-                  </figure>
+                  </motion.figure>
                   <p className="text-sm text-muted-foreground text-center mt-3">Usually replies in &lt;24h</p>
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
