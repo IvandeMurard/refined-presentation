@@ -63,7 +63,7 @@ export function ProgressIndicator({ sections }: ProgressIndicatorProps) {
                 onClick={() => scrollToSection(section.id)}
                 className="group relative flex items-center gap-3"
                 aria-label={`Navigate to ${section.label}`}
-                aria-current={isActive ? "true" : "false"}
+                aria-current={isActive ? "location" : undefined}
               >
                 {/* Dot */}
                 <motion.div
@@ -79,12 +79,12 @@ export function ProgressIndicator({ sections }: ProgressIndicatorProps) {
                   transition={{ duration: 0.3 }}
                 />
 
-                {/* Label (visible on hover or when active) */}
+                {/* Label (visible on hover, focus or when active) */}
                 <span
-                  className={`absolute left-6 whitespace-nowrap text-xs font-medium px-2 py-1 rounded-md transition-all duration-300 ${
+                  className={`absolute left-6 whitespace-nowrap text-sm px-2 py-1 rounded-md transition-all duration-300 ${
                     isActive
-                      ? "opacity-100 translate-x-0 bg-primary/10 text-primary"
-                      : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 bg-muted/80 text-muted-foreground"
+                      ? "opacity-100 translate-x-0 bg-primary/20 text-primary font-bold underline decoration-2 underline-offset-2"
+                      : "opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-focus-within:opacity-100 group-focus-within:translate-x-0 bg-background/95 text-foreground/80 font-medium"
                   }`}
                 >
                   {section.label}
