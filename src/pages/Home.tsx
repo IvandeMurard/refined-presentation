@@ -595,7 +595,9 @@ export const Home: React.FC = () => {
                     <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
                     <div>
                       <h3 className="font-semibold text-foreground">{hack.title}</h3>
-                      <p className="text-sm text-accent font-medium">{hack.status}</p>
+                      <p className="text-sm text-accent font-medium">
+                        {hack.team} people <span className="text-muted-foreground">•</span> {hack.status}
+                      </p>
                       <p className="text-sm text-muted-foreground mt-1">{hack.description}</p>
                     </div>
                   </div>
