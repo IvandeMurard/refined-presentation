@@ -191,6 +191,30 @@ export type Database = {
         }
         Relationships: []
       }
+      tool_suggestions: {
+        Row: {
+          created_at: string
+          id: string
+          product_link: string | null
+          product_name: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_link?: string | null
+          product_name: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_link?: string | null
+          product_name?: string
+          status?: string
+        }
+        Relationships: []
+      }
       tools: {
         Row: {
           category: string
