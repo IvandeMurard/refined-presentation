@@ -11,6 +11,7 @@ import {
   TooltipTrigger 
 } from "@/components/ui/tooltip";
 import { ToolSuggestionModal } from "./ToolSuggestionModal";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export function ToolsTable() {
   const [showScrollHint, setShowScrollHint] = useState(true);
@@ -18,6 +19,30 @@ export function ToolsTable() {
   const tableRef = useRef<HTMLDivElement>(null);
   
   const { data: tools, isLoading } = useTools();
+  const { language } = useLanguage();
+
+  const translations = {
+    title: language === 'fr' ? '🧰 Outils' : '🧰 Tools',
+    description: language === 'fr' 
+      ? 'Les outils et systèmes qui façonnent ma façon de construire.'
+      : 'The tools and systems that shape how I build.',
+    viewTable: language === 'fr' ? '📊 Tableau' : '📊 Table',
+    viewCards: language === 'fr' ? '🗂️ Cartes' : '🗂️ Cards',
+    searchPlaceholder: language === 'fr' ? 'Rechercher un outil...' : 'Search for a tool...',
+    headerLogo: 'Logo',
+    headerName: language === 'fr' ? 'Nom' : 'Name',
+    headerType: 'Type',
+    headerContext: language === 'fr' ? 'Contexte' : 'Context',
+    headerFeedback: 'Feedback',
+    headerUrl: 'URL',
+    headerReferralLink: language === 'fr' ? 'Lien partenaire' : 'Referral Link',
+    ctaText: language === 'fr' 
+      ? 'Un produit que je devrais essayer ?' 
+      : 'Thinking of a product I should try?',
+    ctaButton: language === 'fr' ? 'Faites-le moi savoir 💬' : 'Let me know 💬',
+    loading: language === 'fr' ? 'Chargement des outils...' : 'Loading tools...',
+    scrollHint: language === 'fr' ? '↓ Plus d\'outils' : '↓ More tools',
+  };
 
   // Auto-reveal: scroll 8px → 0 (once on mount)
   useEffect(() => {
@@ -45,7 +70,7 @@ export function ToolsTable() {
     return (
       <div className="max-w-[900px] mx-auto px-4 py-12">
         <div className="flex items-center justify-center h-64">
-          <div className="text-muted-foreground">Loading tools...</div>
+          <div className="text-muted-foreground">{translations.loading}</div>
         </div>
       </div>
     );
@@ -56,9 +81,9 @@ export function ToolsTable() {
       {/* Header */}
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h3 className="text-2xl font-bold mb-1">🧰 Outils</h3>
+          <h3 className="text-2xl font-bold mb-1">{translations.title}</h3>
           <p className="text-sm text-muted-foreground">
-            The tools and systems that shape how I build.
+            {translations.description}
           </p>
         </div>
         
@@ -69,7 +94,7 @@ export function ToolsTable() {
             size="sm" 
             className="bg-accent/10 text-accent"
           >
-            📊 Tableau
+            {translations.viewTable}
           </Button>
           <Button 
             variant="ghost" 
@@ -77,7 +102,7 @@ export function ToolsTable() {
             disabled 
             className="opacity-50 cursor-not-allowed"
           >
-            🗂️ Cartes
+            {translations.viewCards}
           </Button>
         </div>
       </div>
@@ -86,7 +111,7 @@ export function ToolsTable() {
       <div className="mb-4 relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
-          placeholder="Rechercher un outil..."
+          placeholder={translations.searchPlaceholder}
           className="pl-9 bg-background/60 backdrop-blur-sm border-border/40"
           disabled
         />
@@ -110,22 +135,25 @@ export function ToolsTable() {
             <thead className="sticky top-0 bg-background/95 backdrop-blur-md z-10 border-b border-border/20">
               <tr>
                 <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3 w-12">
-                  Logo
+                  {translations.headerLogo}
                 </th>
                 <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3">
-                  Nom
+                  {translations.headerName}
                 </th>
                 <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3">
-                  Type
+                  {translations.headerType}
                 </th>
                 <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3">
-                  Contexte
+                  {translations.headerContext}
                 </th>
                 <th className="text-left text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3">
-                  Feedback
+                  {translations.headerFeedback}
                 </th>
                 <th className="text-center text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3 w-12">
-                  🔗
+                  {translations.headerUrl}
+                </th>
+                <th className="text-center text-xs font-medium text-muted-foreground uppercase tracking-wider px-4 py-3 w-16">
+                  {translations.headerReferralLink}
                 </th>
               </tr>
             </thead>
@@ -194,18 +222,35 @@ export function ToolsTable() {
                     )}
                   </td>
                   
-                  {/* Link icon */}
+                  {/* URL */}
                   <td className="px-4 py-3 text-center">
                     {tool.url && (
                       <a
-                        href={tool.referral_link || tool.url}
+                        href={tool.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-accent/20 transition-colors"
-                        aria-label={`Open ${tool.name}`}
+                        aria-label={`Visit ${tool.name} website`}
                       >
                         <ExternalLink className="h-4 w-4 text-accent" />
                       </a>
+                    )}
+                  </td>
+
+                  {/* Referral Link */}
+                  <td className="px-4 py-3 text-center">
+                    {tool.referral_link ? (
+                      <a
+                        href={tool.referral_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center w-8 h-8 rounded-full hover:bg-accent/20 transition-colors"
+                        aria-label={`Open ${tool.name} referral link`}
+                      >
+                        <span className="text-lg">🔗</span>
+                      </a>
+                    ) : (
+                      <span className="text-muted-foreground/50">—</span>
                     )}
                   </td>
                 </motion.tr>
@@ -222,26 +267,28 @@ export function ToolsTable() {
             exit={{ opacity: 0 }}
             className="absolute bottom-4 left-1/2 -translate-x-1/2 text-xs text-muted-foreground flex items-center gap-1 pointer-events-none"
           >
-            ↓ More tools
+            {translations.scrollHint}
           </motion.div>
         )}
       </motion.div>
 
-      {/* Footer CTA */}
-      <div className="border-t border-border/20 mt-6 pt-4 text-center space-y-2">
-        <p className="text-sm text-muted-foreground italic">
-          Thinking of a product I should try?
+      {/* Footer CTA - Enhanced */}
+      <div className="bg-muted/30 rounded-lg p-6 mt-6 text-center space-y-3">
+        <p className="text-base text-muted-foreground italic font-medium animate-pulse">
+          {translations.ctaText}
         </p>
         <Button
           variant="outline"
-          size="sm"
+          size="default"
           onClick={() => setModalOpen(true)}
           className="
             rounded-full backdrop-blur-md border-border/40 
-            hover:bg-accent/10 hover:scale-105 transition-all
+            hover:bg-accent hover:text-accent-foreground hover:border-accent
+            hover:scale-110 transition-all duration-300
+            shadow-sm hover:shadow-lg
           "
         >
-          Let me know 💬
+          {translations.ctaButton}
         </Button>
       </div>
 

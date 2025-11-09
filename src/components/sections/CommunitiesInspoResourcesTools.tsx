@@ -67,7 +67,7 @@ export function CommunitiesInspoResourcesTools() {
           chips={TABS.map((t) => ({ id: t.id, label: t.label }))}
           activeChip={active}
           onChipChange={(id) => setActive(id as (typeof TABS)[number]["id"])}
-          className="mb-8"
+          className="mb-4"
         />
 
         {active === "tools" ? (
