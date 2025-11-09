@@ -329,9 +329,34 @@ export const Home: React.FC = () => {
         ]}
       />
 
-      {/* Hero Section */}
-      <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
-        <div className="mx-auto max-w-[900px] w-full">
+      {/* Hero Section with Animated Gradient Background */}
+      <section
+        id="hero"
+        className="px-4 py-16 md:py-20 relative overflow-hidden"
+        style={{
+          background: `
+            linear-gradient(
+              135deg,
+              hsl(220, 15%, 94%) 0%,
+              hsl(210, 20%, 96%) 25%,
+              hsl(160, 15%, 94%) 50%,
+              hsl(220, 15%, 94%) 100%
+            )
+          `,
+          backgroundSize: "200% 200%",
+          animation: "gradientShift 25s ease infinite",
+        }}
+      >
+        {/* Grain texture overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.015] pointer-events-none"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundRepeat: "repeat",
+          }}
+        />
+
+        <div className="mx-auto max-w-[900px] w-full relative z-10">
           {/* Glass Card */}
           <motion.div
             className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10"
@@ -339,67 +364,65 @@ export const Home: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="grid items-center gap-4 md:gap-6 md:grid-cols-2">
-              {/* Left: titles + subtitle + buttons + pills */}
-              <div className="text-left">
-                <motion.h1
-                  className="text-4xl md:text-5xl font-bold text-foreground leading-tight"
+            <div className="grid items-center gap-6 md:gap-8 md:grid-cols-2">
+              {/* Left: Content */}
+              <div className="text-left space-y-5">
+                {/* Greeting + Name */}
+                <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1, duration: 0.5 }}
                 >
-                  Ivan de Murard
-                </motion.h1>
-                <motion.p
-                  className="mt-2 text-xl md:text-2xl font-bold text-foreground"
+                  <p className="text-lg text-muted-foreground mb-2">👋 Hey, I'm</p>
+                  <h1 className="text-4xl md:text-5xl font-bold text-foreground leading-tight">Ivan de Murard</h1>
+                </motion.div>
+
+                {/* Title + Philosophy */}
+                <motion.div
+                  className="space-y-2"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2, duration: 0.5 }}
                 >
-                  Zero-to-One Product Manager
-                </motion.p>
-
-                {/* Badge social proof */}
-                <motion.div
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mt-3"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.25, duration: 0.4 }}
-                >
-                  <span className="text-sm font-medium text-primary">5+ years • 0→1 products</span>
+                  <p className="text-xl md:text-2xl font-bold text-foreground">Zero-to-One Product Manager</p>
+                  <p className="text-base text-foreground/75 leading-relaxed">
+                    who believes great products feel <span className="font-semibold text-foreground">effortless</span>
+                  </p>
                 </motion.div>
 
-                <div className="mt-4 text-base md:text-lg space-y-3">
-                  <p className="text-foreground/80 leading-normal transition-opacity">
-                    Hospitality and retail taught me the importance of a great experience.
-                  </p>
-                  <p className="text-muted-foreground leading-normal transition-opacity">
-                    While my product data-driven and entrepreneurial journey shaped my analytical and collaborative
-                    mindset.
-                  </p>
-                  <p className="text-muted-foreground leading-normal transition-opacity">Welcome to my portfolio.</p>
-                  <p className="text-sm italic text-muted-foreground/70 leading-normal transition-opacity">
-                    (It's a work-in-progress)
-                  </p>
-                </div>
-
-                {/* Desktop buttons */}
+                {/* Stats with emojis */}
                 <motion.div
-                  className="mt-5 flex gap-3"
+                  className="flex flex-wrap gap-3 text-sm"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.3, duration: 0.5 }}
+                >
+                  <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium">
+                    🎯 5+ years shipping
+                  </span>
+                  <span className="px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium">
+                    🏆 2 hackathons won
+                  </span>
+                </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                  className="flex flex-wrap gap-3 pt-2"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.4, duration: 0.5 }}
                 >
                   <Button
                     size="default"
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium"
                     onClick={() => scrollToSection("work")}
                   >
-                    Discover my projects
+                    See my work
                   </Button>
                   <Button
                     size="default"
-                    className="bg-contact hover:bg-white text-contact-foreground hover:text-contact border-2 border-white hover:border-contact transition-colors duration-300"
+                    variant="outline"
+                    className="border-2 hover:bg-contact/10 hover:border-contact transition-colors duration-300"
                     onClick={() => scrollToSection("contact")}
                   >
                     Let's meet!
@@ -407,7 +430,7 @@ export const Home: React.FC = () => {
                 </motion.div>
               </div>
 
-              {/* Right: photo */}
+              {/* Right: Photo */}
               <div className="flex justify-center md:justify-end">
                 <div className="w-full max-w-[220px]">
                   <motion.figure
@@ -416,7 +439,7 @@ export const Home: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                    whileHover={{ scale: 1.015, transition: { duration: 0.2 } }}
                   >
                     <img
                       src="/img/profile_picture.jpg"
@@ -432,12 +455,12 @@ export const Home: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Scroll hint - hors carte */}
+          {/* Scroll hint */}
           <motion.div
             className="mt-8 mb-4 flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -449,6 +472,21 @@ export const Home: React.FC = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* CSS Animation for gradient */}
+        <style>{`
+          @keyframes gradientShift {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        `}</style>
       </section>
 
       <GradientBorderSection
