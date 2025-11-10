@@ -330,8 +330,26 @@ export const Home: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section id="hero" className="px-4 py-16 md:py-20 bg-secondary">
-        <div className="mx-auto max-w-[900px] w-full">
+      <section 
+        id="hero" 
+        className="px-4 py-16 md:py-20 relative overflow-hidden"
+        style={{
+          background: 'linear-gradient(135deg, hsl(220, 15%, 94%), hsl(210, 20%, 96%), hsl(160, 15%, 94%), hsl(220, 15%, 94%))',
+          backgroundSize: '200% 200%',
+          animation: 'gradientShift 25s ease infinite'
+        }}
+      >
+        {/* Grain texture overlay */}
+        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.015 }}>
+          <svg className="w-full h-full">
+            <filter id="noise">
+              <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
+            </filter>
+            <rect width="100%" height="100%" filter="url(#noise)" />
+          </svg>
+        </div>
+
+        <div className="mx-auto max-w-[900px] w-full relative z-10">
           {/* Glass Card */}
           <motion.div
             className="backdrop-blur-md bg-background/80 rounded-3xl shadow-2xl p-6 md:p-8 lg:p-10"
@@ -416,7 +434,7 @@ export const Home: React.FC = () => {
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ delay: 0.3, duration: 0.6 }}
-                    whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+                    whileHover={{ scale: 1.015, transition: { duration: 0.2 } }}
                   >
                     <img
                       src="/img/profile_picture.jpg"
@@ -437,7 +455,7 @@ export const Home: React.FC = () => {
             className="mt-8 mb-4 flex justify-center"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.5 }}
+            transition={{ delay: 0.8, duration: 0.5 }}
           >
             <motion.div
               animate={{ y: [0, 8, 0] }}
@@ -449,6 +467,21 @@ export const Home: React.FC = () => {
             </motion.div>
           </motion.div>
         </div>
+
+        {/* CSS Keyframes for gradient animation */}
+        <style>{`
+          @keyframes gradientShift {
+            0% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+            100% {
+              background-position: 0% 50%;
+            }
+          }
+        `}</style>
       </section>
 
       <GradientBorderSection
