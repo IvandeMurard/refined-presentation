@@ -10,7 +10,9 @@ export default defineConfig(({ mode }) => ({
   ].filter(Boolean),
   server: {
     host: "::",
-    port: 8080,
+    port: 3456,
+    strictPort: false, // Si 3456 est occupé, prend automatiquement le suivant
+    open: true, // Ouvre le navigateur automatiquement
   },
   resolve: {
     alias: {
