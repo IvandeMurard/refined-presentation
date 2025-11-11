@@ -1,6 +1,8 @@
 // src/components/Navigation.tsx
 import React, { type FC, useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, X } from "lucide-react";
+import { motion } from "framer-motion";
 import { ThemeToggle } from "./ThemeToggle";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { designTokens } from "@/design-tokens";
@@ -25,6 +27,9 @@ export const Navigation: FC = () => {
   const navigate = useNavigate();
   const { language, setLanguage } = useLanguage();
 
+  // --- Mobile menu state
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   // --- Scroll state (glass elevation)
   const [isScrolled, setIsScrolled] = useState(false);
   useEffect(() => {
@@ -33,6 +38,18 @@ export const Navigation: FC = () => {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // --- Scroll lock when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   // --- Theme (for inline glass colors)
   const isDark = typeof document !== "undefined" && document.documentElement.classList.contains("dark");
@@ -138,6 +155,16 @@ export const Navigation: FC = () => {
             {displayText}
           </Link>
 
+          {/* Mobile Menu Button - Visible only on mobile */}
+          <button
+            onClick={() => setMobileMenuOpen(true)}
+            className="md:hidden inline-flex items-center justify-center h-9 w-9 rounded-lg text-foreground/80 hover:text-foreground hover:bg-black/[0.08] dark:hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 transition-all"
+            aria-label="Open menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <Menu size={20} />
+          </button>
+
           {/* Right side: Links + Lang/Theme */}
           <div className="flex items-center gap-3">
             {/* Links */}
@@ -224,6 +251,114 @@ export const Navigation: FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Drawer */}
+      {mobileMenuOpen && (
+        <>
+          {/* Overlay */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/40 backdrop-blur-sm z-[60] md:hidden"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Drawer Panel */}
+          <motion.div
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+            className="fixed right-0 top-0 bottom-0 w-[280px] bg-background/98 backdrop-blur-xl border-l border-border z-[70] shadow-2xl md:hidden"
+          >
+            <div className="flex flex-col h-full p-6">
+              {/* Close Button */}
+              <div className="flex justify-end mb-8">
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="inline-flex items-center justify-center h-10 w-10 rounded-lg text-foreground/80 hover:text-foreground hover:bg-black/[0.08] dark:hover:bg-white/[0.12] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30 transition-all"
+                  aria-label="Close menu"
+                >
+                  <X size={24} />
+                </button>
+              </div>
+
+              {/* Navigation Links */}
+              <nav className="flex flex-col gap-2 mb-8">
+                <Link
+                  to="/#hero"
+                  onClick={(e) => {
+                    handleAnchorClick(e, "hero");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="flex items-center h-12 px-4 text-base font-medium rounded-xl text-foreground/80 hover:text-foreground hover:bg-black/[0.08] dark:hover:bg-white/[0.12] transition-all"
+                >
+                  Home
+                </Link>
+
+                <Link
+                  to="/#work"
+                  onClick={(e) => {
+                    handleAnchorClick(e, "work");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="flex items-center h-12 px-4 text-base font-medium rounded-xl text-foreground/80 hover:text-foreground hover:bg-black/[0.08] dark:hover:bg-white/[0.12] transition-all"
+                >
+                  Work
+                </Link>
+
+                <Link
+                  to="/#contact"
+                  onClick={(e) => {
+                    handleAnchorClick(e, "contact");
+                    setMobileMenuOpen(false);
+                  }}
+                  className="flex items-center h-12 px-4 text-base font-medium rounded-xl transition-all"
+                  style={{
+                    background: COLORS.accent,
+                    color: COLORS.onAccent,
+                    border: `1px solid ${COLORS.accent}`,
+                  }}
+                >
+                  Contact
+                </Link>
+              </nav>
+
+              {/* Language Selector */}
+              <div className="mt-auto pt-6 border-t border-border">
+                <div className="flex items-center justify-center gap-3">
+                  <button
+                    className={`h-10 px-4 rounded-lg font-medium transition-all ${
+                      language === 'en' 
+                        ? 'text-foreground bg-black/[0.08] dark:bg-white/[0.12] font-bold' 
+                        : 'text-foreground/70 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08]'
+                    } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30`}
+                    onClick={() => setLanguage('en')}
+                    aria-label="Switch to English"
+                  >
+                    EN
+                  </button>
+                  <span className="text-foreground/50">|</span>
+                  <button
+                    className={`h-10 px-4 rounded-lg font-medium transition-all ${
+                      language === 'fr' 
+                        ? 'text-foreground bg-black/[0.08] dark:bg-white/[0.12] font-bold' 
+                        : 'text-foreground/70 hover:text-foreground hover:bg-black/[0.04] dark:hover:bg-white/[0.08]'
+                    } focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/30`}
+                    onClick={() => setLanguage('fr')}
+                    aria-label="Passer en français"
+                  >
+                    FR
+                  </button>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </>
+      )}
     </nav>
   );
 };

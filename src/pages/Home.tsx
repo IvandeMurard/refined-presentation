@@ -334,7 +334,7 @@ export const Home: React.FC = () => {
         id="hero" 
         className="px-4 py-16 md:py-20 relative overflow-hidden"
         style={{
-          background: 'linear-gradient(135deg, hsl(220, 15%, 94%), hsl(210, 20%, 96%), hsl(160, 15%, 94%), hsl(220, 15%, 94%))',
+          background: 'linear-gradient(135deg, hsl(220, 15%, 90%), hsl(210, 25%, 95%), hsl(180, 20%, 92%), hsl(220, 15%, 90%))',
           backgroundSize: '200% 200%',
           animation: 'gradientShift 25s ease infinite'
         }}
