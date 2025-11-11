@@ -332,12 +332,7 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <section 
         id="hero" 
-        className="px-4 py-16 md:py-20 relative overflow-hidden"
-        style={{
-          background: 'linear-gradient(135deg, hsl(220, 15%, 90%), hsl(210, 25%, 95%), hsl(180, 20%, 92%), hsl(220, 15%, 90%))',
-          backgroundSize: '200% 200%',
-          animation: 'gradientShift 25s ease infinite'
-        }}
+        className="px-4 py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-secondary via-background to-secondary/80 dark:from-background dark:via-card/30 dark:to-background animate-gradient-shift"
       >
         {/* Grain texture overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.015 }}>
@@ -468,20 +463,6 @@ export const Home: React.FC = () => {
           </motion.div>
         </div>
 
-        {/* CSS Keyframes for gradient animation */}
-        <style>{`
-          @keyframes gradientShift {
-            0% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-            100% {
-              background-position: 0% 50%;
-            }
-          }
-        `}</style>
       </section>
 
       <GradientBorderSection

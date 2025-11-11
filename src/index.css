@@ -381,3 +381,17 @@
 .work-card :where(.nav-dot,.swiper-button-next,.swiper-button-prev) {
   display: none !important;
 }
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 25s ease infinite;
+}
