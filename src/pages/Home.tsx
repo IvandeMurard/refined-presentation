@@ -802,7 +802,7 @@ export const Home: React.FC = () => {
         </div>
       </section>
 
-      <CommunitiesInspoResourcesTools />
+      <CommunitiesInspoResourcesTools disableSticky={isStickyDisabled} />
 
       {/* Built With Banner */}
       <BuiltWithBanner />

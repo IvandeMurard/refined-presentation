@@ -21,7 +21,11 @@ const TABS = [
   { id: "tools", label: "Tools" },
 ] as const;
 
-export function CommunitiesInspoResourcesTools() {
+interface CommunitiesInspoResourcesToolsProps {
+  disableSticky?: boolean;
+}
+
+export function CommunitiesInspoResourcesTools({ disableSticky = false }: CommunitiesInspoResourcesToolsProps) {
   const [active, setActive] = useState<(typeof TABS)[number]["id"]>(
     "communities",
   );
@@ -33,7 +37,7 @@ export function CommunitiesInspoResourcesTools() {
     ? "Ce qui me motive"
     : "What Drives Me";
 
-  // Fermer l’item ouvert lorsqu’on change d’onglet
+  // Fermer l'item ouvert lorsqu'on change d'onglet
   useEffect(() => {
     close();
   }, [active, close]);
@@ -68,6 +72,7 @@ export function CommunitiesInspoResourcesTools() {
           activeChip={active}
           onChipChange={(id) => setActive(id as (typeof TABS)[number]["id"])}
           className="mb-4"
+          disableSticky={disableSticky}
         />
 
         {active === "tools" ? (
