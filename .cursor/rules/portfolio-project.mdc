@@ -1,0 +1,27 @@
+---
+alwaysApply: true
+---
+# Portfolio Project Context
+
+## Stack technique
+- React + TypeScript
+- Vite
+- TailwindCSS + shadcn/ui
+- Framer Motion
+- Lovable (deployment)
+
+## Architecture
+- Portfolio sections: Hero, Work, Hackathons, CTA Contact, Experiences & Education, What drives me, Contact
+- Components dans /src/components
+- Pages dans /src/pages
+
+## Workflow Git
+- Toujours faire git pull avant de commencer
+- Commits descriptifs avec préfixe: feat:, fix:, style:, refactor:
+- Tester en local avant push
+- Port de dev: 3456 (éviter conflits)
+
+## Objectifs actuels
+- Réduire bounce rate sur Hero
+- Portfolio orienté "Core Product Lead" / AI PM
+- Focus: Community building + Human-first design
