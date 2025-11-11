@@ -1,0 +1,41 @@
+# Portfolio Project - Cursor Rules
+
+## Objectif
+Portfolio pour PM → Core Product Lead (AI, Community Building)
+
+## Stack
+React 18 + TypeScript + Vite + TailwindCSS + shadcn/ui
+
+## Sections du portfolio (ordre)
+Hero → Work → Hackathons → CTA Contact → Experiences & Education → What drives me → Contact
+
+## Workflow Git OBLIGATOIRE
+1. `git pull origin main` AVANT de coder
+2. Coder et tester (localhost:3456)
+3. `git pull origin main` AVANT de commit
+4. `git commit -m "type: description"`
+5. `git push origin main`
+
+## Types de commit
+- feat: Nouvelle fonctionnalité
+- fix: Correction bug
+- style: CSS/UI
+- refactor: Restructuration
+- docs: Documentation
+
+## Principes design
+- Mobile-first
+- Performance (images optimisées)
+- Accessibilité
+- Simplicité (pas d'over-design)
+- Cohérence (shadcn/ui)
+
+## Focus actuel
+- Simplifier Hero (réduire bounce rate)
+- Positioning "Core Product Lead" vs "Technical PM"
+- Community building + Human-first design
+
+## NE PAS FAIRE
+- Push sans pull avant
+- Ignorer erreurs TypeScript
+- Over-engineer les solutions simples
