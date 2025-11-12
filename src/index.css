@@ -218,13 +218,15 @@
   
   /* Filter chip styles */
   .chip-filter {
-    @apply h-11 px-6 rounded-full transition-all duration-200;
+    @apply h-9 md:h-11 px-4 md:px-5 py-2 md:py-2.5 rounded-full transition-all duration-200;
     background-color: hsl(var(--background));
     border: 1px solid hsl(var(--input));
     color: hsl(var(--foreground));
     font-weight: 500;
+    font-size: 0.875rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     cursor: pointer;
+    white-space: nowrap;
   }
   
   .chip-filter:hover {
