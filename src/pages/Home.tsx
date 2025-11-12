@@ -332,10 +332,10 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <section 
         id="hero" 
-        className="px-4 py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-secondary via-background to-secondary/80 dark:from-background dark:via-card/30 dark:to-background animate-gradient-shift"
+        className="px-4 py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-secondary via-primary/[0.08] to-background dark:from-background dark:via-accent/[0.12] dark:to-card/40 animate-gradient-shift"
       >
         {/* Grain texture overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.015 }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.035 }}>
           <svg className="w-full h-full">
             <filter id="noise">
               <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
