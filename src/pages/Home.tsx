@@ -335,8 +335,8 @@ export const Home: React.FC = () => {
         className="px-4 py-16 md:py-20 md:pb-0 relative overflow-hidden bg-gradient-to-br from-secondary via-primary/[0.18] to-secondary/80 dark:from-card/30 dark:via-accent/[0.25] dark:to-background animate-gradient-shift"
       >
         {/* Grain texture overlay */}
-        <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.035 }}>
-          <svg className="w-full h-full">
+        <div className="absolute inset-0 pointer-events-none animate-grain-drift" style={{ opacity: 0.035 }}>
+          <svg className="w-[105%] h-[105%] absolute -top-[2.5%] -left-[2.5%]">
             <filter id="noise">
               <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="4" stitchTiles="stitch" />
             </filter>
@@ -372,17 +372,7 @@ export const Home: React.FC = () => {
                   Zero-to-One Product Manager
                 </motion.p>
 
-                {/* Badge social proof */}
-                <motion.div
-                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mt-3"
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.25, duration: 0.4 }}
-                >
-                  <span className="text-sm font-medium text-primary">5+ years • 0→1 products</span>
-                </motion.div>
-
-                <div className="mt-4 text-base md:text-lg space-y-3">
+            <div className="mt-6 text-base md:text-lg space-y-3">
                   <p className="text-foreground/80 leading-normal transition-opacity">
                     Hospitality and retail taught me the importance of a great experience.
                   </p>
@@ -465,7 +455,7 @@ export const Home: React.FC = () => {
 
       </section>
 
-      <div className="relative border-t border-b border-border/30 dark:border-border/20 bg-gradient-to-r from-background via-card/20 to-background">
+      <div className="relative section-border-gradient bg-gradient-to-r from-background via-card/20 to-background after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/25 after:to-transparent dark:after:via-border/20">
         <MarqueeBanner
           phrases={[
             "Welcome",
@@ -481,7 +471,7 @@ export const Home: React.FC = () => {
       </div>
 
       {/* Work Section */}
-      <section id="work" className="py-16 md:py-20 px-4 bg-background border-t border-border/10">
+      <section id="work" className="py-16 md:py-20 px-4 bg-background section-border-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">WORK</p>
@@ -644,7 +634,7 @@ export const Home: React.FC = () => {
       />
 
       {/* Experience & Education Section - Left Aligned */}
-      <section id="experience" className="py-24 px-4 border-t border-border/10">
+      <section id="experience" className="py-24 px-4 section-border-gradient">
         <div className="max-w-7xl mx-auto">
           <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
 
@@ -802,7 +792,7 @@ export const Home: React.FC = () => {
       <BuiltWithBanner />
 
       {/* Contact Section - Centered */}
-      <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground border-t-2 border-contact-foreground/20">
+      <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground section-border-accent">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Ready to build tomorrow?</h2>
 

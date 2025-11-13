@@ -397,3 +397,75 @@
   background-size: 200% 200%;
   animation: gradientShift 25s ease infinite;
 }
+
+@keyframes grainDrift {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(-2%, -2%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.animate-grain-drift {
+  animation: grainDrift 60s ease-in-out infinite;
+}
+
+/* Section Border System with Gradient */
+.section-border-gradient {
+  position: relative;
+}
+
+.section-border-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    hsl(var(--border) / 0.15) 10%,
+    hsl(var(--border) / 0.25) 50%,
+    hsl(var(--border) / 0.15) 90%,
+    transparent 100%
+  );
+}
+
+/* Dark mode variant */
+.dark .section-border-gradient::before {
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    hsl(var(--border) / 0.1) 10%,
+    hsl(var(--border) / 0.2) 50%,
+    hsl(var(--border) / 0.1) 90%,
+    transparent 100%
+  );
+}
+
+/* Variant for accent sections */
+.section-border-accent {
+  position: relative;
+}
+
+.section-border-accent::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    hsl(var(--contact-foreground) / 0.2) 10%,
+    hsl(var(--contact-foreground) / 0.3) 50%,
+    hsl(var(--contact-foreground) / 0.2) 90%,
+    transparent 100%
+  );
+}
