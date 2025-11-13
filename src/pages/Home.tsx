@@ -332,7 +332,7 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <section 
         id="hero" 
-        className="px-4 py-16 md:py-20 relative overflow-hidden bg-gradient-to-br from-secondary via-primary/[0.08] to-background dark:from-background dark:via-accent/[0.12] dark:to-card/40 animate-gradient-shift"
+        className="px-4 py-16 md:py-20 md:pb-0 relative overflow-hidden bg-gradient-to-br from-secondary via-primary/[0.18] to-secondary/80 dark:from-card/30 dark:via-accent/[0.25] dark:to-background animate-gradient-shift"
       >
         {/* Grain texture overlay */}
         <div className="absolute inset-0 pointer-events-none" style={{ opacity: 0.035 }}>
@@ -465,29 +465,23 @@ export const Home: React.FC = () => {
 
       </section>
 
-      <GradientBorderSection
-        className="py-8 my-6 shadow-[0_4px_12px_rgba(0,0,0,0.06)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.3)]"
-        borderPosition="both"
-        glassEffect={true}
-      >
-        <div className="max-w-[1360px] mx-auto px-4">
-          <MarqueeBanner
-            phrases={[
-              "Welcome",
-              "AI-assisted product building",
-              "Hands-on PM across design, data & GTM",
-              "Paris • Open to remote",
-            ]}
-            speed={0.65}
-            pauseOnHover
-            ariaLabel="Highlights"
-            className="py-1"
-          />
-        </div>
-      </GradientBorderSection>
+      <div className="relative border-t border-b border-border/30 dark:border-border/20 bg-gradient-to-r from-background via-card/20 to-background">
+        <MarqueeBanner
+          phrases={[
+            "Welcome",
+            "AI-assisted product building",
+            "Hands-on PM across design, data & GTM",
+            "Paris • Open to remote",
+          ]}
+          speed={0.65}
+          pauseOnHover
+          ariaLabel="Highlights"
+          className="py-3 max-w-[1360px] mx-auto px-4"
+        />
+      </div>
 
       {/* Work Section */}
-      <section id="work" className="py-20 px-4 bg-background">
+      <section id="work" className="py-16 md:py-20 px-4 bg-background border-t border-border/10">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">WORK</p>
@@ -650,7 +644,7 @@ export const Home: React.FC = () => {
       />
 
       {/* Experience & Education Section - Left Aligned */}
-      <section id="experience" className="py-24 px-4">
+      <section id="experience" className="py-24 px-4 border-t border-border/10">
         <div className="max-w-7xl mx-auto">
           <SectionHeader kicker="BACKGROUND" title="Experience & Education" alignment="left" className="mb-8" />
 
@@ -808,7 +802,7 @@ export const Home: React.FC = () => {
       <BuiltWithBanner />
 
       {/* Contact Section - Centered */}
-      <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground">
+      <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground border-t-2 border-contact-foreground/20">
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Ready to build tomorrow?</h2>
 

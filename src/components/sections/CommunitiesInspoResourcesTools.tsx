@@ -58,7 +58,7 @@ export function CommunitiesInspoResourcesTools({ disableSticky = false }: Commun
   }, [active]);
 
   return (
-    <section id="resources" className="py-24 px-4 bg-secondary">
+    <section id="resources" className="py-24 px-4 bg-secondary border-t border-border/10">
       <div className="max-w-7xl mx-auto">
         <SectionHeader
           kicker="WHAT DRIVES ME"
