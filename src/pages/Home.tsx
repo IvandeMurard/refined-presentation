@@ -332,7 +332,7 @@ export const Home: React.FC = () => {
       {/* Hero Section */}
       <section 
         id="hero" 
-        className="px-4 py-16 md:py-20 md:pb-0 relative overflow-hidden bg-gradient-to-br from-secondary via-primary/[0.18] to-secondary/80 dark:from-card/30 dark:via-accent/[0.25] dark:to-background animate-gradient-shift"
+        className="px-4 py-16 md:py-20 md:pb-0 relative overflow-visible bg-gradient-to-br from-secondary via-primary/[0.18] to-secondary/80 dark:from-card/30 dark:via-accent/[0.25] dark:to-background animate-gradient-shift"
       >
         {/* Grain texture overlay */}
         <div className="absolute inset-0 pointer-events-none animate-grain-drift" style={{ opacity: 0.035 }}>
@@ -454,7 +454,7 @@ export const Home: React.FC = () => {
         </div>
 
         {/* Marquee Banner - à cheval sur Hero et Work */}
-        <div className="absolute left-0 right-0 -bottom-[22px] z-20">
+        <div className="absolute left-0 right-0 -bottom-[26px] z-30">
           <div className="relative section-border-gradient bg-gradient-to-r from-background via-card/20 to-background after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/25 after:to-transparent dark:after:via-border/20 shadow-lg">
             <MarqueeBanner
               phrases={[
@@ -473,7 +473,7 @@ export const Home: React.FC = () => {
       </section>
 
       {/* Work Section */}
-      <section id="work" className="pt-24 md:pt-28 pb-16 md:pb-20 px-4 bg-background section-border-gradient">
+      <section id="work" className="relative pt-24 md:pt-28 pb-16 md:pb-20 px-4 bg-background section-border-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">WORK</p>
