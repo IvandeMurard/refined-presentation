@@ -453,25 +453,27 @@ export const Home: React.FC = () => {
           </motion.div>
         </div>
 
+        {/* Marquee Banner - à cheval sur Hero et Work */}
+        <div className="absolute left-0 right-0 -bottom-[22px] z-20">
+          <div className="relative section-border-gradient bg-gradient-to-r from-background via-card/20 to-background after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/25 after:to-transparent dark:after:via-border/20 shadow-lg">
+            <MarqueeBanner
+              phrases={[
+                "Welcome",
+                "AI-assisted product building",
+                "Hands-on PM across design, data & GTM",
+                "Paris • Open to remote",
+              ]}
+              speed={0.65}
+              pauseOnHover
+              ariaLabel="Highlights"
+              className="py-3 max-w-[1360px] mx-auto px-4"
+            />
+          </div>
+        </div>
       </section>
 
-      <div className="relative section-border-gradient bg-gradient-to-r from-background via-card/20 to-background after:absolute after:bottom-0 after:left-0 after:right-0 after:h-px after:bg-gradient-to-r after:from-transparent after:via-border/25 after:to-transparent dark:after:via-border/20">
-        <MarqueeBanner
-          phrases={[
-            "Welcome",
-            "AI-assisted product building",
-            "Hands-on PM across design, data & GTM",
-            "Paris • Open to remote",
-          ]}
-          speed={0.65}
-          pauseOnHover
-          ariaLabel="Highlights"
-          className="py-3 max-w-[1360px] mx-auto px-4"
-        />
-      </div>
-
       {/* Work Section */}
-      <section id="work" className="py-16 md:py-20 px-4 bg-background section-border-gradient">
+      <section id="work" className="pt-24 md:pt-28 pb-16 md:pb-20 px-4 bg-background section-border-gradient">
         <div className="max-w-7xl mx-auto">
           <div className="mb-8">
             <p className="text-xs uppercase tracking-wider text-muted-foreground mb-2">WORK</p>
