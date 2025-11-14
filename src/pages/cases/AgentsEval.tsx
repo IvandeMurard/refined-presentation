@@ -4,6 +4,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
 import { CTABanner } from "@/components/work/CTABanner";
 import { EvaluationEngineDiagram } from "@/components/case/EvaluationEngineDiagram";
+import { EvalFlowSideBySide } from "@/components/case/EvalFlowSideBySide";
 import { ImageLightbox } from "@/components/ImageLightbox";
 import { ProgressIndicator } from "@/components/ProgressIndicator";
 import { ZoomIn } from "lucide-react";
@@ -248,30 +249,32 @@ export default function AgentsEvalCase() {
           {/* Section 5: Architecture summary */}
           <section id="architecture" className="space-y-6">
             <h2 className="text-2xl md:text-3xl font-bold">5. Architecture summary</h2>
-            <div className="rounded-2xl border p-6 bg-card overflow-x-auto">
-              <pre className="text-sm font-mono">
-                <code>{`flowchart LR
-  A[Webhook] --> B[Create Run]
-  B --> C[Evaluator LLM]
-  C --> D[Validate JSON]
-  D --> E[Safety Checks]
-  D --> F[Generate Recommendations]
-  E --> H[Add Issue]
-  F --> G[Add Recommendation]
-  H --> I[Close Run]
-  G --> I
-  I --> J[Supabase Dashboard]
-  J --> K[CI Gate 80%]`}</code>
-              </pre>
-            </div>
+            <EvalFlowSideBySide />
           </section>
 
           {/* Section 6: Example output */}
-          <section id="example" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">6. Example output (sanitized)</h2>
-            <div className="rounded-2xl border p-6 bg-card overflow-x-auto">
-              <pre className="text-sm font-mono">
-                <code>{`{
+          <section id="example" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0 py-10 bg-slate-50 -mx-4 sm:-mx-6 lg:mx-auto">
+            <div className="rounded-3xl border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur">
+              {/* Header */}
+              <div className="px-8 pt-8 pb-4 flex items-start justify-between gap-4">
+                <div>
+                  <div className="text-xs font-medium tracking-[0.22em] uppercase text-slate-500">
+                    Evaluation Output
+                  </div>
+                  <h2 className="mt-1 text-2xl font-semibold text-slate-900">
+                    This is the evaluation your agent receives
+                  </h2>
+                  <p className="mt-2 text-sm text-slate-500 max-w-md">
+                    Built from the agent's behaviour, safety checks, and rubric-based scoring.
+                  </p>
+                </div>
+              </div>
+
+              {/* JSON Zone */}
+              <div className="px-8 pb-8 pt-2">
+                <div className="w-full overflow-x-auto rounded-2xl bg-slate-950 text-[13px] leading-relaxed text-slate-100 font-mono px-5 py-4 border border-slate-800">
+                  <pre className="m-0">
+                    <code>{`{
   "scores": {
     "coverage": 0.7,
     "feasibility": 0.8,
@@ -289,7 +292,9 @@ export default function AgentsEvalCase() {
     }
   ]
 }`}</code>
-              </pre>
+                  </pre>
+                </div>
+              </div>
             </div>
           </section>
 
