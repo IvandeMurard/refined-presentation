@@ -81,7 +81,7 @@ const projects: Project[] = [
   {
     id: "agents-eval",
     title: "Evaluating AI agents at scale",
-    subtitle: "A system for lifecycle visibility, quality signals, and enterprise-grade agent reliability.",
+    subtitle: "How do we turn trust into an asset?.",
     image: "/img/samuel-arkwright-unsplash.jpg",
     tags: ["Agents", "Evaluation"],
     category: "agents",
