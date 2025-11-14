@@ -18,6 +18,13 @@ export default function AgentsEvalCase() {
   const scrollToSection = (id: string) => {
     if (id === "home") {
       navigate("/");
+    } else if (id === "contact") {
+      navigate("/#contact");
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
   };
 
@@ -63,13 +70,13 @@ export default function AgentsEvalCase() {
           </div>
         </section>
 
-        <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12 space-y-16">
+        <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12 space-y-12">
 
           {/* Section 1.b: Tools Marquee */}
           <ToolsMarquee />
 
           {/* Section 1: The problem - Ada structure with blue background and accent bar */}
-          <section id="problem" className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-16 md:py-20 bg-[#C9DDFF] dark:bg-[#0F1416]">
+          <section id="problem" className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-12 md:py-16 bg-[#C9DDFF] dark:bg-[#0F1416]">
             <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12">
               <div className="relative pl-6 md:pl-8 space-y-8">
                 {/* Accent bar */}
@@ -142,7 +149,7 @@ export default function AgentsEvalCase() {
           </section>
 
           {/* Section 2: The solution - Ada structure */}
-          <section id="solution" className="py-16 md:py-20 space-y-8">
+          <section id="solution" className="py-12 md:py-16 space-y-8">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">2. The solution</h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
@@ -217,7 +224,7 @@ export default function AgentsEvalCase() {
           </section>
 
           {/* Section 3: How it works - Ada style with diagram */}
-          <section id="how-it-works" className="py-16 md:py-20 space-y-8">
+          <section id="how-it-works" className="py-12 md:py-16 space-y-8">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">3. How it works</h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
@@ -413,8 +420,25 @@ export default function AgentsEvalCase() {
             </div>
           </section>
 
+          {/* CTA Ribbon after Section 4 */}
+          <section className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-6 md:py-8 bg-contact/10 dark:bg-contact/20">
+            <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <p className="text-base md:text-lg text-slate-700 dark:text-slate-300 font-medium">
+                  Ready to boost your agents safety?
+                </p>
+                <button
+                  onClick={() => scrollToSection("contact")}
+                  className="px-6 py-2.5 rounded-full bg-contact text-white font-medium hover:bg-contact/90 transition-colors shadow-sm hover:shadow-md"
+                >
+                  Let's talk
+                </button>
+              </div>
+            </div>
+          </section>
+
           {/* Section 5: Architecture summary - Vertical stepper */}
-          <section id="architecture" className="py-16 md:py-20 space-y-8">
+          <section id="architecture" className="py-12 md:py-16 space-y-8">
             <div>
               <h2 className="text-2xl md:text-3xl font-bold mb-4">5. Architecture summary</h2>
               <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
@@ -425,7 +449,7 @@ export default function AgentsEvalCase() {
           </section>
 
           {/* Section 6: Evaluation Receipt™ */}
-          <section id="example" className="py-16 md:py-20">
+          <section id="example" className="py-12 md:py-16">
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0">
               <motion.div
                 className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white/85 dark:bg-slate-900/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur"
@@ -481,7 +505,7 @@ export default function AgentsEvalCase() {
           </section>
 
           {/* Section 7: Impact - Ada style */}
-          <section id="impact" className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-16 md:py-20 bg-[#F8FAFC] dark:bg-slate-950">
+          <section id="impact" className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-12 md:py-16 bg-[#F8FAFC] dark:bg-slate-950">
             <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12 space-y-8">
               <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100">7. Impact</h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -535,13 +559,17 @@ export default function AgentsEvalCase() {
           </section>
 
           {/* Section 9: Going further */}
-          <section id="going-further" className="py-16 md:py-20 space-y-8">
+          <section id="going-further" className="py-12 md:py-16 space-y-8">
             <h2 className="text-2xl md:text-3xl font-bold">9. Going further</h2>
             <div className="relative pl-6 md:pl-8">
               {/* Accent bar */}
               <div className="absolute left-0 top-0 bottom-0 w-[4px] rounded-full bg-[#5B7CFF]" />
               <div className="p-8 rounded-2xl border border-border/40 bg-card space-y-4">
                 <ul className="space-y-3 text-base md:text-lg">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#5B7CFF] flex-shrink-0" />
+                    <span>Plug customers' SOPs (policies, playbooks) to score agents against these specific procedures.</span>
+                  </li>
                   <li className="flex items-start gap-3">
                     <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#5B7CFF] flex-shrink-0" />
                     <span>Evaluation automation on large datasets</span>
