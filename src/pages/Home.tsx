@@ -77,27 +77,6 @@ const projects: Project[] = [
     ],
   },
 
-  // — Agentic Hospitality —
-  {
-    id: "agentic-hospitality",
-    title: "An agentic hospitality product case study",
-    subtitle: "Can we value agents to predict restaurant and hotel attendance?",
-    image: "/img/gabriella-clare-marino-unsplash.jpg",
-    tags: ["Agentic", "Hackathon"],
-    category: "agents",
-    kicker: "CASE STUDY – AN AGENTIC HOSPITALITY PRODUCT CASE STUDY",
-    tagline: "Building autonomous AI agents for hospitality efficiency",
-    modalTitle: "Can we value agents to predict restaurant and hotel attendance?",
-    modalSubtitle: "Building autonomous AI agents for hospitality efficiency",
-    bullets: [
-      "Autonomous agent for hotel F&B operations",
-      "Attendance predictability and Staff Management",
-      "Built for Pioneers AILab Hackathon @ Station F",
-      "Tech Stack: Mistral, Google Cloud, Qdrant, n8n, ElevenLabs",
-    ],
-    longDescription: "A hackathon project exploring AI agents for predictive hospitality operations.",
-  },
-
   // — Agents d'évaluation —
   {
     id: "agents-eval",
@@ -113,6 +92,27 @@ const projects: Project[] = [
       "Issues & recommendations captured for fast iteration",
       "Ready to specialize per domain (UX, data quality, robustness)",
     ],
+  },
+
+  // — Agentic Hospitality —
+  {
+    id: "agentic-hospitality",
+    title: "An agentic hospitality product case study",
+    subtitle: "Can we value agents to predict restaurant and hotel attendance?",
+    image: "/img/photo-by-dylan-calluy-unsplash.jpg",
+    tags: ["Agentic", "Hackathon"],
+    category: "agents",
+    kicker: "CASE STUDY – AN AGENTIC HOSPITALITY PRODUCT CASE STUDY",
+    tagline: "Building autonomous AI agents for hospitality efficiency",
+    modalTitle: "Can we value agents to predict restaurant and hotel attendance?",
+    modalSubtitle: "Building autonomous AI agents for hospitality efficiency",
+    bullets: [
+      "Autonomous agent for hotel F&B operations",
+      "Attendance predictability and Staff Management",
+      "Built for Pioneers AILab Hackathon @ Station F",
+      "Tech Stack: Mistral, Google Cloud, Qdrant, n8n, ElevenLabs",
+    ],
+    longDescription: "A hackathon project exploring AI agents for predictive hospitality operations.",
   },
 
   // — The Agentic Studio —
@@ -513,8 +513,8 @@ export const Home: React.FC = () => {
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
             {filteredProjects.map((project, index) => {
               const originalIndex = projects.findIndex((p) => p.id === project.id);
-              const isComingSoon = originalIndex >= 3 && project.id !== "agents-eval";
-              const isBuilding = project.id === "agentic-hospitality";
+            const isComingSoon = originalIndex >= 4 && project.id !== "agents-eval" && project.id !== "agentic-hospitality";
+            const isBuilding = project.id === "agentic-hospitality";
 
               return project.id === "sonor" ? (
                 <MediaCard
@@ -551,8 +551,8 @@ export const Home: React.FC = () => {
             <CarouselRow>
               {filteredProjects.map((project, index) => {
                 const originalIndex = projects.findIndex((p) => p.id === project.id);
-                const isComingSoon = originalIndex >= 3 && project.id !== "agents-eval";
-                const isBuilding = project.id === "agentic-hospitality";
+          const isComingSoon = originalIndex >= 4 && project.id !== "agents-eval" && project.id !== "agentic-hospitality";
+          const isBuilding = project.id === "agentic-hospitality";
 
                 return project.id === "sonor" ? (
                   <MediaCard
@@ -915,7 +915,7 @@ export const Home: React.FC = () => {
                 ? "#"
                 : "#",
           }}
-          showComingSoon={projects.findIndex((p) => p.id === selectedProject.id) >= 3 && selectedProject.id !== "agents-eval"}
+          showComingSoon={projects.findIndex((p) => p.id === selectedProject.id) >= 4 && selectedProject.id !== "agents-eval" && selectedProject.id !== "agentic-hospitality"}
         />
       )}
     </div>
