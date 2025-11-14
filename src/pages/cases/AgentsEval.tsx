@@ -4,10 +4,12 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/footer";
 import { CTABanner } from "@/components/work/CTABanner";
 import { EvaluationEngineDiagram } from "@/components/case/EvaluationEngineDiagram";
-import { EvalFlowSideBySide } from "@/components/case/EvalFlowSideBySide";
+import { ArchitectureStepper } from "@/components/case/ArchitectureStepper";
+import { ToolsMarquee } from "@/components/case/ToolsMarquee";
 import { ImageLightbox } from "@/components/ImageLightbox";
 import { ProgressIndicator } from "@/components/ProgressIndicator";
 import { ZoomIn } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function AgentsEvalCase() {
   const navigate = useNavigate();
@@ -32,88 +34,253 @@ export default function AgentsEvalCase() {
           { id: "architecture", label: "Architecture" },
           { id: "example", label: "Example" },
           { id: "impact", label: "Impact" },
-          { id: "roadmap", label: "Roadmap" },
+          { id: "going-further", label: "Going further" },
         ]}
       />
       <main className="w-full pt-24 pb-10 bg-background">
+        {/* Section 0: Hero - Ada style with blue background */}
+        <section id="hero" className="w-full py-24 md:py-32 lg:py-40 bg-[#B7D4FF] dark:bg-background">
+          <div className="max-w-6xl mx-auto px-4 md:px-8 lg:px-12 text-center space-y-6 md:space-y-8">
+            <motion.div
+              className="space-y-6 md:space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+            >
+              <div className="text-sm md:text-base font-medium tracking-[0.22em] uppercase text-[#3D56CC] dark:text-[#A8B8FF]">
+                Case Study · AI Agent Evaluation
+              </div>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+                The Evaluation Engine™
+              </h1>
+              <p className="text-xl md:text-2xl lg:text-3xl text-slate-800 dark:text-slate-200 max-w-3xl mx-auto font-medium">
+                An autonomous system that tests your AI agents with enterprise-grade rigor.
+              </p>
+              <p className="text-lg md:text-xl lg:text-2xl text-slate-700 dark:text-slate-300 max-w-3xl mx-auto">
+                Automated scoring, structured reasoning, reliability, and safety — wrapped into one auditable evaluation pipeline.
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12 space-y-16">
-          {/* Hero */}
-          <header id="hero" className="space-y-4 text-center">
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
-              Case Study – The Evaluation Engine™
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-              Guarantee quality, safety, and reliability for your AI agents.
-            </p>
-          </header>
 
-          {/* Section 1: The problem */}
-          <section id="problem" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">1. The problem</h2>
-            <div className="space-y-4 text-base md:text-lg leading-relaxed">
-              <p>
-                Modern AI agents are powerful… but <strong>unpredictable</strong>.
-              </p>
-              <p>
-                They hallucinate, break constraints, leak sensitive data, ignore rules, and often deliver inconsistent output.
-              </p>
-              <p>
-                Manual evaluation is slow, expensive, and subjective.
-              </p>
-              <div className="mt-6 p-6 rounded-2xl bg-destructive/10 border border-destructive/20">
-                <p className="font-semibold text-lg">
-                  <strong>Without an autonomous evaluation system, you can't scale an AI agent in production.</strong>
-                </p>
-              </div>
-            </div>
-          </section>
+          {/* Section 1.b: Tools Marquee */}
+          <ToolsMarquee />
 
-          {/* Section 2: The solution */}
-          <section id="solution" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">2. The solution</h2>
-            <div className="space-y-4 text-base md:text-lg leading-relaxed">
-              <p>
-                Introducing <strong className="text-primary">The Evaluation Engine™</strong> — an autonomous agent that evaluates other agents.
-              </p>
-              <p>It acts as a:</p>
-              <ul className="list-disc pl-6 space-y-2">
-                <li><strong>quality supervisor</strong></li>
-                <li><strong>safety watchdog</strong></li>
-                <li><strong>compliance guardrail</strong></li>
-                <li><strong>reasoning auditor</strong></li>
-              </ul>
-              <p>
-                It reads a conversation, evaluates it across 5 criteria, detects risks, generates structured issues, produces recommendations, and returns a final verdict.
-              </p>
-              <div className="mt-6 p-6 rounded-2xl bg-primary/10 border border-primary/20">
-                <p className="font-medium">
-                  Built with <strong>privacy-by-design</strong> and <strong>safety-by-design</strong> principles.
-                </p>
-              </div>
-            </div>
-          </section>
+          {/* Section 1: The problem - Ada structure with blue background and accent bar */}
+          <section id="problem" className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-16 md:py-20 bg-[#C9DDFF] dark:bg-[#0F1416]">
+            <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12">
+              <div className="relative pl-6 md:pl-8 space-y-8">
+                {/* Accent bar */}
+                <div className="absolute left-0 top-4 bottom-4 w-[4px] rounded-full bg-[#5B7CFF]" />
+                
+                <div>
+                  <h2 className="text-2xl md:text-3xl font-bold mb-4 text-slate-900 dark:text-slate-100">1. The problem</h2>
+                  <p className="text-base md:text-lg text-slate-700 dark:text-slate-300 max-w-3xl">
+                    Modern AI agents are powerful — but unpredictable. Without structured evaluation, you can't safely deploy them in production.
+                  </p>
+                </div>
 
-          {/* Section 3: How it works */}
-          <section id="how-it-works" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">3. How it works</h2>
-            <div className="space-y-4">
-              <p className="text-base md:text-lg leading-relaxed">
-                The Evaluation Engine™ processes conversations through a structured workflow:
-              </p>
-              <div className="relative group">
-                <EvaluationEngineDiagram onClick={() => setLightboxOpen(true)} />
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-sm text-white text-sm font-medium">
-                    <ZoomIn className="w-4 h-4" />
-                    Click to enlarge
+                {/* 3-column grid */}
+                <div className="grid md:grid-cols-3 gap-6 mt-8">
+                  <motion.div
+                    className="p-6 rounded-2xl border border-slate-200/50 bg-white/90 dark:bg-slate-800/90 space-y-3 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Unpredictability</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      Hallucinations, constraint breaks, sensitive data leaks, silent failures.
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    className="p-6 rounded-2xl border border-slate-200/50 bg-white/90 dark:bg-slate-800/90 space-y-3 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">Subjective manual review</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      Results vary depending on who evaluates, when, and using which criteria.
+                    </p>
+                  </motion.div>
+                  <motion.div
+                    className="p-6 rounded-2xl border border-slate-200/50 bg-white/90 dark:bg-slate-800/90 space-y-3 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                    initial={{ opacity: 0, y: 12 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                  >
+                    <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100">No shared standard</h3>
+                    <p className="text-sm text-slate-600 dark:text-slate-400">
+                      No rubric, no scoring, no audit trail, no reproducibility.
+                    </p>
+                  </motion.div>
+                </div>
+
+                {/* Highlight block */}
+                <motion.div
+                  className="mt-8 p-6 rounded-2xl bg-white/90 dark:bg-slate-800/90 border border-[rgba(91,124,255,0.20)] shadow-md shadow-black/5"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 rounded-full bg-[#5B7CFF] mt-2 flex-shrink-0" />
+                    <p className="font-semibold text-lg text-slate-900 dark:text-slate-100">
+                      Without an autonomous evaluation system, you cannot scale AI agents safely.
+                    </p>
                   </div>
+                </motion.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Section 2: The solution - Ada structure */}
+          <section id="solution" className="py-16 md:py-20 space-y-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">2. The solution</h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
+                The Evaluation Engine™ is an autonomous evaluation system that scores agents against a structured rubric.
+              </p>
+            </div>
+
+            {/* 4 stacked micro-blocks */}
+            <div className="space-y-4 mt-8">
+              <motion.div
+                className="p-6 rounded-2xl border border-border/40 bg-card hover:shadow-md transition-all"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3 }}
+              >
+                <h3 className="text-lg font-semibold mb-2">Quality supervisor</h3>
+                <p className="text-sm text-muted-foreground">
+                  Monitors agent behavior and output quality across all interactions.
+                </p>
+              </motion.div>
+              <motion.div
+                className="p-6 rounded-2xl border border-border/40 bg-card hover:shadow-md transition-all"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.1 }}
+              >
+                <h3 className="text-lg font-semibold mb-2">Safety watchdog</h3>
+                <p className="text-sm text-muted-foreground">
+                  Detects risky output, flags PII, and enforces constraints.
+                </p>
+              </motion.div>
+              <motion.div
+                className="p-6 rounded-2xl border border-border/40 bg-card hover:shadow-md transition-all"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.2 }}
+              >
+                <h3 className="text-lg font-semibold mb-2">Compliance guardian</h3>
+                <p className="text-sm text-muted-foreground">
+                  Ensures adherence to safety-by-design and privacy-by-design principles.
+                </p>
+              </motion.div>
+              <motion.div
+                className="p-6 rounded-2xl border border-border/40 bg-card hover:shadow-md transition-all"
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: 0.3 }}
+              >
+                <h3 className="text-lg font-semibold mb-2">Reasoning auditor</h3>
+                <p className="text-sm text-muted-foreground">
+                  Evaluates the logical flow and coherence of agent reasoning.
+                </p>
+              </motion.div>
+            </div>
+
+            {/* Closing block */}
+            <motion.div
+              className="mt-8 p-6 rounded-2xl bg-primary/10 border border-primary/20"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+            >
+              <p className="text-base md:text-lg">
+                It reads full conversations, scores them, detects issues, produces recommendations, and emits a final verdict.
+              </p>
+            </motion.div>
+          </section>
+
+          {/* Section 3: How it works - Ada style with diagram */}
+          <section id="how-it-works" className="py-16 md:py-20 space-y-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">3. How it works</h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
+                The Engine processes every evaluation through a structured flow: agent output → reasoning → scoring → structured storage → verdict.
+              </p>
+            </div>
+
+            {/* Diagram container with highlight */}
+            <motion.div
+              className="relative group mt-8"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4 }}
+            >
+              <div className="rounded-3xl border border-border/50 bg-white dark:bg-[#0F1416] p-6 md:p-8 shadow-md shadow-black/5">
+                <div className="bg-[#F0F4FF] dark:bg-black/10 rounded-2xl p-4">
+                  <EvaluationEngineDiagram onClick={() => setLightboxOpen(true)} />
                 </div>
               </div>
-            </div>
+              <div className="absolute top-10 right-10 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-black/60 backdrop-blur-sm text-white text-sm font-medium">
+                  <ZoomIn className="w-4 h-4" />
+                  Click to enlarge
+                </div>
+              </div>
+            </motion.div>
+
+            {/* ADA block with 3 sub-sections */}
+            <motion.div
+              className="mt-8 p-8 rounded-2xl border border-border/40 bg-card space-y-6"
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: 0.2 }}
+            >
+              <div>
+                <h3 className="text-lg font-semibold mb-2">What this diagram shows</h3>
+                <p className="text-sm text-muted-foreground">
+                  High-level flow: agent actions, evaluation logic, structured outputs, final verdict.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2">How to read it</h3>
+                <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
+                  <li>Circles = agent steps</li>
+                  <li>Green = evaluation logic</li>
+                  <li>Blue = storage</li>
+                  <li>Thick arrows = gating points</li>
+                  <li>Dashed arrows = metadata flows</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-2">Why this matters</h3>
+                <p className="text-sm text-muted-foreground">
+                  The process becomes reproducible, comparable, auditable.
+                </p>
+              </div>
+            </motion.div>
           </section>
 
-          {/* Section 4: Why it matters - Ada style */}
-          <section id="why-it-matters" className="py-20 px-4 md:px-8 bg-zinc-900 dark:bg-zinc-950 rounded-3xl">
+          {/* Section 4: Battle-tested evaluation (UNCHANGED) */}
+          <section id="why-it-matters" className="py-20 md:py-24 px-4 md:px-8 bg-zinc-900 dark:bg-zinc-950 rounded-3xl my-8">
             <div className="max-w-6xl mx-auto space-y-12">
               {/* Header */}
               <div className="text-center space-y-4">
@@ -246,187 +413,153 @@ export default function AgentsEvalCase() {
             </div>
           </section>
 
-          {/* Section 5: Architecture summary */}
-          <section id="architecture" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">5. Architecture summary</h2>
-            <EvalFlowSideBySide />
+          {/* Section 5: Architecture summary - Vertical stepper */}
+          <section id="architecture" className="py-16 md:py-20 space-y-8">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-4">5. Architecture summary</h2>
+              <p className="text-base md:text-lg text-muted-foreground max-w-3xl">
+                How the evaluation pipeline runs
+              </p>
+            </div>
+            <ArchitectureStepper />
           </section>
 
-          {/* Section 6: Example output */}
-          <section id="example" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0 py-10 bg-slate-50 -mx-4 sm:-mx-6 lg:mx-auto">
-            <div className="rounded-3xl border border-slate-200 bg-white/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur">
-              {/* Header */}
-              <div className="px-8 pt-8 pb-4 flex items-start justify-between gap-4">
-                <div>
-                  <div className="text-xs font-medium tracking-[0.22em] uppercase text-slate-500">
-                    Evaluation Output
+          {/* Section 6: Evaluation Receipt™ */}
+          <section id="example" className="py-16 md:py-20">
+            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-0">
+              <motion.div
+                className="rounded-3xl border border-slate-200 dark:border-slate-700 bg-white/85 dark:bg-slate-900/85 shadow-[0_18px_45px_rgba(15,23,42,0.08)] backdrop-blur"
+                initial={{ opacity: 0, scale: 0.98 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              >
+                {/* Header */}
+                <div className="px-8 pt-8 pb-4 border-b border-slate-200/50 dark:border-slate-700/50">
+                  <div className="flex items-center gap-2 mb-2">
+                    <div className="w-2 h-2 rounded-full bg-[#5B7CFF]" />
+                    <div className="text-xs font-medium tracking-[0.22em] uppercase text-slate-500 dark:text-slate-400">
+                      Evaluation Receipt™ · Single run · v1
+                    </div>
                   </div>
-                  <h2 className="mt-1 text-2xl font-semibold text-slate-900">
-                    This is the evaluation your agent receives
+                  <h2 className="mt-1 text-2xl font-semibold text-slate-900 dark:text-slate-100">
+                    6. Example evaluation receipt
                   </h2>
-                  <p className="mt-2 text-sm text-slate-500 max-w-md">
-                    Built from the agent's behaviour, safety checks, and rubric-based scoring.
+                  <p className="mt-2 text-sm text-slate-500 dark:text-slate-400 max-w-md">
+                    This is the structured summary your agent receives after running through the Engine.
                   </p>
                 </div>
-              </div>
 
-              {/* JSON Zone */}
-              <div className="px-8 pb-8 pt-2">
-                <div className="w-full overflow-x-auto rounded-2xl bg-slate-950 text-[13px] leading-relaxed text-slate-100 font-mono px-5 py-4 border border-slate-800">
-                  <pre className="m-0">
-                    <code>{`{
-  "scores": {
-    "coverage": 0.7,
-    "feasibility": 0.8,
-    "risks": 0.1,
-    "testability": 0.6,
-    "user_value": 0.9
-  },
-  "composite": 0.62,
-  "verdict": "pass",
-  "recommendations": [
-    {
-      "title": "Clarify file limits",
-      "details": "Specify max upload size to avoid misuse.",
-      "priority": 2
-    }
-  ]
+                {/* JSON Zone */}
+                <div className="px-8 pb-8 pt-2">
+                  <div className="w-full overflow-x-auto rounded-2xl bg-slate-950 text-[13px] leading-relaxed text-slate-100 font-mono px-5 py-4 border border-slate-800 text-left">
+                    <pre className="m-0">
+                      <code>{`{
+  "run_id": "run_2025_11_14_ae9b",
+  "composite_score": 82.4,
+  "verdict": "PASS",
+  "coverage": 0.84,
+  "feasibility": 0.81,
+  "risks": 0.92,
+  "testability": 0.78,
+  "user_value": 0.76,
+  "issues_count": 2,
+  "recommendations_count": 3
 }`}</code>
-                  </pre>
+                    </pre>
+                  </div>
                 </div>
-              </div>
+
+                {/* Footer line */}
+                <div className="px-8 pb-8">
+                  <p className="text-xs text-slate-500 dark:text-slate-400">
+                    Each run is stored with deterministic scoring, structured issues, and a full audit trail.
+                  </p>
+                </div>
+              </motion.div>
             </div>
           </section>
 
-          {/* Section 7: Impact */}
-          <section id="impact" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">7. Impact</h2>
-            <div className="space-y-4">
-              <ul className="list-disc pl-6 space-y-3 text-base md:text-lg">
-                <li><strong>80% reduction in evaluation time</strong></li>
-                <li>repeatability & consistency</li>
-                <li>industrial-grade agent deployment</li>
-                <li>reusable foundation for future agents</li>
-              </ul>
-              <div className="mt-6 p-6 rounded-2xl bg-muted/50 border">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Future agents:</strong> Predictive Agent, Agent Experience (AX) Agent
+          {/* Section 7: Impact - Ada style */}
+          <section id="impact" className="w-full -mx-4 md:-mx-8 lg:-mx-12 py-16 md:py-20 bg-[#F8FAFC] dark:bg-slate-950">
+            <div className="max-w-4xl mx-auto px-4 md:px-8 lg:px-12 space-y-8">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-100">7. Impact</h2>
+              <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <motion.div
+                  className="p-6 rounded-2xl border border-slate-200/50 bg-white dark:bg-slate-900 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className="text-2xl font-bold text-[#5B7CFF] mb-2">80%</div>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">reduction in evaluation time</p>
+                </motion.div>
+                <motion.div
+                  className="p-6 rounded-2xl border border-slate-200/50 bg-white dark:bg-slate-900 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.1 }}
+                >
+                  <h3 className="text-lg font-semibold mb-2 text-slate-900 dark:text-slate-100">Repeatability</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Consistency in quality checks</p>
+                </motion.div>
+                <motion.div
+                  className="p-6 rounded-2xl border border-slate-200/50 bg-white dark:bg-slate-900 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.2 }}
+                >
+                  <h3 className="text-lg font-semibold mb-2 text-slate-900 dark:text-slate-100">Industrial-grade</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">Trust layer for agent deployment</p>
+                </motion.div>
+                <motion.div
+                  className="p-6 rounded-2xl border border-slate-200/50 bg-white dark:bg-slate-900 shadow-md shadow-black/5 hover:shadow-lg hover:-translate-y-[1px] transition-all"
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.3, delay: 0.3 }}
+                >
+                  <h3 className="text-lg font-semibold mb-2 text-slate-900 dark:text-slate-100">Reusable foundation</h3>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">For future AI agents</p>
+                </motion.div>
+              </div>
+              <div className="mt-6 p-4 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-700/50">
+                <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
+                  Impact is measured based on scoring reproducibility and structured traceability.
                 </p>
               </div>
             </div>
           </section>
 
-          {/* Section 8: Roadmap */}
-          <section id="roadmap" className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">8. Roadmap (Now / Next / Later)</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-2xl bg-card border space-y-4">
-                <h3 className="text-lg font-bold text-primary">Now</h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>stabilize webhook prod</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>finish Run ID propagation</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>finalize Close Run + metrics</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>fix Seed 10 Examples</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>verify full E2E flow</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>integrate dashboard view</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-card border space-y-4">
-                <h3 className="text-lg font-bold text-primary">Next</h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>Slack alerts (fails, risks, PII)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>daily cron (nightly regression test)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>composite scoring in edge function</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>pipeline for "multi-judge evaluation"</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>add trend analytics</span>
-                  </li>
-                </ul>
-              </div>
-
-              <div className="p-6 rounded-2xl bg-card border space-y-4">
-                <h3 className="text-lg font-bold text-primary">Later</h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>Predictive AI Agent</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>AX Agent</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>auto-prompt repair</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>evaluation API (public)</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary flex-shrink-0" />
-                    <span>fine-grained SOC2 safety scoring</span>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </section>
-
           {/* Section 9: Going further */}
-          <section className="space-y-6">
+          <section id="going-further" className="py-16 md:py-20 space-y-8">
             <h2 className="text-2xl md:text-3xl font-bold">9. Going further</h2>
-            <ul className="list-disc pl-6 space-y-3 text-base md:text-lg">
-              <li>evaluation automation on large datasets</li>
-              <li>multi-agent evaluator (comparing models)</li>
-              <li>real-time evaluation during conversations</li>
-              <li>plug-and-play agent governance framework</li>
-            </ul>
-          </section>
-
-          {/* Section 10: Tech used */}
-          <section className="space-y-6">
-            <h2 className="text-2xl md:text-3xl font-bold">10. Tech used</h2>
-            <div className="flex flex-wrap gap-3">
-              {["n8n", "Supabase", "OpenAI", "Vercel (CI Gate)", "Figma (design + diagrams)", "Cursor (build & docs)"].map((tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 rounded-full bg-primary/10 text-primary border border-primary/20 text-sm font-medium"
-                >
-                  {tech}
-                </span>
-              ))}
+            <div className="relative pl-6 md:pl-8">
+              {/* Accent bar */}
+              <div className="absolute left-0 top-0 bottom-0 w-[4px] rounded-full bg-[#5B7CFF]" />
+              <div className="p-8 rounded-2xl border border-border/40 bg-card space-y-4">
+                <ul className="space-y-3 text-base md:text-lg">
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#5B7CFF] flex-shrink-0" />
+                    <span>Evaluation automation on large datasets</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#5B7CFF] flex-shrink-0" />
+                    <span>Multi-agent correlation (cross-model evaluation)</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#5B7CFF] flex-shrink-0" />
+                    <span>Real-time evaluation during live conversations</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-[#5B7CFF] flex-shrink-0" />
+                    <span>Plug-and-play governance & compliance pipelines</span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </section>
 
@@ -454,7 +587,7 @@ export default function AgentsEvalCase() {
       <ImageLightbox
         images={[
           {
-            src: "", // We'll use a custom render
+            src: "",
             alt: "Evaluation Engine™ Workflow Diagram",
             caption: "The Evaluation Engine™ processes conversations through a structured workflow: user input → safety check → normalization → evaluation → issues/recommendations/scores → Supabase dashboard → CI gate",
           },
