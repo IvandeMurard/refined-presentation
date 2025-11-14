@@ -81,16 +81,16 @@ const projects: Project[] = [
   {
     id: "agents-eval",
     title: "Evaluating AI agents at scale",
-    subtitle: "How do we turn trust into an asset?",
+    subtitle: "A system for lifecycle visibility, quality signals, and enterprise-grade agent reliability.",
     image: "/img/samuel-arkwright-unsplash.jpg",
     tags: ["Agents", "Evaluation"],
     category: "agents",
     longDescription: "From run lifecycle to clear signals, helping teams ship agents with confidence.",
     bullets: [
-      "Simple lifecycle and dashboard to see what matters",
-      'Automatic scoring with LLM-as-a-Judge guardrails for "go/no-go"',
+      "Structured lifecycle and dashboard",
+      'Automatic scoring with LLM-as-a-Judge"',
       "Issues & recommendations captured for fast iteration",
-      "Ready to specialize per domain (UX, data quality, robustness)",
+      "Ready to adapt to any domain (UX, quality, robustness)",
     ],
   },
 
@@ -351,8 +351,8 @@ export const Home: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section 
-        id="hero" 
+      <section
+        id="hero"
         className="px-4 py-16 md:py-20 md:pb-0 relative overflow-visible bg-gradient-to-br from-secondary via-primary/[0.18] to-secondary/80 dark:from-card/30 dark:via-accent/[0.25] dark:to-background animate-gradient-shift"
       >
         {/* Grain texture overlay */}
@@ -393,7 +393,7 @@ export const Home: React.FC = () => {
                   Zero-to-One Product Manager
                 </motion.p>
 
-            <div className="mt-6 text-base md:text-lg space-y-3">
+                <div className="mt-6 text-base md:text-lg space-y-3">
                   <p className="text-foreground/80 leading-normal transition-opacity">
                     Hospitality and retail taught me the importance of a great experience.
                   </p>
@@ -513,8 +513,9 @@ export const Home: React.FC = () => {
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
             {filteredProjects.map((project, index) => {
               const originalIndex = projects.findIndex((p) => p.id === project.id);
-            const isComingSoon = originalIndex >= 4 && project.id !== "agents-eval" && project.id !== "agentic-hospitality";
-            const isBuilding = project.id === "agentic-hospitality";
+              const isComingSoon =
+                originalIndex >= 4 && project.id !== "agents-eval" && project.id !== "agentic-hospitality";
+              const isBuilding = project.id === "agentic-hospitality";
 
               return project.id === "sonor" ? (
                 <MediaCard
@@ -551,8 +552,9 @@ export const Home: React.FC = () => {
             <CarouselRow>
               {filteredProjects.map((project, index) => {
                 const originalIndex = projects.findIndex((p) => p.id === project.id);
-          const isComingSoon = originalIndex >= 4 && project.id !== "agents-eval" && project.id !== "agentic-hospitality";
-          const isBuilding = project.id === "agentic-hospitality";
+                const isComingSoon =
+                  originalIndex >= 4 && project.id !== "agents-eval" && project.id !== "agentic-hospitality";
+                const isBuilding = project.id === "agentic-hospitality";
 
                 return project.id === "sonor" ? (
                   <MediaCard
@@ -821,7 +823,11 @@ export const Home: React.FC = () => {
       <BuiltWithBanner />
 
       {/* Contact Section - Centered */}
-      <section ref={contactSectionRef} id="contact" className="py-24 px-4 bg-contact text-contact-foreground section-border-accent">
+      <section
+        ref={contactSectionRef}
+        id="contact"
+        className="py-24 px-4 bg-contact text-contact-foreground section-border-accent"
+      >
         <div className="max-w-4xl mx-auto text-center space-y-8">
           <h2 className="text-h2">Ready to build tomorrow?</h2>
 
@@ -908,14 +914,18 @@ export const Home: React.FC = () => {
               selectedProject.id === "sonor"
                 ? "/sonor"
                 : selectedProject.id === "wttj-conversion-seniors"
-                ? "/cases/wttj"
-                : selectedProject.id === "agents-eval"
-                ? "/cases/agents-eval"
-                : selectedProject.id === "agentic-hospitality"
-                ? "#"
-                : "#",
+                  ? "/cases/wttj"
+                  : selectedProject.id === "agents-eval"
+                    ? "/cases/agents-eval"
+                    : selectedProject.id === "agentic-hospitality"
+                      ? "#"
+                      : "#",
           }}
-          showComingSoon={projects.findIndex((p) => p.id === selectedProject.id) >= 4 && selectedProject.id !== "agents-eval" && selectedProject.id !== "agentic-hospitality"}
+          showComingSoon={
+            projects.findIndex((p) => p.id === selectedProject.id) >= 4 &&
+            selectedProject.id !== "agents-eval" &&
+            selectedProject.id !== "agentic-hospitality"
+          }
         />
       )}
     </div>
