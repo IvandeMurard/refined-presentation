@@ -8,9 +8,10 @@ interface ImageLightboxProps {
   isOpen: boolean;
   onClose: () => void;
   onNavigate: (direction: 'prev' | 'next') => void;
+  customContent?: React.ReactNode;
 }
 
-export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigate }: ImageLightboxProps) {
+export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigate, customContent }: ImageLightboxProps) {
   const [lastWheelTime, setLastWheelTime] = useState(0);
 
   // Block body scroll when open
@@ -80,12 +81,21 @@ export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigat
           className="fixed inset-0 z-50 flex items-center justify-center"
           role="dialog"
           aria-modal="true"
-          aria-label="Image gallery"
+          aria-label={customContent ? "Diagram viewer" : "Image gallery"}
         >
-          {/* Backdrop */}
+          {/* Backdrop - clickable to close */}
           <div 
-            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+            className="absolute inset-0 bg-black/90 backdrop-blur-sm cursor-pointer"
             onClick={onClose}
+            aria-label="Close dialog"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                onClose();
+              }
+            }}
           />
 
           {/* Close button */}
@@ -98,9 +108,11 @@ export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigat
           </button>
 
           {/* Image counter */}
-          <div className="absolute top-4 left-4 z-10 px-4 py-2 rounded-full bg-black/50 text-white text-sm font-medium">
-            {currentIndex + 1} / {images.length}
-          </div>
+          {!customContent && (
+            <div className="absolute top-4 left-4 z-10 px-4 py-2 rounded-full bg-black/50 text-white text-sm font-medium">
+              {currentIndex + 1} / {images.length}
+            </div>
+          )}
 
           {/* Previous button */}
           {images.length > 1 && (
@@ -124,24 +136,38 @@ export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigat
             </button>
           )}
 
-          {/* Image content */}
-          <motion.div
-            key={currentIndex}
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.9 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="relative z-10 flex flex-col items-center max-w-[90vw] max-h-[90vh] px-4"
-          >
-            <img
-              src={currentImage.src}
-              alt={currentImage.alt}
-              className="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl"
-            />
-            <p className="mt-4 text-white text-center text-sm md:text-base max-w-2xl">
-              {currentImage.caption}
-            </p>
-          </motion.div>
+          {/* Image content or custom content */}
+          {customContent ? (
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative z-10"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {customContent}
+            </motion.div>
+          ) : (
+            <motion.div
+              key={currentIndex}
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className="relative z-10 flex flex-col items-center max-w-[90vw] max-h-[90vh] px-4"
+            >
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl"
+              />
+              <p className="mt-4 text-white text-center text-sm md:text-base max-w-2xl">
+                {currentImage.caption}
+              </p>
+            </motion.div>
+          )}
         </motion.div>
       )}
     </AnimatePresence>

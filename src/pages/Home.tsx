@@ -492,7 +492,7 @@ export const Home: React.FC = () => {
           <div className="lg:hidden grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12 justify-items-center">
             {filteredProjects.map((project, index) => {
               const originalIndex = projects.findIndex((p) => p.id === project.id);
-              const isComingSoon = originalIndex >= 2;
+              const isComingSoon = originalIndex >= 2 && project.id !== "agents-eval";
 
               return project.id === "sonor" ? (
                 <MediaCard
@@ -527,7 +527,7 @@ export const Home: React.FC = () => {
             <CarouselRow>
               {filteredProjects.map((project, index) => {
                 const originalIndex = projects.findIndex((p) => p.id === project.id);
-                const isComingSoon = originalIndex >= 2;
+                const isComingSoon = originalIndex >= 2 && project.id !== "agents-eval";
 
                 return project.id === "sonor" ? (
                   <MediaCard
@@ -876,7 +876,7 @@ export const Home: React.FC = () => {
           subtitle={selectedProject.modalSubtitle || selectedProject.longDescription}
           bullets={selectedProject.bullets}
           cta={{ label: "Lire le case study", href: `/case-study/${selectedProject.id}` }}
-          showComingSoon={projects.findIndex((p) => p.id === selectedProject.id) >= 2}
+          showComingSoon={projects.findIndex((p) => p.id === selectedProject.id) >= 2 && selectedProject.id !== "agents-eval"}
         />
       )}
     </div>
