@@ -45,7 +45,6 @@ const stepVariants = {
     transition: {
       delay: i * 0.08,
       duration: 0.4,
-      ease: "easeOut",
     },
   }),
 };
@@ -56,7 +55,6 @@ const lineVariants = {
     height: "100%",
     transition: {
       duration: 0.5,
-      ease: "easeOut",
       delay: 0.2,
     },
   },

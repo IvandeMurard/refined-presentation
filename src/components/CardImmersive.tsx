@@ -1,5 +1,6 @@
 import * as React from "react";
 import { ComingSoonBadge } from "./ComingSoonBadge";
+import { BuildingBadge } from "./BuildingBadge";
 
 type Props = {
   id: string;
@@ -14,6 +15,7 @@ type Props = {
   onClick?: () => void;
   className?: string;
   showComingSoon?: boolean;
+  showBuilding?: boolean;
 };
 
 export function CardImmersive({
@@ -24,11 +26,12 @@ export function CardImmersive({
   badge,
   image,
   alt = "",
-  ctaLabel = "Lire le case study",
+  ctaLabel = "Discover the case study!",
   ariaLabel,
   onClick,
   className = "",
   showComingSoon = false,
+  showBuilding = false,
 }: Props) {
   const [isHovered, setIsHovered] = React.useState(false);
 
@@ -86,6 +89,8 @@ export function CardImmersive({
 
               {showComingSoon ? (
                 <ComingSoonBadge />
+              ) : showBuilding ? (
+                <BuildingBadge />
               ) : (
                 <div
                   className={[
